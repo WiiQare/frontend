@@ -1,10 +1,11 @@
 import Head from 'next/head'
 import { getSession, useSession, signOut } from "next-auth/react"
+import Menu from '../components/molecules/Navbar'
 
 export default function Home() {
 
-	const { data:session } = useSession()
-	
+	const { data: session } = useSession()
+
 	const handleSignOut = () => {
 		signOut()
 	}
@@ -17,33 +18,25 @@ export default function Home() {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			
 
-			{session ? <User session={session} handleSignOut={handleSignOut} /> : <Guest />}
+
+			{!session ? <User session={session} handleSignOut={handleSignOut} /> : <></>}
 		</>
 	)
 }
 
-function User({session, handleSignOut}) {
+function User({ session, handleSignOut }) {
 	return (
-		<main>
-			Homepage
+		<main className='bg-[#F9F9F9]'>
+			<Menu />
 		</main>
 	)
 }
 
-function Guest() {
-	return (
-		<main className='container mx-auto text-center py-20 space-y-8'>
-			<h3 className="text-4xl font-bold">Guest User</h3>
-		</main>
-	)
-}
+export async function getServerSideProps({ req }) {
+	const session = await getSession({ req })
 
-export async function getServerSideProps({req}) {
-	const session = await getSession({req})
-
-	if(!session) {
+	if (session) {
 		return {
 			redirect: {
 				destination: '/login',
@@ -52,5 +45,5 @@ export async function getServerSideProps({req}) {
 		}
 	}
 
-	return {props: {session}}
+	return { props: { session } }
 }
