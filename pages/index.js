@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { getSession, useSession, signOut } from "next-auth/react"
-import Menu from '../components/molecules/Navbar'
+import Dashboard from '../layouts/Dashboard'
 
 export default function Home() {
 
@@ -28,7 +28,9 @@ export default function Home() {
 function User({ session, handleSignOut }) {
 	return (
 		<main className='bg-[#F9F9F9]'>
-			<Menu />
+			<Dashboard>
+
+			</Dashboard>
 		</main>
 	)
 }
