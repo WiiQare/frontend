@@ -16,9 +16,7 @@ const Menu = () => {
         <div className='flex gap-12 mx-auto items-center justify-between fixed top-0 bg-white py-4 px-4 md:px-14 shadow-sm w-full'>
             <div className='flex gap-16 items-center'>
                 <div className='flex gap-2 items-center'>
-                    <button className='cursor-pointer md:hidden'>
-                        <HiMenuAlt3 className='text-3xl text-blue-500' />
-                    </button>
+                    
                     <Link href={"/"} legacyBehavior>
                         <Image
                             src={logo}
@@ -54,9 +52,9 @@ const Menu = () => {
                 </div>
             </div>
 
-            <div className='flex items-center justify-between gap-16'>
+            <div className='flex items-center justify-between gap-6 md:gap-16'>
 
-                <div className='hidden md:flex'>
+                <div className='flex'>
                     <Dropdown
                         arrowIcon={false}
                         inline={true}
