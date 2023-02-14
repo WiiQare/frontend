@@ -8,6 +8,8 @@ import { AiOutlineArrowRight, AiOutlineBell, AiOutlineMessage } from "react-icon
 import logo from '../../../public/images/favicon.png'
 import logoDark from '../../../public/images/logo_dark.png'
 import avatar from '../../../public/images/avatar.jpg'
+import IconBadge from '../../atoms/Icons/Badge';
+import NotificationBadge from '../../atoms/Card/Notifications/Badge';
 
 const Menu = () => {
     return (
@@ -15,7 +17,7 @@ const Menu = () => {
             <div className='flex gap-16 items-center'>
                 <div className='flex gap-2 items-center'>
                     <button className='cursor-pointer md:hidden'>
-                        <HiMenuAlt3 className='text-4xl text-blue-600' />
+                        <HiMenuAlt3 className='text-3xl text-blue-500' />
                     </button>
                     <Link href={"/"} legacyBehavior>
                         <Image
@@ -59,39 +61,28 @@ const Menu = () => {
                         arrowIcon={false}
                         inline={true}
                         className="shadow-sm rounded-2xl w-fit"
-                        label={<IconNotification total={2}><AiOutlineBell size={25}/></IconNotification>}
+                        label={<IconBadge total={2}><AiOutlineBell size={25}/></IconBadge>}
                     >
-                        <Dropdown.Item>
-                            <div className='flex items-center gap-3'>
-                                    <Image 
-                                        src={avatar}
-                                        className="w-14 h-14 object-cover rounded-2xl"
-                                        alt='avatar'
-                                    />
+                        <NotificationBadge 
+                            avatar={avatar}
+                            time={"29 July 2020 - 02:26 PM"}
+                            title={"Dr sultads Send you Photo"}
+                        />
+                    
+                        <NotificationBadge 
+                            avatar={"https://via.placeholder.com/150"}
+                            time={"02 February 2023 - 1:43 PM"}
+                            title={"Bienvenu has received money from..."}
+                        />
 
-                                    <span>
-                                        <h3 className='font-bold'>Dr sultads Send you Photo</h3>
-                                        <font className="text-xs text-gray-700">29 July 2020 - 02:26 PM</font>
-                                    </span>
-                            </div>
-                        </Dropdown.Item>
-                        <Dropdown.Item>
-                           <div className='flex items-center gap-3'>
-                                    <Image 
-                                        src="https://via.placeholder.com/150"
-                                        width={56}
-                                        height={56}
-                                        className="w-14 h-14 object-cover rounded-2xl"
-                                        alt='avatar'
-                                    />
-                                
-                                    <span>
-                                        <h3 className='font-bold'>Dr sultads Send you Photo</h3>
-                                        <font className="text-xs text-gray-700">29 July 2020 - 02:26 PM</font>
-                                    </span>
-                            </div>
-                        </Dropdown.Item>
+                         <NotificationBadge 
+                            avatar={avatar}
+                            time={"29 July 2020 - 02:26 PM"}
+                            title={"Dr sultads Send you Photo"}
+                        />
+
                         <Dropdown.Divider />
+                        
                         <Dropdown.Item>
                             <p className='text-center w-full flex items-center justify-center text-lg text-gray-500 font-light gap-2'>
                                 See All Notification
@@ -103,8 +94,7 @@ const Menu = () => {
                 </div>
 
                 <div className='hidden md:flex'>
-                    <IconNotification total={24}><AiOutlineMessage size={25} /></IconNotification>
-                    
+                    <IconBadge total={24}><AiOutlineMessage size={25} /></IconBadge>
                 </div>
                 <div className='flex gap-3 items-center'>
                     <div className='text-right hidden md:block'>
@@ -153,13 +143,3 @@ const Menu = () => {
 }
 
 export default Menu;
-
-function IconNotification({children, total=0}) {
-    return (
-        <button type="button" class="relative inline-flex items-center p-3 text-sm font-medium text-center text-gray-500 hover:text-gray-700">
-            {children}
-            <span class="sr-only">Notifications</span>
-            <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-sky border-2 border-white rounded-full top-0 right-0 dark:border-gray-900">{total}</div>
-        </button>
-    )
-}
