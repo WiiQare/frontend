@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import Menu from "../components/molecules/Navbar";
+import MenuBottom from "../components/molecules/Navbar/Bottom";
 import Sidebar from "../components/molecules/Sidebar/Index";
 
 const Dashboard = ({children}) => {
@@ -14,6 +15,7 @@ const Dashboard = ({children}) => {
                     {children}
                 </div>
             </main>
+            <MenuBottom activePath={pathname}/>
         </>
     );
 }

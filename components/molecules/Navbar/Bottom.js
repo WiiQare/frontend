@@ -1,6 +1,7 @@
+import Link from 'next/link';
 import React from 'react';
 import { SlHome, SlWallet, SlEqualizer, SlGlobe } from "react-icons/sl";
-import ItemSidebar from './ItemSidebar';
+import ItemBottom from './ItemBottom';
 
 const Items = [
     {
@@ -29,12 +30,12 @@ const Items = [
     }
 ]
 
-const Sidebar = ({activePath}) => {
+const MenuBottom = ({activePath}) => {
     return (
-        <div className="min-h-full bg-white p-12 hidden md:flex flex-col gap-8">
-            {Items.map(item => <ItemSidebar {...item} activePath={item.active == activePath ? true : false} /> )}
+        <div className='flex gap-4 md:hidden mx-auto items-center justify-evenly fixed bottom-0 bg-white py-4 px-4 md:px-14 drop-shadow-md w-full'>
+                {Items.map(item => <ItemBottom {...item} activePath={item.active == activePath ? true : false} /> )}
         </div>
     );
 }
 
-export default Sidebar;
+export default MenuBottom;
