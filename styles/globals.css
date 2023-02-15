@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.effect-up {
+    @apply relative transition duration-200 hover:-top-1
+}

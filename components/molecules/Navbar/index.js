@@ -13,7 +13,7 @@ import NotificationBadge from '../../atoms/Card/Notifications/Badge';
 
 const Menu = () => {
     return (
-        <div className='flex gap-12 mx-auto items-center justify-between fixed top-0 bg-white py-4 px-4 md:px-14 shadow-sm w-full'>
+        <div className='flex gap-12 mx-auto items-center justify-between fixed top-0 bg-white py-4 px-4 md:px-14 shadow-sm w-full z-50'>
             <div className='flex gap-16 items-center'>
                 <div className='flex gap-2 items-center'>
                     

@@ -11,7 +11,7 @@ const Dashboard = ({children}) => {
 			<Menu />
             <main className="min-h-[90vh] grid md:grid-cols-4 gap-6 mt-20">
                 <Sidebar activePath={pathname}/>
-                <div className="col-span-3 p-4">
+                <div className="col-span-3 p-4 overflow-x-hidden">
                     {children}
                 </div>
             </main>

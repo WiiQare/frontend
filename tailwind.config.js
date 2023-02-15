@@ -10,11 +10,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        sky: "#1DAAE6"
+        sky: "#1DAAE6",
+        orange: "#FE8023"
       }
     },
   },
   plugins: [
-    require("flowbite/plugin")
+    require("flowbite/plugin"),
+    require("daisyui")
   ],
 }
