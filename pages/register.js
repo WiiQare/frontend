@@ -1,17 +1,17 @@
 import Logo from "../components/atoms/LogoHeader";
 import WelcomeSlider from "../components/molecules/WelcomeSlider";
-import LoginForm from "../components/organisms/LoginForm";
-import { LOGIN_SLIDES } from "../utils/constants";
+import RegisterForm from "../components/organisms/RegisterForm";
+import { REGISTER_SLIDES } from "../utils/constants";
 import { CssBaseline, useMediaQuery } from "@mui/material";
 import Head from "next/head";
 import React from "react";
 
-function Login() {
+function Register() {
   const matches = useMediaQuery("(max-width: 992px)");
   return (
     <>
       <Head>
-        <title>Wiiqare | Login</title>
+        <title>Wiiqare | Register</title>
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -20,15 +20,16 @@ function Login() {
         />
       </Head>
       <CssBaseline />
-      <div id="form-section" className="container-fluid signin">
+
+      <div id="form-section" className="container-fluid signup">
         <Logo />
         <div className="row">
-          {!matches && <WelcomeSlider slides={LOGIN_SLIDES} />}
-          <LoginForm />
+          {!matches && <WelcomeSlider slides={REGISTER_SLIDES} />}
+          <RegisterForm />
         </div>
       </div>
     </>
   );
 }
 
-export default Login;
+export default Register;

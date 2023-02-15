@@ -9,17 +9,26 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.9",
+    "@mui/material": "^5.11.9",
+    "@mui/styles": "^5.11.9",
     "@next/font": "13.1.6",
     "daisyui": "^2.50.1",
     "flowbite": "^1.6.3",
     "flowbite-react": "^0.3.8",
     "formik": "^2.2.9",
+    "material-ui-phone-number": "^3.0.0",
     "next": "13.1.6",
     "next-auth": "^4.19.1",
     "next-qrcode": "^2.4.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.7.1"
+    "react-icons": "^4.7.1",
+    "react-slick": "^0.29.0",
+    "react18-input-otp": "^1.1.2",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
