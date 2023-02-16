@@ -41,7 +41,7 @@ const ProviderFilter = () => {
       </h1>
       <div className="flex gap-2 flex-col md:flex-row md:gap-4 justify-between items-center">
         {filters.map((item, i) => (
-          <DropdownFilter {...item} key={i} />
+          <DropdownFilter className="w-full md:w-1/3" {...item} key={i} />
         ))}
       </div>
       <div className="space-y-6">

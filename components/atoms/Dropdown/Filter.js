@@ -6,15 +6,16 @@ const DropdownFilter = ({
   icon,
   items,
   className,
+  labelClassName,
   onClick = () => {},
 }) => {
   return (
-    <div className={`${className} dropdown dropdown-end w-full md:w-1/3 flex`}>
+    <div className={`${className} dropdown dropdown-end flex`}>
       <label
         tabIndex={0}
-        className="bg-white border rounded-xl w-full py-3 px-4 flex justify-between items-center"
+        className={`${labelClassName} bg-white border rounded-xl w-full py-2 px-4 flex justify-between items-center`}
       >
-        <span className="flex gap-4 items-center">
+        <span className="flex mr-2 gap-4 items-center">
           {icon()}
           <span className="font-light">{label}</span>
         </span>
