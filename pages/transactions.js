@@ -2,16 +2,15 @@ import Head from "next/head";
 import { getSession } from "next-auth/react";
 import DashboardLayout from "../layouts/Dashboard";
 
+import Transaction from "../components/organisms/Transaction";
+
 const Page = () => {
   return (
     <>
       <Head>
         <title>Transactions</title>
       </Head>
-
-      <div>
-        <h2 className="text-black font-w700 mt-4">Transactions</h2>
-      </div>
+      <Transaction />
     </>
   );
 };
