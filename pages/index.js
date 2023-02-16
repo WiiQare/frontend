@@ -25,8 +25,7 @@ const filters = [
 
 	{
 		label: "Monthly budget",
-		icon: () => (<CiCircleList /> ),
-		items: ["100$", "200$", "300$", "400$"]
+		icon: () => (<CiCircleList /> )
 	},
 
 ]

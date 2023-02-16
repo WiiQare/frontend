@@ -1,4 +1,5 @@
 import { HiChevronDown } from 'react-icons/hi';
+import RangeSlider from '../Input/RangeSlider';
 
 const DropdownFilter = ({label, icon, items, onClick=() => {}}) => {
     return (
@@ -11,7 +12,7 @@ const DropdownFilter = ({label, icon, items, onClick=() => {}}) => {
 				<HiChevronDown size={20} />
 			</label>
 			<ul tabIndex={0} className="w-full mt-14 dropdown-content menu p-2 bg-white border rounded-box text-gray-700 font-light">
-				{items.map((item, index) => <li onClick={onClick} key={index}><a>{item}</a></li>)}
+				{items ? items.map((item, index) => <li onClick={onClick} key={index}><a>{item}</a></li>) : <RangeSlider initialMin={10} initialMax={10000} min={10} max={10000} step={1} priceCap={1000} />}
 			</ul>
 		</div>
     );
