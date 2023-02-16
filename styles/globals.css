@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    @apply !bg-white
+}
+
 .effect-up {
     @apply relative transition duration-200 hover:-top-1
 }
