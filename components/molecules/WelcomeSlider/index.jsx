@@ -1,6 +1,9 @@
 import React from "react";
 import Slider from "react-slick";
 
+import Button from "@mui/material/Button";
+
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -39,14 +42,15 @@ function WelcomeSlider({ slides, settings = defaultSettings }) {
                   <h5>{slide.subtitle}</h5>
                   {slide.button && (
                     <div className="form-button">
-                      <button
+                      <Button
                         id="submit"
                         type="submit"
-                        className="ybtn ybtn-accent-color bg-yellow"
+                        size="large"
+                        variant="contained"
                         onClick={slide.button?.onClick}
                       >
                         {slide.button?.label}
-                      </button>
+                      </Button>
                     </div>
                   )}
 

@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { SessionProvider } from "next-auth/react";
-import { CssBaseline } from "@mui/material";
-import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "../theme";
 
 import "../styles/globals.css";
@@ -19,13 +18,9 @@ export default function App({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <SessionProvider session={pageProps.session}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <main className="bg-[#FFFFFF]">
-            {getLayout(<Component {...pageProps} />)}
-          </main>
+        <ThemeProvider theme={theme}>        
+          {getLayout(<Component {...pageProps} />)}
         </ThemeProvider>
       </SessionProvider>
     </>

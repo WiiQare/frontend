@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700");
 @import url("https://fonts.googleapis.com/css?family=Rubik:400,500");
 
+* {
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+
 .slick-track {
   -webkit-transition: none;
   transition: none;

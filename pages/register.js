@@ -2,7 +2,7 @@ import Logo from "../components/atoms/LogoHeader";
 import WelcomeSlider from "../components/molecules/WelcomeSlider";
 import RegisterForm from "../components/organisms/Auth/RegisterForm";
 import { REGISTER_SLIDES } from "../utils/constants";
-import { useMediaQuery } from "@mui/material";
+import { useMediaQuery, CssBaseline } from "@mui/material";
 import Head from "next/head";
 import React from "react";
 
@@ -19,7 +19,7 @@ function Register() {
           crossOrigin="anonymous"
         />
       </Head>
-
+   <CssBaseline />
       <div id="form-section" className="container-fluid signup">
         <Logo />
         <div className="row">

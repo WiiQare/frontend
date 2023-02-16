@@ -1,5 +1,6 @@
 import { ONBOARDING_SLIDES } from "../../../utils/constants";
 import React from "react";
+
 import WelcomeSlider from "../WelcomeSlider";
 
 const settings = {

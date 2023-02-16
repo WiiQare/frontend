@@ -96,6 +96,18 @@ export const theme = createTheme(
           "*": {
             fontFamily: '"Montserrat", sans-serif',
           },
+          html: {
+            height: "100%",
+            width: "100%",
+          },
+          body: {
+            height: "100%",
+            width: "100%",
+          },
+          "#__next": {
+            height: "100%",
+            width: "100%",
+          },
         },
       },
       MuiInputLabel: {
