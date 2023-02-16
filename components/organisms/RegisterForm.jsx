@@ -288,9 +288,15 @@ function RegisterForm() {
                   <label htmlFor="rad2">Credit Card</label> */}
             </div>
             <Box>
-              <Button size="large" variant="contained" onClick={handleComplete}>
-                CREATE NEW ACCOUNT
-              </Button>
+              <Link href={"/"}>
+                <Button
+                  size="large"
+                  variant="contained"
+                  onClick={()=>{}}
+                >
+                  CREATE NEW ACCOUNT
+                </Button>
+              </Link>
             </Box>
           </Stack>
         </form>

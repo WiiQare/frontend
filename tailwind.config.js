@@ -5,18 +5,16 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
-    "./layouts/**/*.{js,ts,jsx,tsx}"
+    "./layouts/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       colors: {
+        primary: "#1DAAE6",
         sky: "#1DAAE6",
-        orange: "#FE8023"
-      }
+        orange: "#FE8023",
+      },
     },
   },
-  plugins: [
-    require("flowbite/plugin"),
-    require("daisyui")
-  ],
-}
+  plugins: [require("flowbite/plugin"), require("daisyui")],
+};

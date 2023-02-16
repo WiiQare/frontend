@@ -30,12 +30,17 @@ export const theme = createTheme(
           disableElevation: true,
         },
         styleOverrides: {
-          root: {
-            textTransform: "none",
-            "&:hover": {
+          root: ({ theme }) => ({
+            "&&:hover": {
               backgroundColor: "#1888ff",
             },
-          },
+            "&&:hover *": {
+              textDecoration: "none",
+            },
+            "&&": {
+              backgroundColor: theme.palette.primary.main,
+            },
+          }),
           sizeSmall: {
             padding: "6px 16px",
           },
@@ -89,35 +94,7 @@ export const theme = createTheme(
       MuiCssBaseline: {
         styleOverrides: {
           "*": {
-            boxSizing: "border-box",
-            margin: 0,
-            padding: 0,
             fontFamily: '"Montserrat", sans-serif',
-          },
-          ".rdrDateRangePickerWrapper *": {
-            fontFamily: "'Lato', sans-serif",
-          },
-          html: {
-            /*  MozOsxFontSmoothing: "grayscale",
-            WebkitFontSmoothing: "antialiased",
-            display: "flex",
-            flexDirection: "column", */
-            height: "100%",
-            width: "100%",
-          },
-          body: {
-            /* display: "flex",
-            flex: "1 1 auto",
-            flexDirection: "column", */
-            height: "100%",
-            width: "100%",
-          },
-          "#__next": {
-            /*  display: "flex",
-            flex: "1 1 auto",
-            flexDirection: "column", */
-            height: "100%",
-            width: "100%",
           },
         },
       },
@@ -132,20 +109,32 @@ export const theme = createTheme(
       },
       MuiOutlinedInput: {
         styleOverrides: {
-          root: {
+          root: ({ theme }) => ({
             "&& .MuiOutlinedInput-notchedOutline": {
               borderColor: "rgba(55, 65, 81, 0.15)",
             },
             "&&:hover .MuiOutlinedInput-notchedOutline": {
               borderWidth: 0.1,
+              borderColor: "#66728e",
             },
             "&&.Mui-focused .MuiOutlinedInput-notchedOutline": {
               borderWidth: 1,
+              borderColor: theme.palette.primary.main,
             },
             "&& .MuiIconButton-root": {
               color: "#66728e",
             },
-          },
+            "&& input": {
+              ...theme.unstable_sx({
+                py: 2.3,
+              }),
+            },
+            "&& input:focus": {
+              outline: "none",
+              border: 0,
+              boxShadow: "none",
+            },
+          }),
 
           /*   notchedOutline: {
             borderColor: "#f0f4fd",

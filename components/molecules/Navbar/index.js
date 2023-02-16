@@ -177,7 +177,7 @@ const Menu = () => {
             </Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item>
-              <Link href={"/logout"}>
+              <Link href={"/login"}>
                 <span className="flex gap-3 text-lg items-center">
                   <MdMailOutline className="text-lg text-red-500" size={23} />
                   <font>Logout</font>
