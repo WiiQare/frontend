@@ -10,7 +10,7 @@ const DropdownFilter = ({label, icon, items, onClick=() => {}}) => {
 				</span>
 				<HiChevronDown size={20} />
 			</label>
-			<ul tabIndex={0} className="w-full mt-14 dropdown-content menu p-2 bg-white border rounded-box">
+			<ul tabIndex={0} className="w-full mt-14 dropdown-content menu p-2 bg-white border rounded-box text-gray-700 font-light">
 				{items.map((item, index) => <li onClick={onClick} key={index}><a>{item}</a></li>)}
 			</ul>
 		</div>
