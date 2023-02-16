@@ -17,7 +17,7 @@ const Dashboard = ({ children }) => {
       {!session ? (
         <>
           <Menu session={session} handleSignOut={handleSignOut} />
-          <main className="min-h-[90vh] grid md:grid-cols-4 gap-6 mt-20">
+          <main className="min-h-[90vh] grid md:grid-cols-4 gap-6 mt-20 bg-[#F4F4F4]">
             <Sidebar activePath={pathname} />
             <div className="col-span-3 p-4 overflow-x-hidden">{children}</div>
           </main>
@@ -31,5 +31,3 @@ const Dashboard = ({ children }) => {
 };
 
 export default Dashboard;
-
-

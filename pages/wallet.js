@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { getSession } from "next-auth/react";
 import DashboardLayout from "../layouts/Dashboard";
-import Wallet from "../components/molecules/Wallet";
+import Wallet from "../components/organisms/Wallet";
 
 const Page = () => {
   return (
@@ -9,9 +9,7 @@ const Page = () => {
       <Head>
         <title>My Wallet</title>
       </Head>
-      <div>
-        <Wallet />
-      </div>
+      <Wallet />
     </>
   );
 };
