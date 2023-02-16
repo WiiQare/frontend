@@ -28,9 +28,9 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 import OtpInput from "react18-input-otp";
 import MuiPhoneNumber from "material-ui-phone-number";
-import OnboardingScreen from "../molecules/OnboardingScreen";
-import MenuHolder from "../atoms/MenuHolder";
-import BlinkSnackbar from "../atoms/BlinkSnackbar";
+import OnboardingScreen from "../../molecules/OnboardingScreen";
+import MenuHolder from "../../atoms/MenuHolder";
+import BlinkSnackbar from "../../atoms/BlinkSnackbar";
 
 const steps = [
   "Votre adresse email",
@@ -289,11 +289,7 @@ function RegisterForm() {
             </div>
             <Box>
               <Link href={"/"}>
-                <Button
-                  size="large"
-                  variant="contained"
-                  onClick={()=>{}}
-                >
+                <Button size="large" variant="contained" onClick={() => {}}>
                   CREATE NEW ACCOUNT
                 </Button>
               </Link>

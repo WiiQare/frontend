@@ -11,8 +11,8 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
-import OnboardingScreen from "../molecules/OnboardingScreen";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
+import OnboardingScreen from "../../molecules/OnboardingScreen";
+import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import {
   FormControl,
   IconButton,
@@ -21,8 +21,8 @@ import {
   OutlinedInput,
   Typography,
 } from "@mui/material";
-import MenuHolder from "../atoms/MenuHolder";
-import BlinkSnackbar from "../atoms/BlinkSnackbar";
+import MenuHolder from "../../atoms/MenuHolder";
+import BlinkSnackbar from "../../atoms/BlinkSnackbar";
 
 function LoginForm() {
   const matches = useMediaQuery("(max-width: 992px)");

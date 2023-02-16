@@ -1,6 +1,6 @@
 import Logo from "../components/atoms/LogoHeader";
 import WelcomeSlider from "../components/molecules/WelcomeSlider";
-import LoginForm from "../components/organisms/LoginForm";
+import LoginForm from "../components/organisms/Auth/LoginForm";
 import { LOGIN_SLIDES } from "../utils/constants";
 import { useMediaQuery } from "@mui/material";
 import Head from "next/head";

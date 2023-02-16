@@ -1,8 +1,10 @@
 import Head from "next/head";
 import { getSession } from "next-auth/react";
+
 import DashboardLayout from "../layouts/Dashboard";
 
-import Home from "../components/organisms/Home";
+import VoucherHome from "../components/organisms/Dashboard/Voucher";
+import ProviderFilter from "../components/organisms/Dashboard/ProviderFilter";
 
 const Page = () => {
   return (
@@ -10,12 +12,15 @@ const Page = () => {
       <Head>
         <title>JAMII - UNICEF CRYPTO</title>
       </Head>
-      <Home />
+      <VoucherHome />
+      <ProviderFilter />
     </>
   );
 };
 
-Page.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
+Page.getLayout = (page) => (
+  <DashboardLayout className="space-y-8">{page}</DashboardLayout>
+);
 
 export default Page;
 

@@ -2,6 +2,130 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    @apply !bg-white
+}
+
 .effect-up {
     @apply relative transition duration-200 hover:-top-1
 }
+
+.cardWrap {
+    width: 27em;
+    margin: 3em auto;
+    color: #fff;
+    font-family: sans-serif;
+  }
+  
+  .card {
+    background: linear-gradient(to bottom, #007bff 0%, #007bff 26%, #ecedef 26%, #ecedef 100%);
+    height: 11em;
+    float: left;
+    position: relative;
+    padding: 1em;
+    margin-top: 100px;
+  }
+  
+  .cardLeft {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    width: 16em;
+  }
+  
+  .cardRight {
+    width: 6.5em;
+    border-left: 0.18em dashed #fff;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  .cardRight:before, .cardRight:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0.9em;
+    height: 0.9em;
+    background: #fff;
+    border-radius: 50%;
+    left: -0.5em;
+  }
+  .cardRight:before {
+    top: -0.4em;
+  }
+  .cardRight:after {
+    bottom: -0.4em;
+  }
+  
+  h1 {
+    font-size: 1.1em;
+    margin-top: 0;
+  }
+  h1 span {
+    font-weight: normal;
+  }
+  
+  .title,
+  .code,
+  .date,
+  .time {
+    text-transform: uppercase;
+    font-weight: normal;
+  }
+  .title h2,
+  .code h2,
+  .date h2,
+  .time h2 {
+    font-size: 0.9em;
+    color: #525252;
+    margin: 0;
+  }
+  .title span,
+  .code span,
+  .date span,
+  .time span {
+    font-size: 0.7em;
+    color: #a2aeae;
+  }
+  
+  .title {
+    margin: 2em 0 0 0;
+  }
+  
+  .code,
+  .date {
+    margin: 0.7em 0 0 0;
+  }
+  
+  .time {
+    margin: 0.7em 0 0 1em;
+  }
+  
+  .date,
+  .time {
+    float: left;
+  }
+  
+  .price {
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .price h3 {
+    color: #f8892b;
+    margin: 0.9em 0 0 0;
+    font-size: 2.5em;
+  }
+  .price span {
+    display: block;
+    color: #a2aeae;
+  }
+  
+  /* Price Range */
+input[type="range"]::-webkit-slider-thumb {
+    pointer-events: auto;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    -webkit-appearance: none;
+    @apply bg-green-500;
+  
+    /* @apply w-6 h-6 appearance-none pointer-events-auto; */
+  }

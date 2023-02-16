@@ -1,6 +1,6 @@
 import Logo from "../components/atoms/LogoHeader";
 import WelcomeSlider from "../components/molecules/WelcomeSlider";
-import RegisterForm from "../components/organisms/RegisterForm";
+import RegisterForm from "../components/organisms/Auth/RegisterForm";
 import { REGISTER_SLIDES } from "../utils/constants";
 import { useMediaQuery } from "@mui/material";
 import Head from "next/head";
