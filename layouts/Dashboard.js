@@ -19,7 +19,9 @@ const Dashboard = ({ children, className }) => {
           <Menu session={session} handleSignOut={handleSignOut} />
           <main className="min-h-[90vh] grid md:grid-cols-4 gap-6 mt-20">
             <Sidebar activePath={pathname} />
-            <div className={`${className} col-span-3 p-4 overflow-x-hidden`}>
+            <div
+              className={`${className} col-span-3 p-4 overflow-x-hidden bg-[#f0f4fd]`}
+            >
               {children}
             </div>
           </main>
