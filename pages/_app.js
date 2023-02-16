@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }) {
       <SessionProvider session={pageProps.session}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <main className="bg-[#F9F9F9]">
+          <main className="bg-[#FFFFFF]">
             {getLayout(<Component {...pageProps} />)}
           </main>
         </ThemeProvider>
