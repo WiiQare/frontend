@@ -7,23 +7,28 @@ const DropdownFilter = ({
   items,
   className,
   labelClassName,
+  chevronDown=true,
+  dropClassName,
   onClick = () => {},
 }) => {
   return (
     <div className={`${className} dropdown dropdown-end flex`}>
       <label
         tabIndex={0}
-        className={`${labelClassName} bg-white border rounded-xl w-full py-2 px-4 flex justify-between items-center`}
+        className={` bg-white border rounded-xl w-full py-2 px-4 flex justify-between items-center ${labelClassName}`}
       >
         <span className="flex mr-2 gap-4 items-center">
           {icon()}
           <span className="font-light">{label}</span>
         </span>
-        <HiChevronDown size={20} />
+        {
+          chevronDown ? <HiChevronDown size={20} /> : <></>
+        }
+        
       </label>
       <ul
         tabIndex={0}
-        className="w-full mt-14 dropdown-content menu p-2 bg-white border rounded-box text-gray-700 font-light"
+        className={`${dropClassName} w-full mt-14 dropdown-content menu p-2 bg-white border rounded-box text-gray-700 font-light`}
       >
         {items ? (
           items.map((item, index) => (

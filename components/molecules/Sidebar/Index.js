@@ -38,10 +38,11 @@ const Items = [
 const Sidebar = ({ activePath }) => {
   return (
     <div className="min-h-full bg-white px-6 py-12 hidden md:flex flex-col gap-8">
-      {Items.map((item) => (
+      {Items.map((item, index) => (
         <ItemSidebar
           {...item}
           activePath={item.active == activePath ? true : false}
+          key={index}
         />
       ))}
     </div>

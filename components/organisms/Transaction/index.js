@@ -1,13 +1,29 @@
-import CardTransaction from "../../atoms/Card/Transaction";
+import { CiCircleList } from "react-icons/ci";
+import CardHeader from "../../atoms/Card/header";
 import TransactionTable from "../../atoms/Table/Transaction";
 
 const Transaction = () => {
-  return (
-    <div className="p-2 space-y-6 md:py-8 md:px-6">
-      <CardTransaction />
-      <TransactionTable />
-    </div>
-  );
+	return (
+		<div className="p-2 space-y-6 md:py-8 md:px-6">
+			<CardHeader
+				title={"Transactions History"}
+				sort={{
+					icon: () => <span className="h-[15px] w-[15px] rounded bg-primary" />,
+					items: ["Detail", "Cancel"]
+				}}
+				filter={{
+					label: {
+						title: "Sort By",
+						className: "py-1 w-[auto]"
+					},
+					className: "w-[auto]",
+					icon: () => () => <CiCircleList />,
+					items: ["Detail", "Cancel"]
+				}}
+			/>
+			<TransactionTable />
+		</div>
+	);
 };
 
 export default Transaction;

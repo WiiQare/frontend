@@ -13,8 +13,11 @@ module.exports = {
         primary: "#1DAAE6",
         sky: "#1DAAE6",
         orange: "#FE8023",
+        purple: "#A938D0"
       },
     },
+    
   },
   plugins: [require("flowbite/plugin"), require("daisyui")],
+  
 };
