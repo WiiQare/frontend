@@ -18,7 +18,7 @@ const DropdownFilter = ({
         className={` bg-white border rounded-xl w-full py-2 px-4 flex justify-between items-center ${labelClassName}`}
       >
         <span className="flex mr-2 gap-4 items-center">
-          {icon()}
+          {icon}
           <span className="font-light">{label}</span>
         </span>
         {

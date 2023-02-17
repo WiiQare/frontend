@@ -17,7 +17,7 @@ const Transaction = () => {
 						className: "py-1 w-[auto]"
 					},
 					className: "w-[auto]",
-					icon: () => () => <CiCircleList />,
+					icon: () => <CiCircleList />,
 					items: ["Detail", "Cancel"]
 				}}
 			/>

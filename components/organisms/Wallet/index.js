@@ -15,7 +15,7 @@ const Wallet = () => {
 						className: "py-1 w-[auto]"
 					},
 					className: "w-[auto]",
-					icon: () => () => <CiCircleList />,
+					icon: () => <CiCircleList />,
 					items: ["Detail", "Cancel"]
 				}}
 			/>
