@@ -1,10 +1,29 @@
+import { useState } from "react";
 import Link from "next/link";
-import { CiCircleList, CiWallet } from "react-icons/ci";
+import { CiCircleInfo, CiCircleList, CiWallet } from "react-icons/ci";
 import { HiDotsVertical } from "react-icons/hi";
+import PropTypes from 'prop-types';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+
 import CardHeader from "../../atoms/Card/header";
 import DropdownFilter from "../../atoms/Dropdown/Filter";
 
+import avatar from "../../../public/images/avatar.jpg";
+import Image from "next/image";
+
+
 const Wallet = () => {
+
+	const [value, setValue] = useState(0);
+
+	const handleChange = (event, newValue) => {
+		setValue(newValue);
+	};
+
+
 	return (
 		<div className="p-2 space-y-6 md:py-8 md:px-6">
 			<CardHeader
@@ -95,6 +114,698 @@ const Wallet = () => {
 
 				</div>
 			</div>
+
+			<div className="space-y-4 bg-white py-8 px-6 drop-shadow-sm rounded-lg">
+
+				<Box sx={{ width: '100%' }}>
+					<div className="flex items-center justify-between">
+						<div className="space-y-2">
+							<h2 className="font-bold text-xl text-gray-700">Payment History</h2>
+							<span className="text-xs text-gray-500">Lorem ipsum dolor sit amet, consectetur</span>
+						</div>
+						<Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+							<Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+								<Tab label="Monthly" {...a11yProps(0)} />
+								<Tab label="Weekly" {...a11yProps(1)} />
+								<Tab label="Today" {...a11yProps(2)} />
+							</Tabs>
+						</Box>
+					</div>
+					<div>
+						<TabPanel value={value} index={0} >
+
+							<section className="space-y-6">
+								<div tabIndex={0} className="collapse collapse-arrow text-gray-700">
+									<div className="collapse-title flex gap-7 justify-between items-center">
+										<div className="flex gap-3 items-center">
+											<div className="w-16 h-16">
+												<Image src={avatar} className="object-cover rounded-full w-full h-full" />
+											</div>
+											<div>
+												<h1 className="font-bold text-xl">Bienvenu Z.</h1>
+												<span className="text-xs text-sky font-semibold">bienvenuezig@gmail.com</span>
+											</div>
+										</div>
+
+										<div className="flex flex-col text-sm font-medium">
+											<span>June 1, 2023</span>
+											<span>08:22 AM</span>
+										</div>
+
+										<h1 className="font-bold text-lg">+$5,532</h1>
+										<h1 className="font-bold text-lg">Mastercard</h1>
+
+										<Link href={"/learn"} legacyBehavior>
+											<button className='border border-[#2BC155] hover:bg-[#2BC155] hover:text-white text-[#2BC155] font-normal h-fit  py-2 px-3 rounded-lg text-sm transition duration-300'>Completed</button>
+										</Link>
+
+									</div>
+									<div className="collapse-content flex gap-4">
+										<div className="overflow-x-auto w-5/6">
+											<table className="table table-zebra text-xs w-full">
+												<thead>
+													<tr>
+														<th>ID Payment</th>
+														<th>Payment Method</th>
+														<th>Invoice Date</th>
+														<th>Due Date</th>
+														<th>Date Paid</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>#00123521</th>
+														<td>MasterCard</td>
+														<td>April 29, 2020</td>
+														<td>June 5, 2020</td>
+														<td>June 4, 2020</td>
+													</tr>
+												</tbody>
+											</table>
+
+										</div>
+										<span className="w-52 bg-gray-200 h-fit p-2 rounded-lg flex items-center gap-2 text-sm">
+											<CiCircleInfo size={45} className="text-gray-400" /> Lorem ipsum dolor sit amet, consectetur
+										</span>
+									</div>
+								</div>
+
+								<div tabIndex={1} className="collapse collapse-arrow text-gray-700">
+									<div className="collapse-title flex gap-7 justify-between items-center">
+										<div className="flex gap-3 items-center">
+											<div className="w-16 h-16">
+												<Image src={avatar} className="object-cover rounded-full w-full h-full" />
+											</div>
+											<div>
+												<h1 className="font-bold text-xl">Bienvenu Z.</h1>
+												<span className="text-xs text-sky font-semibold">bienvenuezig@gmail.com</span>
+											</div>
+										</div>
+
+										<div className="flex flex-col text-sm font-medium">
+											<span>June 1, 2023</span>
+											<span>08:22 AM</span>
+										</div>
+
+										<h1 className="font-bold text-lg">+$5,532</h1>
+										<h1 className="font-bold text-lg">Mastercard</h1>
+
+										<Link href={"/learn"} legacyBehavior>
+											<button className='border border-orange hover:bg-orange hover:text-white text-orange font-normal h-fit  py-2 px-3 rounded-lg text-sm transition duration-300'>Pending</button>
+										</Link>
+
+									</div>
+									<div className="collapse-content flex gap-4">
+										<div className="overflow-x-auto w-5/6">
+											<table className="table table-zebra text-xs w-full">
+												<thead>
+													<tr>
+														<th>ID Payment</th>
+														<th>Payment Method</th>
+														<th>Invoice Date</th>
+														<th>Due Date</th>
+														<th>Date Paid</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>#00123521</th>
+														<td>MasterCard</td>
+														<td>April 29, 2020</td>
+														<td>June 5, 2020</td>
+														<td>June 4, 2020</td>
+													</tr>
+												</tbody>
+											</table>
+
+										</div>
+										<span className="w-52 bg-gray-200 h-fit p-2 rounded-lg flex items-center gap-2 text-sm">
+											<CiCircleInfo size={45} className="text-gray-400" /> Lorem ipsum dolor sit amet, consectetur
+										</span>
+									</div>
+								</div>
+							</section>
+
+						</TabPanel>
+						<TabPanel value={value} index={1}>
+							<section className="space-y-6">
+								<div tabIndex={0} className="collapse collapse-arrow text-gray-700">
+									<div className="collapse-title flex gap-7 justify-between items-center">
+										<div className="flex gap-3 items-center">
+											<div className="w-16 h-16">
+												<Image src={avatar} className="object-cover rounded-full w-full h-full" />
+											</div>
+											<div>
+												<h1 className="font-bold text-xl">Bienvenu Z.</h1>
+												<span className="text-xs text-sky font-semibold">bienvenuezig@gmail.com</span>
+											</div>
+										</div>
+
+										<div className="flex flex-col text-sm font-medium">
+											<span>June 1, 2023</span>
+											<span>08:22 AM</span>
+										</div>
+
+										<h1 className="font-bold text-lg">+$5,532</h1>
+										<h1 className="font-bold text-lg">Mastercard</h1>
+
+										<Link href={"/learn"} legacyBehavior>
+											<button className='border border-[#2BC155] hover:bg-[#2BC155] hover:text-white text-[#2BC155] font-normal h-fit  py-2 px-3 rounded-lg text-sm transition duration-300'>Completed</button>
+										</Link>
+
+									</div>
+									<div className="collapse-content flex gap-4">
+										<div className="overflow-x-auto w-5/6">
+											<table className="table table-zebra text-xs w-full">
+												<thead>
+													<tr>
+														<th>ID Payment</th>
+														<th>Payment Method</th>
+														<th>Invoice Date</th>
+														<th>Due Date</th>
+														<th>Date Paid</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>#00123521</th>
+														<td>MasterCard</td>
+														<td>April 29, 2020</td>
+														<td>June 5, 2020</td>
+														<td>June 4, 2020</td>
+													</tr>
+												</tbody>
+											</table>
+
+										</div>
+										<span className="w-52 bg-gray-200 h-fit p-2 rounded-lg flex items-center gap-2 text-sm">
+											<CiCircleInfo size={45} className="text-gray-400" /> Lorem ipsum dolor sit amet, consectetur
+										</span>
+									</div>
+								</div>
+
+								<div tabIndex={1} className="collapse collapse-arrow text-gray-700">
+									<div className="collapse-title flex gap-7 justify-between items-center">
+										<div className="flex gap-3 items-center">
+											<div className="w-16 h-16">
+												<Image src={avatar} className="object-cover rounded-full w-full h-full" />
+											</div>
+											<div>
+												<h1 className="font-bold text-xl">Bienvenu Z.</h1>
+												<span className="text-xs text-sky font-semibold">bienvenuezig@gmail.com</span>
+											</div>
+										</div>
+
+										<div className="flex flex-col text-sm font-medium">
+											<span>June 1, 2023</span>
+											<span>08:22 AM</span>
+										</div>
+
+										<h1 className="font-bold text-lg">+$5,532</h1>
+										<h1 className="font-bold text-lg">Mastercard</h1>
+
+										<Link href={"/learn"} legacyBehavior>
+											<button className='border border-orange hover:bg-orange hover:text-white text-orange font-normal h-fit  py-2 px-3 rounded-lg text-sm transition duration-300'>Pending</button>
+										</Link>
+
+									</div>
+									<div className="collapse-content flex gap-4">
+										<div className="overflow-x-auto w-5/6">
+											<table className="table table-zebra text-xs w-full">
+												<thead>
+													<tr>
+														<th>ID Payment</th>
+														<th>Payment Method</th>
+														<th>Invoice Date</th>
+														<th>Due Date</th>
+														<th>Date Paid</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>#00123521</th>
+														<td>MasterCard</td>
+														<td>April 29, 2020</td>
+														<td>June 5, 2020</td>
+														<td>June 4, 2020</td>
+													</tr>
+												</tbody>
+											</table>
+
+										</div>
+										<span className="w-52 bg-gray-200 h-fit p-2 rounded-lg flex items-center gap-2 text-sm">
+											<CiCircleInfo size={45} className="text-gray-400" /> Lorem ipsum dolor sit amet, consectetur
+										</span>
+									</div>
+								</div>
+								<div tabIndex={1} className="collapse collapse-arrow text-gray-700">
+									<div className="collapse-title flex gap-7 justify-between items-center">
+										<div className="flex gap-3 items-center">
+											<div className="w-16 h-16">
+												<Image src={avatar} className="object-cover rounded-full w-full h-full" />
+											</div>
+											<div>
+												<h1 className="font-bold text-xl">Bienvenu Z.</h1>
+												<span className="text-xs text-sky font-semibold">bienvenuezig@gmail.com</span>
+											</div>
+										</div>
+
+										<div className="flex flex-col text-sm font-medium">
+											<span>June 1, 2023</span>
+											<span>08:22 AM</span>
+										</div>
+
+										<h1 className="font-bold text-lg">+$5,532</h1>
+										<h1 className="font-bold text-lg">Mastercard</h1>
+
+										<Link href={"/learn"} legacyBehavior>
+											<button className='border border-orange hover:bg-orange hover:text-white text-orange font-normal h-fit  py-2 px-3 rounded-lg text-sm transition duration-300'>Pending</button>
+										</Link>
+
+									</div>
+									<div className="collapse-content flex gap-4">
+										<div className="overflow-x-auto w-5/6">
+											<table className="table table-zebra text-xs w-full">
+												<thead>
+													<tr>
+														<th>ID Payment</th>
+														<th>Payment Method</th>
+														<th>Invoice Date</th>
+														<th>Due Date</th>
+														<th>Date Paid</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>#00123521</th>
+														<td>MasterCard</td>
+														<td>April 29, 2020</td>
+														<td>June 5, 2020</td>
+														<td>June 4, 2020</td>
+													</tr>
+												</tbody>
+											</table>
+
+										</div>
+										<span className="w-52 bg-gray-200 h-fit p-2 rounded-lg flex items-center gap-2 text-sm">
+											<CiCircleInfo size={45} className="text-gray-400" /> Lorem ipsum dolor sit amet, consectetur
+										</span>
+									</div>
+								</div>
+
+								<div tabIndex={0} className="collapse collapse-arrow text-gray-700">
+									<div className="collapse-title flex gap-7 justify-between items-center">
+										<div className="flex gap-3 items-center">
+											<div className="w-16 h-16">
+												<Image src={avatar} className="object-cover rounded-full w-full h-full" />
+											</div>
+											<div>
+												<h1 className="font-bold text-xl">Bienvenu Z.</h1>
+												<span className="text-xs text-sky font-semibold">bienvenuezig@gmail.com</span>
+											</div>
+										</div>
+
+										<div className="flex flex-col text-sm font-medium">
+											<span>June 1, 2023</span>
+											<span>08:22 AM</span>
+										</div>
+
+										<h1 className="font-bold text-lg">+$5,532</h1>
+										<h1 className="font-bold text-lg">Mastercard</h1>
+
+										<Link href={"/learn"} legacyBehavior>
+											<button className='border border-[#2BC155] hover:bg-[#2BC155] hover:text-white text-[#2BC155] font-normal h-fit  py-2 px-3 rounded-lg text-sm transition duration-300'>Completed</button>
+										</Link>
+
+									</div>
+									<div className="collapse-content flex gap-4">
+										<div className="overflow-x-auto w-5/6">
+											<table className="table table-zebra text-xs w-full">
+												<thead>
+													<tr>
+														<th>ID Payment</th>
+														<th>Payment Method</th>
+														<th>Invoice Date</th>
+														<th>Due Date</th>
+														<th>Date Paid</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>#00123521</th>
+														<td>MasterCard</td>
+														<td>April 29, 2020</td>
+														<td>June 5, 2020</td>
+														<td>June 4, 2020</td>
+													</tr>
+												</tbody>
+											</table>
+
+										</div>
+										<span className="w-52 bg-gray-200 h-fit p-2 rounded-lg flex items-center gap-2 text-sm">
+											<CiCircleInfo size={45} className="text-gray-400" /> Lorem ipsum dolor sit amet, consectetur
+										</span>
+									</div>
+								</div>
+								
+								<div tabIndex={1} className="collapse collapse-arrow text-gray-700">
+									<div className="collapse-title flex gap-7 justify-between items-center">
+										<div className="flex gap-3 items-center">
+											<div className="w-16 h-16">
+												<Image src={avatar} className="object-cover rounded-full w-full h-full" />
+											</div>
+											<div>
+												<h1 className="font-bold text-xl">Bienvenu Z.</h1>
+												<span className="text-xs text-sky font-semibold">bienvenuezig@gmail.com</span>
+											</div>
+										</div>
+
+										<div className="flex flex-col text-sm font-medium">
+											<span>June 1, 2023</span>
+											<span>08:22 AM</span>
+										</div>
+
+										<h1 className="font-bold text-lg">+$5,532</h1>
+										<h1 className="font-bold text-lg">Mastercard</h1>
+
+										<Link href={"/learn"} legacyBehavior>
+											<button className='border border-orange hover:bg-orange hover:text-white text-orange font-normal h-fit  py-2 px-3 rounded-lg text-sm transition duration-300'>Pending</button>
+										</Link>
+
+									</div>
+									<div className="collapse-content flex gap-4">
+										<div className="overflow-x-auto w-5/6">
+											<table className="table table-zebra text-xs w-full">
+												<thead>
+													<tr>
+														<th>ID Payment</th>
+														<th>Payment Method</th>
+														<th>Invoice Date</th>
+														<th>Due Date</th>
+														<th>Date Paid</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>#00123521</th>
+														<td>MasterCard</td>
+														<td>April 29, 2020</td>
+														<td>June 5, 2020</td>
+														<td>June 4, 2020</td>
+													</tr>
+												</tbody>
+											</table>
+
+										</div>
+										<span className="w-52 bg-gray-200 h-fit p-2 rounded-lg flex items-center gap-2 text-sm">
+											<CiCircleInfo size={45} className="text-gray-400" /> Lorem ipsum dolor sit amet, consectetur
+										</span>
+									</div>
+								</div>
+							</section>
+						</TabPanel>
+						<TabPanel value={value} index={2}>
+							<section className="space-y-6">
+
+								<div tabIndex={0} className="collapse collapse-arrow text-gray-700">
+									<div className="collapse-title flex gap-7 justify-between items-center">
+										<div className="flex gap-3 items-center">
+											<div className="w-16 h-16">
+												<Image src={avatar} className="object-cover rounded-full w-full h-full" />
+											</div>
+											<div>
+												<h1 className="font-bold text-xl">Bienvenu Z.</h1>
+												<span className="text-xs text-sky font-semibold">bienvenuezig@gmail.com</span>
+											</div>
+										</div>
+
+										<div className="flex flex-col text-sm font-medium">
+											<span>June 1, 2023</span>
+											<span>08:22 AM</span>
+										</div>
+
+										<h1 className="font-bold text-lg">+$5,532</h1>
+										<h1 className="font-bold text-lg">Mastercard</h1>
+
+										<Link href={"/learn"} legacyBehavior>
+											<button className='border border-gray-300 hover:bg-gray-400 hover:text-white text-gray-400 font-normal h-fit  py-2 px-3 rounded-lg text-sm transition duration-300'>Cancel</button>
+										</Link>
+
+									</div>
+									<div className="collapse-content flex gap-4">
+										<div className="overflow-x-auto w-5/6">
+											<table className="table table-zebra text-xs w-full">
+												<thead>
+													<tr>
+														<th>ID Payment</th>
+														<th>Payment Method</th>
+														<th>Invoice Date</th>
+														<th>Due Date</th>
+														<th>Date Paid</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>#00123521</th>
+														<td>MasterCard</td>
+														<td>April 29, 2020</td>
+														<td>June 5, 2020</td>
+														<td>June 4, 2020</td>
+													</tr>
+												</tbody>
+											</table>
+
+										</div>
+										<span className="w-52 bg-gray-200 h-fit p-2 rounded-lg flex items-center gap-2 text-sm">
+											<CiCircleInfo size={45} className="text-gray-400" /> Lorem ipsum dolor sit amet, consectetur
+										</span>
+									</div>
+								</div>
+
+								<div tabIndex={0} className="collapse collapse-arrow text-gray-700">
+									<div className="collapse-title flex gap-7 justify-between items-center">
+										<div className="flex gap-3 items-center">
+											<div className="w-16 h-16">
+												<Image src={avatar} className="object-cover rounded-full w-full h-full" />
+											</div>
+											<div>
+												<h1 className="font-bold text-xl">Bienvenu Z.</h1>
+												<span className="text-xs text-sky font-semibold">bienvenuezig@gmail.com</span>
+											</div>
+										</div>
+
+										<div className="flex flex-col text-sm font-medium">
+											<span>June 1, 2023</span>
+											<span>08:22 AM</span>
+										</div>
+
+										<h1 className="font-bold text-lg">+$5,532</h1>
+										<h1 className="font-bold text-lg">Mastercard</h1>
+
+										<Link href={"/learn"} legacyBehavior>
+											<button className='border border-gray-300 hover:bg-gray-400 hover:text-white text-gray-400 font-normal h-fit  py-2 px-3 rounded-lg text-sm transition duration-300'>Cancel</button>
+										</Link>
+
+									</div>
+									<div className="collapse-content flex gap-4">
+										<div className="overflow-x-auto w-5/6">
+											<table className="table table-zebra text-xs w-full">
+												<thead>
+													<tr>
+														<th>ID Payment</th>
+														<th>Payment Method</th>
+														<th>Invoice Date</th>
+														<th>Due Date</th>
+														<th>Date Paid</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>#00123521</th>
+														<td>MasterCard</td>
+														<td>April 29, 2020</td>
+														<td>June 5, 2020</td>
+														<td>June 4, 2020</td>
+													</tr>
+												</tbody>
+											</table>
+
+										</div>
+										<span className="w-52 bg-gray-200 h-fit p-2 rounded-lg flex items-center gap-2 text-sm">
+											<CiCircleInfo size={45} className="text-gray-400" /> Lorem ipsum dolor sit amet, consectetur
+										</span>
+									</div>
+								</div>
+
+								<div tabIndex={0} className="collapse collapse-arrow text-gray-700">
+									<div className="collapse-title flex gap-7 justify-between items-center">
+										<div className="flex gap-3 items-center">
+											<div className="w-16 h-16">
+												<Image src={avatar} className="object-cover rounded-full w-full h-full" />
+											</div>
+											<div>
+												<h1 className="font-bold text-xl">Bienvenu Z.</h1>
+												<span className="text-xs text-sky font-semibold">bienvenuezig@gmail.com</span>
+											</div>
+										</div>
+
+										<div className="flex flex-col text-sm font-medium">
+											<span>June 1, 2023</span>
+											<span>08:22 AM</span>
+										</div>
+
+										<h1 className="font-bold text-lg">+$5,532</h1>
+										<h1 className="font-bold text-lg">Mastercard</h1>
+
+										<Link href={"/learn"} legacyBehavior>
+											<button className='border border-gray-300 hover:bg-gray-400 hover:text-white text-gray-400 font-normal h-fit  py-2 px-3 rounded-lg text-sm transition duration-300'>Cancel</button>
+										</Link>
+
+									</div>
+									<div className="collapse-content flex gap-4">
+										<div className="overflow-x-auto w-5/6">
+											<table className="table table-zebra text-xs w-full">
+												<thead>
+													<tr>
+														<th>ID Payment</th>
+														<th>Payment Method</th>
+														<th>Invoice Date</th>
+														<th>Due Date</th>
+														<th>Date Paid</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>#00123521</th>
+														<td>MasterCard</td>
+														<td>April 29, 2020</td>
+														<td>June 5, 2020</td>
+														<td>June 4, 2020</td>
+													</tr>
+												</tbody>
+											</table>
+
+										</div>
+										<span className="w-52 bg-gray-200 h-fit p-2 rounded-lg flex items-center gap-2 text-sm">
+											<CiCircleInfo size={45} className="text-gray-400" /> Lorem ipsum dolor sit amet, consectetur
+										</span>
+									</div>
+								</div>
+
+								<div tabIndex={0} className="collapse collapse-arrow text-gray-700">
+									<div className="collapse-title flex gap-7 justify-between items-center">
+										<div className="flex gap-3 items-center">
+											<div className="w-16 h-16">
+												<Image src={avatar} className="object-cover rounded-full w-full h-full" />
+											</div>
+											<div>
+												<h1 className="font-bold text-xl">Bienvenu Z.</h1>
+												<span className="text-xs text-sky font-semibold">bienvenuezig@gmail.com</span>
+											</div>
+										</div>
+
+										<div className="flex flex-col text-sm font-medium">
+											<span>June 1, 2023</span>
+											<span>08:22 AM</span>
+										</div>
+
+										<h1 className="font-bold text-lg">+$5,532</h1>
+										<h1 className="font-bold text-lg">Mastercard</h1>
+
+										<Link href={"/learn"} legacyBehavior>
+											<button className='border border-[#2BC155] hover:bg-[#2BC155] hover:text-white text-[#2BC155] font-normal h-fit  py-2 px-3 rounded-lg text-sm transition duration-300'>Completed</button>
+										</Link>
+
+									</div>
+									<div className="collapse-content flex gap-4">
+										<div className="overflow-x-auto w-5/6">
+											<table className="table table-zebra text-xs w-full">
+												<thead>
+													<tr>
+														<th>ID Payment</th>
+														<th>Payment Method</th>
+														<th>Invoice Date</th>
+														<th>Due Date</th>
+														<th>Date Paid</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>#00123521</th>
+														<td>MasterCard</td>
+														<td>April 29, 2020</td>
+														<td>June 5, 2020</td>
+														<td>June 4, 2020</td>
+													</tr>
+												</tbody>
+											</table>
+
+										</div>
+										<span className="w-52 bg-gray-200 h-fit p-2 rounded-lg flex items-center gap-2 text-sm">
+											<CiCircleInfo size={45} className="text-gray-400" /> Lorem ipsum dolor sit amet, consectetur
+										</span>
+									</div>
+								</div>
+
+								<div tabIndex={1} className="collapse collapse-arrow text-gray-700">
+									<div className="collapse-title flex gap-7 justify-between items-center">
+										<div className="flex gap-3 items-center">
+											<div className="w-16 h-16">
+												<Image src={avatar} className="object-cover rounded-full w-full h-full" />
+											</div>
+											<div>
+												<h1 className="font-bold text-xl">Bienvenu Z.</h1>
+												<span className="text-xs text-sky font-semibold">bienvenuezig@gmail.com</span>
+											</div>
+										</div>
+
+										<div className="flex flex-col text-sm font-medium">
+											<span>June 1, 2023</span>
+											<span>08:22 AM</span>
+										</div>
+
+										<h1 className="font-bold text-lg">+$5,532</h1>
+										<h1 className="font-bold text-lg">Mastercard</h1>
+
+										<Link href={"/learn"} legacyBehavior>
+											<button className='border border-orange hover:bg-orange hover:text-white text-orange font-normal h-fit  py-2 px-3 rounded-lg text-sm transition duration-300'>Pending</button>
+										</Link>
+
+									</div>
+									<div className="collapse-content flex gap-4">
+										<div className="overflow-x-auto w-5/6">
+											<table className="table table-zebra text-xs w-full">
+												<thead>
+													<tr>
+														<th>ID Payment</th>
+														<th>Payment Method</th>
+														<th>Invoice Date</th>
+														<th>Due Date</th>
+														<th>Date Paid</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>#00123521</th>
+														<td>MasterCard</td>
+														<td>April 29, 2020</td>
+														<td>June 5, 2020</td>
+														<td>June 4, 2020</td>
+													</tr>
+												</tbody>
+											</table>
+
+										</div>
+										<span className="w-52 bg-gray-200 h-fit p-2 rounded-lg flex items-center gap-2 text-sm">
+											<CiCircleInfo size={45} className="text-gray-400" /> Lorem ipsum dolor sit amet, consectetur
+										</span>
+									</div>
+								</div>
+							</section>
+						</TabPanel>
+					</div>
+				</Box>
+			</div>
 		</div>
 	);
 };
@@ -111,4 +822,37 @@ function CardProgress({ color, value, title, amount, className }) {
 			</div>
 		</div>
 	)
+}
+
+function TabPanel(props) {
+	const { children, value, index, ...other } = props;
+
+	return (
+		<div
+			role="tabpanel"
+			hidden={value !== index}
+			id={`simple-tabpanel-${index}`}
+			aria-labelledby={`simple-tab-${index}`}
+			{...other}
+		>
+			{value === index && (
+				<Box sx={{ p: 3 }}>
+					<Typography>{children}</Typography>
+				</Box>
+			)}
+		</div>
+	);
+}
+
+TabPanel.propTypes = {
+	children: PropTypes.node,
+	index: PropTypes.number.isRequired,
+	value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+	return {
+		id: `simple-tab-${index}`,
+		'aria-controls': `simple-tabpanel-${index}`,
+	};
 }

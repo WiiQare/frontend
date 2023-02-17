@@ -241,6 +241,10 @@ export const theme = createTheme(
         main: "#3177cd",
         contrastText: "#FFFFFF",
       },
+      sky: {
+        main: "#1DAAE6",
+        contrastText: "#FFFFFF",
+      },
       success: {
         main: "#14B8A6",
         light: "#43C6B7",
