@@ -74,15 +74,15 @@ const Wallet = () => {
 								color={"text-[#2ABB52]"}
 								value={89}
 								title={"Investment"}
-								amount={"5,412"}
+								amount={"10,916"}
 								className={"bg-[#E3F9E9]"}
 							/>
 
 							<CardProgress
 								color={"text-[#441DE1]"}
 								value={41}
-								title={"Installment"}
-								amount={"5,412"}
+								title={"Property"}
+								amount={"1,282"}
 								className={"bg-[#F4F2FE]"}
 							/>
 
