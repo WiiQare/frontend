@@ -33,7 +33,7 @@ const Wallet = () => {
 
 
 	return (
-		<div className="p-2 space-y-6 md:py-8 md:px-6">
+		<div className="p-2 space-y-6 md:py-8 md:px-6 mb-12">
 			<CardHeader
 				title={"My Wallet"}
 				filter={{
@@ -80,7 +80,7 @@ const Wallet = () => {
 
 						<h1 className=" text-gray-900 font-semibold">**** **** **** 1234</h1>
 
-						<span class="w-12 hidden md:block"></span>
+						<span className="w-12 hidden md:block"></span>
 					</div>
 
 					<div className="px-6 mt-8 space-y-7">
@@ -834,14 +834,14 @@ const Wallet = () => {
 
 			<div className="grid md:grid-cols-2 gap-3 md:gap-8 mt-8">
 				<div className="bg-white py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8">
-					<div className="flex flex-col md:flex-row gap-6 md:gap-0 md:items-center justify-between px-6">
+					<div className="flex flex-row gap-6 md:gap-0 md:items-center justify-between px-6">
 						<div className="space-y-2">
 							<h2 className="font-bold text-xl text-gray-700">Quick Transfer</h2>
-							<span className="text-xs text-gray-500">Lorem ipsum dolor sit amet, consectetur</span>
+							<span className="text-xs text-gray-500 hidden md:flex">Lorem ipsum dolor sit amet, consectetur</span>
 						</div>
 
 						<h1 className="text-xl font-semibold">$56,772.38</h1>
-						
+
 					</div>
 					<Splide hasTrack={false} aria-label="Attribution"
 						options={
@@ -850,8 +850,8 @@ const Wallet = () => {
 								perPage: 3,
 								breakpoints: {
 									1024: {
-										perPage: 2,
-										gap: 10
+										perPage: 1,
+										gap: 20
 									}
 								},
 								pagination: false,
@@ -865,49 +865,49 @@ const Wallet = () => {
 
 							<SplideSlide className="flex flex-col gap-2 items-center justify-center p-3">
 								<div className="w-20 h-2O">
-									<Image src={avatar} className="object-cover rounded-xl"/>
+									<Image src={avatar} className="object-cover rounded-xl" />
 								</div>
 
 								<span className="font-semibold text-sm">Geoffrey M.</span>
 								<span className="text-xs font-light">frdrcpeter@gmail.com</span>
 							</SplideSlide>
-							
+
 							<SplideSlide className="flex flex-col gap-2 items-center justify-center p-3">
 								<div className="w-20 h-2O">
-									<Image src={avatar} className="object-cover rounded-xl"/>
+									<Image src={avatar} className="object-cover rounded-xl" />
 								</div>
 
 								<span className="font-semibold text-sm">Geoffrey M.</span>
 								<span className="text-xs font-light">qwerty@gmail.com</span>
 							</SplideSlide>
-							
+
 							<SplideSlide className="flex flex-col gap-2 items-center justify-center p-3">
 								<div className="w-20 h-2O">
-									<Image src={avatar} className="object-cover rounded-xl"/>
+									<Image src={avatar} className="object-cover rounded-xl" />
 								</div>
 
 								<span className="font-semibold text-sm">Bienvenu Z.</span>
 								<span className="text-xs font-light">aa12@gmail.com</span>
 							</SplideSlide>
-							
+
 							<SplideSlide className="flex flex-col gap-2 items-center justify-center p-3">
 								<div className="w-20 h-2O">
-									<Image src={avatar} className="object-cover rounded-xl"/>
+									<Image src={avatar} className="object-cover rounded-xl" />
 								</div>
 
 								<span className="font-semibold text-sm">Don Moliso</span>
 								<span className="text-xs font-light">azerty@gmail.com</span>
 							</SplideSlide>
-							
+
 							<SplideSlide className="flex flex-col gap-2 items-center justify-center p-3">
 								<div className="w-20 h-2O">
-									<Image src={avatar} className="object-cover rounded-xl"/>
+									<Image src={avatar} className="object-cover rounded-xl" />
 								</div>
 
 								<span className="font-semibold text-sm">Peter NDENGO</span>
 								<span className="text-xs font-light">abc@gmail.com</span>
 							</SplideSlide>
-							
+
 
 						</SplideTrack>
 
@@ -925,9 +925,27 @@ const Wallet = () => {
 						</div>
 
 					</Splide>
+
+					<div className="py-3 px-8 flex flex-col md:flex-row items-center justify-center gap-10">
+						<h4 className="font-semibold">Amount</h4>
+						<form className="w-full">
+							<label for="search" className="mb-2 text-sm font-medium text-gray-900 sr-only">Transfer amount</label>
+							<div className="relative flex w-full">
+								<input type="number" min={10} id="search" name="amount" className="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-sky focus:border-sky" placeholder="Enter amount" required />
+								<button type="submit" className="text-white absolute right-2.5 bottom-2.5 bg-sky hover:bg-cyan-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Transfer Now</button>
+							</div>
+						</form>
+					</div>
 				</div>
-				<div>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut libero ipsum explicabo, asperiores molestias totam itaque esse optio pariatur odio eum voluptatem ea, aspernatur, officia soluta maiores nesciunt eveniet obcaecati!
+
+				<div className="bg-white py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8">
+					<div className="flex flex-col md:flex-row gap-6 md:gap-0 md:items-center justify-between px-6">
+						<div className="space-y-2">
+							<h2 className="font-bold text-xl text-gray-700">Voucher Sent</h2>
+							<span className="text-xs text-gray-500">Lorem ipsum dolor sit amet, consectetur</span>
+						</div>
+
+					</div>
 				</div>
 			</div>
 		</div>
