@@ -3,12 +3,18 @@ import Link from "next/link";
 import { CiCircleInfo, CiCircleList, CiWallet } from "react-icons/ci";
 import { HiDotsVertical } from "react-icons/hi";
 import PropTypes from 'prop-types';
+import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { AiOutlineUpload } from "react-icons/ai";
 import { TbReceipt } from "react-icons/tb";
+import { IoIosArrowDropright, IoIosArrowDropleft } from "react-icons/io";
+import { BiCaretLeft, BiCaretRight } from "react-icons/bi";
+
+
+import '@splidejs/react-splide/css';
 
 import CardHeader from "../../atoms/Card/header";
 import DropdownFilter from "../../atoms/Dropdown/Filter";
@@ -469,7 +475,7 @@ const Wallet = () => {
 										</span>
 									</div>
 								</div>
-								
+
 								<div tabIndex={1} className="collapse collapse-arrow text-gray-700 overflow-scroll md:overflow-hidden">
 									<div className="collapse-title flex gap-7 justify-between items-center">
 										<div className="flex gap-3 items-center">
@@ -812,17 +818,116 @@ const Wallet = () => {
 			<div className="grid md:grid-cols-2 gap-3 md:gap-8">
 				<div className="bg-gradient-to-r from-sky to-indigo-500 shadow-md rounded-lg p-6 text-white flex items-center gap-7">
 					<div className="p-3 bg-white shadow rounded-full">
-						<AiOutlineUpload size={30} className="text-sky"/>
+						<AiOutlineUpload size={30} className="text-sky" />
 					</div>
 
 					<h2 className="text-lg font-semibold">Transfert</h2>
 				</div>
 				<div className="bg-gradient-to-r from-purple to-pink-500 shadow-md rounded-lg p-6 text-white flex items-center gap-7">
-				<div className="p-3 bg-white shadow rounded-full">
-						<TbReceipt size={30} className="text-purple"/>
+					<div className="p-3 bg-white shadow rounded-full">
+						<TbReceipt size={30} className="text-purple" />
 					</div>
 
 					<h2 className="text-lg font-semibold">Send Voucher</h2>
+				</div>
+			</div>
+
+			<div className="grid md:grid-cols-2 gap-3 md:gap-8 mt-8">
+				<div className="bg-white py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8">
+					<div className="flex flex-col md:flex-row gap-6 md:gap-0 md:items-center justify-between px-6">
+						<div className="space-y-2">
+							<h2 className="font-bold text-xl text-gray-700">Quick Transfer</h2>
+							<span className="text-xs text-gray-500">Lorem ipsum dolor sit amet, consectetur</span>
+						</div>
+
+						<h1 className="text-xl font-semibold">$56,772.38</h1>
+						
+					</div>
+					<Splide hasTrack={false} aria-label="Attribution"
+						options={
+							{
+								type: "loop",
+								perPage: 3,
+								breakpoints: {
+									1024: {
+										perPage: 2,
+										gap: 10
+									}
+								},
+								pagination: false,
+								gap: 10,
+								focus: 'center',
+							}
+						}
+						className="container mx-auto px-8"
+					>
+						<SplideTrack hasTrack={false}>
+
+							<SplideSlide className="flex flex-col gap-2 items-center justify-center p-3">
+								<div className="w-20 h-2O">
+									<Image src={avatar} className="object-cover rounded-xl"/>
+								</div>
+
+								<span className="font-semibold text-sm">Geoffrey M.</span>
+								<span className="text-xs font-light">frdrcpeter@gmail.com</span>
+							</SplideSlide>
+							
+							<SplideSlide className="flex flex-col gap-2 items-center justify-center p-3">
+								<div className="w-20 h-2O">
+									<Image src={avatar} className="object-cover rounded-xl"/>
+								</div>
+
+								<span className="font-semibold text-sm">Geoffrey M.</span>
+								<span className="text-xs font-light">qwerty@gmail.com</span>
+							</SplideSlide>
+							
+							<SplideSlide className="flex flex-col gap-2 items-center justify-center p-3">
+								<div className="w-20 h-2O">
+									<Image src={avatar} className="object-cover rounded-xl"/>
+								</div>
+
+								<span className="font-semibold text-sm">Bienvenu Z.</span>
+								<span className="text-xs font-light">aa12@gmail.com</span>
+							</SplideSlide>
+							
+							<SplideSlide className="flex flex-col gap-2 items-center justify-center p-3">
+								<div className="w-20 h-2O">
+									<Image src={avatar} className="object-cover rounded-xl"/>
+								</div>
+
+								<span className="font-semibold text-sm">Don Moliso</span>
+								<span className="text-xs font-light">azerty@gmail.com</span>
+							</SplideSlide>
+							
+							<SplideSlide className="flex flex-col gap-2 items-center justify-center p-3">
+								<div className="w-20 h-2O">
+									<Image src={avatar} className="object-cover rounded-xl"/>
+								</div>
+
+								<span className="font-semibold text-sm">Peter NDENGO</span>
+								<span className="text-xs font-light">abc@gmail.com</span>
+							</SplideSlide>
+							
+
+						</SplideTrack>
+
+						<div className="splide__arrows">
+							<button className="splide__arrow splide__arrow--prev bg-transparent relative !-left-7 top-2 bottom-0 !bg-[#F0F4FD] p-4 text-3xl focus:ring-0">
+								<span className="bg-white rounded-full p-1 !text-red-500">
+									<BiCaretRight />
+								</span>
+							</button>
+							<button className="splide__arrow splide__arrow--next bg-transparent relative !-right-7 top-2 bottom-0 !bg-[#F0F4FD] p-4 text-3xl focus:ring-0">
+								<span className="bg-white rounded-full p-1 !text-red-500">
+									<BiCaretRight />
+								</span>
+							</button>
+						</div>
+
+					</Splide>
+				</div>
+				<div>
+					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut libero ipsum explicabo, asperiores molestias totam itaque esse optio pariatur odio eum voluptatem ea, aspernatur, officia soluta maiores nesciunt eveniet obcaecati!
 				</div>
 			</div>
 		</div>
