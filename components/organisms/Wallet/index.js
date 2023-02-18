@@ -7,6 +7,8 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import { AiOutlineUpload } from "react-icons/ai";
+import { TbReceipt } from "react-icons/tb";
 
 import CardHeader from "../../atoms/Card/header";
 import DropdownFilter from "../../atoms/Dropdown/Filter";
@@ -805,6 +807,23 @@ const Wallet = () => {
 						</TabPanel>
 					</div>
 				</Box>
+			</div>
+
+			<div className="grid md:grid-cols-2 gap-3 md:gap-8">
+				<div className="bg-gradient-to-r from-sky to-indigo-500 shadow-md rounded-lg p-6 text-white flex items-center gap-7">
+					<div className="p-3 bg-white shadow rounded-full">
+						<AiOutlineUpload size={30} className="text-sky"/>
+					</div>
+
+					<h2 className="text-lg font-semibold">Transfert</h2>
+				</div>
+				<div className="bg-gradient-to-r from-purple to-pink-500 shadow-md rounded-lg p-6 text-white flex items-center gap-7">
+				<div className="p-3 bg-white shadow rounded-full">
+						<TbReceipt size={30} className="text-purple"/>
+					</div>
+
+					<h2 className="text-lg font-semibold">Send Voucher</h2>
+				</div>
 			</div>
 		</div>
 	);
