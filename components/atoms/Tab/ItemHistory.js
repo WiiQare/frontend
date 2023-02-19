@@ -6,7 +6,7 @@ import ButtonNoAction from '../Button/NoAction';
 
 const ItemHistory = ({fullname, email, createdAt, amount, paymentMethod, state, index, total}) => {
     return (
-        <div tabIndex={index} className={`${total < index ? "border-b py-3" : ""} collapse collapse-arrow text-gray-700 overflow-scroll md:overflow-hidden`}>
+        <div tabIndex={index} className={`${total > index + 1 ? "border-b py-3" : ""} collapse collapse-arrow text-gray-700 overflow-scroll md:overflow-hidden`}>
             <div className="collapse-title flex gap-7 justify-between items-center ">
                 <div className="flex gap-3 items-center">
                     <div className="w-16 h-16">
