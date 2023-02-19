@@ -1,6 +1,6 @@
 import { CiSaveDown2 } from "react-icons/ci";
 
-import DropdownFilter from "../Dropdown/Filter";
+import DropdownFilter from "../../Dropdown/Filter";
 import { Button } from "flowbite-react";
 
 const CardHeader = ({title, sort, filter}) => {

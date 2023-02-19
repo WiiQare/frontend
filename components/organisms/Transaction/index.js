@@ -1,5 +1,5 @@
 import { CiCircleList } from "react-icons/ci";
-import CardHeader from "../../atoms/Card/header";
+import CardHeader from "../../atoms/Card/Header";
 import TransactionTable from "../../atoms/Table/Transaction";
 
 const Transaction = () => {
