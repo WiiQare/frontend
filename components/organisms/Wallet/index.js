@@ -20,6 +20,7 @@ import DropdownFilter from "../../atoms/Dropdown/Filter";
 
 import avatar from "../../../public/images/avatar.jpg";
 import Image from "next/image";
+import WalletBalance from "./Balance";
 
 
 const Wallet = () => {
@@ -46,81 +47,30 @@ const Wallet = () => {
 				}}
 			/>
 
-			<div className="container">
-				<div className="bg-white drop-shadow-sm rounded-lg px-3 py-3">
-					<div className="flex flex-row-reverse">
-						<DropdownFilter
-							icon={() => <HiDotsVertical size={24} className="cursor-pointer text-gray-700" />}
-							labelClassName="border-none"
-							chevronDown={false}
-							items={["Delete", "Edit"]}
-							dropClassName="!p-0 mt-10 w-28"
-						/>
-					</div>
+			<WalletBalance 
+				wallet={{
+					amount: "673,412.66",
+					valid: "08/21",
+					holder: "Peter NDENGO",
+					number: "**** **** **** 1234",
+					progress: 45
+				}}
 
-					<div className="flex flex-col md:flex-row gap-6 md:items-center justify-between px-6">
-						<div className="flex gap-2 items-center">
-							<CiWallet size={80} className="text-sky" />
-							<div className="text-gray-700">
-								<h1 className="font-semibold text-xl">Main Balance</h1>
-								<h3 className="font-bold text-3xl">$673,412.66</h3>
-							</div>
-						</div>
-
-						<div className="text-sm hidden md:block">
-							<span className="uppercase">VALID THRU</span>
-							<h6 className="text-gray-700">08/21</h6>
-						</div>
-
-						<div className="text-sm hidden md:block">
-							<span className="uppercase">Card Holder</span>
-							<h6 className="text-gray-700">Peter NDENGO</h6>
-						</div>
-
-						<h1 className=" text-gray-900 font-semibold">**** **** **** 1234</h1>
-
-						<span className="w-12 hidden md:block"></span>
-					</div>
-
-					<div className="px-6 mt-8 space-y-7">
-						<div className="w-full bg-gray-200 rounded-full md:h-7">
-							<div className="bg-sky text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full w-[45%] h-full flex items-center justify-center"> 45%</div>
-						</div>
-
-						<div className="grid md:grid-cols-2 gap-8 items-center">
-							<CardProgress
-								color={"text-purple"}
-								value={62}
-								title={"Installment"}
-								amount={"5,412"}
-								className={"bg-[#F9F1FC]"}
-							/>
-
-							<CardProgress
-								color={"text-[#2ABB52]"}
-								value={89}
-								title={"Investment"}
-								amount={"10,916"}
-								className={"bg-[#E3F9E9]"}
-							/>
-
-							<CardProgress
-								color={"text-[#441DE1]"}
-								value={41}
-								title={"Property"}
-								amount={"1,282"}
-								className={"bg-[#F4F2FE]"}
-							/>
-
-							<Link href={"/learn"} legacyBehavior>
-								<button className='border border-sky hover:bg-sky hover:text-white text-sky font-normal h-fit  py-4 md:px-9 px-5 rounded-lg text-lg transition duration-300'>+ New Spends</button>
-							</Link>
-
-						</div>
-					</div>
-
-				</div>
-			</div>
+				progresses={{
+					installment: {
+						percent: 62,
+						amount: "5,412"
+					},
+					investment: {
+						percent: 89,
+						amount: "10,619"
+					},
+					property: {
+						percent: 41,
+						amount: "1,282"
+					}
+				}}
+			/>
 
 			<div className="space-y-4 bg-white py-8 px-6 drop-shadow-sm rounded-lg">
 
@@ -997,18 +947,6 @@ const Wallet = () => {
 };
 
 export default Wallet;
-
-function CardProgress({ color, value, title, amount, className }) {
-	return (
-		<div className={`${className} py-4 px-4 rounded-lg flex items-center gap-4`}>
-			<div className={`radial-progress ${color}`} style={{ "--value": value, "--size": '4rem' }}>{value}%</div>
-			<div>
-				<h3 className="text-gray-700 font-bold text-sm">{title}</h3>
-				<span className="text-sm">${amount}</span>
-			</div>
-		</div>
-	)
-}
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
