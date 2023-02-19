@@ -10,8 +10,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { AiOutlineUpload } from "react-icons/ai";
 import { TbReceipt } from "react-icons/tb";
-import { IoIosArrowDropright, IoIosArrowDropleft } from "react-icons/io";
-import { BiCaretLeft, BiCaretRight } from "react-icons/bi";
+import { BiCaretRight } from "react-icons/bi";
 
 
 import '@splidejs/react-splide/css';
@@ -142,8 +141,8 @@ const Wallet = () => {
 					<div>
 						<TabPanel value={value} index={0} >
 
-							<section className="space-y-6">
-								<div tabIndex={0} className="collapse collapse-arrow text-gray-700 overflow-scroll md:overflow-hidden">
+							<section className="space-y-3">
+								<div tabIndex={0} className="border-b py-3 collapse collapse-arrow text-gray-700 overflow-scroll md:overflow-hidden">
 									<div className="collapse-title flex gap-7 justify-between items-center ">
 										<div className="flex gap-3 items-center">
 											<div className="w-16 h-16">
@@ -256,8 +255,8 @@ const Wallet = () => {
 
 						</TabPanel>
 						<TabPanel value={value} index={1}>
-							<section className="space-y-6">
-								<div tabIndex={0} className="collapse collapse-arrow text-gray-700 overflow-scroll md:overflow-hidden">
+							<section className="space-y-3">
+								<div tabIndex={0} className="collapse collapse-arrow border-b py-3  text-gray-700 overflow-scroll md:overflow-hidden">
 									<div className="collapse-title flex gap-7 justify-between items-center">
 										<div className="flex gap-3 items-center">
 											<div className="w-16 h-16">
@@ -312,7 +311,7 @@ const Wallet = () => {
 									</div>
 								</div>
 
-								<div tabIndex={1} className="collapse collapse-arrow text-gray-700 overflow-scroll md:overflow-hidden">
+								<div tabIndex={1} className="collapse collapse-arrow border-b py-3  text-gray-700 overflow-scroll md:overflow-hidden">
 									<div className="collapse-title flex gap-7 justify-between items-center">
 										<div className="flex gap-3 items-center">
 											<div className="w-16 h-16">
@@ -366,7 +365,7 @@ const Wallet = () => {
 										</span>
 									</div>
 								</div>
-								<div tabIndex={1} className="collapse collapse-arrow text-gray-700 overflow-scroll md:overflow-hidden">
+								<div tabIndex={1} className="collapse collapse-arrow border-b py-3  text-gray-700 overflow-scroll md:overflow-hidden">
 									<div className="collapse-title flex gap-7 justify-between items-center">
 										<div className="flex gap-3 items-center">
 											<div className="w-16 h-16">
@@ -421,7 +420,7 @@ const Wallet = () => {
 									</div>
 								</div>
 
-								<div tabIndex={0} className="collapse collapse-arrow text-gray-700 overflow-scroll md:overflow-hidden">
+								<div tabIndex={0} className="collapse collapse-arrow border-b py-3  text-gray-700 overflow-scroll md:overflow-hidden">
 									<div className="collapse-title flex gap-7 justify-between items-center">
 										<div className="flex gap-3 items-center">
 											<div className="w-16 h-16">
@@ -533,9 +532,9 @@ const Wallet = () => {
 							</section>
 						</TabPanel>
 						<TabPanel value={value} index={2}>
-							<section className="space-y-6">
+							<section className="space-y-3">
 
-								<div tabIndex={0} className="collapse collapse-arrow text-gray-700 overflow-scroll md:overflow-hidden">
+								<div tabIndex={0} className="collapse collapse-arrow border-b py-3 text-gray-700 overflow-scroll md:overflow-hidden">
 									<div className="collapse-title flex gap-7 justify-between items-center">
 										<div className="flex gap-3 items-center">
 											<div className="w-16 h-16">
@@ -590,7 +589,7 @@ const Wallet = () => {
 									</div>
 								</div>
 
-								<div tabIndex={0} className="collapse collapse-arrow text-gray-700 overflow-scroll md:overflow-hidden">
+								<div tabIndex={0} className="collapse collapse-arrow border-b py-3 text-gray-700 overflow-scroll md:overflow-hidden">
 									<div className="collapse-title flex gap-7 justify-between items-center">
 										<div className="flex gap-3 items-center">
 											<div className="w-16 h-16">
@@ -645,7 +644,7 @@ const Wallet = () => {
 									</div>
 								</div>
 
-								<div tabIndex={0} className="collapse collapse-arrow text-gray-700 overflow-scroll md:overflow-hidden">
+								<div tabIndex={0} className="collapse collapse-arrow border-b py-3 text-gray-700 overflow-scroll md:overflow-hidden">
 									<div className="collapse-title flex gap-7 justify-between items-center">
 										<div className="flex gap-3 items-center">
 											<div className="w-16 h-16">
@@ -700,7 +699,7 @@ const Wallet = () => {
 									</div>
 								</div>
 
-								<div tabIndex={0} className="collapse collapse-arrow text-gray-700 overflow-scroll md:overflow-hidden">
+								<div tabIndex={0} className="collapse collapse-arrow border-b py-3 text-gray-700 overflow-scroll md:overflow-hidden">
 									<div className="collapse-title flex gap-7 justify-between items-center">
 										<div className="flex gap-3 items-center">
 											<div className="w-16 h-16">
@@ -833,7 +832,7 @@ const Wallet = () => {
 			</div>
 
 			<div className="grid md:grid-cols-2 gap-3 md:gap-8 mt-8">
-				<div className="bg-white py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8">
+				<div className="bg-white py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8 w-screen md:w-full">
 					<div className="flex flex-row gap-6 md:gap-0 md:items-center justify-between px-6">
 						<div className="space-y-2">
 							<h2 className="font-bold text-xl text-gray-700">Quick Transfer</h2>
@@ -852,7 +851,10 @@ const Wallet = () => {
 									1024: {
 										perPage: 1,
 										gap: 20
-									}
+									},
+									640: {
+										perPage: 2,
+									},
 								},
 								pagination: false,
 								gap: 10,
@@ -938,13 +940,55 @@ const Wallet = () => {
 					</div>
 				</div>
 
-				<div className="bg-white py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8">
+				<div className="bg-white mb-10 py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8 w-screen md:w-full">
 					<div className="flex flex-col md:flex-row gap-6 md:gap-0 md:items-center justify-between px-6">
 						<div className="space-y-2">
 							<h2 className="font-bold text-xl text-gray-700">Voucher Sent</h2>
 							<span className="text-xs text-gray-500">Lorem ipsum dolor sit amet, consectetur</span>
 						</div>
 
+					</div>
+
+					<div className="px-6 space-y-3">
+						<div className="pb-6 border-b flex gap-6 justify-between items-center">
+							<div className="flex gap-3 items-center">
+								<div className="w-12 h-12">
+									<Image src={avatar} className="rounded-full object-cover" />
+								</div>
+								<div>
+									<h3 className="font-semibold">FSociety</h3>
+									<span className="text-gray-400 text-xs">3 minutes ago</span>
+								</div>
+							</div>
+
+							<span className="font-bold">$48</span>
+						</div>
+						<div className="py-6 border-b flex gap-6 justify-between items-center">
+							<div className="flex gap-3 items-center">
+								<div className="w-12 h-12">
+									<Image src={avatar} className="rounded-full object-cover" />
+								</div>
+								<div>
+									<h3 className="font-semibold">Geoffrey</h3>
+									<span className="text-gray-400 text-xs">30 minutes ago</span>
+								</div>
+							</div>
+
+							<span className="font-bold">$371</span>
+						</div>
+						<div className="py-6 flex gap-6 justify-between items-center">
+							<div className="flex gap-3 items-center">
+								<div className="w-12 h-12">
+									<Image src={avatar} className="rounded-full object-cover" />
+								</div>
+								<div>
+									<h3 className="font-semibold">FSociety</h3>
+									<span className="text-gray-400 text-xs">1 hour ago</span>
+								</div>
+							</div>
+
+							<span className="font-bold">$130</span>
+						</div>
 					</div>
 				</div>
 			</div>
