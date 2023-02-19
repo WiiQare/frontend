@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { getSession } from "next-auth/react";
-import DashboardLayout from "../layouts/Dashboard";
-import Wallet from "../components/organisms/Wallet";
+import DashboardLayout from "../../layouts/Dashboard";
+import Wallet from "../../components/organisms/Wallet";
 
 const Page = () => {
   return (

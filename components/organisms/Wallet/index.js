@@ -75,7 +75,8 @@ const Wallet = () => {
 			</div>
 
 			<div className="grid md:grid-cols-2 gap-3 md:gap-8 mt-8">
-				<div className="bg-white py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8 w-screen md:w-full">
+				
+				<div className="bg-white py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8 w-screen md:w-full h-full">
 					<div className="flex flex-row gap-6 md:gap-0 md:items-center justify-between px-6">
 						<div className="space-y-2">
 							<h2 className="font-bold text-xl text-gray-700">Quick Transfer</h2>
@@ -183,7 +184,7 @@ const Wallet = () => {
 					</div>
 				</div>
 
-				<div className="bg-white mb-10 py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8 w-screen md:w-full">
+				<div className="bg-white mb-10 py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8 w-screen md:w-full h-full">
 					<div className="flex flex-col md:flex-row gap-6 md:gap-0 md:items-center justify-between px-6">
 						<div className="space-y-2">
 							<h2 className="font-bold text-xl text-gray-700">Voucher Sent</h2>
