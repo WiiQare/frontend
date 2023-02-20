@@ -29,7 +29,8 @@
     "react-icons": "^4.7.1",
     "react-slick": "^0.29.0",
     "react18-input-otp": "^1.1.2",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",

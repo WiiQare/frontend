@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 body {
-    @apply !bg-white
+  @apply !bg-white;
 }
 
 .effect-up {
-    @apply relative transition duration-200 hover:-top-1
+  @apply relative transition duration-200 hover:-top-1;
 }
-
+/* 
 .cardWrap {
     width: 27em;
     margin: 3em auto;
@@ -117,20 +117,19 @@ body {
     display: block;
     color: #a2aeae;
   }
-  
-  /* Price Range */
+   */
+/* Price Range */
 input[type="range"]::-webkit-slider-thumb {
-    pointer-events: auto;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    -webkit-appearance: none;
-    @apply bg-green-500;
-  
-    /* @apply w-6 h-6 appearance-none pointer-events-auto; */
-  }
+  pointer-events: auto;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  @apply bg-green-500;
 
-  .splide__slide.is-active {
-    @apply bg-[#EBF6FD] rounded-xl
-  }
-  
+  /* @apply w-6 h-6 appearance-none pointer-events-auto; */
+}
+
+.splide__slide.is-active {
+  @apply bg-[#EBF6FD] rounded-xl;
+}
