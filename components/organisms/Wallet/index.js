@@ -1,4 +1,5 @@
-import { CiCircleList } from "react-icons/ci";
+import { useState } from "react";
+import { CiCircleCheck, CiCircleList } from "react-icons/ci";
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import { AiOutlineUpload } from "react-icons/ai";
 import { TbReceipt } from "react-icons/tb";
@@ -14,7 +15,7 @@ import HistoryWallet from "./History";
 
 
 const Wallet = () => {
-
+	const [activeIndexSlide, setActiveIndexSlide] = useState(0);
 	return (
 		<div className="p-2 space-y-6 md:py-8 md:px-6 mb-12">
 			<CardHeader
@@ -105,13 +106,19 @@ const Wallet = () => {
 								focus: 'center',
 							}
 						}
+						onActive={(splide, slide) => {
+							if(slide.slideIndex == -1) {
+								setActiveIndexSlide(slide.index)
+							}
+						}}
 						className="container mx-auto px-8"
 					>
 						<SplideTrack hasTrack={false}>
 
 							<SplideSlide className="flex flex-col gap-2 items-center justify-center p-3">
-								<div className="w-20 h-2O">
+								<div className="w-20 h-2O relative">
 									<Image src={avatar} className="object-cover rounded-xl" />
+									<span className={`${activeIndexSlide === 0 ? '' : "hidden"} p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}><CiCircleCheck size={18} /></span>
 								</div>
 
 								<span className="font-semibold text-sm">Geoffrey M.</span>
@@ -119,8 +126,9 @@ const Wallet = () => {
 							</SplideSlide>
 
 							<SplideSlide className="flex flex-col gap-2 items-center justify-center p-3">
-								<div className="w-20 h-2O">
+								<div className="w-20 h-2O relative">
 									<Image src={avatar} className="object-cover rounded-xl" />
+									<span className={`${activeIndexSlide == 1 ? '' : "hidden"} p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}><CiCircleCheck size={18} /></span>
 								</div>
 
 								<span className="font-semibold text-sm">Geoffrey M.</span>
@@ -128,8 +136,9 @@ const Wallet = () => {
 							</SplideSlide>
 
 							<SplideSlide className="flex flex-col gap-2 items-center justify-center p-3">
-								<div className="w-20 h-2O">
+								<div className="w-20 h-2O relative">
 									<Image src={avatar} className="object-cover rounded-xl" />
+									<span className={`${activeIndexSlide == 2 ? '' : "hidden"} p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}><CiCircleCheck size={18} /></span>
 								</div>
 
 								<span className="font-semibold text-sm">Bienvenu Z.</span>
@@ -137,8 +146,9 @@ const Wallet = () => {
 							</SplideSlide>
 
 							<SplideSlide className="flex flex-col gap-2 items-center justify-center p-3">
-								<div className="w-20 h-2O">
+								<div className="w-20 h-2O relative">
 									<Image src={avatar} className="object-cover rounded-xl" />
+									<span className={`${activeIndexSlide == 3 ? '' : "hidden"} p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}><CiCircleCheck size={18} /></span>
 								</div>
 
 								<span className="font-semibold text-sm">Don Moliso</span>
@@ -146,8 +156,9 @@ const Wallet = () => {
 							</SplideSlide>
 
 							<SplideSlide className="flex flex-col gap-2 items-center justify-center p-3">
-								<div className="w-20 h-2O">
+								<div className="w-20 h-2O relative">
 									<Image src={avatar} className="object-cover rounded-xl" />
+									<span className={`${activeIndexSlide == 4 ? '' : "hidden"} p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}><CiCircleCheck size={18} /></span>
 								</div>
 
 								<span className="font-semibold text-sm">Peter NDENGO</span>
@@ -177,7 +188,7 @@ const Wallet = () => {
 						<form className="w-full">
 							<label for="search" className="mb-2 text-sm font-medium text-gray-900 sr-only">Transfer amount</label>
 							<div className="relative flex w-full">
-								<input type="number" min={10} id="search" name="amount" className="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-sky focus:border-sky" placeholder="Enter amount" required />
+								<input type="number" min={10} id="search" name="amount" className="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-sky focus:border-sky" placeholder="Enter amount" required defaultValue={10} />
 								<button type="submit" className="text-white absolute right-2.5 bottom-2.5 bg-sky hover:bg-cyan-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Transfer Now</button>
 							</div>
 						</form>
