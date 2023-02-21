@@ -28,7 +28,6 @@ const CardWrap = styled.div`
     float: left;
     position: relative;
     padding: 1em;
-    ${"" /* margin-top: 100px; */}
   }
 
   && .cardLeft {
@@ -39,7 +38,8 @@ const CardWrap = styled.div`
 
   && .cardRight {
     width: 10em;
-    border-left: 0.18em dashed rgba(0, 0, 0, 0.5);
+    border-left: 0.18em dashed rgba(0, 0, 0, 0.2);
+    
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
   }
