@@ -39,7 +39,7 @@ const CardWrap = styled.div`
 
   && .cardRight {
     width: 10em;
-    border-left: 0.18em dashed rgba(0, 0, 0, 0.2);
+    border-left: 0.18em dashed rgba(0, 0, 0, 0.5);
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
   }
