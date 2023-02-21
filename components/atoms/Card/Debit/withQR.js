@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQRCode } from "next-qrcode";
 import styled from "styled-components";
 import Image from "next/image";
 import ButtonBuy from "../../Button/Buy";
 
 import logo from "../../../../public/images/logo.png";
+import { CiEdit } from "react-icons/ci";
 
 const CardWrap = styled.div`
   && * {
@@ -154,15 +155,20 @@ const WithQR = () => {
   const { Canvas } = useQRCode();
   let now = new Date();
 
+  const [edit, setEdit] = useState(false);
+
   return (
-    <CardWrap className="flex !w-full md:!w-[40rem]">
+    <CardWrap className="flex !w-full md:!w-[40rem] h-full">
       <div className="v-card cardLeft shadow-sm !w-4/6">
         <h1 className="font-light uppercase flex items-center !text-sm md:!text-lg">
           Pass santé Voucher
         </h1>
 
-        <div className="price">
-          <h3 className="!text-2xl md:!text-3xl">200.00 $</h3>
+        <div className="price relative flex items-center justify-center w-full h-fit -mb-4">
+          <h3 className="!text-2xl md:!text-3xl flex justify-center items-center">$<input type="text" defaultValue={"200.00"} className="w-28 p-0 text-3xl border-none focus:ring-0 pointer-events-none " id="voucherAmount"/></h3>
+          <label htmlFor="voucherAmount" className="cursor-pointer">
+            <CiEdit size={20} className=" text-gray-800 hover:text-orange transition-all duration-200"/>
+          </label>
         </div>
 
         <div className="code">

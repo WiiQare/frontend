@@ -1,4 +1,5 @@
 import { CiDollar, CiInboxIn } from "react-icons/ci";
+import { HiUserGroup } from "react-icons/hi";
 import WithQR from "../../atoms/Card/Debit/withQR";
 
 const VoucherHome = () => {
@@ -9,7 +10,7 @@ const VoucherHome = () => {
       </div>
 
       <div className="bg-white drop-shadow-sm rounded-xl py-6 px-24 flex flex-col justify-center items-center gap-8 w-fit">
-        <CiInboxIn size={50} className="text-sky" />
+        <HiUserGroup size={60} className="text-sky"/>
         <div className="space-y-3 text-center w-full">
           <h1 className="text-gray-800 text-lg">Invite your friends</h1>
           <button className="flex bg-sky px-4 py-4 justify-center text-white items-center rounded-xl hover:shadow-md gap-2 w-auto md:w-52">
