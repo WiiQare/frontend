@@ -11,7 +11,7 @@ const CardWrap = styled.div`
     font-family: sans-serif;
   }
   && {
-    width: 30em;
+    width: 40rem;
     color: #fff;
     font-family: sans-serif;
   }
@@ -21,8 +21,8 @@ const CardWrap = styled.div`
       to bottom,
       #007bff 0%,
       #007bff 26%,
-      #ecedef 26%,
-      #ecedef 100%
+      #fff 26%,
+      #fff 100%
     );
     height: 15em;
     float: left;
@@ -34,12 +34,12 @@ const CardWrap = styled.div`
   && .cardLeft {
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
-    width: 19em;
+    width: 27rem;
   }
 
   && .cardRight {
-    width: 9.5em;
-    border-left: 0.18em dashed #f0f4fd;
+    width: 10em;
+    border-left: 0.18em dashed rgba(0, 0, 0, 0.2);
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
   }
@@ -152,48 +152,52 @@ const CardWrap = styled.div`
 
 const WithQR = () => {
   const { Canvas } = useQRCode();
+  let now = new Date();
+
   return (
-    <CardWrap>
-      <div className="v-card cardLeft">
-        <h1 className="">
-          Pass santé <span> Voucher</span>
+    <CardWrap className="flex !w-full md:!w-[40rem]">
+      <div className="v-card cardLeft shadow-sm !w-4/6">
+        <h1 className="font-light uppercase flex items-center !text-sm md:!text-lg">
+          Pass santé Voucher
         </h1>
 
         <div className="price">
-          <h3>200.00 $</h3>
+          <h3 className="!text-2xl md:!text-3xl">200.00 $</h3>
         </div>
 
         <div className="code">
-          <h2>284 xxx xxx xxx xxx </h2>
+          <h2 className="">284 *** *** *** *** </h2>
           <span>Code</span>
         </div>
         <div className="date">
-          <h2>25/23</h2>
+          <h2>{new Intl.DateTimeFormat('fr-FR').format(now)}</h2>
           <span>date</span>
         </div>
         <div className="time">
-          <h2>12:00</h2>
+          <h2>{new Intl.DateTimeFormat('fr-FR', {hour: "2-digit", minute: "2-digit"}).format(now)}</h2>
           <span>time</span>
         </div>
-        <div className="buy">
+        <div className="buy hidden md:flex">
           <ButtonBuy />
         </div>
       </div>
-      <div className="v-card cardRight">
-        <div className="logo">
+      <div className="v-card cardRight shadow-sm !relative !w-2/6">
+        <div className="logo !relative !top-1 md:!-top-2">
           <Image
             height={25}
             src={logo}
             className="h-8 md:h-14 w-min object-left object-contain"
           />
         </div>
-        <div className="qr">
+        <div className="qr md:!w-full !flex !flex-col  text-center items-center justify-between !px-2 md:!px-0 !w-20 !mt-4 md:mt-0">
           <Canvas
+            className="w-full"
             text={"https://github.com/frdrcpeter007"}
             options={{
               level: "M",
-              margin: 2,
-              scale: 3.6,
+              margin: 1,
+              scale: 3,
+              quality: 100,
               color: {
                 dark: "#000",
                 light: "#FFF",
@@ -201,8 +205,9 @@ const WithQR = () => {
             }}
           />
         </div>
-        <div className="scan">
-          <span>scan qr code</span>
+        <div className="scan !w-full !flex !justify-around">
+          <span className=" hidden md:flex !justify-center">Scan QR Code</span>
+          <button className="bg-orange p-2 text-xs mt-3 md:hidden rounded-md text-white effect-up">+ Buy Now</button>
         </div>
       </div>
     </CardWrap>

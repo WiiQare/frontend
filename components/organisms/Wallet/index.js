@@ -186,7 +186,7 @@ const Wallet = () => {
 					<div className="py-3 px-8 flex flex-col md:flex-row items-center justify-center gap-10">
 						<h4 className="font-semibold">Amount</h4>
 						<form className="w-full">
-							<label for="search" className="mb-2 text-sm font-medium text-gray-900 sr-only">Transfer amount</label>
+							<label htmlFor="search" className="mb-2 text-sm font-medium text-gray-900 sr-only">Transfer amount</label>
 							<div className="relative flex w-full">
 								<input type="number" min={10} id="search" name="amount" className="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-sky focus:border-sky" placeholder="Enter amount" required defaultValue={10} />
 								<button type="submit" className="text-white absolute right-2.5 bottom-2.5 bg-sky hover:bg-cyan-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Transfer Now</button>

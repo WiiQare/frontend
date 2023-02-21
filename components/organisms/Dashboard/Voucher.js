@@ -4,7 +4,7 @@ import WithQR from "../../atoms/Card/Debit/withQR";
 const VoucherHome = () => {
   return (
     <div className="p-2 md:py-8 md:px-6 flex flex-col md:flex-row gap-8 md:gap-12">
-      <div className="md:min-w-4/5 flex">
+      <div className="md:min-w-5/6 flex">
         <WithQR />
       </div>
 
