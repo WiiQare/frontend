@@ -16,7 +16,7 @@ export default function App({ Component, pageProps }) {
           content="Payé les soins à vos familles depuis l'étranger"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/images/favicon.png" />
         <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 
       </Head>
