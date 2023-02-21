@@ -9,7 +9,7 @@ const VoucherHome = () => {
 				<WithQR />
 			</div>
 
-			<div className="bg-white drop-shadow-sm rounded-xl py-6 px-24 flex flex-col justify-center items-center gap-8 w-fit">
+			<div className="bg-white drop-shadow-sm rounded-xl py-6 px-24 flex flex-col justify-center items-center gap-8 w-fit relative">
 				<HiUserGroup size={60} className="text-sky" />
 				<div className="space-y-3 text-center w-full">
 					<h1 className="text-gray-800 text-lg">Invite your friends</h1>
@@ -17,7 +17,7 @@ const VoucherHome = () => {
 						<CiDollar size={25} />
 						<span className="text-xs font-light">Earn Budges for 10$</span>
 					</button>
-					<span data-popover-target="popover-description" className="absolute top-1 right-6 cursor-pointer text-gray-400"><CiCircleInfo size={25} /></span>
+					<span data-popover-target="popover-description" className="absolute top-1 right-6 cursor-pointer text-gray-700 md:text-gray-400"><CiCircleInfo size={25} /></span>
 
 					<div data-popover id="popover-description" role="tooltip" class="absolute z-50 invisible inline-block text-sm font-light text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72 ">
 						<div class="p-3 space-y-2 text-left">
