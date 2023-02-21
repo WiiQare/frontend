@@ -17,6 +17,7 @@ export default function App({ Component, pageProps }) {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/images/favicon.png" />
+        <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
       </Head>
       <SessionProvider session={pageProps.session}>
         <ThemeProvider theme={theme}>        
