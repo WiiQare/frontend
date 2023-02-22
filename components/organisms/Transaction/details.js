@@ -24,7 +24,7 @@ const DetailsTransaction = () => {
                 print={true}
             />
 
-            <section className="w-full grid md:grid-cols-3 gap-8 items-start pb-20">
+            <section className="w-full grid md:grid-cols-3 gap-8 items-start pb-20 md:pb-0">
                 <div className="w-full overflow-hidden md:col-span-2 rounded-lg py-8 flex flex-col gap-6 bg-white drop-shadow-sm">
                     <div className="px-8 space-y-8">
                         <div>
