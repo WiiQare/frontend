@@ -7,7 +7,7 @@ const Items = [
     title: "Home",
     icon: ({ size, className }) => <SlHome size={size} className={className} />,
     link: "/",
-    active: "/",
+    active: ["/"],
   },
   {
     title: "My Wallet",
@@ -15,7 +15,7 @@ const Items = [
       <SlWallet size={size} className={className} />
     ),
     link: "/wallet",
-    active: "/wallet",
+    active: ["/wallet"],
   },
   {
     title: "Invoices",
@@ -23,7 +23,7 @@ const Items = [
       <SlEqualizer size={size} className={className} />
     ),
     link: "/invoices",
-    active: "/invoices",
+    active: ["/invoices"],
   },
   {
     title: "Transactions",
@@ -31,7 +31,7 @@ const Items = [
       <SlGlobe size={size} className={className} />
     ),
     link: "/transactions",
-    active: "/transactions",
+    active: ["/transactions", "/transactions/[id]"],
   },
 ];
 
@@ -41,7 +41,7 @@ const Sidebar = ({ activePath }) => {
       {Items.map((item, index) => (
         <ItemSidebar
           {...item}
-          activePath={item.active == activePath ? true : false}
+          activePath={item.active.includes(activePath) ? true : false}
           key={index}
         />
       ))}

@@ -1,0 +1,22 @@
+import Head from "next/head";
+import { getSession } from "next-auth/react";
+import DashboardLayout from "../../layouts/Dashboard";
+
+import DetailsTransaction from "../../components/organisms/Transaction/details";
+
+const Page = () => {
+  return (
+    <>
+      <Head>
+        <title>Détails Transactions</title>
+      </Head>
+      <DetailsTransaction />
+    </>
+  );
+};
+
+Page.getLayout = (page) => (
+  <DashboardLayout className="space-y-8">{page}</DashboardLayout>
+);
+
+export default Page;

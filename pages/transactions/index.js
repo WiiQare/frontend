@@ -1,8 +1,8 @@
 import Head from "next/head";
 import { getSession } from "next-auth/react";
-import DashboardLayout from "../layouts/Dashboard";
+import DashboardLayout from "../../layouts/Dashboard";
 
-import Transaction from "../components/organisms/Transaction";
+import Transaction from "../../components/organisms/Transaction";
 
 const Page = () => {
   return (
