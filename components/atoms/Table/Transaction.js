@@ -64,20 +64,22 @@ export default function TransactionTable() {
 							</label>
 						</th>
 						<td>
-							<div className="flex items-center space-x-3">
-								<div className="avatar">
-									<div className="mask mask-squircle w-12 h-12">
-										<img
-											src="/images/avatar.jpg"
-											alt="Avatar Tailwind CSS Component"
-										/>
+							<Link href={"/transactions/12345"} legacyBehavior>
+								<div className="flex items-center space-x-3 cursor-pointer">
+									<div className="avatar">
+										<div className="mask mask-squircle w-12 h-12">
+											<img
+												src="/images/avatar.jpg"
+												alt="Avatar Tailwind CSS Component"
+											/>
+										</div>
+									</div>
+									<div>
+										<div className="font-bold">Brice Swyre</div>
+										<div className="text-sm opacity-50">China</div>
 									</div>
 								</div>
-								<div>
-									<div className="font-bold">Brice Swyre</div>
-									<div className="text-sm opacity-50">China</div>
-								</div>
-							</div>
+							</Link>
 						</td>
 						<td>
 							Carroll Group
@@ -97,20 +99,23 @@ export default function TransactionTable() {
 							</label>
 						</th>
 						<td>
-							<div className="flex items-center space-x-3">
-								<div className="avatar">
-									<div className="mask mask-squircle w-12 h-12">
-										<img
-											src="/images/avatar.jpg"
-											alt="Avatar Tailwind CSS Component"
-										/>
+							<Link href={"/transactions/12345"} legacyBehavior>
+
+								<div className="flex items-center space-x-3 cursor-pointer">
+									<div className="avatar">
+										<div className="mask mask-squircle w-12 h-12">
+											<img
+												src="/images/avatar.jpg"
+												alt="Avatar Tailwind CSS Component"
+											/>
+										</div>
+									</div>
+									<div>
+										<div className="font-bold">Marjy Ferencz</div>
+										<div className="text-sm opacity-50">Russia</div>
 									</div>
 								</div>
-								<div>
-									<div className="font-bold">Marjy Ferencz</div>
-									<div className="text-sm opacity-50">Russia</div>
-								</div>
-							</div>
+							</Link>
 						</td>
 						<td>
 							Rowe-Schoen
@@ -132,20 +137,23 @@ export default function TransactionTable() {
 							</label>
 						</th>
 						<td>
-							<div className="flex items-center space-x-3">
-								<div className="avatar">
-									<div className="mask mask-squircle w-12 h-12">
-										<img
-											src="/images/avatar.jpg"
-											alt="Avatar Tailwind CSS Component"
-										/>
+							<Link href={"/transactions/12345"} legacyBehavior>
+
+								<div className="flex items-center space-x-3 cursor-pointer">
+									<div className="avatar">
+										<div className="mask mask-squircle w-12 h-12">
+											<img
+												src="/images/avatar.jpg"
+												alt="Avatar Tailwind CSS Component"
+											/>
+										</div>
+									</div>
+									<div>
+										<div className="font-bold">Yancy Tear</div>
+										<div className="text-sm opacity-50">Brazil</div>
 									</div>
 								</div>
-								<div>
-									<div className="font-bold">Yancy Tear</div>
-									<div className="text-sm opacity-50">Brazil</div>
-								</div>
-							</div>
+							</Link>
 						</td>
 						<td>
 							Wyman-Ledner
