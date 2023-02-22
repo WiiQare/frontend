@@ -10,7 +10,7 @@ const ItemHistory = ({fullname, email, createdAt, amount, paymentMethod, state, 
             <div className="collapse-title flex gap-7 justify-between items-center ">
                 <div className="flex gap-3 items-center">
                     <div className="w-16 h-16">
-                        <Image src={avatar} className="object-cover rounded-full w-full h-full" />
+                        <Image src={"https://xsgames.co/randomusers/avatar.php?g=male"} width={50} height={50} className="object-cover rounded-full w-full h-full" />
                     </div>
                     <div>
                         <h1 className="font-bold text-xl">{fullname}</h1>
