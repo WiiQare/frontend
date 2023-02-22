@@ -4,7 +4,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import ContentModal from '../Modal/content';
 
 const ButtonBuy = ({ modal, className, children, withIcon = true }) => {
-    console.log(modal);
+
     let [isOpen, setIsOpen] = useState(false)
 
     const closeModal = () => {
