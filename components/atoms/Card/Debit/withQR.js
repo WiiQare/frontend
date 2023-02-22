@@ -152,72 +152,79 @@ const CardWrap = styled.div`
 `;
 
 const WithQR = () => {
-  const { Canvas } = useQRCode();
-  let now = new Date();
+	const { Canvas } = useQRCode();
+	let now = new Date();
 
-  const [edit, setEdit] = useState(false);
+	const [edit, setEdit] = useState(false);
 
-  return (
-    <CardWrap className="flex !w-full md:!w-[40rem] h-full">
-      <div className="v-card cardLeft shadow-sm !w-4/6">
-        <h1 className="font-light uppercase flex items-center !text-sm md:!text-lg">
-          Pass santé Voucher
-        </h1>
+	return (
+		<CardWrap className="flex !w-full md:!w-[40rem] h-full">
+			<div className="v-card cardLeft shadow-sm !w-4/6">
+				<h1 className="font-light uppercase flex items-center !text-sm md:!text-lg">
+					Pass santé Voucher
+				</h1>
 
-        <div className="price relative flex items-center justify-center w-full h-fit -mb-4">
-          <h3 className="!text-2xl md:!text-3xl flex justify-center items-center">$<input type="text" defaultValue={"200.00"} className="w-28 p-0 text-3xl border-none focus:ring-0 pointer-events-none " id="voucherAmount"/></h3>
-          <label htmlFor="voucherAmount" className="cursor-pointer">
-            <CiEdit size={20} className=" text-gray-800 hover:text-orange transition-all duration-200"/>
-          </label>
-        </div>
+				<div className="price relative flex items-center justify-center w-full h-fit -mb-4">
+					<h3 className="!text-2xl md:!text-3xl flex justify-center items-center">$<input type="text" defaultValue={"200.00"} className="w-28 p-0 text-3xl border-none focus:ring-0 pointer-events-none " id="voucherAmount" /></h3>
+					<label htmlFor="voucherAmount" className="cursor-pointer">
+						<CiEdit size={20} className=" text-gray-800 hover:text-orange transition-all duration-200" />
+					</label>
+				</div>
 
-        <div className="code">
-          <h2 className="">284 *** *** *** *** </h2>
-          <span>Code</span>
-        </div>
-        <div className="date">
-          <h2>{new Intl.DateTimeFormat('fr-FR').format(now)}</h2>
-          <span>date</span>
-        </div>
-        <div className="time">
-          <h2>{new Intl.DateTimeFormat('fr-FR', {hour: "2-digit", minute: "2-digit"}).format(now)}</h2>
-          <span>time</span>
-        </div>
-        <div className="buy hidden md:flex">
-          <ButtonBuy />
-        </div>
-      </div>
-      <div className="v-card cardRight shadow-sm !relative !w-2/6">
-        <div className="logo !relative !top-1 md:!-top-2">
-          <Image
-            height={25}
-            src={logo}
-            className="h-8 md:h-14 w-min object-left object-contain"
-          />
-        </div>
-        <div className="qr md:!w-full !flex !flex-col  text-center items-center justify-between !px-2 md:!px-0 !w-20 !mt-4 md:mt-0">
-          <Canvas
-            className="w-full"
-            text={"https://github.com/frdrcpeter007"}
-            options={{
-              level: "M",
-              margin: 1,
-              scale: 3,
-              quality: 100,
-              color: {
-                dark: "#000",
-                light: "#FFF",
-              },
-            }}
-          />
-        </div>
-        <div className="scan !w-full !flex !justify-around">
-          <span className=" hidden md:flex !justify-center">Scan QR Code</span>
-          <button className="bg-orange p-2 text-xs mt-3 md:hidden rounded-md text-white effect-up">+ Buy Now</button>
-        </div>
-      </div>
-    </CardWrap>
-  );
+				<div className="code">
+					<h2 className="">284 *** *** *** *** </h2>
+					<span>Code</span>
+				</div>
+				<div className="date">
+					<h2>{new Intl.DateTimeFormat('fr-FR').format(now)}</h2>
+					<span>date</span>
+				</div>
+				<div className="time">
+					<h2>{new Intl.DateTimeFormat('fr-FR', { hour: "2-digit", minute: "2-digit" }).format(now)}</h2>
+					<span>time</span>
+				</div>
+				<div className="buy hidden md:flex">
+					<ButtonBuy modal={{ title: "Buy Credit"}}>
+						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet expedita repellendus velit molestias earum distinctio minus architecto ab, dolor iusto nulla recusandae asperiores laborum veniam quis quo atque quaerat vero.
+					</ButtonBuy>
+				</div>
+			</div>
+			<div className="v-card cardRight shadow-sm !relative !w-2/6">
+				<div className="logo !relative !top-1 md:!-top-2">
+					<Image
+						height={25}
+						src={logo}
+						className="h-8 md:h-14 w-min object-left object-contain"
+					/>
+				</div>
+				<div className="qr md:!w-full !flex !flex-col  text-center items-center justify-between !px-2 md:!px-0 !w-20 !mt-4 md:mt-0">
+					<Canvas
+						className="w-full"
+						text={"https://github.com/frdrcpeter007"}
+						options={{
+							level: "M",
+							margin: 1,
+							scale: 3,
+							quality: 100,
+							color: {
+								dark: "#000",
+								light: "#FFF",
+							},
+						}}
+					/>
+				</div>
+				<div className="scan !w-full !flex !justify-around">
+					<span className=" hidden md:flex !justify-center">Scan QR Code</span>
+
+					<div className="md:hidden">
+						<ButtonBuy modal={{ title: "Buy Credit"}} withIcon={false} className="text-white mr-3 md:mr-0">
+							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet expedita repellendus velit molestias earum distinctio minus architecto ab, dolor iusto nulla recusandae asperiores laborum veniam quis quo atque quaerat vero.
+						</ButtonBuy>
+					</div>
+				</div>
+			</div>
+		</CardWrap>
+	);
 };
 
 export default WithQR;

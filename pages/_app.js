@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }) {
         <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
       </Head>
       <SessionProvider session={pageProps.session}>
-        <ThemeProvider theme={theme}>        
+        <ThemeProvider theme={theme}>
           {getLayout(<Component {...pageProps} />)}
         </ThemeProvider>
       </SessionProvider>
