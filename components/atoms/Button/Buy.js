@@ -3,7 +3,8 @@ import { HiOutlinePlus } from "react-icons/hi";
 import { Dialog, Transition } from '@headlessui/react'
 import ContentModal from '../Modal/content';
 
-const ButtonBuy = ({ withIcon = true, modal, className, children }) => {
+const ButtonBuy = ({ modal, className, children, withIcon = true }) => {
+    console.log(modal);
     let [isOpen, setIsOpen] = useState(false)
 
     const closeModal = () => {
@@ -40,7 +41,7 @@ const ButtonBuy = ({ withIcon = true, modal, className, children }) => {
                     >
                         <div className="fixed inset-0 bg-black bg-opacity-25" />
                     </Transition.Child>
-                    <ContentModal title={modal.title}>
+                    <ContentModal title={modal?.title ?? ""}>
                         {children}
                     </ContentModal>
                 </Dialog>
