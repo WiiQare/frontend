@@ -1,5 +1,6 @@
-import { CiCircleInfo, CiDollar, CiInboxIn } from "react-icons/ci";
+import { CiCircleInfo } from "react-icons/ci";
 import { HiUserGroup } from "react-icons/hi";
+import ButtonEarn from "../../atoms/Button/Earn";
 import WithQR from "../../atoms/Card/Debit/withQR";
 
 const VoucherHome = () => {
@@ -13,10 +14,10 @@ const VoucherHome = () => {
 				<HiUserGroup size={60} className="text-sky" />
 				<div className="space-y-3 text-center w-full">
 					<h1 className="text-gray-800 text-lg">Invite your friends</h1>
-					<button className="flex bg-sky px-4 py-4 justify-center text-white items-center rounded-xl hover:shadow-md gap-2 w-auto md:w-52">
-						<CiDollar size={25} />
-						<span className="text-xs font-light">Earn Budges for 10$</span>
-					</button>
+					<ButtonEarn modal={{title: "Invite your friends"}}>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo quos atque voluptatum deserunt nostrum, vel, eligendi alias odio quasi ullam dolorem in sapiente nobis voluptas! Cum dolores quas rerum ex?
+						Repudiandae dicta suscipit repellendus assumenda aut soluta quod nobis, quaerat placeat illo eos distinctio quam rem, explicabo deserunt nemo. Minima, quis numquam ex eveniet inventore quo atque animi voluptas soluta!
+					</ButtonEarn>
 					<span data-popover-target="popover-description" className="absolute top-1 right-6 cursor-pointer text-gray-700 md:text-gray-400"><CiCircleInfo size={25} /></span>
 
 					<div data-popover id="popover-description" role="tooltip" class="absolute z-50 invisible inline-block text-sm font-light text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72 ">

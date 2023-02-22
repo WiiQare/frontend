@@ -2,9 +2,9 @@ import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from '@headlessui/react'
 
 
-const ContentModal = ({title, children}) => {
-    return (
-        <div className="fixed inset-0 overflow-y-auto">
+const ContentModal = ({ title, children }) => {
+	return (
+		<div className="fixed inset-0 overflow-y-auto">
 			<div className="flex items-center justify-center min-h-full p-4 text-center">
 				<Transition.Child
 					as={Fragment}
@@ -19,14 +19,18 @@ const ContentModal = ({title, children}) => {
 						<Dialog.Title as="h3" className="text-xl font-semibold leading-6 text-gray-900">
 							{title}
 						</Dialog.Title>
-						
-						{children}
+
+						<div className="mt-2">
+							<div className="text-sm text-gray-500">
+								{children}
+							</div>
+						</div>
 
 					</Dialog.Panel>
 				</Transition.Child>
 			</div>
 		</div>
-    );
+	);
 }
 
 export default ContentModal;

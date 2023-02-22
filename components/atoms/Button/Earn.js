@@ -1,9 +1,10 @@
 import { Fragment, useState } from 'react'
-import { HiOutlinePlus } from "react-icons/hi";
 import { Dialog, Transition } from '@headlessui/react'
+import { CiDollar } from "react-icons/ci";
+
 import ContentModal from '../Modal/content';
 
-const ButtonBuy = ({ withIcon = true, modal, className, children }) => {
+const ButtonEarn = ({ modal, children }) => {
     let [isOpen, setIsOpen] = useState(false)
 
     const closeModal = () => {
@@ -13,20 +14,14 @@ const ButtonBuy = ({ withIcon = true, modal, className, children }) => {
     const openModal = () => {
         setIsOpen(true)
     }
-
     return (
         <>
             <button
                 onClick={openModal}
-                className={`flex items-center gap-2 justify-between rounded-lg bg-orange py-2 px-3 effect-up shadow ${className}`} >
-                {withIcon ? (
-                    <span className='bg-white text-sky p-1 rounded-md'>
-                        <HiOutlinePlus />
-                    </span>
-                ) : <></>}
-                <span className='text-sm font-light'>Buy now</span>
+                className="flex bg-sky px-4 py-4 justify-center text-white items-center rounded-xl hover:shadow-md gap-2 w-auto md:w-52">
+                <CiDollar size={25} />
+                <span className="text-xs font-light">Earn Budges for 10$</span>
             </button>
-
             <Transition appear show={isOpen} as={Fragment}>
                 <Dialog as="div" className="relative z-50" onClose={closeModal}>
                     <Transition.Child
@@ -49,4 +44,4 @@ const ButtonBuy = ({ withIcon = true, modal, className, children }) => {
     );
 }
 
-export default ButtonBuy;
+export default ButtonEarn;
