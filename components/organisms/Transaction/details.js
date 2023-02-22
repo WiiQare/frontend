@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CiCircleInfo, CiCircleList } from "react-icons/ci";
 import { IoIosCall } from "react-icons/io";
+import ButtonBuy from "../../atoms/Button/Buy";
 import CardHeader from "../../atoms/Card/Header";
 import SimpleHeader from "../../atoms/Card/Header/simple";
 
@@ -107,7 +108,7 @@ const DetailsTransaction = () => {
                             <div class="flex justify-between">
                                 <div class="space-y-1">
                                     <p class="font-extralight">
-                                        Pass Santé
+                                        Peter NDENGO M.
                                     </p>
                                     <h1 className='md:text-3xl font-bold'>$4950.00</h1>
                                 </div>
@@ -122,32 +123,27 @@ const DetailsTransaction = () => {
                                         ****  ****  ****  7632
                                     </p>
                                 </div>
-                                <div class="pt-3 pr-6">
-                                    <div class="flex justify-between">
+                                <div class="pt-5">
+                                    <div class="flex justify-around">
                                         <div class="">
                                             <p class="font-extralight text-xs">
-                                                Valid
+                                                Date
                                             </p>
                                             <p class="font-medium tracking-wider text-sm">
-                                                11/15
+                                                22/02/15
                                             </p>
                                         </div>
                                         <div class="">
                                             <p class="font-extralight text-xs">
-                                                Expiry
+                                                Time
                                             </p>
                                             <p class="font-medium tracking-wider text-sm">
-                                                03/25
+                                                03:25
                                             </p>
                                         </div>
 
                                         <div class="">
-                                            <p class="font-extralight text-xs">
-                                                CVV
-                                            </p>
-                                            <p class="font-bold tracking-more-wider text-sm">
-                                                ···
-                                            </p>
+                                            <ButtonBuy withIcon={false} />
                                         </div>
                                     </div>
                                 </div>
