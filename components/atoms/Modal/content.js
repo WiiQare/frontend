@@ -6,6 +6,8 @@ import Box from '@mui/material/Box';
 import PropTypes from 'prop-types';
 import Typography from '@mui/material/Typography';
 import { HiXMark } from "react-icons/hi2";
+import MuiPhoneNumber from "material-ui-phone-number";
+import { TextField } from "@mui/material";
 
 
 const TabHistories = [
@@ -88,6 +90,7 @@ function TabItems({ value }) {
 	};
 
 	const handleInputChange = (index, event, phone = false) => {
+
 		if (phone) {
 			const values = [...allFriendsPhone];
 			const updatedValue = event.target.name;
@@ -102,6 +105,16 @@ function TabItems({ value }) {
 
 			setAllFriends(values);
 		}
+	};
+
+	const handleInputChangePhone = (index, event) => {
+
+		const values = [...allFriendsPhone];
+		const updatedValue = event;
+		values[index][updatedValue] = event;
+
+		setAllFriendsPhone(values);
+
 	};
 
 	const handleRemoveFriends = (index, phone = false) => {
@@ -122,8 +135,6 @@ function TabItems({ value }) {
 		}
 	};
 
-	//console.log(allFriends);
-
 	return (
 		<div className="mt-2">
 			{/* For Email */}
@@ -135,16 +146,20 @@ function TabItems({ value }) {
 							{
 								allFriends.map((field, index) => (
 									<form key={index} className="flex w-full justify-between items-center gap-3">
-										<input
-											className="w-9/12 py-3 placeholder:text-gray-400 hover:outline-none focus:ring-0 border border-gray-300 rounded-lg focus:ring-sky"
-											type="email"
+
+										<TextField
+											fullWidth
+											type={"email"}
+											className="w-9/12 placeholder:text-gray-400 hover:outline-none focus:ring-0 border border-gray-300 rounded-lg focus:ring-sky"
+											label="Email Address"
 											name="email"
-											placeholder="Enter email address"
+											variant="outlined"
 											value={field.email}
 											onChange={(event) =>
 												handleInputChange(index, event)
 											}
 										/>
+
 										{
 											index > 0 ? (
 												<button className="bg-red-300 rounded-full hover:bg-red-700 hover:text-white transition duration-200" onClick={() => handleRemoveFriends(index)}>
@@ -175,7 +190,7 @@ function TabItems({ value }) {
 							{
 								allFriendsPhone.map((field, index) => (
 									<form key={index} className="flex w-full justify-between items-center gap-3">
-										<input
+										{/* <input
 											className="w-9/12 py-3 placeholder:text-gray-400 hover:outline-none focus:ring-0 border border-gray-300 rounded-lg focus:ring-sky"
 											type="text"
 											name="Phone Number"
@@ -184,6 +199,17 @@ function TabItems({ value }) {
 											onChange={(event) =>
 												handleInputChange(index, event)
 											}
+										/> */}
+										<MuiPhoneNumber
+											fullWidth
+											name="phone"
+											label="Phone number"
+											onChange={(event) => handleInputChangePhone(index, event)}
+											variant="outlined"
+											defaultCountry={"cd"}
+											value={field.phone}
+											placeholder={"Enter your phone number"}
+											className="w-9/12 py-3 placeholder:text-gray-400 hover:outline-none focus:ring-0 border border-gray-300 rounded-lg focus:ring-sky"
 										/>
 										{
 											index > 0 ? (
