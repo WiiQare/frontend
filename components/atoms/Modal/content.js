@@ -110,9 +110,9 @@ function TabItems({ value }) {
 	const handleInputChangePhone = (index, event) => {
 
 		const values = [...allFriendsPhone];
-		const updatedValue = event;
-		values[index][updatedValue] = event;
+		values[index]['phone'] = event;
 
+		console.log(values[index]);
 		setAllFriendsPhone(values);
 
 	};
