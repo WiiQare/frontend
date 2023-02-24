@@ -190,23 +190,14 @@ function TabItems({ value }) {
 							{
 								allFriendsPhone.map((field, index) => (
 									<form key={index} className="flex w-full justify-between items-center gap-3">
-										{/* <input
-											className="w-9/12 py-3 placeholder:text-gray-400 hover:outline-none focus:ring-0 border border-gray-300 rounded-lg focus:ring-sky"
-											type="text"
-											name="Phone Number"
-											placeholder="Enter your phone number"
-											value={field.phone}
-											onChange={(event) =>
-												handleInputChange(index, event)
-											}
-										/> */}
+										
 										<MuiPhoneNumber
 											fullWidth
 											name="phone"
 											label="Phone number"
 											onChange={(event) => handleInputChangePhone(index, event)}
 											variant="outlined"
-											defaultCountry={"cd"}
+											defaultCountry={"fr"}
 											value={field.phone}
 											placeholder={"Enter your phone number"}
 											className="w-9/12 py-3 placeholder:text-gray-400 hover:outline-none focus:ring-0 border border-gray-300 rounded-lg focus:ring-sky"
