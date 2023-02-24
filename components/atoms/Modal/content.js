@@ -105,6 +105,7 @@ function TabItems({ value }) {
 	};
 
 	const handleRemoveFriends = (index, phone = false) => {
+
 		if (phone) {
 
 			const values = [...allFriendsPhone];
@@ -186,7 +187,7 @@ function TabItems({ value }) {
 										/>
 										{
 											index > 0 ? (
-												<button className="bg-red-300 rounded-full hover:bg-red-700 hover:text-white transition duration-200" onClick={() => handleRemoveFriends(index, true)}>
+												<button type="button" className="bg-red-300 rounded-full hover:bg-red-700 hover:text-white transition duration-200" onClick={() => handleRemoveFriends(index, true)}>
 													<HiXMark />
 												</button>
 											) : <></>
