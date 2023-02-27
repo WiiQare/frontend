@@ -97,8 +97,7 @@ const Wallet = () => {
 									1024: {
 										perPage: 3,
 										gap: 20
-									},
-									
+									}
 								},
 								pagination: false,
 								focus: 'center',
