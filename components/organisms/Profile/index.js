@@ -240,13 +240,14 @@ function Settings() {
 							value={state}
 							label="State"
 							onChange={handleState}
+							className="text-sm"
 						>
 							<MenuItem value={"Kinshasa"} selected={true}>Kinshasa</MenuItem>
 							<MenuItem value={"Goma"}>Goma</MenuItem>
 							<MenuItem value={"Lubumbashi"}>Lubumbashi</MenuItem>
 						</Select>
 					</FormControl>
-				</div>
+			</div>
 
 
 			<div className="flex md:grid md:grid-cols-4 gap-8">
@@ -286,6 +287,10 @@ function Settings() {
 					placeholder="ZIP"
 					variant="outlined"
 				/>
+			</div>
+
+			<div className="flex flex-row-reverse">
+				<button className="bg-sky effect-up py-3 px-6 font-semibold text-white rounded-lg">Update</button>
 			</div>
 		</section>
 	)
