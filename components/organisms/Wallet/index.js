@@ -80,11 +80,9 @@ const Wallet = () => {
 				<div className="bg-white py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8 w-full md:w-full h-full">
 					<div className="flex flex-row gap-6 md:gap-0 md:items-center justify-between px-6">
 						<div className="space-y-2">
-							<h2 className="font-bold text-xl text-gray-700">Quick Transfer</h2>
+							<h2 className="font-bold text-xl text-gray-700">Quickly Voucher Transfer</h2>
 							<span className="text-xs text-gray-500 hidden md:flex">Lorem ipsum dolor sit amet, consectetur</span>
 						</div>
-
-						<h1 className="text-xl font-semibold">$56,772.38</h1>
 
 					</div>
 					<Splide hasTrack={false} aria-label="Attribution"
