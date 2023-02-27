@@ -75,9 +75,9 @@ const Wallet = () => {
 				</div>
 			</div>
 
-			<div className="grid md:grid-cols-2 gap-3 md:gap-8 mt-8">
+			<div className="md:grid md:grid-cols-2 flex flex-col gap-3 md:gap-8 mt-8 w-full">
 				
-				<div className="bg-white py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8 w-screen md:w-full h-full">
+				<div className="bg-white py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8 w-full md:w-full h-full">
 					<div className="flex flex-row gap-6 md:gap-0 md:items-center justify-between px-6">
 						<div className="space-y-2">
 							<h2 className="font-bold text-xl text-gray-700">Quick Transfer</h2>
@@ -91,18 +91,16 @@ const Wallet = () => {
 						options={
 							{
 								type: "loop",
-								perPage: 3,
+								perPage: 2,
+								mediaQuery: 'min',
 								breakpoints: {
 									1024: {
-										perPage: 1,
+										perPage: 3,
 										gap: 20
 									},
-									640: {
-										perPage: 2,
-									},
+									
 								},
 								pagination: false,
-								gap: 10,
 								focus: 'center',
 							}
 						}
@@ -115,7 +113,7 @@ const Wallet = () => {
 					>
 						<SplideTrack hasTrack={false}>
 
-							<SplideSlide className="flex flex-col gap-2 items-center justify-center p-3">
+							<SplideSlide className="w-min flex flex-col gap-2 items-center justify-center p-3">
 								<div className="w-20 h-2O relative">
 									<Image src={avatar} className="object-cover rounded-xl" />
 									<span className={`${activeIndexSlide === 0 ? '' : "hidden"} p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}><CiCircleCheck size={18} /></span>
@@ -125,7 +123,7 @@ const Wallet = () => {
 								<span className="text-xs font-light">frdrcpeter@gmail.com</span>
 							</SplideSlide>
 
-							<SplideSlide className="flex flex-col gap-2 items-center justify-center p-3">
+							<SplideSlide className="w-min flex flex-col gap-2 items-center justify-center p-3">
 								<div className="w-20 h-2O relative">
 									<Image src={avatar} className="object-cover rounded-xl" />
 									<span className={`${activeIndexSlide == 1 ? '' : "hidden"} p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}><CiCircleCheck size={18} /></span>
@@ -135,7 +133,7 @@ const Wallet = () => {
 								<span className="text-xs font-light">qwerty@gmail.com</span>
 							</SplideSlide>
 
-							<SplideSlide className="flex flex-col gap-2 items-center justify-center p-3">
+							<SplideSlide className="w-min flex flex-col gap-2 items-center justify-center p-3">
 								<div className="w-20 h-2O relative">
 									<Image src={avatar} className="object-cover rounded-xl" />
 									<span className={`${activeIndexSlide == 2 ? '' : "hidden"} p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}><CiCircleCheck size={18} /></span>
@@ -145,7 +143,7 @@ const Wallet = () => {
 								<span className="text-xs font-light">aa12@gmail.com</span>
 							</SplideSlide>
 
-							<SplideSlide className="flex flex-col gap-2 items-center justify-center p-3">
+							<SplideSlide className="w-min flex flex-col gap-2 items-center justify-center p-3">
 								<div className="w-20 h-2O relative">
 									<Image src={avatar} className="object-cover rounded-xl" />
 									<span className={`${activeIndexSlide == 3 ? '' : "hidden"} p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}><CiCircleCheck size={18} /></span>
@@ -155,7 +153,7 @@ const Wallet = () => {
 								<span className="text-xs font-light">azerty@gmail.com</span>
 							</SplideSlide>
 
-							<SplideSlide className="flex flex-col gap-2 items-center justify-center p-3">
+							<SplideSlide className="w-min flex flex-col gap-2 items-center justify-center p-3">
 								<div className="w-20 h-2O relative">
 									<Image src={avatar} className="object-cover rounded-xl" />
 									<span className={`${activeIndexSlide == 4 ? '' : "hidden"} p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}><CiCircleCheck size={18} /></span>
@@ -195,7 +193,7 @@ const Wallet = () => {
 					</div>
 				</div>
 
-				<div className="bg-white mb-10 py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8 w-screen md:w-full h-full">
+				<div className="bg-white mb-10 py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8 w-full md:w-full h-full">
 					<div className="flex flex-col md:flex-row gap-6 md:gap-0 md:items-center justify-between px-6">
 						<div className="space-y-2">
 							<h2 className="font-bold text-xl text-gray-700">Voucher Sent</h2>
