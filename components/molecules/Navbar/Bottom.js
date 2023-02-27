@@ -38,7 +38,7 @@ const Items = [
 
 const MenuBottom = ({activePath}) => {
     return (
-        <div className='flex gap-4 md:hidden mx-auto items-center justify-evenly fixed bottom-0 bg-white py-4 px-4 md:px-14 drop-shadow-md w-full'>
+        <div className='flex gap-4 md:hidden mx-auto items-center justify-evenly fixed bottom-0 bg-white py-4 px-4 md:px-14 drop-shadow-md w-full z-50'>
                 {Items.map(item => <ItemBottom {...item} activePath={item.active.includes(activePath) ? true : false} /> )}
         </div>
     );

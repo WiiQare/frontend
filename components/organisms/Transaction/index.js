@@ -4,7 +4,7 @@ import TransactionTable from "../../atoms/Table/Transaction";
 
 const Transaction = () => {
 	return (
-		<div className="p-2 space-y-6 md:py-8 md:px-6">
+		<div className="p-2 space-y-6 md:py-8 md:px-6 mb-20">
 			<CardHeader
 				title={"Transactions History"}
 				sort={{
