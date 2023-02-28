@@ -4,7 +4,9 @@ import '@splidejs/react-splide/css';
 import "../../../styles/Carousel.module.css";
 import Image from 'next/image';
 
-import startup from '../../../public/images/startup.png';
+import startup from '../../../public/images/hospital-bed--1024x994.png';
+import phone from '../../../public/images/Phone-design3.png';
+import wallet from '../../../public/images/smart wallet.png';
 import Link from 'next/link';
 
 
@@ -16,7 +18,7 @@ const Carousel = () => {
                     {
                         type: "loop",
                         perPage: 1,
-                        heightRatio: 0.6,
+                        heightRatio: 0.8,
                         mediaQuery: 'min',
                         breakpoints: {
                             640: {
@@ -29,16 +31,16 @@ const Carousel = () => {
                     }
                 }
                 
-                className="container mx-auto pl-8 overflow-hidden bg-yellow-300 rounded-3xl"
+                className="container mx-auto px-8 bg-yellow-300 rounded-3xl"
             >
-                <SplideTrack hasTrack={false} className="overflow-hidden">
+                <SplideTrack hasTrack={false}>
 
                     <SplideSlide className="w-full">
                         <div className='bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10'>
                             <div className='flex flex-col md:gap-7 gap-2'>
                                 <div className='space-y-3'>
                                     <h1 className='text-2xl md:text-5xl font-bold'>Start your safe live</h1>
-                                    <p className='text-xs md:text-sm text-gray-700 w-full hidden md:flex'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem</p>
+                                    <p className='text-xs md:text-sm text-gray-700 w-full flex'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem</p>
                                 </div>
                                 <Link href={"#"} legacyBehavior>
                                     <a className='bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md'>
@@ -47,7 +49,7 @@ const Carousel = () => {
                                 </Link>
                             </div>
 
-                            <div className='hidden md:w-3/5 md:flex justify-end relative -right-10'>
+                            <div className='hidden md:w-full md:flex justify-end '>
                                 <Image src={startup} className="object-cover "/>
                             </div>
                         </div>
@@ -57,8 +59,8 @@ const Carousel = () => {
                         <div className='bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10'>
                             <div className='flex flex-col md:gap-7 gap-2'>
                                 <div className='space-y-3'>
-                                    <h1 className='text-2xl md:text-5xl font-bold'>Life is good</h1>
-                                    <p className='text-xs md:text-sm text-gray-700 w-full hidden md:flex'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem</p>
+                                    <h1 className='text-2xl md:text-5xl font-bold'>Life is Good</h1>
+                                    <p className='text-xs md:text-sm text-gray-700 w-full flex'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem</p>
                                 </div>
                                 <Link href={"#"} legacyBehavior>
                                     <a className='bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md'>
@@ -67,8 +69,28 @@ const Carousel = () => {
                                 </Link>
                             </div>
 
-                            <div className='hidden md:w-3/5 md:flex justify-end relative -right-10'>
-                                <Image src={startup} className="object-cover "/>
+                            <div className='hidden md:w-3/4 md:flex justify-end '>
+                                <Image src={phone} className="object-cover "/>
+                            </div>
+                        </div>
+                    </SplideSlide>
+
+                    <SplideSlide className="w-full">
+                        <div className='bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10'>
+                            <div className='flex flex-col md:gap-7 gap-2'>
+                                <div className='space-y-3'>
+                                    <h1 className='text-2xl md:text-5xl font-bold'>Your health wallet</h1>
+                                    <p className='text-xs md:text-sm text-gray-700 w-full flex'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem</p>
+                                </div>
+                                <Link href={"#"} legacyBehavior>
+                                    <a className='bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md'>
+                                        Get Started
+                                    </a>
+                                </Link>
+                            </div>
+
+                            <div className='hidden md:w-3/4 md:flex justify-end '>
+                                <Image src={wallet} className="object-cover "/>
                             </div>
                         </div>
                     </SplideSlide>

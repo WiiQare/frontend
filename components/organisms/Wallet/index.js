@@ -88,7 +88,7 @@ const Wallet = () => {
 					<Splide hasTrack={false} aria-label="Attribution"
 						options={
 							{
-								type: "loop",
+								type: "slide",
 								perPage: 2,
 								mediaQuery: 'min',
 								breakpoints: {
