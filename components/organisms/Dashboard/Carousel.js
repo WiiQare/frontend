@@ -34,14 +34,14 @@ const Carousel = () => {
                 <SplideTrack hasTrack={false} className="overflow-hidden">
 
                     <SplideSlide className="w-full">
-                        <div className='bg-yellow-300 h-full flex justify-center items-center pl-12 gap-10'>
-                            <div className='flex flex-col gap-7'>
+                        <div className='bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10'>
+                            <div className='flex flex-col md:gap-7 gap-2'>
                                 <div className='space-y-3'>
-                                    <h1 className='text-3xl md:text-5xl font-bold'>Start your safe live</h1>
-                                    <p className='text-sm text-gray-700 w-full'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem</p>
+                                    <h1 className='text-2xl md:text-5xl font-bold'>Start your safe live</h1>
+                                    <p className='text-xs md:text-sm text-gray-700 w-full hidden md:flex'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem</p>
                                 </div>
                                 <Link href={"#"} legacyBehavior>
-                                    <a className='bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg'>
+                                    <a className='bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md'>
                                         Get Started
                                     </a>
                                 </Link>
@@ -54,15 +54,15 @@ const Carousel = () => {
                     </SplideSlide>
                     
                     <SplideSlide className="w-full">
-                        <div className='bg-yellow-300 h-full flex justify-center items-center pl-12 gap-10'>
-                            <div className='flex flex-col gap-7'>
+                        <div className='bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10'>
+                            <div className='flex flex-col md:gap-7 gap-2'>
                                 <div className='space-y-3'>
-                                    <h1 className='text-3xl md:text-5xl font-bold'>Life is Good</h1>
-                                    <p className='text-sm text-gray-700'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem</p>
+                                    <h1 className='text-2xl md:text-5xl font-bold'>Life is good</h1>
+                                    <p className='text-xs md:text-sm text-gray-700 w-full hidden md:flex'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem</p>
                                 </div>
                                 <Link href={"#"} legacyBehavior>
-                                    <a className='bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg'>
-                                        Buy a voucher
+                                    <a className='bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md'>
+                                        Get Started
                                     </a>
                                 </Link>
                             </div>
