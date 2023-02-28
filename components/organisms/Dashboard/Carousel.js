@@ -38,7 +38,7 @@ const Carousel = () => {
                             <div className='flex flex-col gap-7'>
                                 <div className='space-y-3'>
                                     <h1 className='text-3xl md:text-5xl font-bold'>Start your safe live</h1>
-                                    <p className='text-sm text-gray-700'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem</p>
+                                    <p className='text-sm text-gray-700 w-full'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem</p>
                                 </div>
                                 <Link href={"#"} legacyBehavior>
                                     <a className='bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg'>
@@ -57,12 +57,12 @@ const Carousel = () => {
                         <div className='bg-yellow-300 h-full flex justify-center items-center pl-12 gap-10'>
                             <div className='flex flex-col gap-7'>
                                 <div className='space-y-3'>
-                                    <h1 className='text-3xl md:text-5xl font-bold'>Start your safe live</h1>
+                                    <h1 className='text-3xl md:text-5xl font-bold'>Life is Good</h1>
                                     <p className='text-sm text-gray-700'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem</p>
                                 </div>
                                 <Link href={"#"} legacyBehavior>
                                     <a className='bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg'>
-                                        Get Started
+                                        Buy a voucher
                                     </a>
                                 </Link>
                             </div>
