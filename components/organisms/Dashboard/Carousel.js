@@ -89,7 +89,7 @@ const Carousel = () => {
                                 </Link>
                             </div>
 
-                            <div className='hidden md:w-3/4 md:flex justify-end '>
+                            <div className='hidden md:w-3/4 md:flex justify-end relative -bottom-4 '>
                                 <Image src={wallet} className="object-cover "/>
                             </div>
                         </div>
