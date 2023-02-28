@@ -6,7 +6,7 @@ import { TabPanel } from "../../atoms/Modal/content";
 
 const VoucherHome = () => {
 	return (
-		<div className="p-2 md:py-8 md:px-6 flex flex-col md:flex-row gap-8 md:gap-12">
+		<div className="p-2 md:pb-8 md:px-6 flex flex-col md:flex-row gap-8 md:gap-12">
 			<div className="md:min-w-5/6 flex">
 				<WithQR />
 			</div>

@@ -5,6 +5,7 @@ import DashboardLayout from "../layouts/Dashboard";
 
 import VoucherHome from "../components/organisms/Dashboard/Voucher";
 import ProviderFilter from "../components/organisms/Dashboard/ProviderFilter";
+import Carousel from "../components/organisms/Dashboard/Carousel";
 
 const Page = () => {
   return (
@@ -13,6 +14,7 @@ const Page = () => {
         <title>JAMII - UNICEF CRYPTO</title>
         <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
       </Head>
+      <Carousel />
       <VoucherHome />
       <ProviderFilter />
     </>
