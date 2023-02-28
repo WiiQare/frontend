@@ -49,7 +49,7 @@ const Carousel = () => {
                                 </Link>
                             </div>
 
-                            <div className='md:w-full flex justify-end '>
+                            <div className='hidden md:w-full md:flex justify-end '>
                                 <Image src={startup} className="object-cover "/>
                             </div>
                         </div>
@@ -69,7 +69,7 @@ const Carousel = () => {
                                 </Link>
                             </div>
 
-                            <div className='md:w-3/4 flex justify-end '>
+                            <div className='hidden md:w-3/4 md:flex justify-end '>
                                 <Image src={phone} className="object-cover "/>
                             </div>
                         </div>
@@ -89,7 +89,7 @@ const Carousel = () => {
                                 </Link>
                             </div>
 
-                            <div className='md:w-3/4 flex justify-end relative -bottom-4 '>
+                            <div className='hidden md:w-3/4 md:flex justify-end relative -bottom-4 '>
                                 <Image src={wallet} className="object-cover "/>
                             </div>
                         </div>
