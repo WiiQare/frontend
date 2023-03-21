@@ -39,7 +39,7 @@ function LoginForm() {
 
 	//Handle Google Login
     const handleGoogleSignIn = async () => {
-        signIn('google', {callbackUrl: "http://localhost:3000"})
+        signIn('google', {callbackUrl: "http://localhost:3002"})
     }
 
 	const formHolder = (

@@ -247,9 +247,9 @@ const Menu = ({ session, handleSignOut }) => {
 				<div className="flex gap-3 items-center">
 					<div className="text-right hidden md:block">
 						<span>
-							Hello, <span className="font-bold">Bienvenu Z.</span>
+							Hello, <span className="font-bold">{session.user.name}</span>
 						</span>
-						<h5 className="text-xs font-light">Actif</h5>
+						<h5 className="text-xs font-light">{session.user.email}</h5>
 					</div>
 					<Dropdown
 						arrowIcon={false}
@@ -258,7 +258,7 @@ const Menu = ({ session, handleSignOut }) => {
 						label={
 							<Avatar
 								alt="User settings"
-								img="/images/avatar.jpg"
+								img={session.user.image}
 								rounded={true}
 								size={30}
 								className="w-12 h-12"

@@ -23,7 +23,7 @@
     "formik": "^2.2.9",
     "material-ui-phone-number": "^3.0.0",
     "next": "13.1.6",
-    "next-auth": "^4.19.1",
+    "next-auth": "^4.20.1",
     "next-qrcode": "^2.4.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
