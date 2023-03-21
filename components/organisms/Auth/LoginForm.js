@@ -50,7 +50,7 @@ function LoginForm() {
 					<div className="flex flex-col w-3/4 border-opacity-50 gap-4">
 						
 						<div className="form-items !w-full !max-w-full flex flex-col items-center mx-auto">
-							<div className="w-3/4 mx-auto">
+							<div className="md:w-3/4 mx-auto">
 								<div className="form-title">Sign in to your account</div>
 								<Box sx={{ mb: 3, mt: 2 }}></Box>
 								<form id="signinform" className="">
