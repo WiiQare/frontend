@@ -1,6 +1,6 @@
 import NextAuth from 'next-auth';
 import GoogleProvider from "next-auth/providers/google";
-import FacebookProvider from 'next-auth/providers/facebook';
+import LinkedInProvider from "next-auth/providers/linkedin";
 
 
 export default NextAuth({
@@ -11,10 +11,10 @@ export default NextAuth({
             clientSecret: "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"
         }),
 
-        //Facebook Provider
-        FacebookProvider({
-            clientId: "process.env.FACEBOOK_ID",
-            clientSecret: "process.env.FACEBOOK_SECRET"
-          }),
+        //LinkedIn Provider
+        LinkedInProvider({
+            clientId: "86r44ozblb9me7",
+            clientSecret: "p6wdfKr7Xzvhd3CL"
+          })
     ]
 })

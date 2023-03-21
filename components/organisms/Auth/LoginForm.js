@@ -39,7 +39,13 @@ function LoginForm() {
 
 	//Handle Google Login
     const handleGoogleSignIn = async () => {
-        signIn('google', {callbackUrl: "http://localhost:3002"})
+        //signIn('google', {callbackUrl: "http://localhost:3000"})
+        signIn('google', {callbackUrl: "https://wiiqare-unicef-ii.vercel.app"})
+    }
+
+	const handleLinkedInSignIn = async () => {
+        //signIn('linkedin', {callbackUrl: "http://localhost:3000"})
+        signIn('linkedin', {callbackUrl: "https://wiiqare-unicef-ii.vercel.app"})
     }
 
 	const formHolder = (
@@ -108,7 +114,7 @@ function LoginForm() {
 
 						<div className="flex flex-col md:flex-row gap-4 mb-2">
 							<button type="button" className="w-full py-3 flex justify-center items-center gap-4 hover:bg-gray-200 rounded-xl border font-medium" onClick={handleGoogleSignIn}><Image src={"/images/google.svg"} width="20" height="20" alt="Google logo" /> Sign In with Google</button>
-							<button type="button" className="w-full py-3 flex justify-center items-center gap-4 hover:bg-gray-200 rounded-xl border font-medium" onClick={() => null}><Image src={"/images/facebook.png"} width="25" height="25" alt="Facebook logo" /> Sign In with Facebook</button>
+							<button type="button" className="w-full py-3 flex justify-center items-center gap-4 hover:bg-gray-200 rounded-xl border font-medium" onClick={handleLinkedInSignIn}><Image src={"/images/facebook.png"} width="25" height="25" alt="Facebook logo" /> Sign In with LinkedIn</button>
 						</div>
 					</div>
 				</div>
