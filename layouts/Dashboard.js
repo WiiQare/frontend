@@ -12,8 +12,6 @@ const Dashboard = ({ children, className }) => {
 		signOut();
 	};
 
-	console.log(session);
-
 	return (
 		<>
 			{session ? (

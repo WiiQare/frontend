@@ -23,6 +23,8 @@ import avatar from "../../../public/images/avatar.jpg";
 import IconBadge from "../../atoms/Icons/Badge";
 import NotificationBadge from "../../atoms/Card/Notifications/Badge";
 import { useState } from "react";
+import { signOut } from "next-auth/react"
+
 
 const langFlags = {
 	gb: "https://flagcdn.com/60x45/gb.png",
@@ -286,12 +288,12 @@ const Menu = ({ session, handleSignOut }) => {
 						</Dropdown.Item>
 						<Dropdown.Divider />
 						<Dropdown.Item>
-							<Link href={"/login"}>
+							<button onClick={handleSignOut}>
 								<span className="flex gap-3 text-lg items-center">
 									<MdMailOutline className="text-lg text-red-500" size={23} />
 									<font>Logout</font>
 								</span>
-							</Link>
+							</button>
 						</Dropdown.Item>
 					</Dropdown>
 				</div>
