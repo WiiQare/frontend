@@ -2,9 +2,6 @@ import React from "react";
 import Link from "next/link";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import StepButton from "@mui/material/StepButton";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -13,7 +10,6 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { signIn } from "next-auth/react"
 
 import OnboardingScreen from "../../molecules/OnboardingScreen";
-import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import {
 	FormControl,
 	IconButton,
@@ -26,21 +22,18 @@ import MenuHolder from "../../atoms/MenuHolder";
 import BlinkSnackbar from "../../atoms/BlinkSnackbar";
 import Image from "next/image";
 
-function LoginForm() {
+function ResetForm() {
 	const matches = useMediaQuery("(max-width: 992px)");
 	const [onboardingIsEnd, setOnboardingIsEnd] = React.useState("");
 	const [showPassword, setShowPassword] = React.useState(false);
+	const [showcPassword, setShowcPassword] = React.useState(false);
 
 	const handleClickShowPassword = () => setShowPassword((show) => !show);
+	const handleClickShowcPassword = () => setShowcPassword((show) => !show);
 
 	React.useEffect(() => {
 		setOnboardingIsEnd(localStorage.getItem("onboardingIsEnd") || "");
 	}, []);
-
-	//Handle Google Login
-    const handleGoogleSignIn = async () => {
-        signIn('google', {callbackUrl: "http://localhost:3002"})
-    }
 
 	const formHolder = (
 		<>
@@ -51,21 +44,16 @@ function LoginForm() {
 						
 						<div className="form-items !w-full !max-w-full flex flex-col items-center mx-auto">
 							<div className="md:w-3/4 mx-auto">
-								<div className="form-title">Sign in to your account</div>
+								<div className="form-title">Create a new password</div>
 								<Box sx={{ mb: 3, mt: 2 }}></Box>
 								<form id="signinform" className="">
 									<Stack spacing={2}>
-										<TextField
-											id="outlined-basic"
-											fullWidth
-											label="E-mail Address"
-											variant="outlined"
-										/>
+										
 										<FormControl fullWidth variant="outlined">
-											<InputLabel htmlFor="outlined-basic1">Password</InputLabel>
+											<InputLabel htmlFor="outlined-basic1">Enter New Password</InputLabel>
 											<OutlinedInput
 												id="outlined-basic1"
-												label="Password"
+												label="New Password"
 												type={showPassword ? "text" : "password"}
 												endAdornment={
 													<InputAdornment position="end">
@@ -80,15 +68,27 @@ function LoginForm() {
 												}
 											/>
 										</FormControl>
-										<Box sx={{ textAlign: "right", mb: 2 }}>
-											<Typography color="text.secondary" variant="caption">
-												<Link href={"/forgot/password"} legacyBehavior>
-													<a>
-														Forgot your password ?
-													</a>
-												</Link>
-											</Typography>
-										</Box>
+
+                                        <FormControl fullWidth variant="outlined">
+											<InputLabel htmlFor="outlined-basic1">Confirm New Password</InputLabel>
+											<OutlinedInput
+												id="outlined-basic1"
+												label="Confirm Password"
+												type={showcPassword ? "text" : "password"}
+												endAdornment={
+													<InputAdornment position="end">
+														<IconButton
+															aria-label="toggle password visibility"
+															onClick={handleClickShowcPassword}
+															edge="end"
+														>
+															{showcPassword ? <VisibilityOff /> : <Visibility />}
+														</IconButton>
+													</InputAdornment>
+												}
+											/>
+										</FormControl>
+
 										<Box>
 											<Button
 												size="large"
@@ -96,7 +96,7 @@ function LoginForm() {
 												onClick={() => { }}
 												className="bg-yellow"
 											>
-												SIGN IN
+												CHANGE PASSWORD
 											</Button>
 										</Box>
 									</Stack>
@@ -104,12 +104,6 @@ function LoginForm() {
 							</div>
 						</div>
 
-						<div className="divider"><span className="text-gray-400">OR</span></div>
-
-						<div className="flex flex-col md:flex-row gap-4 mb-2">
-							<button type="button" className="w-full py-3 flex justify-center items-center gap-4 hover:bg-gray-200 rounded-xl border font-medium" onClick={handleGoogleSignIn}><Image src={"/images/google.svg"} width="20" height="20" alt="Google logo" /> Sign In with Google</button>
-							<button type="button" className="w-full py-3 flex justify-center items-center gap-4 hover:bg-gray-200 rounded-xl border font-medium" onClick={() => null}><Image src={"/images/facebook.png"} width="25" height="25" alt="Facebook logo" /> Sign In with Facebook</button>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -134,4 +128,4 @@ function LoginForm() {
 	);
 }
 
-export default LoginForm;
+export default ResetForm;
