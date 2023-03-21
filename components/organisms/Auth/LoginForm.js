@@ -47,7 +47,7 @@ function LoginForm() {
 			<div className="form-holder">
 				<MenuHolder href="/register" label="SIGN UP" />
 				<div className="signin-signup-form">
-					<div className="flex flex-col w-3/4 border-opacity-50 gap-4">
+					<div className="flex flex-col md:w-3/4 w-full border-opacity-50 gap-4">
 						
 						<div className="form-items !w-full !max-w-full flex flex-col items-center mx-auto">
 							<div className="md:w-3/4 mx-auto">
