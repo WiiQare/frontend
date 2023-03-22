@@ -41,6 +41,7 @@ function LoginForm() {
     const handleGoogleSignIn = async () => {
         //signIn('google', {callbackUrl: "http://localhost:3000"})
         signIn('google', {callbackUrl: "https://wiiqare-unicef-ii.vercel.app"})
+
     }
 
 	const handleLinkedInSignIn = async () => {
