@@ -25,8 +25,8 @@ const lngs = {
 
 export default function MenuHolder({ href, label }) {
 	const [anchorEl, setAnchorEl] = React.useState(null);
-	const [lang, setLang] = React.useState("fr");
 	const { t, i18n } = useTranslation();
+	const [lang, setLang] = React.useState(i18n.resolvedLanguage);
 
 
 	const open = Boolean(anchorEl);
