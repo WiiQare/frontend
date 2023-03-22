@@ -2,6 +2,7 @@ import Head from "next/head";
 import { SessionProvider } from "next-auth/react";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "../theme";
+import '../i18n';
 
 import "../styles/globals.css";
 import "../styles/main.css";

@@ -10,14 +10,24 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import React from "react";
+import { useTranslation, Trans } from 'react-i18next';
+
 
 const langFlags = {
 	gb: "https://flagcdn.com/60x45/gb.png",
 	fr: "https://flagcdn.com/60x45/fr.png",
 };
+
+const lngs = {
+	en: { nativeName: 'English', flag: "https://flagcdn.com/60x45/gb.png" },
+	fr: { nativeName: 'French', flag: "https://flagcdn.com/60x45/fr.png" }
+};
+
 export default function MenuHolder({ href, label }) {
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const [lang, setLang] = React.useState("fr");
+	const { t, i18n } = useTranslation();
+
 
 	const open = Boolean(anchorEl);
 
@@ -32,6 +42,7 @@ export default function MenuHolder({ href, label }) {
 	const handleLangChange = (lang) => {
 		setLang(lang);
 		setAnchorEl(null);
+		i18n.changeLanguage(lang)
 	};
 
 	return (
@@ -51,7 +62,7 @@ export default function MenuHolder({ href, label }) {
 								<Avatar
 									// variant="square"
 									sx={{ width: 24, height: 24 }}
-									src={langFlags[lang]}
+									src={lngs[lang].flag}
 								/>
 							</IconButton>
 						</Tooltip>
@@ -91,24 +102,19 @@ export default function MenuHolder({ href, label }) {
 						transformOrigin={{ horizontal: "right", vertical: "top" }}
 						anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
 					>
-						<MenuItem onClick={() => handleLangChange("fr")}>
-							<Avatar
-								// variant="square"
-								sx={{ width: 24, height: 24 }}
-								src={langFlags.fr}
-							/>
-							{"   "}
-							Français
-						</MenuItem>
-						<MenuItem onClick={() => handleLangChange("gb")}>
-							<Avatar
-								// variant="square"
-								sx={{ width: 24, height: 24 }}
-								src={langFlags.gb}
-							/>
-							{"   "}
-							English
-						</MenuItem>
+						{Object.keys(lngs).map((lng) => (
+							<>
+								<MenuItem key={lng} onClick={() => handleLangChange(lng)}>
+									<Avatar
+										// variant="square"
+										sx={{ width: 24, height: 24 }}
+										src={lngs[lng].flag}
+									/>
+									{lngs[lng].nativeName}
+								</MenuItem>
+							</>
+						))}
+						
 					</Menu>
 				</li>
 				<li>

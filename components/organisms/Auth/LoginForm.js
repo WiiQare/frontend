@@ -25,8 +25,11 @@ import {
 import MenuHolder from "../../atoms/MenuHolder";
 import BlinkSnackbar from "../../atoms/BlinkSnackbar";
 import Image from "next/image";
+import { useTranslation, Trans } from 'react-i18next';
+
 
 function LoginForm() {
+	const { t } = useTranslation();
 	const matches = useMediaQuery("(max-width: 992px)");
 	const [onboardingIsEnd, setOnboardingIsEnd] = React.useState("");
 	const [showPassword, setShowPassword] = React.useState(false);
@@ -58,21 +61,21 @@ function LoginForm() {
 						
 						<div className="form-items !w-full !max-w-full flex flex-col items-center mx-auto">
 							<div className="md:w-3/4 mx-auto">
-								<div className="form-title">Sign in to your account</div>
+								<div className="form-title">{t('signIn.title')}</div>
 								<Box sx={{ mb: 3, mt: 2 }}></Box>
 								<form id="signinform" className="">
 									<Stack spacing={2}>
 										<TextField
 											id="outlined-basic"
 											fullWidth
-											label="E-mail Address"
+											label={t('signIn.field.email')}
 											variant="outlined"
 										/>
 										<FormControl fullWidth variant="outlined">
-											<InputLabel htmlFor="outlined-basic1">Password</InputLabel>
+											<InputLabel htmlFor="outlined-basic1">{t('signIn.field.password')}</InputLabel>
 											<OutlinedInput
 												id="outlined-basic1"
-												label="Password"
+												label={t('signIn.field.email')}
 												type={showPassword ? "text" : "password"}
 												endAdornment={
 													<InputAdornment position="end">
@@ -91,7 +94,7 @@ function LoginForm() {
 											<Typography color="text.secondary" variant="caption">
 												<Link href={"/forgot/password"} legacyBehavior>
 													<a>
-														Forgot your password ?
+														{t('signIn.forgot')}
 													</a>
 												</Link>
 											</Typography>
@@ -101,9 +104,9 @@ function LoginForm() {
 												size="large"
 												variant="contained"
 												onClick={() => { }}
-												className="bg-yellow"
+												className="bg-yellow text-uppercase"
 											>
-												SIGN IN
+												{t('signIn.buttons.submit')}
 											</Button>
 										</Box>
 									</Stack>
@@ -111,11 +114,11 @@ function LoginForm() {
 							</div>
 						</div>
 
-						<div className="divider"><span className="text-gray-400">OR</span></div>
+						<div className="divider"><span className="text-gray-400">{t('signIn.buttons.or')}</span></div>
 
 						<div className="flex flex-col md:flex-row gap-4 mb-2">
-							<button type="button" className="w-full py-3 flex justify-center items-center gap-4 hover:bg-gray-200 rounded-xl border font-medium" onClick={handleGoogleSignIn}><Image src={"/images/google.svg"} width="20" height="20" alt="Google logo" /> Sign In with Google</button>
-							<button type="button" className="w-full py-3 flex justify-center items-center gap-4 hover:bg-gray-200 rounded-xl border font-medium" onClick={handleLinkedInSignIn}><Image src={"/images/linkedin.png"} width="25" height="25" alt="Facebook logo" /> Sign In with LinkedIn</button>
+							<button type="button" className="w-full py-3 flex justify-center items-center gap-4 hover:bg-gray-200 rounded-xl border font-medium" onClick={handleGoogleSignIn}><Image src={"/images/google.svg"} width="20" height="20" alt="Google logo" /> {t('signIn.buttons.google')}</button>
+							<button type="button" className="w-full py-3 flex justify-center items-center gap-4 hover:bg-gray-200 rounded-xl border font-medium" onClick={handleLinkedInSignIn}><Image src={"/images/linkedin.png"} width="25" height="25" alt="Facebook logo" /> {t('signIn.buttons.linkedin')}</button>
 						</div>
 					</div>
 				</div>
