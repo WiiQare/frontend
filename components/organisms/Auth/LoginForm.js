@@ -118,7 +118,7 @@ function LoginForm() {
 
 						<div className="flex flex-col md:flex-row gap-4 mb-2">
 							<button type="button" className="w-full py-3 flex justify-center items-center gap-4 hover:bg-gray-200 rounded-xl border font-medium" onClick={handleGoogleSignIn}><Image src={"/images/google.svg"} width="20" height="20" alt="Google logo" /> {t('signIn.buttons.google')}</button>
-							<button type="button" className="w-full py-3 flex justify-center items-center gap-4 hover:bg-gray-200 rounded-xl border font-medium" onClick={handleLinkedInSignIn}><Image src={"/images/linkedin.png"} width="25" height="25" alt="Facebook logo" /> {t('signIn.buttons.linkedin')}</button>
+							<button type="button" className="w-full py-3 flex justify-center items-center gap-4 hover:bg-gray-200 rounded-xl border font-medium" onClick={handleLinkedInSignIn}><Image src={"/images/apple.png"} width="25" height="25" alt="Facebook logo" /> {t('signIn.buttons.apple')}</button>
 						</div>
 					</div>
 				</div>

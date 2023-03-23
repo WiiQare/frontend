@@ -30,7 +30,8 @@ i18n
                             submit: 'SIGN IN',
                             or: 'OR',
                             google: 'Sign In with Google',
-                            linkedin: 'Sign In with LinkedIn'
+                            linkedin: 'Sign In with LinkedIn',
+                            apple: 'Sign In with Apple ID'
                         }
                     },
                     welcomeSlider: {
@@ -53,7 +54,8 @@ i18n
                             submit: 'Se connecter',
                             or: 'OU',
                             google: 'Se connecter avec Google',
-                            linkedin: 'Se connecter avec LinkedIn'
+                            linkedin: 'Se connecter avec LinkedIn',
+                            apple: 'Se connecter avec Apple ID'
                         }
                     },
                     welcomeSlider: {
