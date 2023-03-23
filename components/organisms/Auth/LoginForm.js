@@ -42,14 +42,14 @@ function LoginForm() {
 
 	//Handle Google Login
     const handleGoogleSignIn = async () => {
-        //signIn('google', {callbackUrl: "http://localhost:3000"})
-        signIn('google', {callbackUrl: "https://wiiqare-unicef-ii.vercel.app"})
+        signIn('google', {callbackUrl: "http://localhost:3000"})
+        //signIn('google', {callbackUrl: "https://wiiqare-unicef-ii.vercel.app"})
 
     }
 
 	const handleLinkedInSignIn = async () => {
-        //signIn('linkedin', {callbackUrl: "http://localhost:3000"})
-        signIn('linkedin', {callbackUrl: "https://wiiqare-unicef-ii.vercel.app"})
+        signIn('linkedin', {callbackUrl: "http://localhost:3000"})
+        //signIn('linkedin', {callbackUrl: "https://wiiqare-unicef-ii.vercel.app"})
     }
 
 	const formHolder = (

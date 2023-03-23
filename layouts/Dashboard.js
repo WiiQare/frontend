@@ -14,7 +14,7 @@ const Dashboard = ({ children, className }) => {
 
 	return (
 		<>
-			{session ? (
+			{!session ? (
 				<>
 					<Menu session={session} handleSignOut={handleSignOut} />
 					<main className="min-h-[90vh] grid md:grid-cols-5 gap-6 mt-20">
