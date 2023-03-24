@@ -22,7 +22,7 @@ function Identity() {
 		email: yup.string().email().required("Address email is a required field"),
 		address: yup.string().required(),
 		address2: yup.string(),
-		phone: yup.string().required("Phone"),
+		phone: yup.string(),
 	});
 
 	console.log(phone);
