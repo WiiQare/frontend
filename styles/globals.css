@@ -133,3 +133,7 @@ input[type="range"]::-webkit-slider-thumb {
 .splide__slide.is-active {
   @apply bg-[#EBF6FD] rounded-xl;
 }
+
+.PhoneInputInput {
+  @apply border-none placeholder:text-gray-400 focus:outline-none focus:ring-0
+}

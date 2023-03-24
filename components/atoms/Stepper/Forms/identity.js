@@ -1,11 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { FormContext } from "../../../../pages/voucher/buy";
 import * as yup from "yup";
 import { HiArrowSmRight, HiOutlineInformationCircle } from "react-icons/hi";
+import { CountryDropdown } from 'react-country-region-selector';
+
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 
 function Identity() {
 	const { activeStepIndex, setActiveStepIndex, formData, setFormData } = useContext(FormContext);
+	const [phone, setPhone] = useState()
 
 	const renderError = (message) => (
 		<p className="text-xs text-red-600 font-light flex items-center gap-1"><HiOutlineInformationCircle />{message}</p>
@@ -17,7 +22,10 @@ function Identity() {
 		email: yup.string().email().required("Address email is a required field"),
 		address: yup.string().required(),
 		address2: yup.string(),
+		phone: yup.string().required("Phone"),
 	});
+
+	console.log(phone);
 
 	return (
 		<Formik
@@ -27,10 +35,13 @@ function Identity() {
 				email: "",
 				address: "",
 				address2: "",
+				phone: ""
 
 			}}
 			validationSchema={ValidationSchema}
 			onSubmit={(values) => {
+
+				values.phone = phone;
 				const data = { ...formData, ...values };
 				setFormData(data);
 				setActiveStepIndex(activeStepIndex + 1);
@@ -38,6 +49,23 @@ function Identity() {
 		>
 			<Form className="flex flex-col justify-start md:w-2/3 gap-4">
 				<div className="text-2xl font-medium my-4 capitalize">Enter Identity for receiver !</div>
+
+				<div className="space-y-1">
+					<div className="flex flex-col items-start space-y-1">
+						<label className="text-gray-500 font-light text-sm">Phone Number</label>
+						<PhoneInput
+							defaultCountry="CD"
+							placeholder="Enter phone number"
+							value={phone}
+							onChange={setPhone}
+							name="phone"
+							className="rounded-lg border px-4 py-1.5 w-full placeholder:text-gray-400 text-gray-700 text-md"	
+						/>
+					</div>
+					<ErrorMessage name="phone" render={renderError} />
+
+				</div>
+
 				<div className="grid md:grid-cols-2 gap-4">
 					<div className="space-y-1">
 						<div className="flex flex-col items-start gap-1">
