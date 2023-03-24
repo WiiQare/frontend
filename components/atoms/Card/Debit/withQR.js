@@ -214,11 +214,9 @@ const WithQR = () => {
 				<div className="scan !w-full !flex !justify-around">
 					<span className=" hidden md:flex !justify-center">Scan QR Code</span>
 
-					<div className="md:hidden">
-						<ButtonBuy modal={{ title: "Buy Credit"}} withIcon={false} className="text-white mr-3 md:mr-0">
-							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet expedita repellendus velit molestias earum distinctio minus architecto ab, dolor iusto nulla recusandae asperiores laborum veniam quis quo atque quaerat vero.
-						</ButtonBuy>
-					</div>
+            <div className="md:hidden">
+					<ButtonBuy href={`/voucher/buy`} title={"Buy now"} className="text-white mr-3 md:mr-0" withIcon={false}/>
+				</div>
 				</div>
 			</div>
 		</CardWrap>
