@@ -184,9 +184,7 @@ const WithQR = () => {
 					<span>time</span>
 				</div>
 				<div className="buy hidden md:flex">
-					<ButtonBuy modal={{ title: "Buy Credit"}}>
-						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet expedita repellendus velit molestias earum distinctio minus architecto ab, dolor iusto nulla recusandae asperiores laborum veniam quis quo atque quaerat vero.
-					</ButtonBuy>
+					<ButtonBuy href={`/voucher/buy`} title={"Buy now"}/>
 				</div>
 			</div>
 			<div className="v-card cardRight shadow-sm !relative !w-2/6">

@@ -6,6 +6,8 @@ import '../i18n';
 
 import "../styles/globals.css";
 import "../styles/main.css";
+import "formik-stepper/dist/style.css";
+
 
 export default function App({ Component, pageProps }) {
   const getLayout = Component.getLayout ?? ((page) => page);
