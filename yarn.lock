@@ -1049,6 +1049,11 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.6.tgz#cee20bd55e68a1720bdab363ecf0c821ded4cd45"
   integrity sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==
 
+"@preline/remove-element@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@preline/remove-element/-/remove-element-1.3.0.tgz#e39e829ff9e933785b030abe5438cb3d342ce1d4"
+  integrity sha512-k0cYlvPbX8I4WIre1pV7AZk0LyhCA2llxyceozJRf9cy0XdyxJIEnzDCfi6Ac0+FDK1YBCncLKGc39HZteNgdA==
+
 "@reduxjs/toolkit@^1.9.3":
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/@reduxjs/toolkit/-/toolkit-1.9.3.tgz#27e1a33072b5a312e4f7fa19247fec160bbb2df9"
