@@ -108,7 +108,7 @@ const RegisterForm = () => {
 						>
 							{steps.map((label, index) => (
 								<Step key={label} completed={completed[index]}>
-									<StepLabel color="inherit" onClick={handleStep(index)}>
+									<StepLabel color="inherit">
 										{label}
 									</StepLabel>
 								</Step>
