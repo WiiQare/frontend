@@ -5,9 +5,14 @@ import { REGISTER_SLIDES } from "../utils/constants";
 import { useMediaQuery, CssBaseline } from "@mui/material";
 import Head from "next/head";
 import React from "react";
+import {useSelector} from 'react-redux';
 
 function Register() {
   const matches = useMediaQuery("(max-width: 992px)");
+  const state = useSelector((state) => state);
+
+  console.log(state);
+
   return (
     <>
       <Head>

@@ -1,12 +1,17 @@
 import Head from "next/head";
 import { SessionProvider } from "next-auth/react";
 import { ThemeProvider } from "@mui/material/styles";
+import { store } from "../redux/store";
+import { Provider } from "react-redux";
+import { QueryClientProvider, QueryClient } from 'react-query'
 import { theme } from "../theme";
 import '../i18n';
 
 import "../styles/globals.css";
 import "../styles/main.css";
 import "formik-stepper/dist/style.css";
+
+const queryClient = new QueryClient()
 
 
 export default function App({ Component, pageProps }) {
@@ -23,9 +28,13 @@ export default function App({ Component, pageProps }) {
         <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
       </Head>
       <SessionProvider session={pageProps.session}>
-        <ThemeProvider theme={theme}>
-          {getLayout(<Component {...pageProps} />)}
-        </ThemeProvider>
+        <QueryClientProvider client={queryClient}>
+          <Provider store={store}>
+            <ThemeProvider theme={theme}>
+              {getLayout(<Component {...pageProps} />)}
+            </ThemeProvider>
+          </Provider>
+        </QueryClientProvider>
       </SessionProvider>
     </>
   );

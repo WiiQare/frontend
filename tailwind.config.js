@@ -6,6 +6,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
     "./layouts/**/*.{js,ts,jsx,tsx}",
+    "node_modules/preline/dist/*.js"
   ],
   theme: {
     extend: {
@@ -18,7 +19,7 @@ module.exports = {
     },
     
   },
-  plugins: [require("flowbite/plugin"), require("daisyui"), require("@headlessui/react")],
+  plugins: [require("flowbite/plugin"), require("daisyui"), require("@headlessui/react"), require('preline/plugin')],
   daisyui: {
     darkTheme: false,
   },
