@@ -3,7 +3,6 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { FormContext } from "../../../../pages/voucher/buy";
 import * as yup from "yup";
 import { HiArrowSmRight, HiOutlineInformationCircle } from "react-icons/hi";
-import { CountryDropdown } from 'react-country-region-selector';
 
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
