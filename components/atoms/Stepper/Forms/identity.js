@@ -25,8 +25,6 @@ function Identity() {
 		phone: yup.string(),
 	});
 
-	console.log(phone);
-
 	return (
 		<Formik
 			initialValues={{
