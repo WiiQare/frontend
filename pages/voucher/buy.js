@@ -1,16 +1,17 @@
 import { createContext, useState } from "react";
 import Head from "next/head";
 import { getSession } from "next-auth/react";
+import { useRouter } from 'next/router'
 import DashboardLayout from "../../layouts/Dashboard";
 import CardHeader from "../../components/atoms/Card/Header";
 import Stepper from "../../components/atoms/Stepper";
 import Step from "../../components/atoms/Stepper/step";
-
 export const FormContext = createContext();
 
 const Page = () => {
 
-    const [activeStepIndex, setActiveStepIndex] = useState(0);
+    const {step, redirect_status} = useRouter().query;
+    const [activeStepIndex, setActiveStepIndex] = useState(step == "end" && redirect_status == "succeeded" ? 2 : 0);
     const [formData, setFormData] = useState({});
 
     return (
