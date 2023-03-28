@@ -42,12 +42,12 @@ function Amount({ amount, setAmount }) {
 				console.log(amount);
 			}}
 		>
-			<Form className="flex justify-center md:w-2/4  py-4 items-end">
-				<div className="space-y-1 w-3/4">
+			<Form className="flex justify-center md:w-2/4 w-full  py-4 items-end">
+				<div className="space-y-1 md:w-3/4">
 					<div className="flex items-end gap-4">
 						<div className="flex flex-col items-center space-y-1">
 							<Field
-								className="rounded-lg border px-4 py-3 w-full placeholder:text-gray-400 text-gray-700 text-md"
+								className="rounded-lg border px-2 md:px-4 py-3 w-full placeholder:text-gray-400 text-gray-700 text-md"
 								placeholder="Enter amount"
 								min="10"
 								name="amount"
@@ -56,7 +56,7 @@ function Amount({ amount, setAmount }) {
 							/>
 						</div>
 
-						<button type="submit" className="bg-primary flex gap-3 items-center w-fit font-medium text-white py-3 px-5 hover:bg-blue-500 duration-200 transition-all hover:shadow rounded-lg">
+						<button type="submit" className="bg-primary flex gap-3 items-center w-fit font-medium text-white py-3 md:px-5 px-2 text-sm md:text-md hover:bg-blue-500 duration-200 transition-all hover:shadow rounded-lg">
 							Checkout
 						</button>
 					</div>

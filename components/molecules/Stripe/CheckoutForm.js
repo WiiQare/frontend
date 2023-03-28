@@ -85,7 +85,7 @@ export default function CheckoutForm({amount}) {
     };
 
     return (
-        <form id="payment-form" onSubmit={handleSubmit} className="flex flex-col gap-4 mx-auto w-2/3">
+        <form id="payment-form" onSubmit={handleSubmit} className="flex flex-col gap-4 mx-auto md:w-2/3">
             <LinkAuthenticationElement
                 id="link-authentication-element"
             />
