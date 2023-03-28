@@ -61,8 +61,8 @@ export default function CheckoutForm({amount}) {
             elements,
             confirmParams: {
                 // Make sure to change this to your payment completion page
-                //return_url: "http://localhost:3000/voucher/buy?step=1",
-                return_url: "https://wiiqare-unicef-ii.vercel.app/voucher/buy?step=1"
+                return_url: "http://localhost:3000/voucher/buy?step=1",
+                //return_url: "https://wiiqare-unicef-ii.vercel.app/voucher/buy?step=1"
             },
         });
 
@@ -97,12 +97,12 @@ export default function CheckoutForm({amount}) {
                     className="bg-primary flex gap-3 items-center w-fit font-medium text-white my-2 py-3 px-5 hover:bg-blue-500 duration-200 transition-all hover:shadow rounded-lg"
                     type="submit"
                 >
-                    {!isLoading ? (<> Next<HiArrowSmRight /></>)  : (<>Loading...</>)}
+                    {!isLoading ? (<> Next <HiArrowSmRight /></>)  : (<>Loading...</>)}
                 </button>
             </div>
 
             {/* Show any error or success messages */}
-            {message && <div id="payment-message">{message}</div>}
+            {message && <div id="payment-message" className="text-sm text-red-500">{message}</div>}
         </form>
     );
 }

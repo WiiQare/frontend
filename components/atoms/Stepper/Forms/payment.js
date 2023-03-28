@@ -12,7 +12,7 @@ function Payment(props) {
 
 	return (
 		<>
-			<div className="text-2xl font-medium my-4 capitalize">Choice your payment method !</div>
+			{/* <div className="text-2xl font-medium my-4 capitalize">Choice your payment method !</div> */}
 
 			{amount == 0 ? <Amount amount={amount} setAmount={setAmount} /> : <StripePayment amount={amount}/>}
 		</>

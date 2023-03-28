@@ -28,7 +28,7 @@ function Send() {
 			}}
 		>
 			<Form className="flex flex-col justify-start md:w-2/3 gap-4">
-				<div className="text-2xl font-medium my-4 capitalize">Send Voucher !</div>
+				{/* <div className="text-2xl font-medium my-4 capitalize">Send Voucher !</div> */}
 				
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, vero nulla doloribus harum, ipsa reprehenderit delectus minus excepturi inventore, iste in suscipit? Neque facere laudantium dicta optio ullam omnis totam.

@@ -45,7 +45,7 @@ function Identity() {
 			}}
 		>
 			<Form className="flex flex-col justify-start md:w-2/3 gap-4">
-				<div className="text-2xl font-medium my-4 capitalize">Enter Identity for receiver !</div>
+				{/* <div className="text-2xl font-medium my-4 capitalize">Enter Identity for receiver !</div> */}
 
 				<div className="space-y-1">
 					<div className="flex flex-col items-start space-y-1">
