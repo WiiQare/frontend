@@ -61,8 +61,8 @@ export default function CheckoutForm({amount}) {
             elements,
             confirmParams: {
                 // Make sure to change this to your payment completion page
-                return_url: "http://localhost:3000/voucher/buy?step=end",
-                //return_url: "https://wiiqare-unicef-ii.vercel.app/voucher/buy?step=end"
+                //return_url: "http://localhost:3000/voucher/buy?step=end",
+                return_url: "https://wiiqare-unicef-ii.vercel.app/voucher/buy?step=end"
             },
         });
 
