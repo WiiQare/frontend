@@ -20,15 +20,15 @@ function Send() {
 
 	return (
 		<div className="flex flex-col gap-6 justify-center items-center">
-			<div className="text-center space-y-2">
-				<div className="flex items-end select-none">
+			<div className="flex flex-col items-center text-center space-y-2">
+				<div className="flex flex-col items-center select-none">
 					<Image
 						src={logoDark}
 						className="h-6 md:h-9 object-left object-contain w-min"
 					/>
-					<h1 className="font-extrabold text-gray-700 text-4xl">Pass</h1>
+					<h1 className="font-extrabold text-gray-700 text-lg hidden md:flex">Pass Sante</h1>
 				</div>
-				<span>No. <span className="text-orange">WQ-88930</span></span>
+				<span className="text-xs">Pass Sante ID: [<span className="text-orange cursor-pointer">0xf59b12...c679623</span>]</span>
 			</div>
 
 			<div className="flex flex-col items-center gap-4">
@@ -40,7 +40,7 @@ function Send() {
 						options={{
 							level: "M",
 							margin: 1,
-							scale: 9,
+							scale: 7,
 							quality: 100,
 							color: {
 								dark: "#000",
@@ -67,19 +67,19 @@ function Send() {
 			</div>
 
 			<div className="text-center mt-6 space-y-2">
-				<h4 className="font-semibold text-gray-700 text-sm">Share Health Pass with:</h4>
+				<h4 className="font-semibold text-gray-700 text-sm">Envoyer le pass santé au bénéficiaire:</h4>
 				<div>
 					<button type="button" className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
 						<img src="/images/whatsapp.png" alt="" className="w-6"/>
-						Share with WhatsApp
+						WhatsApp
 					</button>
 					<button type="button" className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
 					<img src="/images/facebook-share.png" alt="" className="w-6" />
-						Share with Facebook
+						Facebook
 					</button>
 					<button type="button" className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
 					<img src="/images/share.png" alt="" className="w-6" />
-						Share with SMS
+						SMS
 					</button>
 				</div>
 			</div>
