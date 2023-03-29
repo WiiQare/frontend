@@ -94,11 +94,13 @@ function Send() {
 						</a>
 					</Link>
 
-					<button type="button" className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-						<img src="/images/sms.png" alt="" className="w-6" />
-						<span className="hidden md:flex">Message</span>
-					</button>
-					
+					<Link href={"sms:;?body=https://wiiqare-unicef.herokuapp.com/voucher/pass/0xf59b12eccfc5faedbc4657bd593d6d6a0c679623"} legacyBehavior target={"_blank"}>
+						<a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
+							<img src="/images/sms.png" alt="" className="w-6" />
+							<span className="hidden md:flex">Message</span> 
+						</a>
+					</Link>
+
 					<CopyToClipboard text={"https://wiiqare-unicef.herokuapp.com/voucher/pass/0xf59b12eccfc5faedbc4657bd593d6d6a0c679623"} onCopy={() => {
 						setCopyLink(true); setTimeout(() => {
 							setCopyLink(false)
