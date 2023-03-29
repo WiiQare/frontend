@@ -5,12 +5,14 @@ import { FormContext } from "../../../../pages/voucher/buy";
 import Image from "next/image";
 import logoDark from "../../../../public/images/logo_dark_2.png";
 import { HiOutlineClipboardDocument } from "react-icons/hi2";
+import Link from "next/link";
 
 
 function Send() {
 	const { Canvas } = useQRCode();
 	const { activeStepIndex, setActiveStepIndex, formData, setFormData } = useContext(FormContext);
 	const [copy, setCopy] = useState(false);
+	const [copyLink, setCopyLink] = useState(false);
 
 
 	return (
@@ -78,18 +80,35 @@ function Send() {
 			<div className="text-center mt-6 space-y-2">
 				<h4 className="font-semibold text-gray-700 text-sm">Envoyer le pass santé au bénéficiaire:</h4>
 				<div className="flex justify-between">
+					<Link href={"whatsapp://send?text=https://wiiqare-unicef.herokuapp.com/voucher/pass/0xf59b12eccfc5faedbc4657bd593d6d6a0c679623"} legacyBehavior target={"_blank"}>
+						<a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
+							<img src="/images/whatsapp.png" alt="" className="w-6" />
+							<span className="hidden md:flex">WhatsApp</span> 
+						</a>
+					</Link>
+
+					<Link href={"https://www.facebook.com/share.php?u=https://wiiqare-unicef.herokuapp.com/voucher/pass/0xf59b12eccfc5faedbc4657bd593d6d6a0c679623"} legacyBehavior target={"_blank"}>
+						<a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
+							<img src="/images/facebook-share.png" alt="" className="w-6" />
+							<span className="hidden md:flex">Facebook</span> 
+						</a>
+					</Link>
+
 					<button type="button" className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-						<img src="/images/whatsapp.png" alt="" className="w-6" />
-						WhatsApp
+						<img src="/images/sms.png" alt="" className="w-6" />
+						<span className="hidden md:flex">Message</span>
 					</button>
-					<button type="button" className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-						<img src="/images/facebook-share.png" alt="" className="w-6" />
-						Facebook
-					</button>
-					<button type="button" className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-						<img src="/images/share.png" alt="" className="w-6" />
-						Message
-					</button>
+					
+					<CopyToClipboard text={"https://wiiqare-unicef.herokuapp.com/voucher/pass/0xf59b12eccfc5faedbc4657bd593d6d6a0c679623"} onCopy={() => {
+						setCopyLink(true); setTimeout(() => {
+							setCopyLink(false)
+						}, 2000);
+					}}>
+						<button type="button" className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
+							<img src="/images/text.png" alt="" className="w-6" />
+							<span className="hidden md:flex">{!copyLink ? "Copy Link To Clipboard" : "Successfully Copied"}</span>
+						</button>
+					</CopyToClipboard>
 				</div>
 			</div>
 		</div>
