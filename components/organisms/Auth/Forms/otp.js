@@ -2,10 +2,47 @@ import React, { useContext, useState } from "react";
 import { FormContextRegister } from "../RegisterForm";
 import { Box, Button, Typography } from "@mui/material";
 import OtpInput from "react18-input-otp";
+import {useSelector, useDispatch} from 'react-redux';
+import { useQueryClient, useMutation } from 'react-query';
+import { setRegsiter } from "../../../../redux/reducer";
+import { useFormik } from 'formik';
+import { sendOtp } from "../../../../lib/helper";
+import Toast from "../../../atoms/Toast";
+import { FaSpinner } from "react-icons/fa";
+
+
 
 function Otp() {
     const { activeStep, setActiveStep, formData, setFormData, handleComplete } = useContext(FormContextRegister);
+    const [state, setState] = useState({type: 0, message: ''});
 	const [otp, setOtp] = useState("");
+    const client = useSelector((state) => state.app.client);
+
+    const sendOtpMutation = useMutation(sendOtp,  {
+        onSuccess: (res) => {
+            console.log("res otp", res);
+            if(res.code == "OTP_VERIFICATION_FAILED") {
+                setState({type: 2, message: res.description})
+            } else {
+                setState({type: 1, message: "OTP exact"})
+                dispatch(setRegsiter({token: res.emailVerificationToken}))
+                handleComplete()
+            };
+        }
+    });
+
+    const onSubmit = async (values) => {
+        if (Object.keys(values).length == 0) return console.log("Pas de données");
+        sendOtpMutation.mutate({email: client.register.email, otpCode: parseInt(otp)})
+    };
+
+    // Formik hook
+    const formik = useFormik({
+        initialValues: {
+            otpCode: otp
+        },
+        onSubmit
+    })
 
     const handleChange = (enteredOtp) => {
 		setOtp(enteredOtp);
@@ -13,7 +50,8 @@ function Otp() {
 
     return (
         <>
-            {/* <div className="form-title">Vérifier votre adresse e-mail</div> */}
+            {state.type > 0 ? state.type == 2 ? <Toast type={"danger"} message={state.message}/> : (state.type == 1 ? <Toast type={"success"} message={state.message}/> : <></>) : <></>}
+
             <Box sx={{ mb: 2, mt: 2, textAlign: "left" }}>
                 <Typography color="primary" variant="body1">
                     Un code vous a été envoyé, verifiez votre email
@@ -24,14 +62,15 @@ function Otp() {
                     Expire in 00:54
                 </Typography>
             </Box>
-            <form id="signupform">
+            <form id="signupform" onSubmit={formik.handleSubmit}>
                 <div className="form-text code">
 
                     <OtpInput
                         value={otp}
                         onChange={handleChange}
-                        numInputs={4}
+                        numInputs={6}
                         isInputNum
+                        name="otp"
                     />
                 </div>
 
@@ -42,8 +81,8 @@ function Otp() {
                 </div>
 
                 <div className="form-button">
-                    <Button size="large" variant="contained" onClick={handleComplete}>
-                        NEXT STEP
+                    <Button size="large" variant="contained" type="submit">
+                        {sendOtpMutation.isLoading ? <FaSpinner icon="spinner" className="spinner" /> : 'NEXT STEP'}
                     </Button>
                 </div>
             </form>

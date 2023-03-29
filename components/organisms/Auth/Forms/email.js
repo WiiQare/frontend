@@ -7,7 +7,7 @@ import { HiOutlineInformationCircle } from "react-icons/hi";
 import { sendEmail } from "../../../../lib/helper";
 import { useQueryClient, useMutation } from 'react-query';
 import {useSelector, useDispatch} from 'react-redux';
-import { setEmail } from "../../../../redux/reducer";
+import { setRegsiter } from "../../../../redux/reducer";
 import Toast from "../../../atoms/Toast";
 
 import { FaSpinner } from "react-icons/fa";
@@ -15,7 +15,7 @@ import { FaSpinner } from "react-icons/fa";
 function Email() {
     const { activeStep, setActiveStep, handleComplete } = useContext(FormContextRegister);
     const [state, setState] = useState({type: 0, message: ''});
-    const email = useSelector((state) => state.app.client.email);
+    const client = useSelector((state) => state.app.client);
 	const dispatch = useDispatch();
 
 
@@ -33,7 +33,7 @@ function Email() {
 
     const onSubmit = async (values) => {
         if (Object.keys(values).length == 0) return console.log("Pas de données");
-        dispatch(setEmail(values))
+        dispatch(setRegsiter({...values}))
         sendEmailMutation.mutate(values)
     };
 
