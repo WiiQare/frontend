@@ -1,21 +1,16 @@
-import React, { useContext } from "react";
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import React, { useContext, useState } from "react";
 import { useQRCode } from "next-qrcode";
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FormContext } from "../../../../pages/voucher/buy";
-import * as yup from "yup";
-import { HiOutlineInformationCircle } from "react-icons/hi";
 import Image from "next/image";
 import logoDark from "../../../../public/images/logo_dark_2.png";
-import logo from "../../../../public/images/favicon.png";
+import { HiOutlineClipboardDocument } from "react-icons/hi2";
 
 
 function Send() {
 	const { Canvas } = useQRCode();
 	const { activeStepIndex, setActiveStepIndex, formData, setFormData } = useContext(FormContext);
-
-	const renderError = (message) => (
-		<p className="text-xs text-red-600 font-light flex items-center gap-1"><HiOutlineInformationCircle />{message}</p>
-	);
+	const [copy, setCopy] = useState(false);
 
 
 	return (
@@ -28,7 +23,21 @@ function Send() {
 					/>
 					<h1 className="font-extrabold text-gray-700 text-lg hidden md:flex">Pass Sante</h1>
 				</div>
-				<span className="text-xs">Pass Sante ID: [<span className="text-orange cursor-pointer">0xf59b12...c679623</span>]</span>
+				<span className="text-xs flex items-center gap-1">Pass Sante ID:
+					<CopyToClipboard text={"0xf59b12eccfc5faedbc4657bd593d6d6a0c679623"} onCopy={() => {
+						setCopy(true); setTimeout(() => {
+							setCopy(false)
+						}, 2000);
+					}}>
+						<div className="flex items-center gap-1">
+							[
+							<div className="tooltip" data-tip={!copy ? "Copy to clipboard" : "✓ Copy"}>
+								<span className="text-orange cursor-pointer">0xf59b12...c679623</span>
+							</div>
+							] 
+						</div>
+					</CopyToClipboard>
+				</span>
 			</div>
 
 			<div className="flex flex-col items-center gap-4">
@@ -70,13 +79,16 @@ function Send() {
 				<h4 className="font-semibold text-gray-700 text-sm">Envoyer le pass santé au bénéficiaire:</h4>
 				<div className="flex justify-between">
 					<button type="button" className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-						<img src="/images/whatsapp.png" alt="" className="w-6"/>
+						<img src="/images/whatsapp.png" alt="" className="w-6" />
+						WhatsApp
 					</button>
 					<button type="button" className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-					<img src="/images/facebook-share.png" alt="" className="w-6" />
+						<img src="/images/facebook-share.png" alt="" className="w-6" />
+						Facebook
 					</button>
 					<button type="button" className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-					<img src="/images/share.png" alt="" className="w-6" />
+						<img src="/images/share.png" alt="" className="w-6" />
+						Message
 					</button>
 				</div>
 			</div>
