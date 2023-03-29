@@ -1,4 +1,5 @@
 import Head from "next/head";
+import NextNProgress from "nextjs-progressbar";
 import { SessionProvider } from "next-auth/react";
 import { ThemeProvider } from "@mui/material/styles";
 import { store } from "../redux/store";
@@ -30,6 +31,7 @@ export default function App({ Component, pageProps }) {
       <SessionProvider session={pageProps.session}>
         <QueryClientProvider client={queryClient}>
           <Provider store={store}>
+            <NextNProgress height={3} color="#FE8023" />
             <ThemeProvider theme={theme}>
               {getLayout(<Component {...pageProps} />)}
             </ThemeProvider>
