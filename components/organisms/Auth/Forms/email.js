@@ -7,7 +7,7 @@ import { HiOutlineInformationCircle } from "react-icons/hi";
 import { sendEmail } from "../../../../lib/helper";
 import { useQueryClient, useMutation } from 'react-query';
 import {useSelector, useDispatch} from 'react-redux';
-import { setRegsiter } from "../../../../redux/reducer";
+import { setRegister } from "../../../../redux/reducer";
 import Toast from "../../../atoms/Toast";
 
 import { FaSpinner } from "react-icons/fa";
@@ -33,7 +33,7 @@ function Email() {
 
     const onSubmit = async (values) => {
         if (Object.keys(values).length == 0) return console.log("Pas de données");
-        dispatch(setRegsiter({...values}))
+        dispatch(setRegister({...values}))
         sendEmailMutation.mutate(values)
     };
 

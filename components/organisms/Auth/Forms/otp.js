@@ -2,14 +2,13 @@ import React, { useContext, useState } from "react";
 import { FormContextRegister } from "../RegisterForm";
 import { Box, Button, Typography } from "@mui/material";
 import OtpInput from "react18-input-otp";
-import {useSelector, useDispatch} from 'react-redux';
 import { useQueryClient, useMutation } from 'react-query';
-import { setRegsiter } from "../../../../redux/reducer";
+import { setRegister } from "../../../../redux/reducer";
 import { useFormik } from 'formik';
 import { sendOtp } from "../../../../lib/helper";
 import Toast from "../../../atoms/Toast";
 import { FaSpinner } from "react-icons/fa";
-
+import {useSelector, useDispatch} from 'react-redux';
 
 
 function Otp() {
@@ -17,6 +16,7 @@ function Otp() {
     const [state, setState] = useState({type: 0, message: ''});
 	const [otp, setOtp] = useState("");
     const client = useSelector((state) => state.app.client);
+	const dispatch = useDispatch();
 
     const sendOtpMutation = useMutation(sendOtp,  {
         onSuccess: (res) => {
@@ -25,7 +25,7 @@ function Otp() {
                 setState({type: 2, message: res.description})
             } else {
                 setState({type: 1, message: "OTP exact"})
-                dispatch(setRegsiter({token: res.emailVerificationToken}))
+                dispatch(setRegister({...client.register, emailVerificationToken: res.emailVerificationToken}))
                 handleComplete()
             };
         }

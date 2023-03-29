@@ -8,12 +8,12 @@ export const ReducerSlice = createSlice({
     name: 'jamii',
     initialState,
     reducers: {
-        setRegsiter: (state, action) => {
+        setRegister: (state, action) => {
             state.client.register = {...action.payload}
         }
     }
 })
 
-export const { setRegsiter } = ReducerSlice.actions
+export const { setRegister } = ReducerSlice.actions
 
 export default ReducerSlice.reducer;
