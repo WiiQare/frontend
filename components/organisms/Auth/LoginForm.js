@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
@@ -26,6 +26,10 @@ import MenuHolder from "../../atoms/MenuHolder";
 import BlinkSnackbar from "../../atoms/BlinkSnackbar";
 import Image from "next/image";
 import { useTranslation, Trans } from 'react-i18next';
+import { useFormik } from "formik";
+import { useRouter } from 'next/router';
+import Toast from "../../atoms/Toast";
+import { FaSpinner } from "react-icons/fa";
 
 
 function LoginForm() {
@@ -33,6 +37,9 @@ function LoginForm() {
 	const matches = useMediaQuery("(max-width: 992px)");
 	const [onboardingIsEnd, setOnboardingIsEnd] = React.useState("");
 	const [showPassword, setShowPassword] = React.useState(false);
+	const [state, setState] = useState({type: 0, message: ''});
+	const [btnClick, setBtnClick] = useState(false);
+    const router = useRouter();
 
 	const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -52,10 +59,38 @@ function LoginForm() {
         signIn('linkedin', {callbackUrl: "https://wiiqare-unicef.herokuapp.com"})
     }
 
+	//Sign In for other methods with NextAuth
+    const onSubmit = async (values) => {
+
+        let status = await signIn('credentials', {
+            redirect: false,
+            email: values.email,
+            password: values.password,
+            callbackUrl: "/"
+        })
+
+        if(status.ok) {router.push(status.url)
+		} else {
+			setBtnClick(false)
+			setState({type: 2, message: status.error})
+		}
+    }
+
+	// Formik hook
+    const formik = useFormik({
+        initialValues: {
+            email: '',
+			password: ''
+        },
+        onSubmit
+    })
+
 	const formHolder = (
 		<>
 			<div className="form-holder">
 				<MenuHolder href="/register" label="SIGN UP" />
+
+				{state.type > 0 ? state.type == 2 ? <Toast type={"danger"} message={state.message}/> : (state.type == 1 ? <Toast type={"success"} message={state.message}/> : <></>) : <></>}
 				<div className="signin-signup-form">
 					<div className="flex flex-col md:w-3/4 w-full border-opacity-50 gap-4">
 						
@@ -63,13 +98,15 @@ function LoginForm() {
 							<div className="md:w-3/4 mx-auto">
 								<div className="form-title">{t('signIn.title')}</div>
 								<Box sx={{ mb: 3, mt: 2 }}></Box>
-								<form id="signinform" className="">
+								<form id="signinform" onSubmit={formik.handleSubmit}>
 									<Stack spacing={2}>
 										<TextField
 											id="outlined-basic"
 											fullWidth
 											label={t('signIn.field.email')}
 											variant="outlined"
+											name="email"
+											{...formik.getFieldProps('email')}
 										/>
 										<FormControl fullWidth variant="outlined">
 											<InputLabel htmlFor="outlined-basic1">{t('signIn.field.password')}</InputLabel>
@@ -77,6 +114,8 @@ function LoginForm() {
 												id="outlined-basic1"
 												label={t('signIn.field.email')}
 												type={showPassword ? "text" : "password"}
+												name="password"
+												{...formik.getFieldProps('password')}
 												endAdornment={
 													<InputAdornment position="end">
 														<IconButton
@@ -103,10 +142,13 @@ function LoginForm() {
 											<Button
 												size="large"
 												variant="contained"
-												onClick={() => { }}
+												type="submit"
 												className="bg-yellow text-uppercase"
+												onClick={() => setBtnClick(true)}
 											>
-												{t('signIn.buttons.submit')}
+												
+												{btnClick ? <FaSpinner icon="spinner" className="spinner" /> : t('signIn.buttons.submit')}
+
 											</Button>
 										</Box>
 									</Stack>

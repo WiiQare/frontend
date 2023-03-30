@@ -1,20 +1,34 @@
-import NextAuth from 'next-auth';
+import NextAuth, {NextAuthOptions} from 'next-auth';
 import GoogleProvider from "next-auth/providers/google";
-import LinkedInProvider from "next-auth/providers/linkedin";
+import CredentialsProvider from 'next-auth/providers/credentials';
+import { login } from '../../../lib/helper';
 
-
-export default NextAuth({
+const authOptions = {
+    session: {
+        strategy: 'jwt'
+    },
     providers: [
-        //Google Provider
+        CredentialsProvider({
+            type: 'credentials',
+            credentials: {},
+            async authorize(credentials, req) {
+
+                const result =  await login(credentials);
+
+                if(result.code) throw new Error(result.message)
+     
+                return {name: "Peter NDENGO", email: credentials.email, id: result.access_token }
+            }
+        }),
+
         GoogleProvider({
             clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET
         }),
+    ],
+    pages: {
+        signIn: "/login"
+    }
+}
 
-        //LinkedIn Provider
-        LinkedInProvider({
-            clientId: "86r44ozblb9me7",
-            clientSecret: "p6wdfKr7Xzvhd3CL"
-          })
-    ]
-})
+export default NextAuth(authOptions)

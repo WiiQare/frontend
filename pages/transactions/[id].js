@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { getSession } from "next-auth/react";
 import DashboardLayout from "../../layouts/Dashboard";
 
 import DetailsTransaction from "../../components/organisms/Transaction/details";

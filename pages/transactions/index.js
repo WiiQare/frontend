@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { getSession } from "next-auth/react";
 import DashboardLayout from "../../layouts/Dashboard";
 
 import Transaction from "../../components/organisms/Transaction";
@@ -20,18 +19,3 @@ Page.getLayout = (page) => (
 );
 
 export default Page;
-
-export async function getServerSideProps({ req }) {
-  const session = await getSession({ req });
-
-  if (session) {
-    return {
-      redirect: {
-        destination: "/login",
-        permanent: false,
-      },
-    };
-  }
-
-  return { props: { session } };
-}

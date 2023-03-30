@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { getSession } from "next-auth/react";
 
 import DashboardLayout from "../layouts/Dashboard";
 
@@ -8,6 +7,7 @@ import ProviderFilter from "../components/organisms/Dashboard/ProviderFilter";
 import Carousel from "../components/organisms/Dashboard/Carousel";
 
 const Page = () => {
+
   return (
     <>
       <Head>
@@ -26,18 +26,3 @@ Page.getLayout = (page) => (
 );
 
 export default Page;
-
-export async function getServerSideProps({ req }) {
-  const session = await getSession({ req });
-
-  if (session) {
-    return {
-      redirect: {
-        destination: "/login",
-        permanent: false,
-      },
-    };
-  }
-
-  return { props: { session } };
-}

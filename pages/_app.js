@@ -17,6 +17,8 @@ const queryClient = new QueryClient()
 
 export default function App({ Component, pageProps }) {
   const getLayout = Component.getLayout ?? ((page) => page);
+  console.log(pageProps)
+
   return (
     <>
       <Head>
