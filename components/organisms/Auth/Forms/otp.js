@@ -10,6 +10,7 @@ import Toast from "../../../atoms/Toast";
 import { FaSpinner } from "react-icons/fa";
 import {useSelector, useDispatch} from 'react-redux';
 import LoadingButton from "../../../atoms/Loader/LoadingButton";
+import Countdown from 'react-countdown';
 
 
 function Otp() {
@@ -58,6 +59,7 @@ function Otp() {
         if(otp.length == 5) onSubmit({ otpCode: otp })
 	};
 
+
     return (
         <>
             {state.type > 0 ? state.type == 2 ? <Toast type={"danger"} message={state.message} close={closeToast}/> : (state.type == 1 ? <Toast type={"success"} message={state.message} close={closeToast}/> : <></>) : <></>}
@@ -69,7 +71,10 @@ function Otp() {
             </Box>
             <Box sx={{ mb: 1, textAlign: "left" }}>
                 <Typography color="text.secondary" variant="caption">
-                    Expire in 00:54
+                <Countdown
+                    date={Date.now() + 60000}
+                    renderer={renderer}
+                />
                 </Typography>
             </Box>
             <form id="signupform" onSubmit={formik.handleSubmit}>
@@ -86,7 +91,7 @@ function Otp() {
 
                 <div className="form-text text-holder">
                     <span className="text-only">
-                        Pas réçu de code ? Renvoyer le code
+                        Pas réçu de code ? <button className="text-primary" onClick={() => null}>Renvoyer le code</button>    
                     </span>
                 </div>
 
@@ -101,3 +106,15 @@ function Otp() {
 }
 
 export default Otp;
+
+const renderer = ({ hours, minutes, seconds, completed }) => {
+    if (completed) {
+      // Render a completed state
+      return <Completionist />;
+    } else {
+      // Render a countdown
+      return (<>Expire in <span>{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</span></>);
+    }
+  };
+
+  const Completionist = () => <span>Code OTP expiré</span>;

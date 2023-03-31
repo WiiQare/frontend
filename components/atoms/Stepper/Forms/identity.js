@@ -3,9 +3,12 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { FormContext } from "../../../../pages/voucher/buy";
 import * as yup from "yup";
 import { HiArrowSmRight, HiOutlineInformationCircle } from "react-icons/hi";
+import { SWRConfig } from "swr";
 
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
+import Fetcher from "../../../../lib/Fetcher";
+import { autocomplete } from "../../../../lib/helper";
 
 function Identity() {
 	const { activeStepIndex, setActiveStepIndex, formData, setFormData } = useContext(FormContext);
@@ -14,6 +17,14 @@ function Identity() {
 	const renderError = (message) => (
 		<p className="text-xs text-red-600 font-light flex items-center gap-1"><HiOutlineInformationCircle />{message}</p>
 	);
+
+	const handlePhone = (value) => {
+		setPhone(value);
+		const res = autocomplete(value);
+
+		console.log(res);
+
+	}
 
 	const ValidationSchema = yup.object().shape({
 		name: yup.string().required("Fistname is a required field"),
@@ -54,7 +65,7 @@ function Identity() {
 							defaultCountry="CD"
 							placeholder="Enter phone number"
 							value={phone}
-							onChange={setPhone}
+							onChange={handlePhone}
 							name="phone"
 							className="rounded-lg border px-4 py-1.5 w-full placeholder:text-gray-400 text-gray-700 text-md"	
 						/>
