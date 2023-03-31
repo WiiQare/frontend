@@ -11,6 +11,7 @@ import { setRegister } from "../../../../redux/reducer";
 import Toast from "../../../atoms/Toast";
 
 import { FaSpinner } from "react-icons/fa";
+import LoadingButton from "../../../atoms/Loader/LoadingButton";
 
 function Email() {
     const { activeStep, setActiveStep, handleComplete } = useContext(FormContextRegister);
@@ -27,6 +28,9 @@ function Email() {
                 handleComplete()
             } else {
                 setState({type: 2, message: "Error while sending OTP Code"})
+                setTimeout(() => {
+                    setState({ type: 0, message: "" })
+                }, 3000);
             };
         }
     });
@@ -36,6 +40,10 @@ function Email() {
         dispatch(setRegister({...values}))
         sendEmailMutation.mutate(values)
     };
+
+    const closeToast = () => {
+		setState({ type: 0, message: "" })
+	}
 
     // Formik hook
     const formik = useFormik({
@@ -49,7 +57,7 @@ function Email() {
     return (
         <>
             
-            {state.type > 0 ? state.type == 2 ? <Toast type={"danger"} message={state.message}/> : (state.type == 1 ? <Toast type={"success"} message={state.message}/> : <></>) : <></>}
+            {state.type > 0 ? state.type == 2 ? <Toast type={"danger"} message={state.message} close={closeToast}/> : (state.type == 1 ? <Toast type={"success"} message={state.message} close={closeToast}/> : <></>) : <></>}
 
 
             <Box sx={{ mb: 2, mt: 2, textAlign: "left" }}>
@@ -74,7 +82,7 @@ function Email() {
                     <div className="form-button">
                         <Button size="large" variant="contained" type="submit">
 
-                            {sendEmailMutation.isLoading ? <FaSpinner icon="spinner" className="spinner" /> : 'NEXT STEP'}
+                            {sendEmailMutation.isLoading ? <LoadingButton /> : 'NEXT STEP'}
                         </Button>
                     </div>
                 </Stack>
