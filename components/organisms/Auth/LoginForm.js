@@ -37,9 +37,9 @@ function LoginForm() {
 	const matches = useMediaQuery("(max-width: 992px)");
 	const [onboardingIsEnd, setOnboardingIsEnd] = React.useState("");
 	const [showPassword, setShowPassword] = React.useState(false);
-	const [state, setState] = useState({type: 0, message: ''});
+	const [state, setState] = useState({ type: 0, message: '' });
 	const [btnClick, setBtnClick] = useState(false);
-    const router = useRouter();
+	const router = useRouter();
 
 	const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -48,52 +48,53 @@ function LoginForm() {
 	}, []);
 
 	//Handle Google Login
-    const handleGoogleSignIn = async () => {
-        //signIn('google', {callbackUrl: "http://localhost:3000"})
-        signIn('google', {callbackUrl: "https://wiiqare-unicef.herokuapp.com"})
+	const handleGoogleSignIn = async () => {
+		//signIn('google', {callbackUrl: "http://localhost:3000"})
+		signIn('google', { callbackUrl: "https://wiiqare-unicef.herokuapp.com" })
 
-    }
+	}
 
 	const handleLinkedInSignIn = async () => {
-        //signIn('linkedin', {callbackUrl: "http://localhost:3000"})
-        signIn('linkedin', {callbackUrl: "https://wiiqare-unicef.herokuapp.com"})
-    }
+		//signIn('linkedin', {callbackUrl: "http://localhost:3000"})
+		signIn('linkedin', { callbackUrl: "https://wiiqare-unicef.herokuapp.com" })
+	}
 
 	//Sign In for other methods with NextAuth
-    const onSubmit = async (values) => {
+	const onSubmit = async (values) => {
 
-        let status = await signIn('credentials', {
-            redirect: false,
-            email: values.email,
-            password: values.password,
-            callbackUrl: "/"
-        })
+		let status = await signIn('credentials', {
+			redirect: false,
+			email: values.email,
+			password: values.password,
+			callbackUrl: "/"
+		})
 
-        if(status.ok) {router.push(status.url)
+		if (status.ok) {
+			router.push(status.url)
 		} else {
 			setBtnClick(false)
-			setState({type: 2, message: status.error})
+			setState({ type: 2, message: status.error })
 		}
-    }
+	}
 
 	// Formik hook
-    const formik = useFormik({
-        initialValues: {
-            email: '',
+	const formik = useFormik({
+		initialValues: {
+			email: '',
 			password: ''
-        },
-        onSubmit
-    })
+		},
+		onSubmit
+	})
 
 	const formHolder = (
 		<>
 			<div className="form-holder">
 				<MenuHolder href="/register" label="SIGN UP" />
 
-				{state.type > 0 ? state.type == 2 ? <Toast type={"danger"} message={state.message}/> : (state.type == 1 ? <Toast type={"success"} message={state.message}/> : <></>) : <></>}
+				{state.type > 0 ? state.type == 2 ? <Toast type={"danger"} message={state.message} /> : (state.type == 1 ? <Toast type={"success"} message={state.message} /> : <></>) : <></>}
 				<div className="signin-signup-form">
 					<div className="flex flex-col md:w-3/4 w-full border-opacity-50 gap-4">
-						
+
 						<div className="form-items !w-full !max-w-full flex flex-col items-center mx-auto">
 							<div className="md:w-3/4 mx-auto">
 								<div className="form-title">{t('signIn.title')}</div>
@@ -146,8 +147,15 @@ function LoginForm() {
 												className="bg-yellow text-uppercase"
 												onClick={() => setBtnClick(true)}
 											>
-												
-												{btnClick ? <FaSpinner icon="spinner" className="spinner" /> : t('signIn.buttons.submit')}
+
+												{btnClick ? (
+													<div className="flex gap-2 items-center justify-center">
+														<div className="animate-spin inline-block w-4 h-4 border-[2px] border-current border-t-transparent text-white rounded-full" role="status" ariaLabel="loading">
+															<span className="sr-only">Loading...</span>
+														</div>
+														<span>{ t('signIn.buttons.waiting')}</span>
+													</div>
+												) : t('signIn.buttons.submit')}
 
 											</Button>
 										</Box>

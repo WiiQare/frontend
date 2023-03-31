@@ -28,6 +28,7 @@ i18n
                         forgot: 'Forgot your password ?',
                         buttons: {
                             submit: 'SIGN IN',
+                            waiting: 'Wait a moment...',
                             or: 'OR',
                             google: 'Sign In with Google',
                             linkedin: 'Sign In with LinkedIn',
@@ -52,6 +53,7 @@ i18n
                         forgot: 'Mot de passe oublié ?',
                         buttons: {
                             submit: 'Se connecter',
+                            waiting: 'En cours...',
                             or: 'OU',
                             google: 'Se connecter avec Google',
                             linkedin: 'Se connecter avec LinkedIn',
