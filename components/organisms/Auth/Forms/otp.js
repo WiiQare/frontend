@@ -54,6 +54,8 @@ function Otp() {
 
     const handleChange = (enteredOtp) => {
 		setOtp(enteredOtp);
+
+        if(otp.length == 5) onSubmit({ otpCode: otp })
 	};
 
     return (
