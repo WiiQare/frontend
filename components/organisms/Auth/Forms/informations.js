@@ -36,6 +36,10 @@ function Information() {
 
             if (res.code) {
                 setState({ type: 2, message: res.message ?? res.description })
+                setTimeout(() => {
+                    setState({ type: 0, message: "" })
+                }, 3000);
+
             } else {
                 setState({ type: 1, message: "Successfully registered" })
                 dispatch(setRegister({}))
@@ -51,9 +55,14 @@ function Information() {
     const onSubmit = async (values) => {
         if (Object.keys(values).length == 0) return console.log("Pas de données");
         //dispatch(setRegsiter({...values}))
-        console.log(values, client.register);
-        newAccountMutation.mutate({ ...values, ...client.register })
+
+        let {confirm_password, ...info} = values;
+        newAccountMutation.mutate({ ...info, ...client.register })
     };
+
+    const closeToast = () => {
+		setState({ type: 0, message: "" })
+	}
 
     const ValidationSchema = yup.object().shape({
 		firstName: yup.string().required("Fistname is a required field"),
@@ -84,7 +93,7 @@ function Information() {
     return (
         <>
 
-            {state.type > 0 ? state.type == 2 ? <Toast type={"danger"} message={state.message} /> : (state.type == 1 ? <Toast type={"success"} message={state.message} /> : <></>) : <></>}
+            {state.type > 0 ? state.type == 2 ? <Toast type={"danger"} message={state.message} close={closeToast} /> : (state.type == 1 ? <Toast type={"success"} message={state.message} close={closeToast} /> : <></>) : <></>}
 
             <Box sx={{ mb: 2, mt: 2, textAlign: "left" }}>
                 <Typography color="primary" variant="body1">
