@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import Link from "next/link";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import StepButton from "@mui/material/StepButton";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -13,7 +10,6 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { signIn } from "next-auth/react"
 
 import OnboardingScreen from "../../molecules/OnboardingScreen";
-import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import {
 	FormControl,
 	IconButton,
@@ -29,7 +25,7 @@ import { useTranslation, Trans } from 'react-i18next';
 import { useFormik } from "formik";
 import { useRouter } from 'next/router';
 import Toast from "../../atoms/Toast";
-import { FaSpinner } from "react-icons/fa";
+import LoadingButton from "../../atoms/Loader/LoadingButton";
 
 
 function LoginForm() {
@@ -73,8 +69,17 @@ function LoginForm() {
 			router.push(status.url)
 		} else {
 			setBtnClick(false)
+			
 			setState({ type: 2, message: status.error })
+
+			setTimeout(() => {
+				setState({ type: 0, message: "" })
+			}, 3000);
 		}
+	}
+
+	const closeToast = () => {
+		setState({ type: 0, message: "" })
 	}
 
 	// Formik hook
@@ -91,7 +96,8 @@ function LoginForm() {
 			<div className="form-holder">
 				<MenuHolder href="/register" label="SIGN UP" />
 
-				{state.type > 0 ? state.type == 2 ? <Toast type={"danger"} message={state.message} /> : (state.type == 1 ? <Toast type={"success"} message={state.message} /> : <></>) : <></>}
+				{state.type > 0 ? state.type == 2 ? <Toast type={"danger"} message={state.message} close={closeToast}/> : (state.type == 1 ? <Toast type={"success"} message={state.message} close={closeToast}/> : <></>) : <></>}
+
 				<div className="signin-signup-form">
 					<div className="flex flex-col md:w-3/4 w-full border-opacity-50 gap-4">
 
@@ -149,12 +155,7 @@ function LoginForm() {
 											>
 
 												{btnClick ? (
-													<div className="flex gap-2 items-center justify-center">
-														<div className="animate-spin inline-block w-4 h-4 border-[2px] border-current border-t-transparent text-white rounded-full" role="status" ariaLabel="loading">
-															<span className="sr-only">Loading...</span>
-														</div>
-														<span>{ t('signIn.buttons.waiting')}</span>
-													</div>
+													<LoadingButton />
 												) : t('signIn.buttons.submit')}
 
 											</Button>
