@@ -26,6 +26,7 @@ import { useFormik } from "formik";
 import { useRouter } from 'next/router';
 import Toast from "../../atoms/Toast";
 import LoadingButton from "../../atoms/Loader/LoadingButton";
+import { loginValidate } from "../../../lib/validate";
 
 
 function LoginForm() {
@@ -58,6 +59,8 @@ function LoginForm() {
 	//Sign In for other methods with NextAuth
 	const onSubmit = async (values) => {
 
+        if (Object.keys(values).length == 0) return console.log("Pas de données");
+		setBtnClick(true);
 		let status = await signIn('credentials', {
 			redirect: false,
 			email: values.email,
@@ -65,6 +68,7 @@ function LoginForm() {
 			callbackUrl: "/"
 		})
 
+		console.log(status);
 		if (status.ok) {
 			router.push(status.url)
 		} else {
@@ -88,6 +92,7 @@ function LoginForm() {
 			email: '',
 			password: ''
 		},
+		validate: loginValidate,
 		onSubmit
 	})
 
@@ -107,35 +112,41 @@ function LoginForm() {
 								<Box sx={{ mb: 3, mt: 2 }}></Box>
 								<form id="signinform" onSubmit={formik.handleSubmit}>
 									<Stack spacing={2}>
-										<TextField
-											id="outlined-basic"
-											fullWidth
-											label={t('signIn.field.email')}
-											variant="outlined"
-											name="email"
-											{...formik.getFieldProps('email')}
-										/>
-										<FormControl fullWidth variant="outlined">
-											<InputLabel htmlFor="outlined-basic1">{t('signIn.field.password')}</InputLabel>
-											<OutlinedInput
-												id="outlined-basic1"
+										<div className="space-y-1 flex flex-col gap-1">
+											<TextField
+												id="outlined-basic"
+												fullWidth
 												label={t('signIn.field.email')}
-												type={showPassword ? "text" : "password"}
-												name="password"
-												{...formik.getFieldProps('password')}
-												endAdornment={
-													<InputAdornment position="end">
-														<IconButton
-															aria-label="toggle password visibility"
-															onClick={handleClickShowPassword}
-															edge="end"
-														>
-															{showPassword ? <VisibilityOff /> : <Visibility />}
-														</IconButton>
-													</InputAdornment>
-												}
+												variant="outlined"
+												name="email"
+												{...formik.getFieldProps('email')}
 											/>
-										</FormControl>
+											{formik.errors.email && formik.touched.email ? <span className="text-rose-500 text-left text-xs px-1">{formik.errors.email}</span> : <></>}
+										</div>
+										<div className="space-y-1 flex flex-col gap-1">
+											<FormControl fullWidth variant="outlined">
+												<InputLabel htmlFor="outlined-basic1">{t('signIn.field.password')}</InputLabel>
+												<OutlinedInput
+													id="outlined-basic1"
+													label={t('signIn.field.email')}
+													type={showPassword ? "text" : "password"}
+													name="password"
+													{...formik.getFieldProps('password')}
+													endAdornment={
+														<InputAdornment position="end">
+															<IconButton
+																aria-label="toggle password visibility"
+																onClick={handleClickShowPassword}
+																edge="end"
+															>
+																{showPassword ? <VisibilityOff /> : <Visibility />}
+															</IconButton>
+														</InputAdornment>
+													}
+												/>
+											</FormControl>
+											{formik.errors.password && formik.touched.password ? <span className="text-rose-500 text-left text-xs px-1">{formik.errors.password}</span> : <></>}
+										</div>
 										<Box sx={{ textAlign: "right", mb: 2 }}>
 											<Typography color="text.secondary" variant="caption">
 												<Link href={"/forgot/password"} legacyBehavior>
@@ -151,7 +162,6 @@ function LoginForm() {
 												variant="contained"
 												type="submit"
 												className="bg-yellow text-uppercase"
-												onClick={() => setBtnClick(true)}
 											>
 
 												{btnClick ? (

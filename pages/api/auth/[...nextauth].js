@@ -41,7 +41,8 @@ const authOptions = {
         
                 const response = await fetch("http://34.205.37.182/api/v1/session", Options);
                 const json = await response.json();
-                
+
+                if(json.code) throw new Error(json.message)
                 return json
             }
         }),

@@ -3,16 +3,19 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { FormContext } from "../../../../pages/voucher/buy";
 import * as yup from "yup";
 import { HiArrowSmRight, HiOutlineInformationCircle } from "react-icons/hi";
-import { SWRConfig } from "swr";
+import { useSession, signOut, getSession } from "next-auth/react";
 
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
-import Fetcher from "../../../../lib/Fetcher";
 import { autocomplete } from "../../../../lib/helper";
 
 function Identity() {
 	const { activeStepIndex, setActiveStepIndex, formData, setFormData } = useContext(FormContext);
-	const [phone, setPhone] = useState()
+	const [phone, setPhone] = useState();
+
+	const { data } = useSession();
+
+	console.log("identiity", data);
 
 	const renderError = (message) => (
 		<p className="text-xs text-red-600 font-light flex items-center gap-1"><HiOutlineInformationCircle />{message}</p>
