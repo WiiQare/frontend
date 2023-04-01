@@ -11,8 +11,6 @@ function Register() {
   const matches = useMediaQuery("(max-width: 992px)");
   const state = useSelector((state) => state);
 
-  console.log(state);
-
   return (
     <>
       <Head>

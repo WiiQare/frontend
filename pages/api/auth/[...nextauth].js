@@ -1,11 +1,29 @@
-import NextAuth, {NextAuthOptions} from 'next-auth';
+import NextAuth from 'next-auth';
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from 'next-auth/providers/credentials';
-import { login } from '../../../lib/helper';
 
 const authOptions = {
     session: {
         strategy: 'jwt'
+    },
+    callbacks: {
+        async jwt(token, user) {
+
+            if (token.user) {
+                token.token = token.user;
+            }
+
+            return token;
+        },
+        
+        async session(session, token) {
+
+            if (session?.token?.token?.token) {
+                return {user: session?.token?.token?.token, expires: session.session.expires}
+            } else {
+                return null   
+            }
+        }
     },
     providers: [
         CredentialsProvider({
@@ -13,11 +31,18 @@ const authOptions = {
             credentials: {},
             async authorize(credentials, req) {
 
-                const result =  await login(credentials);
-
-                if(result.code) throw new Error(result.message)
-     
-                return {name: "Peter NDENGO", email: credentials.email, id: result.access_token }
+                const Options = {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({email: credentials.email, password: credentials.password})
+                }
+        
+                const response = await fetch("http://34.205.37.182/api/v1/session", Options);
+                const json = await response.json();
+                
+                return json
             }
         }),
 
@@ -26,6 +51,7 @@ const authOptions = {
             clientSecret: process.env.GOOGLE_CLIENT_SECRET
         }),
     ],
+    
     pages: {
         signIn: "/login"
     },

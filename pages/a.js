@@ -5,7 +5,6 @@ import Router from "next/router";
 const A = () => {
     const {status, data} = useSession();
 
-    console.log(data);
     useEffect(() => {
        if(status === 'unauthenticated') Router.replace('/login')
     }, [status]);

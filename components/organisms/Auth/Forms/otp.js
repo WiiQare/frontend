@@ -22,7 +22,6 @@ function Otp() {
 
     const sendOtpMutation = useMutation(sendOtp,  {
         onSuccess: (res) => {
-            console.log("res otp", res);
             if(res.code == "OTP_VERIFICATION_FAILED") {
                 setState({type: 2, message: res.description})
                 setTimeout(() => {

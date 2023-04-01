@@ -22,7 +22,7 @@ function Email() {
 
     const sendEmailMutation = useMutation(sendEmail,  {
         onSuccess: (res) => {
-            console.log(res);
+
             if(res.status == 200 || res.status == 201) {
                 setState({type: 1, message: "Email sent successfully"})
                 handleComplete()

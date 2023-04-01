@@ -39,7 +39,6 @@ function Amount({ amount, setAmount }) {
 			validationSchema={ValidationSchema}
 			onSubmit={(values) => {
 				setAmount(values.amount)
-				console.log(amount);
 			}}
 		>
 			<Form className="flex justify-center md:w-2/4 w-full  py-4 items-end">

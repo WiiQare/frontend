@@ -112,7 +112,6 @@ function TabItems({ value }) {
 		const values = [...allFriendsPhone];
 		values[index]['phone'] = event;
 
-		console.log(values[index]);
 		setAllFriendsPhone(values);
 
 	};

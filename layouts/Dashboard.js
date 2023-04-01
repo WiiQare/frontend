@@ -10,8 +10,6 @@ const Dashboard = ({ children, className }) => {
 	const { pathname } = useRouter();
 	const { status, data } = useSession();
 
-	console.log(data);
-
 	useEffect(() => {
 		if (status === 'unauthenticated') Router.replace('/login')
 	}, [status]);
