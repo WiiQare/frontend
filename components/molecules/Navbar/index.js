@@ -33,6 +33,8 @@ const langFlags = {
 
 const Menu = ({ session, handleSignOut }) => {
 
+	console.log("session", session)
+
 	const [anchorEl, setAnchorEl] = useState(null);
 	const [lang, setLang] = useState("fr");
 
@@ -249,7 +251,7 @@ const Menu = ({ session, handleSignOut }) => {
 				<div className="flex gap-3 items-center">
 					<div className="text-right hidden md:block">
 						<span>
-							Hello, <span className="font-bold">{session?.user?.names ?? ""}</span>
+							Hello, <span className="font-bold">{session?.user?.data.names ?? session?.user?.data.name ?? ""}</span>
 						</span>
 						<h5 className="text-xs font-light">{session?.user?.email ?? ``}</h5>
 					</div>
@@ -260,7 +262,7 @@ const Menu = ({ session, handleSignOut }) => {
 						label={
 							<Avatar
 								alt="User settings"
-								img={session?.user?.image ?? `https://ui-avatars.com/api/?uppercase=true&background=FE8023&name=${session?.user?.names}&bold=true&color=FFF`}
+								img={session?.user?.data.image ?? `https://ui-avatars.com/api/?uppercase=true&background=FE8023&name=${session?.user?.data.names}&bold=true&color=FFF`}
 								rounded={true}
 								size={30}
 								className="w-12 h-12"

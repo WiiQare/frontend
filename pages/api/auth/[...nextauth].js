@@ -7,22 +7,22 @@ const authOptions = {
         strategy: 'jwt'
     },
     callbacks: {
-        async jwt(token, user) {
+        async jwt({token, user}) {
 
-            if (token.user) {
-                token.token = token.user;
+            if (user) {
+                token.id = user.access_token;
+                token.data = user;
             }
 
             return token;
         },
         
-        async session(session, token) {
+        async session({ session, token, user }) {
 
-            if (session?.token?.token?.token) {
-                return {user: session?.token?.token?.token, expires: session.session.expires}
-            } else {
-                return null   
-            }
+            session.user.id = token.id;
+            session.user.data = token.data;
+            session.accessToken = token.id;
+            return session;
         }
     },
     providers: [
@@ -55,7 +55,7 @@ const authOptions = {
     pages: {
         signIn: "/login"
     },
-    secret: 'secretpeter'
+    secret: 'secretpeterwiiqareuniceftoken'
 }
 
 export default NextAuth(authOptions)
