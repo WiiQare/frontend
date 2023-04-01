@@ -22,12 +22,12 @@ function Email() {
 
     const sendEmailMutation = useMutation(sendEmail,  {
         onSuccess: (res) => {
-            console.log(res);
-            if(res.status == 200 || res.status == 201) {
+
+            if(!res.code) {
                 setState({type: 1, message: "Email sent successfully"})
                 handleComplete()
             } else {
-                setState({type: 2, message: "Error while sending OTP Code"})
+                setState({type: 2, message:res.message ?? res.description})
                 setTimeout(() => {
                     setState({ type: 0, message: "" })
                 }, 3000);
