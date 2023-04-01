@@ -22,8 +22,9 @@ function Otp() {
 
     const sendOtpMutation = useMutation(sendOtp,  {
         onSuccess: (res) => {
-            if(res.code == "OTP_VERIFICATION_FAILED") {
-                setState({type: 2, message: res.description})
+            console.log(res);
+            if(res.code) {
+                setState({type: 2, message: res.description ?? res.message});
                 setTimeout(() => {
                     setState({ type: 0, message: "" })
                 }, 3000);
@@ -55,7 +56,7 @@ function Otp() {
     const handleChange = (enteredOtp) => {
 		setOtp(enteredOtp);
 
-        if(otp.length == 5) onSubmit({ otpCode: otp })
+        if(otp.length == 6) onSubmit({ otpCode: otp })
 	};
 
 
@@ -71,7 +72,7 @@ function Otp() {
             <Box sx={{ mb: 1, textAlign: "left" }}>
                 <Typography color="text.secondary" variant="caption">
                 <Countdown
-                    date={Date.now() + 60000}
+                    date={Date.now() + 120000}
                     renderer={renderer}
                 />
                 </Typography>
