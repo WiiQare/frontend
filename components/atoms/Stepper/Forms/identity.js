@@ -240,7 +240,7 @@ function Identity() {
 							className="bg-primary flex gap-3 items-center w-fit font-medium text-white my-2 py-3 px-5 hover:bg-blue-500 duration-200 transition-all hover:shadow rounded-lg"
 							type="submit"
 						>
-							{savePatientMutation.isLoading ? <LoadingButton /> : <>Next <HiArrowSmRight /></>}
+							{savePatientMutation.isLoading ? <LoadingButton /> : <>{patientExist ? 'Continuer avec ce patient' : 'Next'} <HiArrowSmRight /></>}
 							
 						</button>
 
