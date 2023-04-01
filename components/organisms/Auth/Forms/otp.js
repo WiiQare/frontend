@@ -5,20 +5,21 @@ import OtpInput from "react18-input-otp";
 import { useQueryClient, useMutation } from 'react-query';
 import { setRegister } from "../../../../redux/reducer";
 import { useFormik } from 'formik';
-import { sendOtp } from "../../../../lib/helper";
+import { sendEmail, sendOtp } from "../../../../lib/helper";
 import Toast from "../../../atoms/Toast";
 import { FaSpinner } from "react-icons/fa";
 import {useSelector, useDispatch} from 'react-redux';
 import LoadingButton from "../../../atoms/Loader/LoadingButton";
 import Countdown from 'react-countdown';
 
-
 function Otp() {
     const { activeStep, setActiveStep, formData, setFormData, handleComplete } = useContext(FormContextRegister);
     const [state, setState] = useState({type: 0, message: ''});
 	const [otp, setOtp] = useState("");
+	const [resend, setResend] = useState(false);
     const client = useSelector((state) => state.app.client);
 	const dispatch = useDispatch();
+
 
     const sendOtpMutation = useMutation(sendOtp,  {
         onSuccess: (res) => {
@@ -59,6 +60,27 @@ function Otp() {
         if(otp.length == 6) onSubmit({ otpCode: otp })
 	};
 
+    const sendEmailMutation = useMutation(sendEmail,  {
+        onSuccess: (res) => {
+
+            if(res.status == 200 || res.status == 201) {
+                setState({type: 1, message: "Email sent successfully"})
+                setResend(false)
+            } else {
+                setState({type: 2, message: "Error while sending OTP Code"})
+                setTimeout(() => {
+                    setState({ type: 0, message: "" })
+                    setResend(false)
+                }, 3000);
+            };
+        }
+    });
+
+    const resendCode = async () => {
+        setResend(true)
+        sendEmailMutation.mutate({email: client.register.email})
+    };
+
 
     return (
         <>
@@ -91,7 +113,7 @@ function Otp() {
 
                 <div className="form-text text-holder">
                     <span className="text-only">
-                        Pas réçu de code ? <button className="text-primary" onClick={() => null}>Renvoyer le code</button>    
+                        Pas réçu de code ? <button type="button" className="text-primary" onClick={() => resendCode()}>{resend ? 'En cours de renvoi...' : 'Renvoyer le code'}</button>    
                     </span>
                 </div>
 

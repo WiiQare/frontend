@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import Menu from "../components/molecules/Navbar";
 import MenuBottom from "../components/molecules/Navbar/Bottom";
 import Sidebar from "../components/molecules/Sidebar/Index";
-import { useSession, signOut, getSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import Router from "next/router";
 import { useEffect } from "react";
 
