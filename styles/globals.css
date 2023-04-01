@@ -144,5 +144,5 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .form-text.code input {
-  @apply !border-0 !border-b !border-gray-400 !rounded-none font-bold
+  @apply !border-0 !border-b !border-gray-400 !rounded-none font-bold focus:!border-orange focus:!border-b-2
 }

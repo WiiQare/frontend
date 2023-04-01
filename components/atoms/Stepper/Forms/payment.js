@@ -4,11 +4,15 @@ import { FormContext } from "../../../../pages/voucher/buy";
 import { HiOutlineInformationCircle } from "react-icons/hi";
 import * as yup from "yup";
 import StripePayment from "../../../molecules/Stripe";
+import { useSelector } from "react-redux";
 
 
 function Payment(props) {
 	const { activeStepIndex, setActiveStepIndex, formData, setFormData } = useContext(FormContext);
 	const [amount, setAmount] = useState(0);
+    const client = useSelector((state) => state.app.client);
+
+	console.log(client)
 
 	return (
 		<>

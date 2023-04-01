@@ -57,7 +57,7 @@ function Otp() {
     const handleChange = (enteredOtp) => {
 		setOtp(enteredOtp);
 
-        if(otp.length == 6) onSubmit({ otpCode: otp })
+        if(enteredOtp.length == 6) onSubmit({ otpCode: enteredOtp })
 	};
 
     const sendEmailMutation = useMutation(sendEmail,  {
