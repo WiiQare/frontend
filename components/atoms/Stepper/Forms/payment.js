@@ -17,8 +17,8 @@ function Payment(props) {
 	return (
 		<>
 			{/* <div className="text-2xl font-medium my-4 capitalize">Choice your payment method !</div> */}
-
-			{amount == 0 ? <Amount amount={amount} setAmount={setAmount} /> : <StripePayment amount={amount}/>}
+            {/* //TODO: make `senderId` dynamic! */}
+			{amount == 0 ? <Amount amount={amount} setAmount={setAmount} /> : <StripePayment amount={amount} senderId={'3f39fb21-004e-4d17-9ef2-7fd6071a6b8f'}/>}
 		</>
 	);
 }
