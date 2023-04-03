@@ -55,7 +55,7 @@ const StripePayment = ({ amount, senderId }) => {
 
 						<div className="md:col-span-3 flex w-full">
 							<Elements options={options} stripe={stripePromise}>
-								<CheckoutForm amount={amount} />
+								<CheckoutForm amount={amount} senderId={senderId} />
 							</Elements>
 						</div>
 					</div>

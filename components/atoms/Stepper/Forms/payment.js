@@ -5,20 +5,21 @@ import { HiOutlineInformationCircle } from "react-icons/hi";
 import * as yup from "yup";
 import StripePayment from "../../../molecules/Stripe";
 import { useSelector } from "react-redux";
+import { useSession } from "next-auth/react";
 
 
 function Payment(props) {
 	const { activeStepIndex, setActiveStepIndex, formData, setFormData } = useContext(FormContext);
 	const [amount, setAmount] = useState(0);
     const client = useSelector((state) => state.app.client);
+	const { data } = useSession();
 
 	console.log(client)
 
 	return (
 		<>
 			{/* <div className="text-2xl font-medium my-4 capitalize">Choice your payment method !</div> */}
-            {/* //TODO: make `senderId` dynamic! */}
-			{amount == 0 ? <Amount amount={amount} setAmount={setAmount} /> : <StripePayment amount={amount} senderId={'3f39fb21-004e-4d17-9ef2-7fd6071a6b8f'}/>}
+			{amount == 0 ? <Amount amount={amount} setAmount={setAmount} /> : <StripePayment amount={amount} senderId={data.user.data.userId}/>}
 		</>
 	);
 }

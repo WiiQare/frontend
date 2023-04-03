@@ -10,6 +10,7 @@ import { useState } from "react";
 import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import { SWRConfig } from "swr";
 import Fetcher from "../../../lib/Fetcher";
+import { useSession } from "next-auth/react";
 
 
 const TabHistories = [
@@ -24,6 +25,10 @@ const TabHistories = [
 
 const Profile = ({phoneNumber, names, email}) => {
 	const [value, setValue] = useState(0);
+	const { data:session } = useSession();
+    const {data, isLoading, isError} = Fetcher(`/payer/${session.user.data.userId}`, session.user.data.access_token);
+
+	console.log(data);
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
