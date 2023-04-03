@@ -1,14 +1,19 @@
 import Head from "next/head";
 import DashboardLayout from "../../layouts/Dashboard";
 import Profile from "../../components/organisms/Profile";
+import { useSession } from "next-auth/react";
 
 const Page = () => {
+  
+	const { data } = useSession();
+
+  console.log(data.user.data);
   return (
     <>
       <Head>
         <title>My Profile</title>
       </Head>
-        <Profile />
+        <Profile {...data.user.data} />
     </>
   );
 };

@@ -8,6 +8,9 @@ import PropTypes from 'prop-types';
 import Typography from '@mui/material/Typography';
 import { useState } from "react";
 import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
+import { SWRConfig } from "swr";
+import Fetcher from "../../../lib/Fetcher";
+
 
 const TabHistories = [
 	{
@@ -19,12 +22,13 @@ const TabHistories = [
 	}
 ]
 
-const Profile = () => {
+const Profile = ({phoneNumber, names, email}) => {
 	const [value, setValue] = useState(0);
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
 	};
+
 	return (
 		<div className="p-2 space-y-6 md:py-8 md:px-6 mb-20">
 			<CardHeader
@@ -35,7 +39,7 @@ const Profile = () => {
 						link: "/"
 					},
 					{
-						item: "John Doe",
+						item: names,
 						link: "/profile"
 					}
 				]}
@@ -50,12 +54,12 @@ const Profile = () => {
 					<div className="flex justify-between items-center md:px-6">
 						<div className="flex gap-5 items-center relative">
 							<div className="w-20 h-20">
-								<Image src={"https://xsgames.co/randomusers/avatar.php?g=male"} width={80} height={80} className="object-cover rounded-full h-full w-full" />
+								<img src={`https://ui-avatars.com/api/?uppercase=true&background=FE8023&name=${names}&bold=true&color=FFF`} width={80} height={80} className="object-cover rounded-full h-full w-full" />
 							</div>
 
 							<div className="">
-								<h1 className="text-sky font-bold text-xl">Mitchell C. Shay</h1>
-								<span className="text-xs">frdrcpeter@gmail.com</span>
+								<h1 className="text-sky font-bold text-xl">{names}</h1>
+								<span className="text-xs">{email}</span>
 							</div>
 						</div>
 
@@ -80,7 +84,9 @@ const Profile = () => {
 							</Box>
 
 							<div className="min-w-full">
-								{TabHistories.map((item, index) => <TabPanelContent value={value} index={index} />)}
+								<SWRConfig>
+									{TabHistories.map((item, index) => <TabPanelContent value={value} index={index} data={{phoneNumber, names, email}} />)}
+								</SWRConfig>
 							</div>
 						</Box>
 					</div>
@@ -125,17 +131,17 @@ function a11yProps(index) {
 	};
 }
 
-function TabPanelContent({ value, index }) {
+function TabPanelContent({ value, index, data }) {
 	return (
 		<TabPanel value={value} index={index} >
 			{
-				index == 0 ? <About /> : <Settings />
+				index == 0 ? <About {...data}/> : <Settings {...data} />
 			}
 		</TabPanel>
 	)
 }
 
-function About() {
+function About({phoneNumber, names, email }) {
 	return (
 		<section className="space-y-8">
 			<h2 className="text-sky font-semibold">Personal Information</h2>
@@ -143,33 +149,29 @@ function About() {
 			<div className="md:w-3/6 space-y-4">
 				<div className="grid grid-cols-2">
 					<h5 className="font-semibold">Name :</h5>
-					<span className="text-gray-500">Mitchell C. Shay</span>
+					<span className="text-gray-500">{names}</span>
 				</div>
 
 				<div className="grid grid-cols-2">
 					<h5 className="font-semibold">Email :</h5>
-					<span className="text-gray-500">frdrcpeter@gmail.com</span>
+					<span className="text-gray-500">{email}</span>
 				</div>
 
 				<div className="grid grid-cols-2">
-					<h5 className="font-semibold">Availability :</h5>
-					<span className="text-gray-500">Full time</span>
+					<h5 className="font-semibold">Phone Number :</h5>
+					<span className="text-gray-500">{phoneNumber}</span>
 				</div>
 
 				<div className="grid grid-cols-2">
 					<h5 className="font-semibold">Age :</h5>
-					<span className="text-gray-500">37</span>
+					<span className="text-gray-500">--</span>
 				</div>
 
 				<div className="grid grid-cols-2">
-					<h5 className="font-semibold">Location :</h5>
-					<span className="text-gray-500">Rosemont Avenue Melbourne, Florida</span>
+					<h5 className="font-semibold">Home Address :</h5>
+					<span className="text-gray-500">---</span>
 				</div>
 
-				<div className="grid grid-cols-2">
-					<h5 className="font-semibold">Year Experience :</h5>
-					<span className="text-gray-500">07 Year Experiences</span>
-				</div>
 			</div>
 		</section>
 	)
