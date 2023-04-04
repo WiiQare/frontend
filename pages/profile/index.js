@@ -2,18 +2,21 @@ import Head from "next/head";
 import DashboardLayout from "../../layouts/Dashboard";
 import Profile from "../../components/organisms/Profile";
 import { useSession } from "next-auth/react";
+import Fetcher from "../../lib/Fetcher";
 
 const Page = () => {
   
-	const { data } = useSession();
+	const { data:session } = useSession();
+  const {data, isLoading, isError} = Fetcher(`/payer/${session.user.data.userId}`, session.user.data.id);
 
-  console.log(data.user.data);
+  console.log(session.user.data.userId, data)
+
   return (
     <>
       <Head>
         <title>My Profile</title>
       </Head>
-        <Profile {...data.user.data} />
+        <Profile {...session.user.data} />
     </>
   );
 };
