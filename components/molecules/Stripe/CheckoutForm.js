@@ -7,7 +7,7 @@ import {
 } from "@stripe/react-stripe-js";
 import { HiArrowSmRight } from "react-icons/hi";
 
-export default function CheckoutForm({amount}) {
+export default function CheckoutForm({amount, senderId}) {
     const stripe = useStripe();
     const elements = useElements();
 
@@ -62,7 +62,7 @@ export default function CheckoutForm({amount}) {
             confirmParams: {
                 // Make sure to change this to your payment completion page
                 //return_url: "http://localhost:3000/voucher/buy?step=end",
-                return_url: "https://wiiqare-unicef.herokuapp.com/voucher/buy?step=end" 
+                return_url: `https://wiiqare-unicef.herokuapp.com/voucher/buy?step=end&senderId=${senderId}`
             },
         });
 
