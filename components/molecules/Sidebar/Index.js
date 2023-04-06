@@ -10,22 +10,6 @@ const Items = [
     active: ["/"],
   },
   {
-    title: "My Wallet",
-    icon: ({ size, className }) => (
-      <SlWallet size={size} className={className} />
-    ),
-    link: "/wallet",
-    active: ["/wallet"],
-  },
-  {
-    title: "Invoices",
-    icon: ({ size, className }) => (
-      <SlEqualizer size={size} className={className} />
-    ),
-    link: "/invoices",
-    active: ["/invoices"],
-  },
-  {
     title: "Transactions",
     icon: ({ size, className }) => (
       <SlGlobe size={size} className={className} />

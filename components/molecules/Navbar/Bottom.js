@@ -1,39 +1,31 @@
 import Link from 'next/link';
 import React from 'react';
-import { SlHome, SlWallet, SlEqualizer, SlGlobe } from "react-icons/sl";
+import { SlHome, SlGlobe, SlSettings } from "react-icons/sl";
 import ItemBottom from './ItemBottom';
 
 const Items = [
-    {
-      title: "Home",
-      icon: ({ size, className }) => <SlHome size={size} className={className} />,
-      link: "/",
-      active: ["/"],
-    },
-    {
-      title: "My Wallet",
-      icon: ({ size, className }) => (
-        <SlWallet size={size} className={className} />
-      ),
-      link: "/wallet",
-      active: ["/wallet"],
-    },
-    {
-      title: "Invoices",
-      icon: ({ size, className }) => (
-        <SlEqualizer size={size} className={className} />
-      ),
-      link: "/invoices",
-      active: ["/invoices"],
-    },
-    {
-      title: "Transactions",
-      icon: ({ size, className }) => (
-        <SlGlobe size={size} className={className} />
-      ),
-      link: "/transactions",
-      active: ["/transactions", "/transactions/[id]"],
-    },
+  {
+    title: "Home",
+    icon: ({ size, className }) => <SlHome size={size} className={className} />,
+    link: "/",
+    active: ["/"],
+  },
+  {
+    title: "Transactions",
+    icon: ({ size, className }) => (
+      <SlGlobe size={size} className={className} />
+    ),
+    link: "/transactions",
+    active: ["/transactions", "/transactions/[id]"],
+  },
+  {
+    title: "Settings",
+    icon: ({ size, className }) => (
+      <SlSettings size={size} className={className} />
+    ),
+    link: "/profile",
+    active: ["/profile"],
+  },
   ];
 
 const MenuBottom = ({activePath}) => {
