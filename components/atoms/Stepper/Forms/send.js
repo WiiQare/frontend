@@ -7,13 +7,15 @@ import logoDark from "../../../../public/images/logo_dark_2.png";
 import Link from "next/link";
 import Fetcher from "../../../../lib/Fetcher";
 import { HiExclamation } from "react-icons/hi";
+import { useRouter } from "next/router";
 
 function Send() {
 	const { Canvas } = useQRCode();
 	const { activeStepIndex, setActiveStepIndex, formData, setFormData } = useContext(FormContext);
 	const [copy, setCopy] = useState(false);
+	const {query} = useRouter();
 	const [copyLink, setCopyLink] = useState(false);
-    const {data, isLoading, isError} = Fetcher(`/payment/voucher?paymentId=pi_3MslKtJKtQIM0rWe1s6eJLxh`);
+    const {data, isLoading, isError} = Fetcher(`/payment/voucher?paymentId=${query.payment_intent}`);
 
 	if(isLoading) return (<>
 		<div role="status">

@@ -108,6 +108,8 @@ function Identity() {
 			setPatient(res)
 			setPatientExist(true)
 
+			console.log(res);
+
 			//Set Value
 			formik.setFieldValue("phoneNumber", res.phoneNumber)
 			formik.setFieldValue("firstName", res.firstName)

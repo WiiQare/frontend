@@ -14,13 +14,11 @@ function Payment(props) {
     const client = useSelector((state) => state.app.client);
 	const { data } = useSession();
 
-	console.log(client)
-
 	return (
 		<>
 			{/* <div className="text-2xl font-medium my-4 capitalize">Choice your payment method !</div> */}
             {/* //TODO: make also `patientId` dynamic! patientId ~> who is getting paid for!. */}
-			{amount == 0 ? <Amount amount={amount} setAmount={setAmount} /> : <StripePayment amount={amount} senderId={data.user.data.userId} patientId={'3f39fb21-004e-4d17-9ef2-7fd6071a6b8f'} />}
+			{amount == 0 ? <Amount amount={amount} setAmount={setAmount} /> : <StripePayment amount={amount} senderId={data.user.data.userId} patientId={client.patient.id} />}
 		</>
 	);
 }
