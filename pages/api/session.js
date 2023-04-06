@@ -9,7 +9,7 @@ const calculateOrderAmount = (amount) => {
 };
 
 export default async function handler(req, res) {
-  const { amount, senderId } = req.body;
+  const { amount, senderId, patientId  } = req.body;
 
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create({
@@ -19,7 +19,8 @@ export default async function handler(req, res) {
       enabled: true,
     },
     metadata: {
-      senderId: senderId,
+      senderId: senderId, // who is paying
+      patientId: patientId, // who is receiving the payment
     }
   });
 
