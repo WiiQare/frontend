@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import { CiCircleInfo } from 'react-icons/ci';
 
-import avatar from "../../../public/images/avatar.jpg";
 import ButtonNoAction from '../Button/NoAction';
+import Link from 'next/link';
 
 const ItemHistory = ({fullname, email, createdAt, amount, paymentMethod, state, index, total}) => {
     return (
@@ -30,6 +30,10 @@ const ItemHistory = ({fullname, email, createdAt, amount, paymentMethod, state, 
                     color={state == 0 ? 'orange' : state == 1 ? "[#2BC155]" : "gray-300"}
                     text={state == 0 ? 'Pending' : state == 1 ? "Completed" : "Cancel"}
                 />
+
+                <Link href={"/transactions/12345"} legacyBehavior>
+                    <a className='font-semibold uppercase text-sm p-2 rounded-lg hover:bg-gray-300 transition-all duration-200'>View Details</a>
+                </Link>
             </div>
             <div className="collapse-content flex gap-4">
                 <div className="overflow-x-auto w-5/6">
