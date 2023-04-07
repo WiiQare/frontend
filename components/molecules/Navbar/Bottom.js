@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
-import { SlHome, SlGlobe, SlSettings } from "react-icons/sl";
+import { SlHome, SlGlobe, SlSettings, SlSpeech } from "react-icons/sl";
 import ItemBottom from './ItemBottom';
+import IconBadge from '../../atoms/Icons/Badge';
 
 const Items = [
   {
@@ -18,6 +19,18 @@ const Items = [
     link: "/transactions",
     active: ["/transactions", "/transactions/[id]"],
   },
+
+  {
+    title: "Messages",
+    icon: ({ size, className }) => (
+      <IconBadge className={"py-0"}>
+        <SlSpeech size={size} className={className}/>
+      </IconBadge>
+    ),
+    link: "#",
+    active: ["/messages", "/messages/[id]"],
+  },
+
   {
     title: "Settings",
     icon: ({ size, className }) => (
