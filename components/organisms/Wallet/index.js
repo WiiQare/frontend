@@ -16,6 +16,7 @@ import HistoryWallet from "./History";
 
 const Wallet = () => {
 	const [activeIndexSlide, setActiveIndexSlide] = useState(0);
+	
 	return (
 		<div className="p-2 space-y-6 md:py-8 md:px-6 mb-12">
 			<CardHeader
