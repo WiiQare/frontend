@@ -69,11 +69,11 @@ function Send() {
 				<div className="border relative border-gray-300 rounded-lg overflow-hidden">
 					<Canvas
 						className="w-full"
-						text={`https://wiiqare-unicef.herokuapp.com/voucher/pass/${data.transactionHash}`}
+						text={`${data.transactionHash}`}
 						options={{
 							level: "M",
 							margin: 1,
-							scale: 6,
+							scale: 5,
 							quality: 100,
 							color: {
 								dark: "#000",
