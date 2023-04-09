@@ -9,7 +9,7 @@ import '@splidejs/react-splide/css';
 import CardHeader from "../../atoms/Card/Header";
 import WalletBalance from "./Balance";
 
-import avatar from "../../../public/images/avatar.jpg";
+import avatar from "../../../public/images/femme.png";
 import Image from "next/image";
 import HistoryWallet from "./History";
 

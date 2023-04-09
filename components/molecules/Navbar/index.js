@@ -19,7 +19,7 @@ import {
 
 import logo from "../../../public/images/favicon.png";
 import logoDark from "../../../public/images/logo_dark_2.png";
-import avatar from "../../../public/images/avatar.jpg";
+import avatar from "../../../public/images/homme.png";
 import IconBadge from "../../atoms/Icons/Badge";
 import NotificationBadge from "../../atoms/Card/Notifications/Badge";
 import { useState } from "react";
