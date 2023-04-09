@@ -3,17 +3,20 @@ import { useQRCode } from "next-qrcode";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Image from "next/image";
 import logoDark from "../../../public/images/logo_dark.png";
-import logo from "../../../public/images/logo.png";
 import Link from "next/link";
 import Fetcher from "../../../lib/Fetcher";
 import { HiExclamation } from "react-icons/hi";
+import { useRouter } from 'next/router'
 
 
 function Pass() {
+	const router = useRouter()
+  	const { pass } = router.query;
+
 	const { Canvas } = useQRCode();
 	const [copy, setCopy] = useState(false);
 
-    const {data, isLoading, isError} = Fetcher(`/payment/voucher?paymentId=pi_3MslKtJKtQIM0rWe1s6eJLxh`);
+    const {data, isLoading, isError} = Fetcher(`/payment/voucher?paymentId=${pass}`);
 
 	if(isLoading) return (<>
 		<div className="flex flex-col gap-6 justify-between items-center h-full w-full pt-20 overflow-hidden">
