@@ -4,6 +4,9 @@ const nextConfig = {
   images: {
     domains: ['via.placeholder.com', 'xsgames.co', 'lh3.googleusercontent.com', 'ui-avatars.com'],
   },
+  experimental: {
+    forceSwcTransforms: true,
+  }
 }
 
 module.exports = nextConfig
