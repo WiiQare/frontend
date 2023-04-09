@@ -39,7 +39,7 @@ const Carousel = () => {
                         <div className='bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10'>
                             <div className='flex flex-col md:gap-7 gap-2'>
                                 <div className='space-y-3'>
-                                    <h1 className='text-2xl md:text-5xl font-bold'>Start your safe</h1>
+                                    <h1 className='text-2xl md:text-5xl font-bold'>Start your safe live 007</h1>
                                     <p className='text-xs md:text-sm text-gray-700 w-full flex'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem</p>
                                 </div>
                                 <Link href={"#"} legacyBehavior>
