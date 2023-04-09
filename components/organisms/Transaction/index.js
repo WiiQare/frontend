@@ -8,7 +8,7 @@ import { TbReceipt } from "react-icons/tb";
 import { BiCaretRight } from "react-icons/bi";
 import '@splidejs/react-splide/css';
 
-import avatar from "../../../public/images/avatar.jpg";
+import avatar from "../../../public/images/femme.png";
 import Image from "next/image";
 
 const Transaction = () => {
