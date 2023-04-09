@@ -7,7 +7,7 @@ const authOptions = {
         strategy: 'jwt'
     },
     callbacks: {
-        async jwt({token, user}) {
+        async jwt({ token, user }) {
 
             if (user) {
                 token.id = user.access_token;
@@ -16,7 +16,7 @@ const authOptions = {
 
             return token;
         },
-        
+
         async session({ session, token, user }) {
 
             session.user.id = token.id;
@@ -36,13 +36,13 @@ const authOptions = {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({email: credentials.email, password: credentials.password})
+                    body: JSON.stringify({ email: credentials.email, password: credentials.password })
                 }
-        
-                const response = await fetch("https://wiiqare-app.com/api/v1/session", Options);
+
+                const response = await fetch("https://api.wiiqare-app.com/api/v1/session", Options);
                 const json = await response.json();
 
-                if(json.code) throw new Error(json.message)
+                if (json.code) throw new Error(json.message)
                 return json
             }
         }),
@@ -52,7 +52,7 @@ const authOptions = {
             clientSecret: process.env.GOOGLE_CLIENT_SECRET
         }),
     ],
-    
+
     pages: {
         signIn: "/login"
     },
