@@ -39,7 +39,7 @@ const authOptions = {
                     body: JSON.stringify({email: credentials.email, password: credentials.password})
                 }
         
-                const response = await fetch("http://34.205.37.182/api/v1/session", Options);
+                const response = await fetch("https://wiiqare-app.com/api/v1/session", Options);
                 const json = await response.json();
 
                 if(json.code) throw new Error(json.message)

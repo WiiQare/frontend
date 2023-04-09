@@ -47,13 +47,13 @@ function LoginForm() {
 	//Handle Google Login
 	const handleGoogleSignIn = async () => {
 		//signIn('google', {callbackUrl: "http://localhost:3000"})
-		signIn('google', { callbackUrl: "https://wiiqare-unicef.herokuapp.com" })
+		signIn('google', { callbackUrl: "https://wiiqare-app.com" })
 
 	}
 
 	const handleLinkedInSignIn = async () => {
 		//signIn('linkedin', {callbackUrl: "http://localhost:3000"})
-		signIn('linkedin', { callbackUrl: "https://wiiqare-unicef.herokuapp.com" })
+		signIn('linkedin', { callbackUrl: "https://wiiqare-app.com" })
 	}
 
 	//Sign In for other methods with NextAuth

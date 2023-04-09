@@ -62,7 +62,7 @@ export default function CheckoutForm({amount, senderId}) {
             confirmParams: {
                 // Make sure to change this to your payment completion page
                 //return_url: "http://localhost:3000/voucher/buy?step=end",
-                return_url: `https://wiiqare-unicef.herokuapp.com/voucher/buy?step=end&senderId=${senderId}`
+                return_url: `https://wiiqare-app.com/voucher/buy?step=end&senderId=${senderId}`
             },
         });
 

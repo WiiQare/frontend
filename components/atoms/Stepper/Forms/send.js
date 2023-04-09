@@ -102,28 +102,28 @@ function Send() {
 			<div className="text-center mt-6 flex flex-col gap-2 space-y-3">
 				<h4 className="font-semibold text-gray-700 text-sm">Envoyer le pass santé au bénéficiaire:</h4>
 				<div className="flex justify-between">
-					<Link href={`whatsapp://send?text=https://wiiqare-unicef.herokuapp.com/voucher/pass/${data.transactionHash}`} legacyBehavior target={"_blank"}>
+					<Link href={`whatsapp://send?text=https://wiiqare-app.com/voucher/pass/${data.transactionHash}`} legacyBehavior target={"_blank"}>
 						<a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
 							<img src="/images/whatsapp.png" alt="" className="w-6" />
 							<span className="hidden md:flex">WhatsApp</span> 
 						</a>
 					</Link>
 
-					<Link href={`https://www.facebook.com/share.php?u=https://wiiqare-unicef.herokuapp.com/voucher/pass/${data.transactionHash}`} legacyBehavior target={"_blank"}>
+					<Link href={`https://www.facebook.com/share.php?u=https://wiiqare-app.com/voucher/pass/${data.transactionHash}`} legacyBehavior target={"_blank"}>
 						<a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
 							<img src="/images/facebook-share.png" alt="" className="w-6" />
 							<span className="hidden md:flex">Facebook</span> 
 						</a>
 					</Link>
 
-					<Link href={`sms://+243814978651&?body=https://wiiqare-unicef.herokuapp.com/voucher/pass/${data.transactionHash}`} legacyBehavior target={"_blank"}>
+					<Link href={`sms://+243814978651&?body=https://wiiqare-app.com/voucher/pass/${data.transactionHash}`} legacyBehavior target={"_blank"}>
 						<a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
 							<img src="/images/sms.png" alt="" className="w-6" />
 							<span className="hidden md:flex">Message</span> 
 						</a>
 					</Link>
 
-					<CopyToClipboard text={`https://wiiqare-unicef.herokuapp.com/voucher/pass/${data.transactionHash}`} onCopy={() => {
+					<CopyToClipboard text={`https://wiiqare-app.com/voucher/pass/${data.transactionHash}`} onCopy={() => {
 						setCopyLink(true); setTimeout(() => {
 							setCopyLink(false)
 						}, 2000);
