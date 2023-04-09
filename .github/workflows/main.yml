@@ -28,8 +28,9 @@ jobs:
           port: 22
           source: ".next/"
           target: "/home/bitnami/apps/WiiQare-FE/.next/"
+
       - name: Restart Application
-        uses: appleboy/scp-action@v0.1.4
+        uses: appleboy/ssh-action@v0.1.9
         with:
           host: ${{ secrets.LIGHTSAIL_IP }}
           username: ${{ secrets.LIGHTSAIL_USERNAME }}
