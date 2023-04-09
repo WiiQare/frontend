@@ -11,13 +11,12 @@ import { useSession } from "next-auth/react";
 function Payment(props) {
 	const { activeStepIndex, setActiveStepIndex, formData, setFormData } = useContext(FormContext);
 	const [amount, setAmount] = useState(0);
-    const client = useSelector((state) => state.app.client);
+	const client = useSelector((state) => state.app.client);
 	const { data } = useSession();
 
 	return (
 		<>
 			{/* <div className="text-2xl font-medium my-4 capitalize">Choice your payment method !</div> */}
-            {/* //TODO: make also `patientId` dynamic! patientId ~> who is getting paid for!. */}
 			{amount == 0 ? <Amount amount={amount} setAmount={setAmount} /> : <StripePayment amount={amount} senderId={data.user.data.userId} patientId={client.patient.id} />}
 		</>
 	);
