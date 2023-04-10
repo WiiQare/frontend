@@ -207,7 +207,7 @@ const Menu = ({ session, handleSignOut }) => {
 							inline={true}
 							className="shadow-sm rounded-2xl w-fit"
 							label={
-								<IconBadge total={2}>
+								<IconBadge total={-1}>
 									<AiOutlineBell size={25} />
 								</IconBadge>
 							}
@@ -242,7 +242,7 @@ const Menu = ({ session, handleSignOut }) => {
 					</div>
 
 					<div className="hidden md:flex">
-						<IconBadge total={24}>
+						<IconBadge total={-1}>
 							<AiOutlineMessage size={25} />
 						</IconBadge>
 					</div>

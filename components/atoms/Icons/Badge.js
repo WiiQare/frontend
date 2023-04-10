@@ -10,9 +10,7 @@ const IconBadge = ({ children, className, total = 0, onClick = () => { } }) => {
       <span className="sr-only">Notifications</span>
       {
         total ? (
-          <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-sky border-2 border-white rounded-full top-0 right-0 dark:border-gray-900">
-            {total}
-          </div>
+          <></>
         ) : (
           <div className="absolute inline-flex items-center justify-center w-3 h-3 text-xs font-bold text-white bg-sky border-2 border-white rounded-full top-0 right-2 dark:border-gray-900">
           </div>
