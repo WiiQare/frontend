@@ -35,9 +35,9 @@ function Identity() {
 	const ValidationSchema = yup.object().shape({
 		firstName: yup.string().required("Fistname is a required field"),
 		lastName: yup.string().required("Lastname is a required field"),
-		email: yup.string().email().required("Address email is a required field"),
-		homeAddress: yup.string().required(),
-		city: yup.string().required(),
+		email: yup.string().email(),
+		homeAddress: yup.string().required("Home Address is a required field"),
+		city: yup.string().required("City is a required field"),
 		phoneNumber: yup.string(),
 	});
 
