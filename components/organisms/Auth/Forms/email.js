@@ -1,16 +1,15 @@
-import React, { useContext, useState, useReducer } from "react";
+import React, { useContext, useState } from "react";
 import { FormContextRegister } from "../RegisterForm";
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { useFormik } from 'formik';
 import { emailValidate } from "../../../../lib/validate";
 import { HiOutlineInformationCircle } from "react-icons/hi";
 import { sendEmail } from "../../../../lib/helper";
-import { useQueryClient, useMutation } from 'react-query';
+import { useMutation } from 'react-query';
 import {useSelector, useDispatch} from 'react-redux';
 import { setRegister } from "../../../../redux/reducer";
 import Toast from "../../../atoms/Toast";
 
-import { FaSpinner } from "react-icons/fa";
 import LoadingButton from "../../../atoms/Loader/LoadingButton";
 
 function Email() {

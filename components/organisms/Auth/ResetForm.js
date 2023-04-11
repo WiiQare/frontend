@@ -1,13 +1,10 @@
 import React from "react";
-import Link from "next/link";
-import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { signIn } from "next-auth/react"
 
 import OnboardingScreen from "../../molecules/OnboardingScreen";
 import {
@@ -16,11 +13,9 @@ import {
 	InputAdornment,
 	InputLabel,
 	OutlinedInput,
-	Typography,
 } from "@mui/material";
 import MenuHolder from "../../atoms/MenuHolder";
 import BlinkSnackbar from "../../atoms/BlinkSnackbar";
-import Image from "next/image";
 
 function ResetForm() {
 	const matches = useMediaQuery("(max-width: 992px)");

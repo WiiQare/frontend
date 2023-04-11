@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { signIn } from "next-auth/react"
 
 import OnboardingScreen from "../../molecules/OnboardingScreen";
 import MenuHolder from "../../atoms/MenuHolder";

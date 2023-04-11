@@ -1,20 +1,17 @@
 import React, { useContext, useState } from "react";
 import { FormContextRegister } from "../RegisterForm";
 import { Box, Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, Stack, TextField, Typography } from "@mui/material";
-import Link from "next/link";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import MuiPhoneNumber from "material-ui-phone-number";
 import { useSelector, useDispatch } from 'react-redux';
-import { useQueryClient, useMutation } from 'react-query';
-import { ErrorMessage, useFormik } from 'formik';
+import { useMutation } from 'react-query';
+import { useFormik } from 'formik';
 import { register } from "../../../../lib/helper";
 import Toast from "../../../atoms/Toast";
-import { FaSpinner } from "react-icons/fa";
 import { useRouter } from 'next/router'
 import { setRegister } from "../../../../redux/reducer";
 import LoadingButton from "../../../atoms/Loader/LoadingButton";
 import * as yup from "yup";
-import { HiOutlineInformationCircle } from "react-icons/hi";
 
 
 function Information() {

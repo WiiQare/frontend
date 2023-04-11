@@ -7,7 +7,6 @@ import { setRegister } from "../../../../redux/reducer";
 import { useFormik } from 'formik';
 import { sendEmail, sendOtp } from "../../../../lib/helper";
 import Toast from "../../../atoms/Toast";
-import { FaSpinner } from "react-icons/fa";
 import {useSelector, useDispatch} from 'react-redux';
 import LoadingButton from "../../../atoms/Loader/LoadingButton";
 import Countdown from 'react-countdown';
