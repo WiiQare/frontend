@@ -37,9 +37,9 @@ function Otp() {
         }
     });
 
-    const onSubmit = async (values) => {
-        if (Object.keys(values).length == 0) return console.log("Pas de données");
-        sendOtpMutation.mutate({email: client.register.email, otpCode: parseInt(otp)})
+    const onSubmit = async ({otpCode = null}) => {
+        console.log("submit", otpCode);
+        sendOtpMutation.mutate({email: client.register.email, otpCode: parseInt(otpCode) ?? parseInt(otp)})
     };
 
     const closeToast = () => {
@@ -57,7 +57,10 @@ function Otp() {
     const handleChange = (enteredOtp) => {
 		setOtp(enteredOtp);
 
-        if(enteredOtp.length == 6) onSubmit({ otpCode: enteredOtp })
+        if(enteredOtp.length == 6) {
+            console.log(enteredOtp);
+            onSubmit({ otpCode: enteredOtp })
+        }
 	};
 
     const sendEmailMutation = useMutation(sendEmail,  {
