@@ -65,7 +65,8 @@ function Otp() {
     const sendEmailMutation = useMutation(sendEmail,  {
         onSuccess: (res) => {
 
-            if(res.status == 200 || res.status == 201) {
+            console.log(res);
+            if(!res.code) {
                 setState({type: 1, message: "Email sent successfully"})
                 setResend(false)
             } else {

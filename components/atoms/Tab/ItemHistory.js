@@ -4,7 +4,8 @@ import { CiCircleInfo } from 'react-icons/ci';
 import ButtonNoAction from '../Button/NoAction';
 import Link from 'next/link';
 
-const ItemHistory = ({fullname, email, createdAt, amount, paymentMethod, state, index, total}) => {
+const ItemHistory = ({fullname, email, createdAt, amount, paymentMethod, state, value, index, total}) => {
+
     return (
         <div tabIndex={index} className={`${total > index + 1 ? "border-b py-3" : ""} collapse collapse-arrow text-gray-700 overflow-scroll md:overflow-hidden`}>
             <div className="collapse-title flex gap-7 justify-between items-center ">
