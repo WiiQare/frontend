@@ -23,11 +23,12 @@ const Items = [
   {
     title: "Messages",
     icon: ({ size, className }) => (
-      <IconBadge className={"py-0"}>
-        <SlSpeech size={size} className={className}/>
-      </IconBadge>
+      <label htmlFor="my-drawer-4">
+        <IconBadge className={"py-0"}>
+          <SlSpeech size={size} className={className}/>
+        </IconBadge>
+      </label>
     ),
-    link: "#",
     active: ["/messages", "/messages/[id]"],
   },
 

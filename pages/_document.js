@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import Drawer from "../components/molecules/Navbar/Drawer";
 
 export default function Document() {
   return (

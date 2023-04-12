@@ -11,6 +11,7 @@ import '../i18n';
 import "../styles/globals.css";
 import "../styles/main.css";
 import "formik-stepper/dist/style.css";
+import Drawer from "../components/molecules/Navbar/Drawer";
 
 const queryClient = new QueryClient()
 
@@ -34,6 +35,7 @@ export default function App({ Component, pageProps }) {
           <Provider store={store}>
             <NextNProgress height={3} color="#FE8023" />
             <ThemeProvider theme={theme}>
+              <Drawer />
               {getLayout(<Component {...pageProps} />)}
             </ThemeProvider>
           </Provider>
