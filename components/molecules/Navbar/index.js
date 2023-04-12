@@ -242,13 +242,13 @@ const Menu = ({ session, handleSignOut }) => {
 					</div>
 
 					<div className="hidden md:flex">
-							<label htmlFor="my-drawer-4">
-									<IconBadge total={-1}>
-										<AiOutlineMessage size={25} />
-									</IconBadge>
-								</label>
-						
-						
+						<label htmlFor="my-drawer-4">
+							<IconBadge total={-1}>
+								<AiOutlineMessage size={25} />
+							</IconBadge>
+						</label>
+
+
 					</div>
 				</div>
 
