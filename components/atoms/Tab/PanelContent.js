@@ -15,7 +15,7 @@ const PanelContent = ({ transactions, value, index }) => {
 
             <section className="space-y-3">
 
-                {isLoading || isError ? <>Loading...</> : transactions.map((item, i) => <ItemHistory {...item} key={i} value={value} index={index} total={transactions.length ?? 0} />)}
+                {isLoading || isError ? <>Loading...</> : data.map((item, i) => <ItemHistory {...item} key={i} value={value} index={index} total={data.length ?? 0} />)}
             
             </section>
 

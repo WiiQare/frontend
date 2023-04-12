@@ -4,7 +4,7 @@ import { CiCircleInfo } from 'react-icons/ci';
 import ButtonNoAction from '../Button/NoAction';
 import Link from 'next/link';
 
-const ItemHistory = ({fullname, email, createdAt, amount, paymentMethod, state, value, index, total}) => {
+const ItemHistory = ({stripePaymentId, transactionHash, currency, voucher, email, createdAt, amount, paymentMethod, status, value, index, total}) => {
 
     return (
         <div tabIndex={index} className={`${total > index + 1 ? "border-b py-3" : ""} collapse collapse-arrow text-gray-700 overflow-scroll md:overflow-hidden`}>
@@ -14,26 +14,27 @@ const ItemHistory = ({fullname, email, createdAt, amount, paymentMethod, state, 
                         <Image src={"https://xsgames.co/randomusers/avatar.php?g=male"} width={50} height={50} className="object-cover rounded-full w-full h-full" />
                     </div>
                     <div>
-                        <h1 className="font-bold text-xl">{fullname}</h1>
+                        {/* text-xl */}
+                        <h1 className="font-bold text-sm">{voucher.patientId}</h1>
                         <span className="text-xs text-sky font-semibold">{email}</span>
                     </div>
                 </div>
 
                 <div className="flex flex-col text-sm font-medium">
-                    <span>{createdAt.date}</span>
-                    <span>{createdAt.hour}</span>
+                    <span>{new Intl.DateTimeFormat('fr', { dateStyle: 'full' }).format(new Date(createdAt))}</span>
+                    <span>{new Intl.DateTimeFormat('fr', {timeStyle: 'short' }).format(new Date(createdAt))}</span>
                 </div>
 
-                <h1 className="font-bold text-lg">+${amount}</h1>
-                <h1 className="font-bold text-lg">{paymentMethod}</h1>
+                <h1 className="font-bold text-lg">{currency == "usd" ? "$" : "£"}{amount}</h1>
+                <h1 className="font-bold text-lg">{paymentMethod ?? "Stripe"}</h1>
 
                 <ButtonNoAction
-                    color={state == 0 ? 'orange' : state == 1 ? "[#2BC155]" : "gray-300"}
-                    text={state == 0 ? 'Pending' : state == 1 ? "Completed" : "Cancel"}
+                    color={status == 0 ? 'orange' : status == "succes" ? "[#2BC155]" : "gray-300"}
+                    text={status == 0 ? 'Pending' : status == 'success' ? "Completed" : "Cancel"}
                 />
 
-                <Link href={"/transactions/12345"} legacyBehavior>
-                    <a className='font-semibold uppercase text-sm p-2 rounded-lg hover:bg-gray-300 transition-all duration-200'>View Details</a>
+                <Link href={`/transactions/${transactionHash}`} legacyBehavior>
+                    <a className='font-semibold uppercase text-sm p-2 rounded-lg hover:bg-gray-300 transition-all duration-200'>Voir Détails</a>
                 </Link>
             </div>
             <div className="collapse-content flex gap-4">
@@ -50,9 +51,9 @@ const ItemHistory = ({fullname, email, createdAt, amount, paymentMethod, state, 
                         </thead>
                         <tbody>
                             <tr>
-                                <th>#00123521</th>
-                                <td>MasterCard</td>
-                                <td>April 29, 2020</td>
+                                <th>#{stripePaymentId}</th>
+                                <td>Stripe</td>
+                                <td>{new Intl.DateTimeFormat('fr', { dateStyle: 'full' }).format(new Date(createdAt))}</td>
                                 <td>June 5, 2020</td>
                                 <td>June 4, 2020</td>
                             </tr>
