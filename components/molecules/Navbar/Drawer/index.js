@@ -99,7 +99,7 @@ function Conversation() {
                     </div>
                 </div>
                 <div
-                    class="flex flex-row items-center h-16 bg-white w-full px-4 absolute bottom-20"
+                    class="flex flex-row items-center h-16 bg-white w-full px-4 absolute md:bottom-20 bottom-40"
                 >
                     <div>
                         <button
