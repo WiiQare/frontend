@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPatientDispatch } from "../../../../redux/reducer";
 import Toast from "../../Toast";
 import MuiPhoneNumber from "material-ui-phone-number";
+import { Stack, TextField } from "@mui/material";
 
 function Identity2() {
     const { activeStepIndex, setActiveStepIndex, formData, setFormData } = useContext(FormContext);
@@ -250,7 +251,81 @@ function Identity2() {
                                     </div>
                                 </div>
                             </>
-                        ) : <>New Beneficiaire</>
+                        ) : (<>
+                            <Stack spacing={1.5} className="w-full mt-3">
+                                <div className="flex gap-6 w-full">
+
+                                    <div className="flex flex-col gap-1 w-full">
+                                        <TextField
+                                            id="outlined-basic"
+                                            fullWidth
+                                            label="First name"
+                                            variant="outlined"
+                                            name="firstName"
+                                            {...formik.getFieldProps('firstName')}
+                                        />
+
+                                        {formik.errors.firstName ? renderError(formik.errors.firstName) : <></>}
+                                    </div>
+
+                                    <div className="flex flex-col gap-1 w-full">
+
+                                        <TextField
+                                            id="outlined-basic"
+                                            fullWidth
+                                            label="Last name"
+                                            variant="outlined"
+                                            name="lastName"
+                                            {...formik.getFieldProps('lastName')}
+                                        />
+                                        {formik.errors.lastName ? renderError(formik.errors.lastName) : <></>}
+
+                                    </div>
+                                </div>
+
+                                <div className="space-y-1 w-full">
+                        <TextField
+                            id="outlined-basic"
+                            fullWidth
+                            label="E-mail Address (optional)"
+                            variant="outlined"
+                            name="email"
+                            {...formik.getFieldProps('email')} 
+                        />
+                        {formik.errors.email && formik.touched.email ? <span className="flex items-center gap-1 text-rose-500 text-left text-xs px-1"><HiOutlineInformationCircle /><span>{formik.errors.email}</span></span> : <></>}
+                    </div>
+
+                    <div className="flex gap-6 w-full">
+
+<div className="flex flex-col gap-1 w-full">
+    <TextField
+        id="outlined-basic"
+        fullWidth
+        label="Home Address"
+        variant="outlined"
+        name="homeAddress"
+        {...formik.getFieldProps('homeAddress')}
+    />
+
+    {formik.errors.homeAddress ? renderError(formik.errors.homeAddress) : <></>}
+</div>
+
+<div className="flex flex-col gap-1 w-full">
+
+    <TextField
+        id="outlined-basic"
+        fullWidth
+        label="City"
+        variant="outlined"
+        name="city"
+        {...formik.getFieldProps('city')}
+    />
+    {formik.errors.city ? renderError(formik.errors.city) : <></>}
+
+</div>
+</div>
+                            </Stack>
+                        </>)
                     }
 
                     <div className="flex flex-row-reverse ">
