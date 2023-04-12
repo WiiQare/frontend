@@ -3,6 +3,7 @@ import { FormContext } from "../../../pages/voucher/buy";
 import Identity from "./Forms/identity";
 import Payment from "./Forms/payment";
 import Send from "./Forms/send";
+import Identity2 from "./Forms/identity2";
 
 
 function Step() {
@@ -11,7 +12,7 @@ function Step() {
 
   switch (activeStepIndex) {
     case 0:
-      stepContent = <Identity />;
+      stepContent = <Identity2 />;
       break;
 
     case 1:
