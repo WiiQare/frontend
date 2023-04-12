@@ -17,9 +17,7 @@ import Drawer from "../components/molecules/Navbar/Drawer";
 const queryClient = new QueryClient();
 export const DrawContext = createContext();
 
-
-
-export default function App({ Component, pageProps }) {
+const App = ({ Component, pageProps }) => {
   const [draw, setDraw] = useState(false);
   const getLayout = Component.getLayout ?? ((page) => page);
 
@@ -39,7 +37,7 @@ export default function App({ Component, pageProps }) {
           <Provider store={store}>
             <NextNProgress height={3} color="#FE8023" />
             <ThemeProvider theme={theme}>
-              <DrawContext.Provider>
+              <DrawContext.Provider value={{draw, setDraw}}>
                 {draw ? <Drawer /> : <></>}
                 {getLayout(<Component {...pageProps} />)}
               </DrawContext.Provider>
@@ -50,3 +48,5 @@ export default function App({ Component, pageProps }) {
     </>
   );
 }
+
+export default App;

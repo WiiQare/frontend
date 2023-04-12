@@ -16,13 +16,14 @@ import {
 	Menu as MenuMui,
 	MenuItem
 } from "@mui/material";
+import { DrawContext } from "../../../pages/_app";
 
 import logo from "../../../public/images/favicon.png";
 import logoDark from "../../../public/images/logo_dark_2.png";
 import avatar from "../../../public/images/homme.png";
 import IconBadge from "../../atoms/Icons/Badge";
 import NotificationBadge from "../../atoms/Card/Notifications/Badge";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { signOut } from "next-auth/react"
 
 
@@ -33,10 +34,10 @@ const langFlags = {
 
 const Menu = ({ session, handleSignOut }) => {
 
-	console.log("session", session)
-
 	const [anchorEl, setAnchorEl] = useState(null);
 	const [lang, setLang] = useState("fr");
+    const { draw, setDraw } = useContext(DrawContext);
+
 
 	const open = Boolean(anchorEl);
 
@@ -242,7 +243,7 @@ const Menu = ({ session, handleSignOut }) => {
 					</div>
 
 					<div className="hidden md:flex">
-						<label htmlFor="my-drawer-4">
+						<label htmlFor="my-drawer-4" onClick={() => setDraw(!draw)}>
 							<IconBadge total={-1}>
 								<AiOutlineMessage size={25} />
 							</IconBadge>

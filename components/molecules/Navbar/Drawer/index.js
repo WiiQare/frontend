@@ -1,13 +1,15 @@
 import React, { useState, createContext, useContext } from "react";
 import ListChat from "./List";
 import { BiArrowBack } from "react-icons/bi";
+import { DrawContext } from "../../../../pages/_app";
 export const ChatContext = createContext();
 
 export default function Drawer() {
     const [personalChat, setPersonalChat] = useState({ state: false, id: null });
+    const { draw, setDraw } = useContext(DrawContext);
 
     return (
-        <div className="drawer drawer-end fixed z-50">
+        <div className={` drawer-end fixed z-50 ${!draw ? 'hidden' : 'drawer' }`}>
             <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content">
 

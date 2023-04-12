@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { ChatContext } from './';
 import { BiX } from "react-icons/bi";
+import { DrawContext } from "../../../../pages/_app";
 
 const ListChat = () => {
   const { setPersonalChat } = useContext(ChatContext);
+  const { draw, setDraw } = useContext(DrawContext);
 
   const handleChange = (id) => {
     setPersonalChat({state: true, id})
@@ -11,7 +13,7 @@ const ListChat = () => {
 
     return (
         <div className="flex flex-col py-8 px-5 md:w-72 w-full bg-white flex-shrink-0">
-             <label htmlFor="my-drawer-4" className="md:hidden block">
+             <label htmlFor="my-drawer-4" className="md:hidden block" onClick={() => setDraw(false)}>
                 <BiX size={23}/>
             </label>
             <div className="flex flex-row items-center justify-center h-12 w-full">
