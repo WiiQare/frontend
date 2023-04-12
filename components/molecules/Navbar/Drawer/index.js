@@ -15,7 +15,7 @@ export default function Drawer() {
 
             </div>
             <div className="drawer-side">
-                <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
+                <label htmlFor="my-drawer-4" className="drawer-overlay" onClick={() => setDraw(false)}></label>
 
                 <ChatContext.Provider value={{ personalChat, setPersonalChat }}>
                     {
