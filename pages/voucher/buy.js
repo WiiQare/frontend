@@ -7,12 +7,13 @@ import Stepper from "../../components/atoms/Stepper";
 import Step from "../../components/atoms/Stepper/step";
 export const FormContext = createContext();
 
-const Page = () => {
+const Page = ({data}) => {
 
     const {step, redirect_status} = useRouter().query;
     const [activeStepIndex, setActiveStepIndex] = useState(step == "end" && redirect_status == "succeeded" ? 2 : 0);
     const [formData, setFormData] = useState({});
 
+    console.log(data);
     return (
         <>
             <Head>
@@ -46,7 +47,7 @@ const Page = () => {
                                 <FormContext.Provider value={{ activeStepIndex, setActiveStepIndex, formData, setFormData }}>
                                     <div className="flex flex-col items-center justify-start">
                                         <Stepper />
-                                        <Step />
+                                        <Step data={data}/>
                                     </div>
                                 </FormContext.Provider>
                             </div>
@@ -62,5 +63,19 @@ const Page = () => {
 Page.getLayout = (page) => (
     <DashboardLayout className="space-y-8">{page}</DashboardLayout>
 );
+
+export async function getStaticProps(context) {
+	// Fetch data from external API
+	const res = await fetch(`https://api.apilayer.com/exchangerates_data/symbols`, {headers: {"apikey": "9m0nOD1wvOoNknorqpLlAsI9O5waJrkB"}})
+	const data = await res.json();
+    let symbols = []
+
+    for (const property in data.symbols) {
+        symbols.push({country: data.symbols[property], code: property})
+      }
+  
+	// Pass data to the page via props
+	return { props: { data: symbols } }
+  }
 
 export default Page;

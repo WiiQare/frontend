@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { FormContext } from "../../../../pages/voucher/buy";
 import { HiOutlineInformationCircle } from "react-icons/hi";
@@ -8,8 +8,11 @@ import { useSelector } from "react-redux";
 import { useSession } from "next-auth/react";
 import { FcCurrencyExchange } from "react-icons/fc";
 import { CgArrowsExchangeAltV } from "react-icons/cg";
+import { convertCurrency } from "../../../../lib/helper";
+import CurrencyFlag from 'react-currency-flags';
 
-function Payment2(props) {
+
+function Payment2({data:symbols}) {
 	const { activeStepIndex, setActiveStepIndex, formData, setFormData } = useContext(FormContext);
 	const [amount, setAmount] = useState(0);
 	const client = useSelector((state) => state.app.client);
@@ -18,23 +21,41 @@ function Payment2(props) {
 	return (
 		<>
 			{/* <div className="text-2xl font-medium my-4 capitalize">Choice your payment method !</div> */}
-			{amount == 0 ? <Amount amount={amount} setAmount={setAmount} /> : <StripePayment amount={amount} senderId={data.user.data.userId} patientId={client.patient.id} />}
+			{amount == 0 ? <Amount amount={amount} setAmount={setAmount} symbols={symbols} /> : <StripePayment amount={amount} senderId={data.user.data.userId} patientId={client.patient.id} />}
 		</>
 	);
 }
 
-export default Payment2;
 
-function Amount({ amount, setAmount }) {
+function Amount({ amount, setAmount, symbols }) {
 
 	const ValidationSchema = yup.object().shape({
 		amount: yup.number().required("Please enter valid amount")
 	});
 
+	const [currencyPatient, setCurrencyPatient] = useState("CDF");
+	const [currencyPatientName, setCurrencyPatientName] = useState("Franc Congolais");
+	
+	const [currencySender, setCurrencySender] = useState("EUR");
+	const [convertRequest, setConvertRequest] = useState(false);
+	const [convertResult, setConvertResult] = useState(null);
+	const [amountTemp, setAmountTemp] = useState(null);
+
 	const renderError = (message) => (
 		<p className="text-xs text-red-600 font-light flex items-center gap-1"><HiOutlineInformationCircle />{message}</p>
 	);
 
+	const convertAutomatically = async (e = null) => {
+
+		e?.target?.value && setAmountTemp(e.target.value)
+
+		setConvertRequest(true)
+		const res = await convertCurrency(currencySender, e?.target?.value ?? amountTemp, currencyPatient)
+
+		setConvertRequest(false)
+		setConvertResult(res);
+	}
+	
 	return (
 		<Formik
 			initialValues={{
@@ -42,7 +63,7 @@ function Amount({ amount, setAmount }) {
 			}}
 			validationSchema={ValidationSchema}
 			onSubmit={(values) => {
-				setAmount(values.amount)
+				setAmount(amountTemp)
 			}}
 		>
 			<Form className="flex justify-center w-full  py-4 items-end">
@@ -79,17 +100,17 @@ function Amount({ amount, setAmount }) {
 									<img className="w-14 object-contain" src="/images/carte-bancaire.png" alt="" />
 									<div className="ml-5">
 										<span className="mt-2 font-semibold">Carte Bancaire</span>
-										<p className="text-slate-500 text-sm leading-6">Visa, Mastercard & Stripe</p>
+										<p className="text-slate-500 text-sm leading-6">Visa & Mastercard</p>
 									</div>
 								</label>
 							</div>
 							<div className="relative">
-								<input className="peer hidden" id="radio_2" type="radio" name="radio" checked />
+								<input className="peer hidden" id="radio_2" type="radio" name="radio" />
 								<span className="peer-checked:border-orange absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
 								<label className="peer-checked:border-2 peer-checked:border-orange peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_2">
 									<img className="w-14 object-contain" src="/images/crypto-monnaie.png" alt="" />
 									<div className="ml-5">
-										<span className="mt-2 font-semibold">Crypto Monaie</span>
+										<span className="mt-2 font-semibold">Crypto Monnaie</span>
 										<p className="text-slate-500 text-sm leading-6">Ethereum (ETH) & Bitcoin (BTC)</p>
 									</div>
 								</label>
@@ -105,63 +126,73 @@ function Amount({ amount, setAmount }) {
 								<div>
 									<label for="hs-inline-leading-pricing-select-label" className="block text-sm font-medium mb-2 ">Devise de départ</label>
 									<div className="relative">
-										<input type="text" id="hs-inline-leading-pricing-select-label" name="inline-add-on" className="py-3 px-4 pl-9 pr-20 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 " placeholder="0.00" />
-											<div className="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
-												<span className="text-gray-500">$</span>
-											</div>
-											<div className="absolute inset-y-0 right-0 flex items-center text-gray-500 pr-px">
-												<label for="hs-inline-leading-select-currency" className="sr-only">Currency</label>
-												<select id="hs-inline-leading-select-currency" name="hs-inline-leading-select-currency" className="block w-full border-transparent rounded-md focus:ring-blue-600 focus:border-blue-600 ">
-													<option>USD</option>
-													<option>CAD</option>
-													<option>EUR</option>
-												</select>
-											</div>
+										<input type="text" id="hs-inline-leading-pricing-select-label" name="inline-add-on" className="py-3 px-4 pl-9 pr-20 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 " placeholder="0.00" onChange={convertAutomatically} />
+										<div className="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
+											<span className="text-gray-500">{currencySender == "EUR" ? "£" : "$"}</span>
+										</div>
+										<div className="absolute inset-y-0 right-0 flex items-center text-gray-500 pr-px">
+											<label for="hs-inline-leading-select-currency" className="sr-only">Currency</label>
+											<select id="hs-inline-leading-select-currency" name="hs-inline-leading-select-currency" className="block w-full border-transparent rounded-md focus:ring-orange focus:border-blue-600 " onChange={(e) => {setCurrencySender(e.target.value); convertAutomatically(null)}}>
+												<option>USD</option>
+												<option>EUR</option>
+											</select>
+										</div>
 									</div>
 								</div>
-								
-								<div className="flex gap-1 items-center justify-center">
-									<CgArrowsExchangeAltV size={40} className="text-gray-400"/>
+
+								<div className="flex flex-col gap-1 items-center justify-center">
+
+									{
+										convertRequest ? (
+											<>
+												<div className="animate-spin inline-block w-4 h-4 border-[2px] border-current border-t-transparent text-gray-400 rounded-full" role="status" ariaLabel="loading">
+													<span className="sr-only">Loading...</span>
+												</div>
+												<span className="text-xs text-gray-500">Conversion en cours...</span>
+											</>
+										) : (<CgArrowsExchangeAltV size={40} className="text-gray-400" />)
+									}
+									
 								</div>
 
 								<div>
 									<label for="hs-inline-leading-pricing-select-label" className="block text-sm font-medium mb-2 ">À quel devise voulez-vous l'envoyer </label>
 									<div className="relative">
-										<input type="text" id="hs-inline-leading-pricing-select-label" name="inline-add-on" className="py-3 px-4 pl-9 pr-20 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 " placeholder="0.00" readOnly/>
-											<div className="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
-												<span className="text-gray-500">$</span>
-											</div>
-											<div className="absolute inset-y-0 right-0 flex items-center text-gray-500 pr-px">
-												<label for="hs-inline-leading-select-currency" className="sr-only">Currency</label>
-												<select id="hs-inline-leading-select-currency" name="hs-inline-leading-select-currency" className="block w-full border-transparent rounded-md focus:ring-blue-600 focus:border-blue-600 ">
-													<option>USD</option>
-													<option>CAD</option>
-													<option>EUR</option>
-												</select>
-											</div>
+										<input type="text" id="hs-inline-leading-pricing-select-label" name="inline-add-on" className="py-3 px-4 pl-14 pr-20 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-orange focus:ring-orange " placeholder="0.00" readOnly value={convertResult?.result ?? ''}/>
+										<div className="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
+											<span className="text-gray-500">{currencyPatient}</span>
+										</div>
+										<div className="absolute inset-y-0 right-0 flex items-center text-gray-500 pr-px">
+											<label for="hs-inline-leading-select-currency" className="sr-only">Currency</label>
+											<select id="hs-inline-leading-select-currency" name="hs-inline-leading-select-currency" className="block  border-transparent rounded-md focus:ring-orange focus:border-orange w-[5.5rem]" onChange={(e) => {setCurrencyPatient(e.target.value); setCurrencyPatientName(e.target.options[e.target.selectedIndex].getAttribute("currency")); convertAutomatically(null)}}>
+												{symbols.map(symbol => <option value={symbol.code} currency={symbol.country} selected={symbol.code == currencyPatient}>{symbol.code} {symbol.country}</option>)}
+											</select>
+										</div>
 									</div>
 								</div>
 							</div>
-							
+
 
 							<div className="mt-6 border-t border-b py-2 space-y-4">
 								<div className="flex items-center justify-between">
 									<p className="text-sm font-medium text-gray-900">Devise d'envoie</p>
-									<p className="font-normal text-sm text-gray-600">USD</p>
+									<p className="font-normal text-sm text-gray-600">{currencySender}</p>
 								</div>
 								<div className="flex items-center justify-between">
 									<p className="text-sm font-medium text-gray-900">Devise de réception</p>
-									<p className="font-normal text-sm text-gray-600">XAF</p>
+									<p className="font-normal text-sm text-gray-600">{currencyPatient}</p>
 								</div>
 
 								<div className="flex items-center justify-between">
-									<p className="text-sm font-medium text-gray-900">Pays</p>
-									<p className="font-normal text-sm text-gray-600 flex items-center gap-2"><img src="https://flagcdn.com/w20/cm.png" alt="cd" className="rounded-full h-4 w-4 object-cover" />Caméroun</p>
+									<p className="text-sm font-medium text-gray-900">Monnaie</p>
+									<p className="font-normal text-sm text-gray-600 flex items-center gap-2">
+										<CurrencyFlag currency={currencyPatient} className="rounded-full !h-4 !w-4 object-cover" />{currencyPatientName}
+									</p>
 								</div>
 
 								<div className="flex items-center justify-between">
 									<p className="text-sm font-medium text-gray-900">Taux d'échange</p>
-									<p className="font-normal text-sm text-gray-600">1.834 - <span className="text-orange">300 XAF</span></p>
+									<p className="font-normal text-sm text-gray-600">{convertResult?.info?.rate.toFixed(2) ?? ''} - <span className="text-orange">{convertResult?.result?.toFixed(2) ?? 0} {convertResult?.query?.from ?? currencyPatient}</span></p>
 								</div>
 
 								<div className="flex items-center justify-between">
@@ -171,10 +202,10 @@ function Amount({ amount, setAmount }) {
 							</div>
 							<div className="mt-6 flex items-center justify-between">
 								<p className="text-sm font-medium text-gray-900">Total</p>
-								<p className="text-2xl font-semibold text-gray-900">$408.00</p>
+								<p className="text-2xl font-semibold text-gray-900">{convertResult?.query?.from == "USD" ? "$" : convertResult?.query?.from == "EUR" ? '£' : convertResult?.query?.from ?? "£"} {convertResult?.query?.amount ?? 0}</p>
 							</div>
 						</div>
-						<button className="mt-4 mb-8 w-full rounded-md bg-orange effect-up px-6 py-3 font-medium text-white">Passer au paiement</button>
+						<button type="submit" className="mt-4 mb-8 w-full rounded-md bg-orange effect-up px-6 py-3 font-medium text-white">Passer au paiement</button>
 					</div>
 				</div>
 			</Form>
@@ -183,3 +214,7 @@ function Amount({ amount, setAmount }) {
 
 	)
 }
+
+
+
+export default Payment2;

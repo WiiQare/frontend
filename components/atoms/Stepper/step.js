@@ -7,7 +7,7 @@ import Identity2 from "./Forms/identity2";
 import Payment2 from "./Forms/payment2";
 
 
-function Step() {
+function Step({data}) {
   const { activeStepIndex } = useContext(FormContext);
   let stepContent;
 
@@ -17,7 +17,7 @@ function Step() {
       break;
 
     case 1:
-      stepContent = <Payment2 />;
+      stepContent = <Payment2 data={data} />;
       break;
     case 2:
       stepContent = <Send />;
