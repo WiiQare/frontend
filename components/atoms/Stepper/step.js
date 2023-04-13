@@ -4,6 +4,7 @@ import Identity from "./Forms/identity";
 import Payment from "./Forms/payment";
 import Send from "./Forms/send";
 import Identity2 from "./Forms/identity2";
+import Payment2 from "./Forms/payment2";
 
 
 function Step() {
@@ -16,7 +17,7 @@ function Step() {
       break;
 
     case 1:
-      stepContent = <Payment />;
+      stepContent = <Payment2 />;
       break;
     case 2:
       stepContent = <Send />;

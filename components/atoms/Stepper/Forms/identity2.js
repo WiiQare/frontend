@@ -52,6 +52,7 @@ function Identity2() {
 		homeAddress: yup.string().required("Home Address is a required field"),
 		city: yup.string().required("City is a required field"),
 		phoneNumber: yup.string(),
+		country: yup.string()
 	});
 
 	const savePatientMutation = useMutation(savePatient, {
@@ -77,7 +78,7 @@ function Identity2() {
 		console.log("ok")
 		if (Object.keys(values).length == 0) return console.log("Pas de données");
 
-		values.phoneNumber = phone;
+		console.log(values);
 		const data = { ...formData, ...values };
 
 		if (patientExist) {
@@ -273,30 +274,33 @@ function Identity2() {
 					<FormikProvider value={formik}>
 						<form onSubmit={formik.handleSubmit}>
 
-							<div className="flex flex-col md:flex-row gap-6 w-full">
-								<div className="md:w-1/3 w-full inline-flex">
-									<CountryContext.Provider value={{ country, setCountry }}>
-										<CountrySelect />
-									</CountryContext.Provider>
-								</div>
-								<div className="flex flex-col gap-1 md:w-2/3">
-									<MuiPhoneNumber
-										fullWidth
-										label="Numéro de Téléphone"
-										variant="outlined"
-										countryCodeEditable={false}
-										select={false}
-										placeholder="814 877 641"
-										onChange={(value, country) => { formik.setFieldValue("phoneNumber", value); formik.setFieldValue("country", country.countryCode) }}
-										defaultCountry={country}
-										name="phoneNumber"
-									/>
-									{formik.errors.phoneNumber ? renderError(formik.errors.phoneNumber) : <></>}
+							<div className="flex flex-col gap-1">
+								<div className="flex flex-col md:flex-row gap-6 w-full">
+									<div className="md:w-1/3 w-full inline-flex">
+										<CountryContext.Provider value={{ country, setCountry }}>
+											<CountrySelect />
+										</CountryContext.Provider>
+									</div>
+									<div className="flex flex-col gap-1 md:w-2/3">
+										<MuiPhoneNumber
+											fullWidth
+											label="Numéro de Téléphone"
+											variant="outlined"
+											countryCodeEditable={false}
+											select={false}
+											onChange={(value, country) => { formik.setFieldValue("phoneNumber", value); formik.setFieldValue("country", country.countryCode) }}
+											defaultCountry={country}
+											name="phoneNumber"
+										/>
+									</div>
+
 								</div>
 
+								{formik.errors.phoneNumber || formik.errors.country ? renderError(formik.errors.country + " and " + formik.errors.phoneNumber) : <></>}
 							</div>
+
 							<Stack spacing={1.5} className="w-full mt-3">
-								<div className="flex gap-6 w-full">
+								<div className="flex gap-2 md:gap-6 w-full">
 
 									<div className="flex flex-col gap-1 w-full">
 										<TextField
@@ -338,7 +342,7 @@ function Identity2() {
 									{formik.errors.email && formik.touched.email ? <span className="flex items-center gap-1 text-rose-500 text-left text-xs px-1"><HiOutlineInformationCircle /><span>{formik.errors.email}</span></span> : <></>}
 								</div>
 
-								<div className="flex gap-6 w-full">
+								<div className="flex flex-col md:flex-row gap-2 md:gap-6 w-full">
 
 									<div className="flex flex-col gap-1 w-full">
 										<TextField
