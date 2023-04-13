@@ -192,7 +192,7 @@ function Amount({ amount, setAmount, symbols }) {
 
 								<div className="flex items-center justify-between">
 									<p className="text-sm font-medium text-gray-900">Taux d'échange</p>
-									<p className="font-normal text-sm text-gray-600">{convertResult?.info?.rate.toFixed(2) ?? ''} - <span className="text-orange">{convertResult?.result?.toFixed(2) ?? 0} {convertResult?.query?.from ?? currencyPatient}</span></p>
+									<p className="font-normal text-sm text-gray-600">{convertResult?.info?.rate.toFixed(2) ?? ''} - <span className="text-orange">{convertResult?.result?.toFixed(2) ?? 0} {convertResult?.query?.to ?? currencyPatient}</span></p>
 								</div>
 
 								<div className="flex items-center justify-between">
