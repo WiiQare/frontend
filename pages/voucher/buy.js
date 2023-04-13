@@ -13,7 +13,6 @@ const Page = ({data}) => {
     const [activeStepIndex, setActiveStepIndex] = useState(step == "end" && redirect_status == "succeeded" ? 2 : 0);
     const [formData, setFormData] = useState({});
 
-    console.log(data);
     return (
         <>
             <Head>

@@ -3,6 +3,10 @@ import Stripe from "stripe";
 import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import { Elements } from "@stripe/react-stripe-js";
+import { useDispatch, useSelector } from "react-redux";
+import { countries } from "country-data";
+import CurrencyFlag from 'react-currency-flags';
+
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
@@ -10,6 +14,10 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 const StripePayment = ({ amount, senderId, patientId }) => {
 
 	const [clientSecret, setClientSecret] = useState("");
+	const client = useSelector((state) => state.app.client);
+
+
+	console.log(client.patient);
 
 	useEffect(() => {
 		// Create PaymentIntent as soon as the page loads
@@ -41,22 +49,120 @@ const StripePayment = ({ amount, senderId, patientId }) => {
 		appearance,
 	};
 
+	// return (
+	// 	<>
+	// 		{
+	// 			clientSecret ? (
+	// 				<div className="flex flex-col md:grid md:grid-cols-4 justify-end w-full md:px-32">
+	// 					<div className="md:col-span-1 py-10">
+	// 						<h1 className="font-bold text-2xl md:text-6xl flex flex-col items-center gap-2">
+	// 							<span className="text-gray-500 text-sm font-light md:flex">Amount to be paid</span>
+	// 							{amount}$
+	// 						</h1>
+	// 					</div>
+
+	// 					<div className="md:col-span-3 flex w-full">
+	// 						<Elements options={options} stripe={stripePromise}>
+	// 							<CheckoutForm amount={amount} senderId={senderId} />
+	// 						</Elements>
+	// 					</div>
+	// 				</div>
+	// 			) : <LoaderStripe />
+	// 		}
+	// 	</>
+	// );
+
 	return (
 		<>
 			{
 				clientSecret ? (
-					<div className="flex flex-col md:grid md:grid-cols-4 justify-end w-full md:px-32">
-						<div className="md:col-span-1 py-10">
-							<h1 className="font-bold text-2xl md:text-6xl flex flex-col items-center gap-2">
-								<span className="text-gray-500 text-sm font-light md:flex">Amount to be paid</span>
-								{amount}$
-							</h1>
-						</div>
+					<div className="flex justify-center w-full  py-4 items-end">
+						<div className="grid lg:grid-cols-2 lg:px-10 gap-6">
+							<div className="px-4 pt-8">
+								<p className="text-xl font-medium">Details Patient</p>
+								<p className="text-gray-400 text-xs">Confirmer les informations et choisissez la methode de paiement</p>
 
-						<div className="md:col-span-3 flex w-full">
-							<Elements options={options} stripe={stripePromise}>
-								<CheckoutForm amount={amount} senderId={senderId} />
-							</Elements>
+
+								<div className="items-center sm:flex w-full">
+									<div className="py-5 w-full">
+										<h3 className="text-xl font-bold tracking-tight text-gray-900 ">
+											<a href="#">{client.patient.firstName} {client.patient.lastName.toUpperCase()}</a>
+										</h3>
+										<span className="text-gray-500 ">{client.patient?.email ?? ''}</span>
+										<p className="mt-3 mb-4 font-light text-gray-500 w-full">
+											<ul className="flex flex-col gap-1 w-full text-sm">
+												<li className="flex justify-between w-full">Phone Number: <b className="text-orange">{client.patient.phoneNumber}</b></li>
+												<li className="flex justify-between w-full">Country: <b className="text-gray-700 flex gap-1 items-center"><img src={`https://flagcdn.com/w20/${client.patient.country}.png`} alt="cd" className="rounded-full h-4 w-4 object-cover" /> {countries[client.patient.country.toUpperCase()].name}</b></li>
+												<li className="flex justify-between w-full">City: <b className="text-gray-700">{client.patient.city}</b></li>
+												<li className="flex justify-between w-full">Home Address: <b className="text-gray-700">{client.patient.homeAddress}</b></li>
+											</ul>
+										</p>
+
+									</div>
+								</div>
+
+								<p className="mt-8 mb-4 text-lg font-medium">Methods Payment</p>
+								<div className="relative">
+									<input className="peer hidden" id="radio_1" type="radio" name="radio" checked />
+									<label className="peer-checked:border-2 peer-checked:border-orange peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_1">
+										<img className="w-14 object-contain" src="/images/carte-bancaire.png" alt="" />
+										<div className="ml-5">
+											<span className="mt-2 font-semibold">Carte Bancaire</span>
+											<p className="text-slate-500 text-sm leading-6">Visa & Mastercard</p>
+										</div>
+									</label>
+								</div>
+
+								<div className="mt-6 border-t border-b py-2 space-y-4">
+									<div className="flex items-center justify-between">
+										<p className="text-sm font-medium text-gray-900">Devise d'envoie</p>
+										<p className="font-normal text-sm text-gray-600">{client.patient.currency.sender}</p>
+									</div>
+									<div className="flex items-center justify-between">
+										<p className="text-sm font-medium text-gray-900">Devise de réception</p>
+										<p className="font-normal text-sm text-gray-600">{client.patient.currency.patient}</p>
+									</div>
+
+									<div className="flex items-center justify-between">
+										<p className="text-sm font-medium text-gray-900">Monnaie</p>
+										<p className="font-normal text-sm text-gray-600 flex items-center gap-2">
+											<CurrencyFlag currency={client.patient.currency.patient} className="rounded-full !h-4 !w-4 object-cover" />{client.patient.currency.patientName}
+										</p>
+									</div>
+
+									<div className="flex items-center justify-between">
+										<p className="text-sm font-medium text-gray-900">Taux d'échange</p>
+										<p className="font-normal text-sm text-gray-600">{client.patient.currency.sender == "USD" ? "$" : client.patient.currency.sender == "EUR" ? '€' : client.patient.currency.sender ?? "€"} 1.00 = <span className="text-orange">{client.patient.currency.rate.toFixed(2) ?? ''} {client.patient.currency.patient}</span></p>
+									</div>
+
+									<div className="flex items-center justify-between">
+										<p className="text-sm font-medium text-gray-500">Il recevra</p>
+										<p className="font-normal text-sm text-gray-600">{client?.patient?.currency?.patientAmount.toFixed(2) ?? 0} {client.patient.currency.patient == "USD" ? "$" : client.patient.currency.patient == "EUR" ? '€' : client.patient.currency.patient ?? "€"}</p>
+									</div>
+
+									<div className="flex items-center justify-between">
+										<p className="text-sm font-medium text-gray-900">Frais WiiQare</p>
+										<p className="font-normal text-sm text-gray-600">0%</p>
+									</div>
+								</div>
+								<div className="mt-6 flex items-center justify-between">
+									<p className="text-sm font-medium text-gray-900">Montant à payer</p>
+									<p className="text-2xl font-semibold text-gray-900">{client.patient.currency.sender == "USD" ? "$" : client.patient.currency.sender == "EUR" ? '€' : client.patient.currency.sender ?? "€"} {amount}</p>
+								</div>
+							</div>
+
+							<div className="mt-6 bg-gray-50 px-4 pt-8 lg:mt-0">
+								<p className="text-xl font-medium">Informations Bancaire</p>
+								<p className="text-gray-400 text-xs mb-4">Completez vos informations bancaire</p>
+
+								<div>
+									<Elements options={options} stripe={stripePromise}>
+										<CheckoutForm amount={amount} senderId={senderId} email={client.patient?.email ?? ""}/>
+			 						</Elements>
+								</div>
+
+							</div>
+
 						</div>
 					</div>
 				) : <LoaderStripe />

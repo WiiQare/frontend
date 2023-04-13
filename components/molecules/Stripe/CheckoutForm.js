@@ -2,16 +2,17 @@ import React from "react";
 import {
     PaymentElement,
     LinkAuthenticationElement,
+    AddressElement,
+    AddressElementComponent,
     useStripe,
     useElements
 } from "@stripe/react-stripe-js";
 import { HiArrowSmRight } from "react-icons/hi";
 
-export default function CheckoutForm({amount, senderId}) {
+export default function CheckoutForm({amount, senderId, email}) {
     const stripe = useStripe();
     const elements = useElements();
 
-    const [email, setEmail] = React.useState('frdrcpeter@gmail.com');
     const [message, setMessage] = React.useState(null);
     const [isLoading, setIsLoading] = React.useState(false);
 
@@ -85,20 +86,20 @@ export default function CheckoutForm({amount, senderId}) {
     };
 
     return (
-        <form id="payment-form" onSubmit={handleSubmit} className="flex flex-col gap-4 mx-auto md:w-2/3">
+        <form id="payment-form" onSubmit={handleSubmit} className="flex flex-col gap-6">
             <LinkAuthenticationElement
                 id="link-authentication-element"
+                options={{
+                    defaultValues: {email}
+
+                }}
             />
             <PaymentElement id="payment-element" options={paymentElementOptions} />
 
             <div className="w-full flex flex-row-reverse">
-                <button
-                    disabled={isLoading || !stripe || !elements}
-                    className="bg-primary flex gap-3 items-center w-fit font-medium text-white my-2 py-3 px-5 hover:bg-blue-500 duration-200 transition-all hover:shadow rounded-lg"
-                    type="submit"
-                >
-                    {!isLoading ? (<> Next <HiArrowSmRight /></>)  : (<>Loading...</>)}
-                </button>
+                
+				<button disabled={isLoading || !stripe || !elements} type="submit" className="mb-8 w-full rounded-md bg-orange effect-up px-6 py-4 font-medium text-white">{!isLoading ? "Procéder au Paiement"  : "Loading..."}</button>
+
             </div>
 
             {/* Show any error or success messages */}

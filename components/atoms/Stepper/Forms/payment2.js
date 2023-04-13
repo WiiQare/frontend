@@ -4,12 +4,14 @@ import { FormContext } from "../../../../pages/voucher/buy";
 import { HiOutlineInformationCircle } from "react-icons/hi";
 import * as yup from "yup";
 import StripePayment from "../../../molecules/Stripe";
-import { useSelector } from "react-redux";
 import { useSession } from "next-auth/react";
 import { FcCurrencyExchange } from "react-icons/fc";
 import { CgArrowsExchangeAltV } from "react-icons/cg";
 import { convertCurrency } from "../../../../lib/helper";
 import CurrencyFlag from 'react-currency-flags';
+import { useDispatch, useSelector } from "react-redux";
+import { countries } from "country-data";
+import { setPatientDispatch } from "../../../../redux/reducer";
 
 
 function Payment2({data:symbols}) {
@@ -21,25 +23,27 @@ function Payment2({data:symbols}) {
 	return (
 		<>
 			{/* <div className="text-2xl font-medium my-4 capitalize">Choice your payment method !</div> */}
-			{amount == 0 ? <Amount amount={amount} setAmount={setAmount} symbols={symbols} /> : <StripePayment amount={amount} senderId={data.user.data.userId} patientId={client.patient.id} />}
+			{amount == 0 ? <Amount amount={amount} setAmount={setAmount} symbols={symbols} patient={client.patient} /> : <StripePayment amount={amount} senderId={data.user.data.userId} patientId={client.patient.id} />}
 		</>
 	);
 }
 
 
-function Amount({ amount, setAmount, symbols }) {
+function Amount({ amount, setAmount, symbols, patient }) {
 
 	const ValidationSchema = yup.object().shape({
-		amount: yup.number().required("Please enter valid amount")
+		amount: yup.number().required("Please enter valid amount").min(2)
 	});
 
-	const [currencyPatient, setCurrencyPatient] = useState("CDF");
+	const [currencyPatient, setCurrencyPatient] = useState(countries[patient.country.toUpperCase()].currencies[0]);
 	const [currencyPatientName, setCurrencyPatientName] = useState("Franc Congolais");
 	
 	const [currencySender, setCurrencySender] = useState("EUR");
 	const [convertRequest, setConvertRequest] = useState(false);
 	const [convertResult, setConvertResult] = useState(null);
 	const [amountTemp, setAmountTemp] = useState(null);
+    const dispatch = useDispatch();
+
 
 	const renderError = (message) => (
 		<p className="text-xs text-red-600 font-light flex items-center gap-1"><HiOutlineInformationCircle />{message}</p>
@@ -56,13 +60,19 @@ function Amount({ amount, setAmount, symbols }) {
 		setConvertResult(res);
 	}
 	
+	
 	return (
 		<Formik
 			initialValues={{
 				amount: ''
 			}}
-			validationSchema={ValidationSchema}
 			onSubmit={(values) => {
+				if (!amountTemp || amountTemp <= 1) return alert(`Le montant à envoyé ne peut être inférieur à 1${currencySender}`)
+
+				dispatch(setPatientDispatch({...patient, currency: {
+					patient: currencyPatient, patientName: currencyPatientName, patientAmount: convertResult.result, rate: convertResult.info.rate,
+					sender: currencySender, 
+				}}))
 				setAmount(amountTemp)
 			}}
 		>
@@ -76,15 +86,15 @@ function Amount({ amount, setAmount, symbols }) {
 						<div className="items-center sm:flex w-full">
 							<div className="py-5 w-full">
 								<h3 className="text-xl font-bold tracking-tight text-gray-900 ">
-									<a href="#">Peter NDENGO</a>
+									<a href="#">{patient.firstName} {patient.lastName.toUpperCase()}</a>
 								</h3>
-								<span className="text-gray-500 ">frdrcpeter@gmail.com</span>
+								<span className="text-gray-500 ">{patient?.email ?? ''}</span>
 								<p className="mt-3 mb-4 font-light text-gray-500 w-full">
 									<ul className="flex flex-col gap-1 w-full text-sm">
-										<li className="flex justify-between w-full">Phone Number: <b className="text-orange">+243 814 978 651</b></li>
-										<li className="flex justify-between w-full">Country: <b className="text-gray-700 flex gap-1 items-center"><img src="https://flagcdn.com/w20/cd.png" alt="cd" className="rounded-full h-4 w-4 object-cover" /> Congo RDC</b></li>
-										<li className="flex justify-between w-full">City: <b className="text-gray-700">Kinshasa</b></li>
-										<li className="flex justify-between w-full">Home Address: <b className="text-gray-700">33, Bocage C/ Ngaliema Q. Macampagne</b></li>
+										<li className="flex justify-between w-full">Phone Number: <b className="text-orange">{patient.phoneNumber}</b></li>
+										<li className="flex justify-between w-full">Country: <b className="text-gray-700 flex gap-1 items-center"><img src={`https://flagcdn.com/w20/${patient.country}.png`} alt="cd" className="rounded-full h-4 w-4 object-cover" /> {countries[patient.country.toUpperCase()].name}</b></li>
+										<li className="flex justify-between w-full">City: <b className="text-gray-700">{patient.city}</b></li>
+										<li className="flex justify-between w-full">Home Address: <b className="text-gray-700">{patient.homeAddress}</b></li>
 									</ul>
 								</p>
 
@@ -117,7 +127,7 @@ function Amount({ amount, setAmount, symbols }) {
 							</div>
 						</form>
 					</div>
-					<div className="mt-10 bg-gray-50 px-4 pt-8 lg:mt-0">
+					<div className="mt-6 bg-gray-50 px-4 pt-8 lg:mt-0">
 						<p className="text-xl font-medium">Payment Details</p>
 						<p className="text-gray-400 text-xs mb-4">Complete your order by providing your payment details.</p>
 						<div className="">
@@ -126,15 +136,15 @@ function Amount({ amount, setAmount, symbols }) {
 								<div>
 									<label for="hs-inline-leading-pricing-select-label" className="block text-sm font-medium mb-2 ">Devise de départ</label>
 									<div className="relative">
-										<input type="text" id="hs-inline-leading-pricing-select-label" name="inline-add-on" className="py-3 px-4 pl-9 pr-20 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 " placeholder="0.00" onChange={convertAutomatically} />
+										<input type="text" id="hs-inline-leading-pricing-select-label" name="amount" className="py-3 px-4 pl-9 pr-20 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 " placeholder="0.00" onChange={convertAutomatically} />
 										<div className="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
-											<span className="text-gray-500">{currencySender == "EUR" ? "£" : "$"}</span>
+											<span className="text-gray-500">{currencySender == "EUR" ? "€" : "$"}</span>
 										</div>
 										<div className="absolute inset-y-0 right-0 flex items-center text-gray-500 pr-px">
 											<label for="hs-inline-leading-select-currency" className="sr-only">Currency</label>
 											<select id="hs-inline-leading-select-currency" name="hs-inline-leading-select-currency" className="block w-full border-transparent rounded-md focus:ring-orange focus:border-blue-600 " onChange={(e) => {setCurrencySender(e.target.value); convertAutomatically(null)}}>
 												<option>USD</option>
-												<option>EUR</option>
+												<option selected>EUR</option>
 											</select>
 										</div>
 									</div>
@@ -192,7 +202,7 @@ function Amount({ amount, setAmount, symbols }) {
 
 								<div className="flex items-center justify-between">
 									<p className="text-sm font-medium text-gray-900">Taux d'échange</p>
-									<p className="font-normal text-sm text-gray-600">{convertResult?.info?.rate.toFixed(2) ?? ''} - <span className="text-orange">{convertResult?.result?.toFixed(2) ?? 0} {convertResult?.query?.to ?? currencyPatient}</span></p>
+									<p className="font-normal text-sm text-gray-600">{convertResult?.query?.from == "USD" ? "$" : convertResult?.query?.from == "EUR" ? '€' : convertResult?.query?.from ?? "€"} 1.00 = <span className="text-orange">{convertResult?.info?.rate.toFixed(2) ?? ''} {convertResult?.query?.to ?? currencyPatient}</span></p>
 								</div>
 
 								<div className="flex items-center justify-between">
@@ -202,11 +212,12 @@ function Amount({ amount, setAmount, symbols }) {
 							</div>
 							<div className="mt-6 flex items-center justify-between">
 								<p className="text-sm font-medium text-gray-900">Total</p>
-								<p className="text-2xl font-semibold text-gray-900">{convertResult?.query?.from == "USD" ? "$" : convertResult?.query?.from == "EUR" ? '£' : convertResult?.query?.from ?? "£"} {convertResult?.query?.amount ?? 0}</p>
+								<p className="text-2xl font-semibold text-gray-900">{convertResult?.query?.from == "USD" ? "$" : convertResult?.query?.from == "EUR" ? '€' : convertResult?.query?.from ?? "€"} {convertResult?.query?.amount ?? 0}</p>
 							</div>
 						</div>
 						<button type="submit" className="mt-4 mb-8 w-full rounded-md bg-orange effect-up px-6 py-3 font-medium text-white">Passer au paiement</button>
 					</div>
+
 				</div>
 			</Form>
 
