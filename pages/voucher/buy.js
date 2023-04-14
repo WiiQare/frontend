@@ -65,7 +65,7 @@ Page.getLayout = (page) => (
 
 export async function getStaticProps(context) {
 	// Fetch data from external API
-	const res = await fetch(`https://api.apilayer.com/exchangerates_data/symbols`, {headers: {"apikey": "9m0nOD1wvOoNknorqpLlAsI9O5waJrkB"}})
+	const res = await fetch(`https://api.apilayer.com/exchangerates_data/symbols`, {headers: {"apikey": "4OSRY1oCiZywc6iUbx2oQNPP6VWhk3jy"}})
 	const data = await res.json();
     let symbols = []
 
