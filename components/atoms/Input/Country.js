@@ -12,7 +12,7 @@ export default function CountrySelect() {
 	return (
 		<Autocomplete
 			id="country-select-demo"
-			sx={{ width: 300 }}
+			className='w-full'
 			contentEditable={false}
 			onChange={(e, value) => setCountry(value.code.toLowerCase())}
 			options={countries}
