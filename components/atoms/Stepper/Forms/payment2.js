@@ -35,7 +35,7 @@ function Amount({ amount, setAmount, symbols, patient }) {
 		amount: yup.number().required("Please enter valid amount").min(2)
 	});
 
-	const [currencyPatient, setCurrencyPatient] = useState(countries[patient.country.toUpperCase()].currencies[0]);
+	const [currencyPatient, setCurrencyPatient] = useState(countries[patient?.country?.toUpperCase() ?? "CD"].currencies[0]);
 	const [currencyPatientName, setCurrencyPatientName] = useState("Franc Congolais");
 	
 	const [currencySender, setCurrencySender] = useState("EUR");
@@ -86,14 +86,14 @@ function Amount({ amount, setAmount, symbols, patient }) {
 						<div className="items-center sm:flex w-full">
 							<div className="py-5 w-full">
 								<h3 className="text-xl font-bold tracking-tight text-gray-900 ">
-									<a href="#">{patient.firstName} {patient.lastName.toUpperCase()}</a>
+									<a href="#">{patient?.firstName ?? "John"} {patient?.lastName?.toUpperCase() ?? "Doe"}</a>
 								</h3>
 								<span className="text-gray-500 ">{patient?.email ?? ''}</span>
 								<p className="mt-3 mb-4 font-light text-gray-500 w-full">
 									<ul className="flex flex-col gap-1 w-full text-sm">
-										<li className="flex justify-between w-full">Phone Number: <b className="text-orange">{patient.phoneNumber}</b></li>
-										<li className="flex justify-between w-full">Country: <b className="text-gray-700 flex gap-1 items-center"><img src={`https://flagcdn.com/w20/${patient.country}.png`} alt="cd" className="rounded-full h-4 w-4 object-cover" /> {countries[patient.country.toUpperCase()].name}</b></li>
-										<li className="flex justify-between w-full">City: <b className="text-gray-700">{patient.city}</b></li>
+										<li className="flex justify-between w-full">Phone Number: <b className="text-orange">{patient?.phoneNumber ?? "+243 000 000 000"}</b></li>
+										<li className="flex justify-between w-full">Country: <b className="text-gray-700 flex gap-1 items-center"><img src={`https://flagcdn.com/w20/${patient.country ?? 'cd'}.png`} alt="cd" className="rounded-full h-4 w-4 object-cover" /> {countries[patient?.country?.toUpperCase() ?? 'CD'].name}</b></li>
+										<li className="flex justify-between w-full">City: <b className="text-gray-700">{patient?.city ?? 'Goma'}</b></li>
 										<li className="flex justify-between w-full">Home Address: <b className="text-gray-700">{patient.homeAddress}</b></li>
 									</ul>
 								</p>
