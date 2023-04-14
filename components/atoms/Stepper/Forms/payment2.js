@@ -23,7 +23,7 @@ function Payment2({data:symbols}) {
 	return (
 		<>
 			{/* <div className="text-2xl font-medium my-4 capitalize">Choice your payment method !</div> */}
-			{amount == 0 ? <Amount amount={amount} setAmount={setAmount} symbols={symbols} patient={client.patient} /> : <StripePayment amount={amount} senderId={data.user.data.userId} patientId={client.patient.id} />}
+			{amount == 0 ? <Amount amount={amount} setAmount={setAmount} symbols={symbols} patient={client.patient} /> : <StripePayment amount={amount} senderId={data.user.data.userId} patientId={client.patient.id} email={data.user.data.email} />}
 		</>
 	);
 }
@@ -202,7 +202,7 @@ function Amount({ amount, setAmount, symbols, patient }) {
 
 								<div className="flex items-center justify-between">
 									<p className="text-sm font-medium text-gray-900">Taux d'échange</p>
-									<p className="font-normal text-sm text-gray-600">{convertResult?.query?.from == "USD" ? "$" : convertResult?.query?.from == "EUR" ? '€' : convertResult?.query?.from ?? "€"} 1.00 = <span className="text-orange">{convertResult?.info?.rate.toFixed(2) ?? ''} {convertResult?.query?.to ?? currencyPatient}</span></p>
+									<p className="font-normal text-sm text-gray-600">{currencySender == "EUR" ? "€" : "$"} 1.00 = <span className="text-orange">{convertResult?.info?.rate.toFixed(2) ?? ''} {convertResult?.query?.to ?? currencyPatient}</span></p>
 								</div>
 
 								<div className="flex items-center justify-between">
@@ -212,7 +212,7 @@ function Amount({ amount, setAmount, symbols, patient }) {
 							</div>
 							<div className="mt-6 flex items-center justify-between">
 								<p className="text-sm font-medium text-gray-900">Total</p>
-								<p className="text-2xl font-semibold text-gray-900">{convertResult?.query?.from == "USD" ? "$" : convertResult?.query?.from == "EUR" ? '€' : convertResult?.query?.from ?? "€"} {convertResult?.query?.amount ?? 0}</p>
+								<p className="text-2xl font-semibold text-gray-900">{currencySender == "EUR" ? "€" : "$"} {convertResult?.query?.amount ?? 0}</p>
 							</div>
 						</div>
 						<button type="submit" className="mt-4 mb-8 w-full rounded-md bg-orange effect-up px-6 py-3 font-medium text-white">Passer au paiement</button>

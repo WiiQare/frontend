@@ -11,7 +11,7 @@ import CurrencyFlag from 'react-currency-flags';
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
 
-const StripePayment = ({ amount, senderId, patientId }) => {
+const StripePayment = ({ amount, senderId, patientId, email }) => {
 
 	const [clientSecret, setClientSecret] = useState("");
 	const client = useSelector((state) => state.app.client);
@@ -157,7 +157,7 @@ const StripePayment = ({ amount, senderId, patientId }) => {
 
 								<div>
 									<Elements options={options} stripe={stripePromise}>
-										<CheckoutForm amount={amount} senderId={senderId} email={client.patient?.email ?? ""}/>
+										<CheckoutForm amount={amount} senderId={senderId} email={email ?? ""}/>
 			 						</Elements>
 								</div>
 
