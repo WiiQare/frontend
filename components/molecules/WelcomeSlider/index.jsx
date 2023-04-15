@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import InstallPWA from "../../atoms/Button/Download";
 
 const defaultSettings = {
   dots: true,
@@ -41,7 +42,7 @@ function WelcomeSlider({ slides, settings = defaultSettings }) {
                   {/* <h4>{slide.title}</h4> */}
                   <h5>{slide.subtitle}</h5>
                   {slide.button && (
-                    <div className="form-button">
+                    <div className="form-button flex flex-col gap-3">
                       <Button
                         id="submit"
                         type="submit"
@@ -51,6 +52,7 @@ function WelcomeSlider({ slides, settings = defaultSettings }) {
                       >
                         {slide.button?.label}
                       </Button>
+						          <InstallPWA />
                     </div>
                   )}
 

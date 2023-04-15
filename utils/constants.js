@@ -21,6 +21,10 @@ export const LOGIN_SLIDES = [
     img: "/images/Easy-payment-scan-QR-code.png",
     title: "Making a payment is ABC <span>simple</span>",
     subtitle: "To make a payment, simply scan a QR code.",
+    button: {
+      label: "Get Started",
+      onClick: () => null
+    }
   },
 ];
 
