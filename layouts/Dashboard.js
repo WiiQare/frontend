@@ -19,6 +19,8 @@ const Dashboard = ({ children, className }) => {
 		signOut();
 	};
 
+	console.log("data user", data);
+
 	if (status === 'authenticated')
 		return (
 			<>

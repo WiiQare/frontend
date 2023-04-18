@@ -138,12 +138,12 @@ function Identity2() {
 
 	const handleSelect = (item, index) => {
 		setActiveIndexSlide(index);
-		dispatch(setPatientDispatch({ ...client.patient, id: item.patientId ?? item.id, country: 'cd', firstName: "John", lastName: "Doe", email: "johndoe2023@gmail.com", phoneNumber: "+243 000 000 000", city: "Bukavu", homeAddress: "33, Rue du Bocage"  }))
+		dispatch(setPatientDispatch({ ...client.patient, id: item.id, country: 'cd', firstName: item.firstName, lastName: item.lastName, email: item.email, phoneNumber: item.phoneNumber, city: "Bukavu", homeAddress: "33, Rue du Bocage"  }))
 		setActiveStepIndex(activeStepIndex + 1);
 
 	}
 
-	const { data, isLoading, isError } = Fetcher(`/payment`, session.user.data.access_token);
+	const { data, isLoading, isError } = Fetcher(`/payer/patient?payerId=${session.user.data.userId}`, session.user.data.access_token);
 
 	return (
 		<>
@@ -171,7 +171,7 @@ function Identity2() {
 
 								<div className="bg-white py-4 px-2 relative rounded-lg space-y-8 h-full w-80 md:w-full">
 									{
-										isLoading ? (
+										isLoading || isError ? (
 											<div className="flex flex-col gap-2 items-center justify-center">
 												<div className="animate-spin inline-block w-4 h-4 border-[2px] border-current border-t-transparent text-gray-500 rounded-full" role="status" ariaLabel="loading">
 													<span className="sr-only">Loading...</span>
@@ -212,8 +212,8 @@ function Identity2() {
 															<span className={`${activeIndexSlide === index ? '' : "hidden"} p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}><CiCircleCheck size={18} /></span>
 														</div>
 
-														<span className="font-semibold text-sm">{item.patientId ? item.patientId.slice(0, 6) : item.id.slice(0, 6) }...{item.patientId ? item.patientId.slice(-6) : item.id.slice(-6) }.</span>
-														<span className="text-xs font-light">{item.patientId ? item.patientId.slice(0, 10) : item.id.slice(0, 7) }@gmail.com</span>
+														<span className="font-semibold text-sm">{item.firstName } {item.lastName}</span>
+														<span className="text-xs font-light">{item.phoneNumber}</span>
 													</SplideSlide>
 												))
 											}
