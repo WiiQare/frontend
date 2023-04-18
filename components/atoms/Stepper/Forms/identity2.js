@@ -153,12 +153,12 @@ function Identity2() {
 	}, [data]);
 
 	const handleKey = (e) => {
-		console.log(e.target.value);
+		let value = e.target.value.length > 0 && e.target.value[0] == "+" ? e.target.value.split('+')[1] : e.target.value ;
 		let filter = tempBeneficiare.filter(function (beneficiare) {
-			return new RegExp(e.target.value, "i").test(beneficiare.firstName + " " + beneficiare.lastName) || new RegExp(e.target.value, "i").test(beneficiare.phoneNumber) || new RegExp(e.target.value, "i").test(beneficiare.email);
+			return new RegExp(value, "i").test(beneficiare.firstName + " " + beneficiare.lastName) || new RegExp(value, "i").test(beneficiare.phoneNumber) || new RegExp(value, "i").test(beneficiare.email);
 		});
 
-		setTempBeneficiare(e.target.value.trim() != "" ? filter : allBeneficiare)
+		setTempBeneficiare(value.trim() != "" ? filter : allBeneficiare)
 	}
 
 	return (
@@ -181,7 +181,7 @@ function Identity2() {
 												fullWidth
 												label="Rechercher un bénéficiaire par Nom ou par Numéro Téléphone"
 												variant="outlined"
-												onKeyUp={handleKey}
+												onChange={handleKey}
 											/>
 											{formik.errors.email && formik.touched.email ? <span className="flex items-center gap-1 text-rose-500 text-left text-xs px-1"><HiOutlineInformationCircle /><span>{formik.errors.email}</span></span> : <></>}
 										</div>
