@@ -15,12 +15,11 @@ export default async function handler(req, res) {
     // Create a PaymentIntent with the order amount and currency
     const paymentIntent = await stripe.paymentIntents.create({
       amount: calculateOrderAmount(amount),
-      currency: "usd",
+      currency: patient.currency.sender.toLowerCase(),
       automatic_payment_methods: {
         enabled: true,
       },
       metadata: {
-        senderId: senderId, // who is paying
         patientId: patientId, // who is receiving the payment
         homeAddress: patient.homeAddress,
         phoneNumber: patient.phoneNumber,
@@ -28,11 +27,12 @@ export default async function handler(req, res) {
         lastName: patient.lastName,
         currencyPatient: patient.currency.patient,
         currencyRate: patient.currency.rate,
-        currencySender: patient.currency.sender,
         currencyPatientAmount: patient.currency.patientAmount,
         country: patient.country,
         email: patient.email,
-        city: patient.city
+        city: patient.city,
+        senderId: senderId, // who is paying
+        currencySender: patient.currency.sender
       }
     });
   
