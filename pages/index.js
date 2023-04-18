@@ -11,7 +11,7 @@ const Page = () => {
   return (
     <>
       <Head>
-        <title>JAMII - UNICEF CRYPTO</title>
+        <title>WiiQare - Send Money for health</title>
         <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
       </Head>
       <Carousel />
