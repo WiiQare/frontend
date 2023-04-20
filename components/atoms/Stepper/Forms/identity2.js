@@ -48,11 +48,11 @@ function Identity2() {
 	);
 
 	const ValidationSchema = yup.object().shape({
-		firstName: yup.string().required("Fistname is a required field"),
-		lastName: yup.string().required("Lastname is a required field"),
+		firstName: yup.string().required("Le nom est un champ obligatoire"),
+		lastName: yup.string().required("Le prénom est un champ obligatoire"),
 		email: yup.string().email(),
-		homeAddress: yup.string().required("Home Address is a required field"),
-		city: yup.string().required("City is a required field"),
+		homeAddress: yup.string().required("L'adresse du domicile est un champ obligatoire"),
+		city: yup.string().required("La ville est un champ obligatoire"),
 		phoneNumber: yup.string(),
 		country: yup.string()
 	});
@@ -67,7 +67,7 @@ function Identity2() {
 				}, 3000);
 
 			} else {
-				setState({ type: 1, message: "Successfully registered" })
+				setState({ type: 1, message: "Enregistré avec succès" })
 				dispatch(setPatientDispatch({ ...res }))
 
 				setActiveStepIndex(activeStepIndex + 1);
@@ -320,7 +320,7 @@ function Identity2() {
 											<TextField
 												id="outlined-basic"
 												fullWidth
-												label="First name"
+												label="Nom de famille"
 												variant="outlined"
 												name="firstName"
 												{...formik.getFieldProps('firstName')}
@@ -334,7 +334,7 @@ function Identity2() {
 											<TextField
 												id="outlined-basic"
 												fullWidth
-												label="Last name"
+												label="Prénom"
 												variant="outlined"
 												name="lastName"
 												{...formik.getFieldProps('lastName')}
@@ -348,7 +348,7 @@ function Identity2() {
 										<TextField
 											id="outlined-basic"
 											fullWidth
-											label="E-mail Address (optional)"
+											label="Adresse e-mail (optional)"
 											variant="outlined"
 											name="email"
 											{...formik.getFieldProps('email')}
@@ -362,7 +362,7 @@ function Identity2() {
 											<TextField
 												id="outlined-basic"
 												fullWidth
-												label="Home Address"
+												label="Adresse du domicile"
 												variant="outlined"
 												name="homeAddress"
 												{...formik.getFieldProps('homeAddress')}
@@ -376,7 +376,7 @@ function Identity2() {
 											<TextField
 												id="outlined-basic"
 												fullWidth
-												label="City"
+												label="Ville"
 												variant="outlined"
 												name="city"
 												{...formik.getFieldProps('city')}
@@ -393,7 +393,7 @@ function Identity2() {
 										className="bg-primary flex gap-3 items-center w-fit font-medium text-white my-2 py-3 px-5 hover:bg-blue-500 duration-200 transition-all hover:shadow rounded-lg"
 										type="submit"
 									>
-										{savePatientMutation.isLoading ? <LoadingButton /> : <>{patientExist ? 'Continuer avec ce patient' : 'Next'} <HiArrowSmRight /></>}
+										{savePatientMutation.isLoading ? <LoadingButton /> : <>{patientExist ? 'Continuer avec ce patient' : 'Suivant'} <HiArrowSmRight /></>}
 
 									</button>
 

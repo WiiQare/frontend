@@ -16,18 +16,18 @@ const Page = ({data}) => {
     return (
         <>
             <Head>
-                <title>Buy a voucher</title>
+                <title>Acheter un pass santé</title>
             </Head>
             <div className="p-2 space-y-6 md:py-8 md:px-6">
                 <CardHeader
-                    title={"Buy a voucher"}
+                    title={"Acheter un pass santé"}
                     breadcrumbs={[
                         {
-                            item: "Home",
+                            item: "Acceuil",
                             link: "/"
                         },
                         {
-                            item: "Buy a voucher",
+                            item: "Acheter un pass santé",
                             link: "/voucher/buy"
                         }
                     ]}
@@ -39,8 +39,8 @@ const Page = ({data}) => {
                     <div className="w-full overflow-hidden md:col-span-2 rounded-lg py-8 flex flex-col gap-6 bg-white drop-shadow-sm">
                         <div className="px-8 space-y-8">
                             <div>
-                                <span className="text-gray-400 text-sm font-normal">Set Forms</span>
-                                <h2 className="font-semibold text-3xl">Buy Your Voucher</h2>
+                                <span className="text-gray-400 text-sm font-normal">Formulaires</span>
+                                <h2 className="font-semibold text-3xl">Acheter un pass santé</h2>
                             </div>
                             <div className="flex flex-col gap-4">
                                 <FormContext.Provider value={{ activeStepIndex, setActiveStepIndex, formData, setFormData }}>

@@ -33,11 +33,11 @@ function Identity() {
 	);
 
 	const ValidationSchema = yup.object().shape({
-		firstName: yup.string().required("Fistname is a required field"),
-		lastName: yup.string().required("Lastname is a required field"),
+		firstName: yup.string().required("Le nom est un champ obligatoire"),
+		lastName: yup.string().required("Le prénom est un champ obligatoire"),
 		email: yup.string().email(),
-		homeAddress: yup.string().required("Home Address is a required field"),
-		city: yup.string().required("City is a required field"),
+		homeAddress: yup.string().required("L'adresse du domicile est un champ obligatoire"),
+		city: yup.string().required("La ville est un champ obligatoire"),
 		phoneNumber: yup.string(),
 	});
 
@@ -51,7 +51,7 @@ function Identity() {
                 }, 3000);
 
             } else {
-                setState({ type: 1, message: "Successfully registered" })
+                setState({ type: 1, message: "Enregistré avec succès" })
 				dispatch(setPatientDispatch({...res}))
 
 				setActiveStepIndex(activeStepIndex + 1);

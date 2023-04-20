@@ -39,12 +39,12 @@ const Carousel = () => {
                         <div className='bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10'>
                             <div className='flex flex-col md:gap-7 gap-2'>
                                 <div className='space-y-3'>
-                                    <h1 className='text-2xl md:text-5xl font-bold'>Start your safe live</h1>
-                                    <p className='text-xs md:text-sm text-gray-700 w-full flex'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem</p>
+                                    <h1 className='text-2xl md:text-5xl font-bold'>5$ pour votre 1èr Pass santé envoyé</h1>
+                                    <p className='text-xs md:text-sm text-gray-700 w-full flex'>Gagnez une somme de 5$ pour votre première achat de passe santé WiiQare.</p>
                                 </div>
                                 <Link href={"#"} legacyBehavior>
                                     <a className='bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md'>
-                                        Get Started
+                                    comment ça marche
                                     </a>
                                 </Link>
                             </div>
@@ -64,7 +64,7 @@ const Carousel = () => {
                                 </div>
                                 <Link href={"#"} legacyBehavior>
                                     <a className='bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md'>
-                                        Get Started
+                                    Commencer
                                     </a>
                                 </Link>
                             </div>

@@ -25,7 +25,7 @@ function Stepper() {
                 <div className="stepper-item flex items-center justify-center w-12 h-12 text-center font-medium border-2 rounded-full">
                     1
                 </div>
-                <span className="absolute -bottom-6 text-xs w-max md:-left-8">Identity <span className="hidden md:inline">For Receiver</span> </span>
+                <span className="absolute -bottom-6 text-xs w-max md:-left-8">Identité <span className="hidden md:inline">du beneficiare</span> </span>
             </div>
 
             <div className="flex-auto border-t-2"></div>
@@ -34,14 +34,14 @@ function Stepper() {
                 <div className="stepper-item flex items-center justify-center w-12 h-12 text-center font-medium border-2 rounded-full">
                     2
                 </div>
-                <span className="absolute -bottom-6 text-xs w-max md:-left-8">Amount <span className="hidden md:inline">to be send</span> </span>
+                <span className="absolute -bottom-6 text-xs w-max md:-left-8">Résumé <span className="hidden md:inline">de paiement</span> </span>
             </div>
             <div className="flex-auto border-t-2"></div>
             <div className="flex flex-col relative">
                 <div className="stepper-item flex items-center justify-center w-12 h-12 text-center font-medium border-2 rounded-full">
                     3
                 </div>
-                <span className="absolute -bottom-6 text-xs w-max md:-left-8">Share<span className="hidden md:inline"> QR Code Voucher</span> </span>
+                <span className="absolute -bottom-6 text-xs w-max md:-left-8">générer un <span className="hidden md:inline">pass santé QR Code </span> </span>
             </div>
         </div>
     );

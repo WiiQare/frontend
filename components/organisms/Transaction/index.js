@@ -17,19 +17,19 @@ const Transaction = () => {
 	return (
 		<div className="p-2 space-y-6 md:py-8 md:px-6 mb-20">
 			<CardHeader
-				title={"Transactions History"}
+				title={"Historique des transactions"}
 				sort={{
 					icon: () => <span className="h-[15px] w-[15px] rounded bg-primary" />,
-					items: ["Detail", "Cancel"]
+					items: ["Détail", "Annuler"]
 				}}
 				filter={{
 					label: {
-						title: "Sort By",
+						title: "Trier par",
 						className: "py-1 w-[auto]"
 					},
 					className: "w-[auto]",
 					icon: () => <CiCircleList />,
-					items: ["Detail", "Cancel"]
+					items: ["Detail", "Annuler"]
 				}}
 			/>
 			<HistoryWallet />
@@ -40,14 +40,14 @@ const Transaction = () => {
 						<AiOutlineUpload size={30} className="text-sky" />
 					</div>
 
-					<h2 className="text-lg font-semibold">Transfert</h2>
+					<h2 className="text-lg font-semibold">Envoyer un pass santé</h2>
 				</div>
 				<div className="bg-gradient-to-r from-purple to-pink-500 shadow-md rounded-lg p-6 text-white flex items-center gap-7">
 					<div className="p-3 bg-white shadow rounded-full">
 						<TbReceipt size={30} className="text-purple" />
 					</div>
 
-					<h2 className="text-lg font-semibold">Send Voucher</h2>
+					<h2 className="text-lg font-semibold">Pass santé Envoyer</h2>
 				</div>
 			</div>
 
@@ -56,7 +56,7 @@ const Transaction = () => {
 				<div className="bg-white py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8 w-full md:w-full h-full">
 					<div className="flex flex-row gap-6 md:gap-0 md:items-center justify-between px-6">
 						<div className="space-y-2">
-							<h2 className="font-bold text-xl text-gray-700">Quickly Voucher Transfer</h2>
+							<h2 className="font-bold text-xl text-gray-700">Mes bénéficiaires</h2>
 							<span className="text-xs text-gray-500 hidden md:flex">Lorem ipsum dolor sit amet, consectetur</span>
 						</div>
 
@@ -155,12 +155,12 @@ const Transaction = () => {
 					</Splide>
 
 					<div className="py-3 px-8 flex flex-col md:flex-row items-center justify-center gap-10">
-						<h4 className="font-semibold">Amount</h4>
+						<h4 className="font-semibold">Montant</h4>
 						<form className="w-full">
-							<label htmlFor="search" className="mb-2 text-sm font-medium text-gray-900 sr-only">Transfer amount</label>
+							<label htmlFor="search" className="mb-2 text-sm font-medium text-gray-900 sr-only">Envoyer</label>
 							<div className="relative flex w-full">
 								<input type="number" min={10} id="search" name="amount" className="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-sky focus:border-sky" placeholder="Enter amount" required defaultValue={10} />
-								<button type="submit" className="text-white absolute right-2.5 bottom-2.5 bg-sky hover:bg-cyan-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Transfer Now</button>
+								<button type="submit" className="text-white absolute right-2.5 bottom-2.5 bg-sky hover:bg-cyan-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Envoyer</button>
 							</div>
 						</form>
 					</div>
@@ -169,7 +169,7 @@ const Transaction = () => {
 				<div className="bg-white mb-10 py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8 w-full md:w-full h-full">
 					<div className="flex flex-col md:flex-row gap-6 md:gap-0 md:items-center justify-between px-6">
 						<div className="space-y-2">
-							<h2 className="font-bold text-xl text-gray-700">Voucher Sent</h2>
+							<h2 className="font-bold text-xl text-gray-700">Pass santé Envoyer</h2>
 							<span className="text-xs text-gray-500">Lorem ipsum dolor sit amet, consectetur</span>
 						</div>
 

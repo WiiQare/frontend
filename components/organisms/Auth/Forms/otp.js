@@ -122,7 +122,7 @@ function Otp() {
 
                 <div className="form-button">
                     <Button size="large" variant="contained" type="submit">
-                        {sendOtpMutation.isLoading ? <LoadingButton /> : 'NEXT STEP'}
+                        {sendOtpMutation.isLoading ? <LoadingButton /> : 'L\'ÉTAPE SUIVANTE'}
                     </Button>
                 </div>
             </form>
@@ -138,7 +138,7 @@ const renderer = ({ hours, minutes, seconds, completed }) => {
       return <Completionist />;
     } else {
       // Render a countdown
-      return (<>Expire in <span>{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</span></>);
+      return (<>Expire dans <span>{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</span></>);
     }
   };
 

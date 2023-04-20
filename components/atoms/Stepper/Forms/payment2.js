@@ -79,7 +79,7 @@ function Amount({ amount, setAmount, symbols, patient }) {
 			<Form className="flex justify-center w-full  py-4 items-end">
 				<div className="grid lg:grid-cols-2 lg:px-10 gap-6">
 					<div className="px-4 pt-8">
-						<p className="text-xl font-medium">Details Patient</p>
+						<p className="text-xl font-medium">Details du Patient</p>
 						<p className="text-gray-400 text-xs">Confirmer les informations et choisissez la methode de paiement</p>
 
 
@@ -91,17 +91,17 @@ function Amount({ amount, setAmount, symbols, patient }) {
 								<span className="text-gray-500 ">{patient?.email ?? ''}</span>
 								<p className="mt-3 mb-4 font-light text-gray-500 w-full">
 									<ul className="flex flex-col gap-1 w-full text-sm">
-										<li className="flex justify-between w-full">Phone Number: <b className="text-orange">{patient?.phoneNumber ?? "+243 000 000 000"}</b></li>
-										<li className="flex justify-between w-full">Country: <b className="text-gray-700 flex gap-1 items-center"><img src={`https://flagcdn.com/w20/${patient.country ?? 'cd'}.png`} alt="cd" className="rounded-full h-4 w-4 object-cover" /> {countries[patient?.country?.toUpperCase() ?? 'CD'].name}</b></li>
-										<li className="flex justify-between w-full">City: <b className="text-gray-700">{patient?.city ?? 'Goma'}</b></li>
-										<li className="flex justify-between w-full">Home Address: <b className="text-gray-700">{patient.homeAddress}</b></li>
+										<li className="flex justify-between w-full">Numéro de téléphone: <b className="text-orange">{patient?.phoneNumber ?? "+243 000 000 000"}</b></li>
+										<li className="flex justify-between w-full">Pays: <b className="text-gray-700 flex gap-1 items-center"><img src={`https://flagcdn.com/w20/${patient.country ?? 'cd'}.png`} alt="cd" className="rounded-full h-4 w-4 object-cover" /> {countries[patient?.country?.toUpperCase() ?? 'CD'].name}</b></li>
+										<li className="flex justify-between w-full">Ville: <b className="text-gray-700">{patient?.city ?? 'Goma'}</b></li>
+										<li className="flex justify-between w-full">Adresse du domicile: <b className="text-gray-700">{patient.homeAddress}</b></li>
 									</ul>
 								</p>
 
 							</div>
 						</div>
 
-						<p className="mt-8 text-lg font-medium">Methods Payment</p>
+						<p className="mt-8 text-lg font-medium">Modes de paiement</p>
 						<form className="mt-5 grid gap-6">
 							<div className="relative">
 								<input className="peer hidden" id="radio_1" type="radio" name="radio" checked />
@@ -128,8 +128,8 @@ function Amount({ amount, setAmount, symbols, patient }) {
 						</form>
 					</div>
 					<div className="mt-6 bg-gray-50 px-4 pt-8 lg:mt-0">
-						<p className="text-xl font-medium">Payment Details</p>
-						<p className="text-gray-400 text-xs mb-4">Complete your order by providing your payment details.</p>
+						<p className="text-xl font-medium">Détails de paiement</p>
+						<p className="text-gray-400 text-xs mb-4">Complétez votre commande en fournissant vos informations de paiement.</p>
 						<div className="">
 
 							<div className="space-y-6">

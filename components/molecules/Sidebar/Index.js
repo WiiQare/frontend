@@ -4,7 +4,7 @@ import ItemSidebar from "./ItemSidebar";
 
 const Items = [
   {
-    title: "Home",
+    title: "Acceuil",
     icon: ({ size, className }) => <SlHome size={size} className={className} />,
     link: "/",
     active: ["/"],

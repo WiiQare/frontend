@@ -101,7 +101,7 @@ const Menu = ({ session, handleSignOut }) => {
 								type="text"
 								id="voice-search"
 								className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-0 block w-full px-10  p-3"
-								placeholder="Search..."
+								placeholder="Recherche..."
 								required
 							/>
 							<button
@@ -256,7 +256,7 @@ const Menu = ({ session, handleSignOut }) => {
 				<div className="flex gap-3 items-center">
 					<div className="text-right hidden md:block">
 						<span>
-							Hello, <span className="font-bold">{session?.user?.data.names ?? session?.user?.data.name ?? ""}</span>
+						Bonjour 👋 ,  <span className="font-bold">{session?.user?.data.names ?? session?.user?.data.name ?? ""}</span>
 						</span>
 						<h5 className="text-xs font-light">{session?.user?.email ?? ``}</h5>
 					</div>
