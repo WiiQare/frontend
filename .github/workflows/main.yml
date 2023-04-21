@@ -37,8 +37,9 @@ jobs:
           username: ${{ secrets.LIGHTSAIL_USERNAME }}
           port: 22
           key: ${{ secrets.LIGHTSAIL_PRIVATE_KEY }}
-          source: './build/*'
-          target: '/home/bitnami/apps/WiiQare-FE'     
+          source: '.next/*'
+          target: '/home/bitnami/apps/WiiQare-FE'
+            
 
       - name: SSH into remote server and restart the application
         uses: appleboy/ssh-action@v0.1.9
