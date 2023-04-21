@@ -23,7 +23,7 @@ const Page = ({data}) => {
                     title={"Acheter un pass santé"}
                     breadcrumbs={[
                         {
-                            item: "Accueil",
+                            item: "Accueils",
                             link: "/"
                         },
                         {
