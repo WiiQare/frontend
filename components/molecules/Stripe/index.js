@@ -16,6 +16,7 @@ const StripePayment = ({ amount, senderId, patientId, email }) => {
 	console.log(amount);
 
 	const [clientSecret, setClientSecret] = useState("");
+	const [methodPayment, setMethodPayment] = useState("card");
 	const client = useSelector((state) => state.app.client);
 
 
@@ -80,17 +81,31 @@ const StripePayment = ({ amount, senderId, patientId, email }) => {
 									</div>
 								</div>
 
-								<p className="mt-8 mb-4 text-lg font-medium">Modes de paiement</p>
-								<div className="relative">
-									<input className="peer hidden" id="radio_1" type="radio" name="radio" checked />
-									<label className="peer-checked:border-2 peer-checked:border-orange peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_1">
-										<img className="w-14 object-contain" src="/images/carte-bancaire.png" alt="" />
-										<div className="ml-5">
-											<span className="mt-2 font-semibold">Carte Bancaire</span>
-											<p className="text-slate-500 text-sm leading-6">Visa & Mastercard</p>
-										</div>
-									</label>
-								</div>
+								<p className="mt-8 text-lg font-medium">Modes de paiement</p>
+						<form className="mt-5 grid gap-6">
+							<div className="relative">
+								<input className="peer hidden" id="radio_1" type="radio" name="radio" checked={methodPayment == 'card' ? true : false} onClick={() => setMethodPayment('card')} />
+								<span className="peer-checked:border-orange absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
+								<label className="peer-checked:border-2 peer-checked:border-orange peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_1">
+									<img className="w-14 object-contain" src="/images/carte-bancaire.png" alt="" />
+									<div className="ml-5">
+										<span className="mt-2 font-semibold">Carte Bancaire</span>
+										<p className="text-slate-500 text-sm leading-6">Visa & Mastercard</p>
+									</div>
+								</label>
+							</div>
+							<div className="relative">
+								<input className="peer hidden" id="radio_2" type="radio" name="radio" checked={methodPayment != 'card' ? true : false} onClick={() => setMethodPayment('crypto')}/>
+								<span className="peer-checked:border-orange absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
+								<label className="peer-checked:border-2 peer-checked:border-orange peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_2">
+									<img className="w-14 object-contain" src="/images/crypto-monnaie.png" alt="" />
+									<div className="ml-5">
+										<span className="mt-2 font-semibold">Crypto Monnaie</span>
+										<p className="text-slate-500 text-sm leading-6">Ethereum (ETH) & Bitcoin (BTC)</p>
+									</div>
+								</label>
+							</div>
+						</form>
 
 								<div className="mt-6 border-t border-b py-2 space-y-4">
 									<div className="flex items-center justify-between">
@@ -131,14 +146,25 @@ const StripePayment = ({ amount, senderId, patientId, email }) => {
 							</div>
 
 							<div className="mt-6 bg-gray-50 px-4 pt-8 lg:mt-0">
-								<p className="text-xl font-medium">Informations Bancaire</p>
-								<p className="text-gray-400 text-xs mb-4">Completez vos informations bancaire</p>
+								{
+									methodPayment == "card" ? (
+										<>
+											<p className="text-xl font-medium">Informations Bancaire</p>
+											<p className="text-gray-400 text-xs mb-4">Completez vos informations bancaire</p>
 
-								<div>
-									<Elements options={options} stripe={stripePromise}>
-										<CheckoutForm amount={amount} senderId={senderId} email={email ?? ""}/>
-			 						</Elements>
-								</div>
+											<div>
+												<Elements options={options} stripe={stripePromise}>
+													<CheckoutForm amount={amount} senderId={senderId} email={email ?? ""}/>
+												</Elements>
+											</div>
+										</>
+									) : (
+										<div className='h-full w-full flex flex-col justify-center items-center gap-4'>
+											<img src="/images/maintenance.png" alt="Maintenace" className='w-40 opacity-60'/>
+											<p className='text-gray-500 text-sm'>Service indisponible actuellement...</p>
+										</div>
+									)
+								}
 
 							</div>
 

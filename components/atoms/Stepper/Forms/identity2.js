@@ -147,6 +147,7 @@ function Identity2() {
 
 	const { data, isLoading, isError } = Fetcher(`/payer/patient?payerId=${session.user.data.userId}`, session.user.data.access_token);
 
+	console.log("all ben", data);
 	useEffect(() => {
 		setAllBeneficiare(data)
 		setTempBeneficiare(data)
