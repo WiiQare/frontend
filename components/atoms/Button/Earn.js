@@ -20,7 +20,7 @@ const ButtonEarn = ({ modal, children }) => {
                 onClick={openModal}
                 className="flex bg-sky px-4 py-4 justify-center text-white items-center rounded-xl hover:shadow-md gap-2 w-auto md:w-52">
                 <CiDollar size={25} />
-                <span className="text-xs font-light">Earn Budges for 10$</span>
+                <span className="text-xs font-light">Gagnez 5$</span>
             </button>
             <Transition appear show={isOpen} as={Fragment}>
                 <Dialog as="div" className="relative z-50" onClose={closeModal}>

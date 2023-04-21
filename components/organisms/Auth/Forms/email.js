@@ -81,7 +81,7 @@ function Email() {
                     <div className="form-button">
                         <Button size="large" variant="contained" type="submit">
 
-                            {sendEmailMutation.isLoading ? <LoadingButton /> : 'NEXT STEP'}
+                            {sendEmailMutation.isLoading ? <LoadingButton /> : 'L\'ÉTAPE SUIVANTE'}
                         </Button>
                     </div>
                 </Stack>

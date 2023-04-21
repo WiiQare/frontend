@@ -33,7 +33,7 @@ function ResetForm() {
 	const formHolder = (
 		<>
 			<div className="form-holder">
-				<MenuHolder href="/register" label="SIGN UP" />
+				<MenuHolder href="/register" label="S'INSCRIRE" />
 				<div className="signin-signup-form">
 					<div className="flex flex-col md:w-3/4 w-full border-opacity-50 gap-4">
 						

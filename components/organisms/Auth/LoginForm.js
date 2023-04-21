@@ -99,7 +99,7 @@ function LoginForm() {
 	const formHolder = (
 		<>
 			<div className="form-holder">
-				<MenuHolder href="/register" label="SIGN UP" />
+				<MenuHolder href="/register" label="S'INSCRIRE" />
 
 				{state.type > 0 ? state.type == 2 ? <Toast type={"danger"} message={state.message} close={closeToast}/> : (state.type == 1 ? <Toast type={"success"} message={state.message} close={closeToast}/> : <></>) : <></>}
 

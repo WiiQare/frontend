@@ -8,6 +8,7 @@ import Link from "next/link";
 import Fetcher from "../../../../lib/Fetcher";
 import { HiExclamation } from "react-icons/hi";
 import { useRouter } from "next/router";
+import { CurrencyFlag } from "react-currency-flags/dist/components";
 
 function Send() {
 	const { Canvas } = useQRCode();
@@ -91,7 +92,7 @@ function Send() {
 						<img className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800" src="/images/femme.png" alt="Image Description" />
 					</div>
 
-					<h4 className="text-sm text-center"><span className="font-semibold">{data.currency == "usd" ? "$" : data.currency}{data.amount}</span> Health Pass WiiQare <br /> From <span className="text-orange font-semibold"><SliceText text={data.senderId}/></span> To <span className="text-orange font-semibold"><SliceText text={data.voucher.patientId} /></span></h4>
+					<h4 className="text-sm text-center"><span className="font-semibold"><CurrencyFlag currency={data.currency} className="rounded-full !h-4 !w-4 object-cover" /> {new Intl.NumberFormat("en-US", {style: 'currency', currency: data.currency}).format(data.amount)}</span> Health Pass WiiQare <br /> From <span className="text-orange font-semibold">You</span> To <span className="text-orange font-semibold">{data.patient.firstName + " " + data.patient.lastName}</span></h4>
 				</div>
 			</div>
 

@@ -17,7 +17,7 @@ const CardHeader = ({ title, sort, filter, breadcrumbs, download = true, print =
 				}
 			</div>
 			<div className="flex flex-row flex-wrap  gap-2 center justify-end space-x-2">
-				{
+				{/* {
 					sort ?
 						<DropdownFilter
 							label="Sort By"
@@ -27,7 +27,7 @@ const CardHeader = ({ title, sort, filter, breadcrumbs, download = true, print =
 							items={sort.items}
 						/>
 						: <></>
-				}
+				} */}
 
 				{
 					print ? (
@@ -42,7 +42,7 @@ const CardHeader = ({ title, sort, filter, breadcrumbs, download = true, print =
 					download ? (
 						<Button className="bg-primary">
 							<CiSaveDown2 className="mr-2 h-5 w-5" />
-							Download Report
+							Télécharger le rapport
 						</Button>
 					) : <></>
 				}

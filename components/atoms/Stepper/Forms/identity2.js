@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { ErrorMessage, Field, FormikProvider, useFormik } from "formik";
 import { FormContext } from "../../../../pages/voucher/buy";
 import * as yup from "yup";
@@ -40,17 +40,19 @@ function Identity2() {
 	const [newBenecifiare, setNewBenecifiare] = useState(false);
 	const [activeIndexSlide, setActiveIndexSlide] = useState(null);
 	const [country, setCountry] = useState('cd');
+	const [allBeneficiare, setAllBeneficiare] = useState([]);
+	const [tempBeneficiare, setTempBeneficiare] = useState([]);
 
 	const renderError = (message) => (
 		<p className="text-xs text-red-600 font-light flex items-center gap-1"><HiOutlineInformationCircle />{message}</p>
 	);
 
 	const ValidationSchema = yup.object().shape({
-		firstName: yup.string().required("Fistname is a required field"),
-		lastName: yup.string().required("Lastname is a required field"),
+		firstName: yup.string().required("Le nom est un champ obligatoire"),
+		lastName: yup.string().required("Le prénom est un champ obligatoire"),
 		email: yup.string().email(),
-		homeAddress: yup.string().required("Home Address is a required field"),
-		city: yup.string().required("City is a required field"),
+		homeAddress: yup.string().required("L'adresse du domicile est un champ obligatoire"),
+		city: yup.string().required("La ville est un champ obligatoire"),
 		phoneNumber: yup.string(),
 		country: yup.string()
 	});
@@ -65,7 +67,7 @@ function Identity2() {
 				}, 3000);
 
 			} else {
-				setState({ type: 1, message: "Successfully registered" })
+				setState({ type: 1, message: "Enregistré avec succès" })
 				dispatch(setPatientDispatch({ ...res }))
 
 				setActiveStepIndex(activeStepIndex + 1);
@@ -138,12 +140,27 @@ function Identity2() {
 
 	const handleSelect = (item, index) => {
 		setActiveIndexSlide(index);
-		dispatch(setPatientDispatch({ ...client.patient, id: item.patientId ?? item.id, country: 'cd', firstName: "John", lastName: "Doe", email: "johndoe2023@gmail.com", phoneNumber: "+243 000 000 000", city: "Bukavu", homeAddress: "33, Rue du Bocage"  }))
+		dispatch(setPatientDispatch({ ...client.patient, id: item.id, country: 'cd', firstName: item.firstName, lastName: item.lastName, email: item.email, phoneNumber: item.phoneNumber, city: "Bukavu", homeAddress: "33, Rue du Bocage" }))
 		setActiveStepIndex(activeStepIndex + 1);
 
 	}
 
-	const { data, isLoading, isError } = Fetcher(`/payment`, session.user.data.access_token);
+	const { data, isLoading, isError } = Fetcher(`/payer/patient?payerId=${session.user.data.userId}`, session.user.data.access_token);
+
+	console.log("all ben", data);
+	useEffect(() => {
+		setAllBeneficiare(data)
+		setTempBeneficiare(data)
+	}, [data]);
+
+	const handleKey = (e) => {
+		let value = e.target.value.length > 0 && e.target.value[0] == "+" ? e.target.value.split('+')[1] : e.target.value ;
+		let filter = tempBeneficiare.filter(function (beneficiare) {
+			return new RegExp(value, "i").test(beneficiare.firstName + " " + beneficiare.lastName) || new RegExp(value, "i").test(beneficiare.phoneNumber) || new RegExp(value, "i").test(beneficiare.email);
+		});
+
+		setTempBeneficiare(value.trim() != "" ? filter : allBeneficiare)
+	}
 
 	return (
 		<>
@@ -155,92 +172,108 @@ function Identity2() {
 				{
 					!newBenecifiare ? (
 						<>
-							<div className="space-y-1 w-full">
-								<TextField
-									id="outlined-basic"
-									fullWidth
-									label="Rechercher un bénéficiaire par Nom ou par Numéro Téléphone"
-									variant="outlined"
-									name="email"
-									{...formik.getFieldProps('email')}
-								/>
-								{formik.errors.email && formik.touched.email ? <span className="flex items-center gap-1 text-rose-500 text-left text-xs px-1"><HiOutlineInformationCircle /><span>{formik.errors.email}</span></span> : <></>}
-							</div>
-							<div className="flex mt-10 flex-col gap-4 w-80 md:w-full">
-								<h2 className="font-semibold text-xl">Mes bénéficiaires :</h2>
 
-								<div className="bg-white py-4 px-2 relative rounded-lg space-y-8 h-full w-80 md:w-full">
-									{
-										isLoading ? (
-											<div className="flex flex-col gap-2 items-center justify-center">
-												<div className="animate-spin inline-block w-4 h-4 border-[2px] border-current border-t-transparent text-gray-500 rounded-full" role="status" ariaLabel="loading">
-													<span className="sr-only">Loading...</span>
-												</div>
-											</div>
-										) : (
-											<Splide hasTrack={false} aria-label="Attribution"
-										options={
-											{
-												type: "slide",
-												perPage: 2,
-												mediaQuery: 'min',
-												gap: 10,
-												breakpoints: {
-													1024: {
-														perPage: 3,
-														gap: 20
-													}
-												},
-												pagination: false,
-												focus: 'center',
-											}
-										}
-										onActive={(splide, slide) => {
-											if (slide.slideIndex == -1) {
-												//setActiveIndexSlide(slide.index)
-											}
-										}}
-										className="container mx-auto px-8"
-									>
-										<SplideTrack hasTrack={false}>
-
-											{
-												data.map((item, index) => (
-													<SplideSlide className="w-min flex flex-col gap-2 items-center justify-center p-3" onClick={() => handleSelect(item, index)}>
-														<div className="w-20 h-2O relative">
-															<Image src={index % 2 ? avatar : "/images/homme.png"} className="object-cover rounded-xl" width={80} height={80}/>
-															<span className={`${activeIndexSlide === index ? '' : "hidden"} p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}><CiCircleCheck size={18} /></span>
-														</div>
-
-														<span className="font-semibold text-sm">{item.patientId ? item.patientId.slice(0, 6) : item.id.slice(0, 6) }...{item.patientId ? item.patientId.slice(-6) : item.id.slice(-6) }.</span>
-														<span className="text-xs font-light">{item.patientId ? item.patientId.slice(0, 10) : item.id.slice(0, 7) }@gmail.com</span>
-													</SplideSlide>
-												))
-											}
-
-										</SplideTrack>
-
-										<div className="splide__arrows">
-											<button className="splide__arrow splide__arrow--prev bg-transparent relative !-left-7 top-2 bottom-0 !bg-[#F0F4FD] p-4 text-3xl focus:ring-0">
-												<span className="bg-white rounded-full p-1 !text-red-500">
-													<BiCaretRight />
-												</span>
-											</button>
-											<button className="splide__arrow splide__arrow--next bg-transparent relative !-right-7 top-2 bottom-0 !bg-[#F0F4FD] p-4 text-3xl focus:ring-0">
-												<span className="bg-white rounded-full p-1 !text-red-500">
-													<BiCaretRight />
-												</span>
-											</button>
+							{
+								allBeneficiare && allBeneficiare.length > 0 ? (
+									<>
+										<div className="space-y-1 w-full">
+											<TextField
+												id="outlined-basic"
+												fullWidth
+												label="Rechercher un bénéficiaire par Nom ou par Numéro Téléphone"
+												variant="outlined"
+												onChange={handleKey}
+											/>
+											{formik.errors.email && formik.touched.email ? <span className="flex items-center gap-1 text-rose-500 text-left text-xs px-1"><HiOutlineInformationCircle /><span>{formik.errors.email}</span></span> : <></>}
 										</div>
+										<div className="flex mt-10 flex-col gap-4 w-80 md:w-full">
+											<h2 className="font-semibold text-xl">Mes bénéficiaires :</h2>
 
-									</Splide>
-										)
-									}
-									
-								</div>
-							</div>
+											<div className="bg-white py-4 px-2 relative rounded-lg space-y-8 h-full w-80 md:w-full">
+												{
+													isLoading || isError ? (
+														<div className="flex flex-col gap-2 items-center justify-center">
+															<div className="animate-spin inline-block w-4 h-4 border-[2px] border-current border-t-transparent text-gray-500 rounded-full" role="status" ariaLabel="loading">
+																<span className="sr-only">Loading...</span>
+															</div>
+														</div>
+													) : (
+														<>
+															{tempBeneficiare.length > 0 ? (
+																<Splide hasTrack={false} aria-label="Attribution"
+																	options={
+																		{
+																			type: "slide",
+																			perPage: 2,
+																			mediaQuery: 'min',
+																			gap: 10,
+																			breakpoints: {
+																				1024: {
+																					perPage: 3,
+																					gap: 20
+																				}
+																			},
+																			pagination: false,
+																			focus: 'center',
+																		}
+																	}
+																	onActive={(splide, slide) => {
+																		if (slide.slideIndex == -1) {
+																			//setActiveIndexSlide(slide.index)
+																		}
+																	}}
+																	className="container mx-auto px-8"
+																>
+																	<SplideTrack hasTrack={false}>
 
-							<div className="divider mt-8"><span className="text-gray-400">OU</span></div>
+																		{
+																			tempBeneficiare.map((item, index) => (
+																				<SplideSlide className="w-min flex flex-col gap-2 items-center justify-center p-3" onClick={() => handleSelect(item, index)}>
+																					<div className="w-20 h-2O relative">
+																						<Image src={index % 2 ? avatar : "/images/homme.png"} className="object-cover rounded-xl" width={80} height={80} />
+																						<span className={`${activeIndexSlide === index ? '' : "hidden"} p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}><CiCircleCheck size={18} /></span>
+																					</div>
+
+																					<span className="font-semibold text-sm">{item.firstName} {item.lastName}</span>
+																					<span className="text-xs font-light">{item.phoneNumber}</span>
+																				</SplideSlide>
+																			))
+																		}
+
+																	</SplideTrack>
+
+																	<div className="splide__arrows">
+																		<button className="splide__arrow splide__arrow--prev bg-transparent relative !-left-7 top-2 bottom-0 !bg-[#F0F4FD] p-4 text-3xl focus:ring-0">
+																			<span className="bg-white rounded-full p-1 !text-red-500">
+																				<BiCaretRight />
+																			</span>
+																		</button>
+																		<button className="splide__arrow splide__arrow--next bg-transparent relative !-right-7 top-2 bottom-0 !bg-[#F0F4FD] p-4 text-3xl focus:ring-0">
+																			<span className="bg-white rounded-full p-1 !text-red-500">
+																				<BiCaretRight />
+																			</span>
+																		</button>
+																	</div>
+
+																</Splide>
+															) : (
+																<div className="w-full flex flex-col items-center gap-3">
+																	<img src="/images/box.png" alt="Box image" loading="lazy" className="h-44 opacity-50"/>
+																	<span className="text-gray-400 text-xs font-normal">Aucun bénéficiaire en rapport avec votre recherche...</span>
+																</div>
+															)}
+														</>	
+													)
+												}
+
+											</div>
+										</div>
+										<div className="divider mt-8"><span className="text-gray-400">OU</span></div>
+									</>
+
+								) : <></>
+							}
+
 
 							<div className="mt-6">
 								<div className="w-full bg-gray-100 py-4 px-6 border-2 border-dashed border-gray-700 rounded-lg cursor-pointer hover:shadow-md hover:bg-gray-200 flex justify-between" onClick={() => setNewBenecifiare(true)}>
@@ -288,7 +321,7 @@ function Identity2() {
 											<TextField
 												id="outlined-basic"
 												fullWidth
-												label="First name"
+												label="Nom de famille"
 												variant="outlined"
 												name="firstName"
 												{...formik.getFieldProps('firstName')}
@@ -302,7 +335,7 @@ function Identity2() {
 											<TextField
 												id="outlined-basic"
 												fullWidth
-												label="Last name"
+												label="Prénom"
 												variant="outlined"
 												name="lastName"
 												{...formik.getFieldProps('lastName')}
@@ -316,7 +349,7 @@ function Identity2() {
 										<TextField
 											id="outlined-basic"
 											fullWidth
-											label="E-mail Address (optional)"
+											label="Adresse e-mail (optional)"
 											variant="outlined"
 											name="email"
 											{...formik.getFieldProps('email')}
@@ -330,7 +363,7 @@ function Identity2() {
 											<TextField
 												id="outlined-basic"
 												fullWidth
-												label="Home Address"
+												label="Adresse du domicile"
 												variant="outlined"
 												name="homeAddress"
 												{...formik.getFieldProps('homeAddress')}
@@ -344,7 +377,7 @@ function Identity2() {
 											<TextField
 												id="outlined-basic"
 												fullWidth
-												label="City"
+												label="Ville"
 												variant="outlined"
 												name="city"
 												{...formik.getFieldProps('city')}
@@ -361,7 +394,7 @@ function Identity2() {
 										className="bg-primary flex gap-3 items-center w-fit font-medium text-white my-2 py-3 px-5 hover:bg-blue-500 duration-200 transition-all hover:shadow rounded-lg"
 										type="submit"
 									>
-										{savePatientMutation.isLoading ? <LoadingButton /> : <>{patientExist ? 'Continuer avec ce patient' : 'Next'} <HiArrowSmRight /></>}
+										{savePatientMutation.isLoading ? <LoadingButton /> : <>{patientExist ? 'Continuer avec ce patient' : 'Suivant'} <HiArrowSmRight /></>}
 
 									</button>
 

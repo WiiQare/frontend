@@ -16,9 +16,9 @@ const VoucherHome = () => {
 			<div className="bg-white drop-shadow-sm rounded-xl py-6 px-24 flex flex-col justify-center items-center gap-8 w-full relative">
 				<HiCreditCard size={60} className="text-orange" />
 				<div className="space-y-3 text-center w-full flex flex-col justify-center items-center">
-					<h1 className="text-gray-800 text-lg">Buy a voucher</h1>
+					<h1 className="text-gray-800 text-lg">Prenez soin de vos proches </h1>
 					<div className="buy">
-						<ButtonBuy href={`/voucher/buy`} title={"Buy now"} className={"text-white py-3 px-4"}/>
+						<ButtonBuy href={`/voucher/buy`} title={"Envoyer un Pass santé"} className={"text-white py-3 px-4"}/>
 					</div>
 					<span data-popover-target="popover-description" className="absolute top-1 right-6 cursor-pointer text-gray-700 md:text-gray-400"><CiCircleInfo size={25} /></span>
 
@@ -39,7 +39,7 @@ const VoucherHome = () => {
 			<div className="bg-white drop-shadow-sm rounded-xl py-6 px-24 flex flex-col justify-center items-center gap-8 w-full relative">
 				<HiUserGroup size={60} className="text-sky" />
 				<div className="space-y-3 text-center w-full flex flex-col items-center">
-					<h1 className="text-gray-800 text-lg">Invite your friends</h1>
+					<h1 className="text-gray-800 text-lg">Parrainez vos amis</h1>
 					<ButtonEarn modal={{ title: "Invite your friends" }}></ButtonEarn>
 					<span data-popover-target="popover-description" className="absolute top-1 right-6 cursor-pointer text-gray-700 md:text-gray-400"><CiCircleInfo size={25} /></span>
 

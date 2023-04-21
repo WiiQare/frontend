@@ -93,7 +93,7 @@ const RegisterForm = () => {
 	return (
 		<>
 			<div className="form-holder">
-				<MenuHolder href="/login" label="SIGN IN" />
+				<MenuHolder href="/login" label="S'IDENTIFIER" />
 				<div className="signin-signup-form">
 					<Stack
 						sx={{ mb: 2, mt: 2, width: "100%" }}

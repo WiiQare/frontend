@@ -62,12 +62,12 @@ function Information() {
 	}
 
     const ValidationSchema = yup.object().shape({
-		firstName: yup.string().required("Fistname is a required field"),
-		lastName: yup.string().required("Lastname is a required field"),
-		phoneNumber: yup.string().required("Phone number is a required field"),
+		firstName: yup.string().required("Le nom est un champ obligatoire"),
+		lastName: yup.string().required("Le prénom est un champ obligatoire"),
+		phoneNumber: yup.string().required("Le numéro de téléphone est un champ obligatoire"),
 		country: yup.string().required(),
-		password: yup.string().required("Password is a required field"),
-        confirm_password: yup.string().required("Please confirm your password").oneOf([yup.ref('password'), null], 'Passwords must match'),
+		password: yup.string().required("Mot de passe est un champ obligatoire"),
+        confirm_password: yup.string().required("Veuillez confirmer votre mot de passe").oneOf([yup.ref('password'), null], 'Passwords must match'),
 	});
 
     const formik = useFormik({
@@ -104,7 +104,7 @@ function Information() {
                             <TextField
                                 id="outlined-basic"
                                 fullWidth
-                                label="First name"
+                                label="Entrez votre nom"
                                 variant="outlined"
                                 name="firstName"
                                 {...formik.getFieldProps('firstName')}
@@ -118,7 +118,7 @@ function Information() {
                             <TextField
                                 id="outlined-basic"
                                 fullWidth
-                                label="Last name"
+                                label="Entrez votre après nom"
                                 variant="outlined"
                                 name="lastName"
                                 {...formik.getFieldProps('lastName')}
@@ -132,7 +132,7 @@ function Information() {
                     <div className="flex flex-col gap-1">
                         <MuiPhoneNumber
                             fullWidth
-                            label="Phone number"
+                            label="Numéro de téléphone"
                             variant="outlined"
                             onChange={(value, country) => { formik.setFieldValue("phoneNumber", value); formik.setFieldValue("country", country.countryCode) }}
 
@@ -146,10 +146,10 @@ function Information() {
                     <div className="flex flex-col gap-1">
 
                         <FormControl fullWidth variant="outlined">
-                            <InputLabel htmlFor="outlined-basic1">Password</InputLabel>
+                            <InputLabel htmlFor="outlined-basic1">Mot de passe</InputLabel>
                             <OutlinedInput
                                 id="outlined-basic1"
-                                label="Password"
+                                label="Mot de passe"
                                 type={showPassword ? "text" : "password"}
                                 name="password"
                                 {...formik.getFieldProps('password')}
@@ -174,11 +174,11 @@ function Information() {
                     <div className="flex flex-col gap-1">
                         <FormControl fullWidth variant="outlined">
                             <InputLabel htmlFor="outlined-basic2">
-                                Confirm password
+                              Confirmez le mot de passe
                             </InputLabel>
                             <OutlinedInput
                                 id="outlined-basic2"
-                                label="Confirm password"
+                                label="Confirmez le mot de passe"
                                 name="confirm_password"
                                 type={showcPassword ? "text" : "password"}
                                 {...formik.getFieldProps('confirm_password')}
@@ -202,12 +202,12 @@ function Information() {
 
                     <div className="flex items-center !mt-10 mb-2">
                         <input id="link-checkbox" type="checkbox" value="" className="w-4 h-4 text-orange bg-gray-100 border-gray-300 rounded focus:ring-orange focus:ring-1" onChange={(e) => setTerm(e.target.checked)}/>
-                        <label for="link-checkbox" className="h-4 ml-2 text-sm font-normal text-gray-600 dark:text-gray-300">I agree with the <a href="#" className="text-primary hover:underline">terms and conditions</a>.</label>
+                        <label for="link-checkbox" className="h-4 ml-2 text-sm font-normal text-gray-600 dark:text-gray-300">j'accepte les <a href="#" className="text-primary hover:underline">termes et conditions</a> d'utilisation.</label>
                     </div>
 
                     <Box>
                         <Button size="large" variant="contained" type="submit" className="disabled:bg-gray-200" disabled={!term}>
-                            {newAccountMutation.isLoading ? <LoadingButton /> : 'CREATE NEW ACCOUNT'}
+                            {newAccountMutation.isLoading ? <LoadingButton /> : 'CRÉER UN COMPTE'}
                         </Button>
                     </Box>
                 </Stack>

@@ -5,7 +5,7 @@ const initialState = {
 }
 
 export const ReducerSlice = createSlice({
-    name: 'jamii',
+    name: 'wiiqare',
     initialState,
     reducers: {
         setRegister: (state, action) => {
