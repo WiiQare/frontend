@@ -81,32 +81,6 @@ const StripePayment = ({ amount, senderId, patientId, email }) => {
 									</div>
 								</div>
 
-								<p className="mt-8 text-lg font-medium">Modes de paiement</p>
-						<form className="mt-5 grid gap-6">
-							<div className="relative">
-								<input className="peer hidden" id="radio_1" type="radio" name="radio" checked={methodPayment == 'card' ? true : false} onClick={() => setMethodPayment('card')} />
-								<span className="peer-checked:border-orange absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
-								<label className="peer-checked:border-2 peer-checked:border-orange peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_1">
-									<img className="w-14 object-contain" src="/images/carte-bancaire.png" alt="" />
-									<div className="ml-5">
-										<span className="mt-2 font-semibold">Carte Bancaire</span>
-										<p className="text-slate-500 text-sm leading-6">Visa & Mastercard</p>
-									</div>
-								</label>
-							</div>
-							<div className="relative">
-								<input className="peer hidden" id="radio_2" type="radio" name="radio" checked={methodPayment != 'card' ? true : false} onClick={() => setMethodPayment('crypto')}/>
-								<span className="peer-checked:border-orange absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
-								<label className="peer-checked:border-2 peer-checked:border-orange peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_2">
-									<img className="w-14 object-contain" src="/images/crypto-monnaie.png" alt="" />
-									<div className="ml-5">
-										<span className="mt-2 font-semibold">Crypto Monnaie</span>
-										<p className="text-slate-500 text-sm leading-6">Ethereum (ETH) & Bitcoin (BTC)</p>
-									</div>
-								</label>
-							</div>
-						</form>
-
 								<div className="mt-6 border-t border-b py-2 space-y-4">
 									<div className="flex items-center justify-between">
 										<p className="text-sm font-medium text-gray-900">Devise d'envoie</p>
@@ -139,10 +113,36 @@ const StripePayment = ({ amount, senderId, patientId, email }) => {
 										<p className="font-normal text-sm text-gray-600">0%</p>
 									</div>
 								</div>
-								<div className="mt-6 flex items-center justify-between">
+								<div className="mt-6 flex items-center justify-between border-b pb-6">
 									<p className="text-sm font-medium text-gray-900">Montant à payer</p>
 									<p className="text-2xl font-semibold text-gray-900">{client.patient.currency.sender == "USD" ? "$" : client.patient.currency.sender == "EUR" ? '€' : client.patient.currency.sender ?? "€"} {amount}</p>
 								</div>
+
+								<p className="mt-8 text-lg font-medium">Modes de paiement</p>
+						<form className="mt-5 grid gap-6">
+							<div className="relative">
+								<input className="peer hidden" id="radio_1" type="radio" name="radio" checked={methodPayment == 'card' ? true : false} onClick={() => setMethodPayment('card')} />
+								<span className="peer-checked:border-orange absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
+								<label className="peer-checked:border-2 peer-checked:border-orange peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_1">
+									<img className="w-14 object-contain" src="/images/carte-bancaire.png" alt="" />
+									<div className="ml-5">
+										<span className="mt-2 font-semibold">Carte Bancaire</span>
+										<p className="text-slate-500 text-sm leading-6">Visa & Mastercard</p>
+									</div>
+								</label>
+							</div>
+							<div className="relative">
+								<input className="peer hidden" id="radio_2" type="radio" name="radio" checked={methodPayment != 'card' ? true : false} onClick={() => setMethodPayment('crypto')}/>
+								<span className="peer-checked:border-orange absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
+								<label className="peer-checked:border-2 peer-checked:border-orange peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_2">
+									<img className="w-14 object-contain" src="/images/crypto-monnaie.png" alt="" />
+									<div className="ml-5">
+										<span className="mt-2 font-semibold">Crypto Monnaie</span>
+										<p className="text-slate-500 text-sm leading-6">Ethereum (ETH) & Bitcoin (BTC)</p>
+									</div>
+								</label>
+							</div>
+						</form>
 							</div>
 
 							<div className="mt-6 bg-gray-50 px-4 pt-8 lg:mt-0">
