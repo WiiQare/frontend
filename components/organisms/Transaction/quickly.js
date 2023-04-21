@@ -138,7 +138,7 @@ const Quickly = () => {
 
                     <div className="px-6 space-y-3">
                         {
-                            !transaction.state ? 'Loading...' : (
+                            !transaction.state || !transaction.transaction ? 'Loading...' : (
 
                                 <>
                                     {
