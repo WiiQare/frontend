@@ -54,6 +54,7 @@
     "react-redux": "^8.0.5",
     "react-slick": "^0.29.0",
     "react18-input-otp": "^1.1.2",
+    "sharp": "^0.32.0",
     "slick-carousel": "^1.8.1",
     "stripe": "^11.16.0",
     "styled-components": "^5.3.6",
