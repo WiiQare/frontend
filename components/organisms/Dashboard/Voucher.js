@@ -18,7 +18,7 @@ const VoucherHome = () => {
 				<div className="space-y-3 text-center w-full flex flex-col justify-center items-center">
 					<h1 className="text-gray-800 text-lg">Prenez soin de vos proches </h1>
 					<div className="buy">
-						<ButtonBuy href={`/voucher/buy`} title={"Envoyer un Pass santé"} className={"text-white py-3 px-4"}/>
+						<ButtonBuy href={`/voucher/buy`} title={"Envoyer un pass santé"} className={"text-white py-3 px-4"}/>
 					</div>
 					<span data-popover-target="popover-description" className="absolute top-1 right-6 cursor-pointer text-gray-700 md:text-gray-400"><CiCircleInfo size={25} /></span>
 
