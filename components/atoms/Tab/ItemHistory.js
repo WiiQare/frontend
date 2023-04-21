@@ -4,19 +4,19 @@ import { CiCircleInfo } from 'react-icons/ci';
 import ButtonNoAction from '../Button/NoAction';
 import Link from 'next/link';
 
-const ItemHistory = ({stripePaymentId, transactionHash, currency, voucher, email, createdAt, amount, paymentMethod, status, value, index, total}) => {
+const ItemHistory = ({stripePaymentId, transactionHash, patient, currency, senderAmount, senderCurrency, voucher, email, createdAt, amount, paymentMethod, status, value, index, total}) => {
 
     return (
         <div tabIndex={index} className={`${total > index + 1 ? "border-b py-3" : ""} collapse collapse-arrow text-gray-700 overflow-scroll md:overflow-hidden`}>
             <div className="collapse-title flex gap-7 justify-between items-center ">
                 <div className="flex gap-3 items-center">
                     <div className="w-16 h-16">
-                        <Image src={"https://xsgames.co/randomusers/avatar.php?g=male"} width={50} height={50} className="object-cover rounded-full w-full h-full" />
+                        <Image src={`https://ui-avatars.com/api/?uppercase=true&background=CCC&name=${patient.firstName}&bold=true&color=FFF`} width={200} height={200} className="object-cover rounded-full w-full h-full" />
                     </div>
                     <div>
                         {/* text-xl */}
-                        <h1 className="font-bold text-sm">{voucher.patientId}</h1>
-                        <span className="text-xs text-sky font-semibold">{email}</span>
+                        <h1 className="font-bold text-sm">{patient.firstName} {patient.lastName}</h1>
+                        <span className="text-xs text-sky font-semibold">{patient.phoneNumber}</span>
                     </div>
                 </div>
 
@@ -25,7 +25,7 @@ const ItemHistory = ({stripePaymentId, transactionHash, currency, voucher, email
                     <span>{new Intl.DateTimeFormat('fr', {timeStyle: 'short' }).format(new Date(createdAt))}</span>
                 </div>
 
-                <h1 className="font-bold text-lg">{currency == "usd" ? "$" : "£"}{amount}</h1>
+                <h1 className="font-bold text-lg">{new Intl.NumberFormat("en-US", {style: 'currency', currency: senderCurrency}).format(senderAmount)}</h1>
                 <h1 className="font-bold text-lg">{paymentMethod ?? "Stripe"}</h1>
 
                 <ButtonNoAction
@@ -45,17 +45,29 @@ const ItemHistory = ({stripePaymentId, transactionHash, currency, voucher, email
                                 <th>ID Payment</th>
                                 <th>Payment Method</th>
                                 <th>Invoice Date</th>
-                                <th>Due Date</th>
-                                <th>Date Paid</th>
+                                <th>Montant réçu</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th>#{stripePaymentId}</th>
+                                <th>#{voucher.id}</th>
                                 <td>Stripe</td>
                                 <td>{new Intl.DateTimeFormat('fr', { dateStyle: 'full' }).format(new Date(createdAt))}</td>
-                                <td>June 5, 2020</td>
-                                <td>June 4, 2020</td>
+                                <td>{new Intl.NumberFormat("en-US", {style: 'currency', currency}).format(amount)}</td>
+                                <td>
+                                    <div>
+                                    
+                                    {
+                                        status == "success" ? (
+
+                                            <span className="bg-green-400 text-white w-min h-min py-1 px-2 rounded-full">Succès</span>
+                                        ): (
+                                            <span className="bg-red-400 w-min h-min py-1 px-2 rounded-full">Echec</span>
+                                        )
+                                    }
+                                    </div>
+                                    </td>
                             </tr>
                         </tbody>
                     </table>
