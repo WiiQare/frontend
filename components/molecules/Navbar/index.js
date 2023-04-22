@@ -298,7 +298,7 @@ const Menu = ({ session, handleSignOut }) => {
 							<button onClick={handleSignOut}>
 								<span className="flex gap-3 text-lg items-center">
 									<MdMailOutline className="text-lg text-red-500" size={23} />
-									<font>Logout</font>
+									<font>Se déconnecter</font>
 								</span>
 							</button>
 						</Dropdown.Item>
