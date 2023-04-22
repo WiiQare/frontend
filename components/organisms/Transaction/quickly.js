@@ -161,7 +161,7 @@ const Quickly = () => {
                                 <>
                                     {
                                         transaction.transaction.map((item, index) => {
-                                            if (index < 4)
+                                            if (index < 3)
                                                 return (<div className="pb-6 border-b flex gap-6 justify-between items-center" key={index}>
                                                     <div className="flex gap-3 items-center">
                                                         <div className="w-12 h-12">

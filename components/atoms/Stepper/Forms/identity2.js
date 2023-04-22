@@ -139,8 +139,9 @@ function Identity2() {
 	}
 
 	const handleSelect = (item, index) => {
+		console.log(item);
 		setActiveIndexSlide(index);
-		dispatch(setPatientDispatch({ ...client.patient, id: item.id, country: 'cd', firstName: item.firstName, lastName: item.lastName, email: item.email, phoneNumber: item.phoneNumber, city: "Bukavu", homeAddress: "33, Rue du Bocage" }))
+		dispatch(setPatientDispatch({ ...client.patient, id: item.id, country: item.country, firstName: item.firstName, lastName: item.lastName, email: item.email, phoneNumber: item.phoneNumber, city: item.city, homeAddress: item.homeAddress }))
 		setActiveStepIndex(activeStepIndex + 1);
 
 	}

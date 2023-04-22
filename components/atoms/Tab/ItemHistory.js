@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { CiCircleInfo } from 'react-icons/ci';
-
+import CurrencyFlag from 'react-currency-flags';
 import ButtonNoAction from '../Button/NoAction';
 import Link from 'next/link';
 
@@ -54,7 +54,7 @@ const ItemHistory = ({stripePaymentId, transactionHash, patient, currency, sende
                                 <th>#{voucher.id}</th>
                                 <td>Carte Bancaire</td>
                                 <td>{new Intl.DateTimeFormat('fr', { dateStyle: 'full' }).format(new Date(createdAt))}</td>
-                                <td>{new Intl.NumberFormat("en-US", {style: 'currency', currency}).format(amount)}</td>
+                                <td className='flex gap-1 items-center'><CurrencyFlag currency={currency} className="rounded-full !h-4 !w-4 object-cover" /> {new Intl.NumberFormat("en-US", {style: 'currency', currency}).format(amount)}</td>
                                 <td>
                                     <div>
                                     
