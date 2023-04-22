@@ -190,15 +190,15 @@ function Settings() {
 	};
 	return (
 		<section className="space-y-8">
-			<h2 className="text-sky font-semibold">Account Setting</h2>
+			<h2 className="text-sky font-semibold">Paramètre du compte</h2>
 
 			<div className="flex md:grid md:grid-cols-2 gap-8">
 				<TextField
 					fullWidth
 					type={"email"}
 					className="placeholder:text-gray-400 hover:outline-none focus:ring-0 border border-gray-300 rounded-lg focus:ring-sky"
-					label="Email Address"
-					placeholder="Email Address"
+					label="Adresse e-mail"
+					placeholder="Adresse e-mail"
 					name="email"
 					variant="outlined"
 				/>
@@ -207,9 +207,9 @@ function Settings() {
 					fullWidth
 					type={"password"}
 					className="placeholder:text-gray-400 hover:outline-none focus:ring-0 border border-gray-300 rounded-lg focus:ring-sky"
-					label="Password"
+					label="Mot de passe"
 					name="password"
-					placeholder="Password"
+					placeholder="Mot de passe"
 					variant="outlined"
 				/>
 			</div>
@@ -240,12 +240,12 @@ function Settings() {
 
 			<div className="flex md:hidden">
 					<FormControl fullWidth>
-						<InputLabel id="demo-simple-select-label">State</InputLabel>
+						<InputLabel id="demo-simple-select-label">Province</InputLabel>
 						<Select
 							labelId="demo-simple-select-label"
 							id="demo-simple-select"
 							value={state}
-							label="State"
+							label="Province"
 							onChange={handleState}
 							className="text-sm"
 						>
@@ -262,8 +262,8 @@ function Settings() {
 					fullWidth
 					type={"text"}
 					className="col-span-3 md:col-span-2 placeholder:text-gray-400 hover:outline-none focus:ring-0 border border-gray-300 rounded-lg focus:ring-sky"
-					label="City"
-					placeholder="City"
+					label="Ville"
+					placeholder="Ville"
 					name="city"
 					variant="outlined"
 				/>
