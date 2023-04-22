@@ -73,8 +73,8 @@ const ItemHistory = ({stripePaymentId, transactionHash, patient, currency, sende
                     </table>
 
                 </div>
-                <span className="w-52 bg-gray-200 h-fit p-2 rounded-lg flex items-center gap-2 text-sm">
-                    <CiCircleInfo size={45} className="text-gray-400" /> Lorem ipsum dolor sit amet, consectetur
+                <span className="w-52 bg-gray-200 h-fit p-2 rounded-lg flex items-center gap-2 text-sm font-bold text-gray-600">
+                    <CiCircleInfo size={30} className="text-gray-400" /> {voucher.status}
                 </span>
             </div>
         </div>
