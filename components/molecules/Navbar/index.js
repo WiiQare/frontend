@@ -2,7 +2,7 @@ import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import Image from "next/image";
 import Link from "next/link";
 import { HiMenuAlt3 } from "react-icons/hi";
-import { MdOutlinePersonOutline, MdOutlineLogout } from "react-icons/md";
+import { MdOutlinePersonOutline, MdMailOutline } from "react-icons/md";
 import {
 	AiOutlineArrowRight,
 	AiOutlineBell,
@@ -297,7 +297,7 @@ const Menu = ({ session, handleSignOut }) => {
 						<Dropdown.Item>
 							<button onClick={handleSignOut}>
 								<span className="flex gap-3 text-lg items-center">
-									<MdOutlineLogout className="text-lg text-red-500" size={23} />
+									<MdMailOutline className="text-lg text-red-500" size={23} />
 									<font>Se déconnecter</font>
 								</span>
 							</button>
