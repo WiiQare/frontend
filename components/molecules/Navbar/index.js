@@ -281,7 +281,7 @@ const Menu = ({ session, handleSignOut }) => {
 										className="text-lg text-sky"
 										size={23}
 									/>
-									<font>Profile</font>
+									<font>Profil</font>
 								</span>
 							</Link>
 						</Dropdown.Item>
