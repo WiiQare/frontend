@@ -37,10 +37,10 @@ const Profile = ({phoneNumber, names, email}) => {
 	return (
 		<div className="p-2 space-y-6 md:py-8 md:px-6 mb-20 md:mb-6">
 			<CardHeader
-				title={"My Profile"}
+				title={"Mon profil"}
 				breadcrumbs={[
 					{
-						item: "Home",
+						item: "Accueil",
 						link: "/"
 					},
 					{
@@ -163,7 +163,7 @@ function About({phoneNumber, names, email }) {
 				</div>
 
 				<div className="grid grid-cols-2">
-					<h5 className="font-semibold">Numéro de téléphone :</h5>
+					<h5 className="font-semibold">Téléphone :</h5>
 					<span className="text-gray-500">{phoneNumber}</span>
 				</div>
 
@@ -173,7 +173,7 @@ function About({phoneNumber, names, email }) {
 				</div>
 
 				<div className="grid grid-cols-2">
-					<h5 className="font-semibold">Adresse du domicile :</h5>
+					<h5 className="font-semibold">Adresse :</h5>
 					<span className="text-gray-500">---</span>
 				</div>
 
