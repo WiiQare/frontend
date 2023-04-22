@@ -289,7 +289,7 @@ const Menu = ({ session, handleSignOut }) => {
 							<Link href={"/inbox"}>
 								<span className="flex gap-3 text-lg items-center">
 									<MdMailOutline className="text-lg text-green-500" size={23} />
-									<font>Inbox</font>
+									<font>Message</font>
 								</span>
 							</Link>
 						</Dropdown.Item>
@@ -297,7 +297,7 @@ const Menu = ({ session, handleSignOut }) => {
 						<Dropdown.Item>
 							<button onClick={handleSignOut}>
 								<span className="flex gap-3 text-lg items-center">
-									<MdMailOutline className="text-lg text-red-500" size={23} />
+									<MdOutlineLogout className="text-lg text-red-500" size={23} />
 									<font>Se déconnecter</font>
 								</span>
 							</button>
