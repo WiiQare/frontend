@@ -26,7 +26,7 @@ const ItemHistory = ({stripePaymentId, transactionHash, patient, currency, sende
                 </div>
 
                 <h1 className="font-bold text-lg">{new Intl.NumberFormat("en-US", {style: 'currency', currency: senderCurrency}).format(senderAmount)}</h1>
-                <h1 className="font-bold text-lg">{paymentMethod ?? "Stripe"}</h1>
+                <h1 className="font-bold text-lg">{paymentMethod ?? "Carte"}</h1>
 
                 <ButtonNoAction
                     color={status == 0 ? 'orange' : status == "succes" ? "[#2BC155]" : "gray-300"}
@@ -43,8 +43,8 @@ const ItemHistory = ({stripePaymentId, transactionHash, patient, currency, sende
                         <thead>
                             <tr>
                                 <th>ID Payment</th>
-                                <th>Payment Method</th>
-                                <th>Invoice Date</th>
+                                <th>Methode de paiement</th>
+                                <th>Date</th>
                                 <th>Montant réçu</th>
                                 <th>Status</th>
                             </tr>
@@ -52,7 +52,7 @@ const ItemHistory = ({stripePaymentId, transactionHash, patient, currency, sende
                         <tbody>
                             <tr>
                                 <th>#{voucher.id}</th>
-                                <td>Stripe</td>
+                                <td>Carte Bancaire</td>
                                 <td>{new Intl.DateTimeFormat('fr', { dateStyle: 'full' }).format(new Date(createdAt))}</td>
                                 <td>{new Intl.NumberFormat("en-US", {style: 'currency', currency}).format(amount)}</td>
                                 <td>
@@ -73,7 +73,7 @@ const ItemHistory = ({stripePaymentId, transactionHash, patient, currency, sende
                     </table>
 
                 </div>
-                <span className="w-52 bg-gray-200 h-fit p-2 rounded-lg flex items-center gap-2 text-sm font-bold text-gray-600">
+                <span className="w-52 bg-gray-200 h-fit p-2 rounded-lg flex items-center gap-2 text-sm text-gray-600">
                     <CiCircleInfo size={30} className="text-gray-400" /> {voucher.status}
                 </span>
             </div>

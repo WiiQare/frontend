@@ -12,7 +12,7 @@ const Transaction = () => {
 	const [transaction, setTransaction] = useState({state: false, transactions: []});
 
 	return (
-		<div className="p-2 space-y-6 md:py-8 md:px-6 mb-20">
+		<div className="p-2 space-y-6 md:py-8 md:px-6 mb-20 md:mb-6">
 			<CardHeader
 				title={"Historique des transactions"}
 				sort={{
