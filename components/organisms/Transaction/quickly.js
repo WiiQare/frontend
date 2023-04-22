@@ -169,7 +169,9 @@ const Quickly = () => {
                                                         </div>
                                                         <div>
                                                             <h3 className="font-semibold">{item.patient.firstName + " " + item.patient.lastName}</h3>
-                                                            <span className="text-gray-400 text-xs"><Moment>{item.createdAt}</Moment></span>
+                                                            <span className="text-gray-400 text-xs capitalize">
+                                                                <span>{new Intl.DateTimeFormat('fr', { dateStyle: 'full', timeStyle: 'short' }).format(new Date(item.createdAt))}</span>
+                                                            </span>
                                                         </div>
                                                     </div>
 

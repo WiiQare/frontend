@@ -30,7 +30,7 @@ const ItemHistory = ({stripePaymentId, transactionHash, patient, currency, sende
 
                 <ButtonNoAction
                     color={status == 0 ? 'orange' : status == "succes" ? "[#2BC155]" : "gray-300"}
-                    text={status == 0 ? 'Pending' : status == 'success' ? "Completed" : "Cancel"}
+                    text={status == 0 ? 'Pending' : status == 'success' ? "Succès" : "Echec"}
                 />
 
                 <Link href={`/transactions/${transactionHash}`} legacyBehavior>
