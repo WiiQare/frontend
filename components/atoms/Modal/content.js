@@ -150,7 +150,7 @@ function TabItems({ value }) {
 											fullWidth
 											type={"email"}
 											className="w-9/12 placeholder:text-gray-400 hover:outline-none focus:ring-0 border border-gray-300 rounded-lg focus:ring-sky"
-											label="Email Address"
+											label="Adresse e-mail d'un ami"
 											name="email"
 											variant="outlined"
 											value={field.email}
@@ -173,7 +173,7 @@ function TabItems({ value }) {
 
 						<div className="flex flex-row-reverse gap-4">
 							<button className="bg-orange text-sm py-2 px-4 rounded-lg effect-up text-white" onClick={() => handleAddFriend()}>
-								+ Add Friend
+								+ Ajouter un ami
 							</button>
 							<button className="border border-orange text-sm py-2 px-4 rounded-lg text-orange effect-up">Submit</button>
 						</div>
@@ -193,12 +193,12 @@ function TabItems({ value }) {
 										<MuiPhoneNumber
 											fullWidth
 											name="phone"
-											label="Phone number"
+											label="Numéro de téléphone d'un ami"
 											onChange={(event) => handleInputChangePhone(index, event)}
 											variant="outlined"
 											defaultCountry={"fr"}
 											value={field.phone}
-											placeholder={"Enter your phone number"}
+											placeholder={"Entrez le numéro de téléphone d'un ami"}
 											className="w-9/12 py-3 placeholder:text-gray-400 hover:outline-none focus:ring-0 border border-gray-300 rounded-lg focus:ring-sky"
 										/>
 										{
@@ -215,9 +215,9 @@ function TabItems({ value }) {
 
 						<div className="flex flex-row-reverse gap-4">
 							<button className="bg-orange text-sm py-2 px-4 rounded-lg effect-up text-white" onClick={() => handleAddFriend(true)}>
-								+ Add Friend
+								+ Ajouter un ami
 							</button>
-							<button className="border border-orange text-sm py-2 px-4 rounded-lg text-orange effect-up">Submit</button>
+							<button className="border border-orange text-sm py-2 px-4 rounded-lg text-orange effect-up">Envoyer</button>
 						</div>
 					</div>
 
