@@ -21,7 +21,15 @@ const PanelContent = ({ transactions, value, index }) => {
 
             <section className="space-y-3">
 
-                {isLoading || isError ? <>Chargement en cours...</> : data.map((item, i) => <ItemHistory {...item} key={i} value={value} index={index} total={data.length ?? 0} />)}
+                {isLoading || isError ? (
+                    <div className="w-full flex flex-col items-center gap-3">
+                        <span className="text-gray-400 text-xs font-normal">Chargement en cours...</span>
+                    </div>
+                ) : data.length == 0 ? (
+                    <div className="w-full flex flex-col items-center gap-3">
+                        <span className="text-gray-400 text-xs font-normal">Aucune transaction...</span>
+                    </div>
+                ): data.map((item, i) => <ItemHistory {...item} key={i} value={value} index={index} total={data.length ?? 0} />)}
             
             </section>
 

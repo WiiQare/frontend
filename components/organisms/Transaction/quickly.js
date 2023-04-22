@@ -15,7 +15,7 @@ import { TransactionContext } from '.';
 
 const Quickly = () => {
 
-    const {transaction} = useContext(TransactionContext);
+    const { transaction } = useContext(TransactionContext);
     const { data: session } = useSession();
     const [activeIndexSlide, setActiveIndexSlide] = useState(0);
 
@@ -53,7 +53,16 @@ const Quickly = () => {
 
                     </div>
                     {
-                        isLoading ? 'Loading...' : (
+                        isLoading ? (
+                            <div className="w-full flex flex-col items-center gap-3">
+                                    <span className="text-gray-400 text-xs font-normal">Loading...</span>
+                                </div>
+                        ) : data.length == 0 ? (
+                            <div className="w-full flex flex-col items-center gap-3">
+                                    <img src="/images/box.png" alt="Box image" loading="lazy" className="h-44 opacity-50"/>
+                                    <span className="text-gray-400 text-xs font-normal">Aucune bénéficiaire actuellement...</span>
+                                </div>
+                        ) : (
                             <>
                                 <Splide hasTrack={false} aria-label="Attribution"
                                     options={
@@ -138,25 +147,35 @@ const Quickly = () => {
 
                     <div className="px-6 space-y-3">
                         {
-                            !transaction.state || !transaction.transaction ? 'Loading...' : (
+                            !transaction.state || !transaction.transaction ? (
+                                <div className="w-full flex flex-col items-center gap-3">
+                                    <span className="text-gray-400 text-xs font-normal">Loading...</span>
+                                </div>
+                            ) : transaction?.transaction?.length == 0 ? (
+                                <div className="w-full flex flex-col items-center gap-3">
+                                    <img src="/images/box.png" alt="Box image" loading="lazy" className="h-44 opacity-50"/>
+                                    <span className="text-gray-400 text-xs font-normal">Aucune transaction réalisé actuellement...</span>
+                                </div>
+                            ) : (
 
                                 <>
                                     {
-                                        transaction.transaction.map((item, index) => (
-                                            <div className="pb-6 border-b flex gap-6 justify-between items-center" key={index}>
-                                                <div className="flex gap-3 items-center">
-                                                    <div className="w-12 h-12">
-                                                        <Image src={avatar} className="rounded-full object-cover" />
+                                        transaction.transaction.map((item, index) => {
+                                            if (index < 4)
+                                                return (<div className="pb-6 border-b flex gap-6 justify-between items-center" key={index}>
+                                                    <div className="flex gap-3 items-center">
+                                                        <div className="w-12 h-12">
+                                                            <Image src={avatar} className="rounded-full object-cover" />
+                                                        </div>
+                                                        <div>
+                                                            <h3 className="font-semibold">{item.patient.firstName + " " + item.patient.lastName}</h3>
+                                                            <span className="text-gray-400 text-xs"><Moment>{item.createdAt}</Moment></span>
+                                                        </div>
                                                     </div>
-                                                    <div>
-                                                        <h3 className="font-semibold">{item.patient.firstName + " " + item.patient.lastName}</h3>
-                                                        <span className="text-gray-400 text-xs"><Moment>{item.createdAt}</Moment></span>
-                                                    </div>
-                                                </div>
 
-                                                <span className="font-bold">{new Intl.NumberFormat("en-US", {style: 'currency', currency: item.senderCurrency}).format(item.senderAmount)}</span>
-                                            </div>
-                                        ))
+                                                    <span className="font-bold">{new Intl.NumberFormat("en-US", { style: 'currency', currency: item.senderCurrency }).format(item.senderAmount)}</span>
+                                                </div>)
+                                        })
                                     }
                                 </>
                             )
