@@ -14,7 +14,7 @@ const Page = () => {
   return (
     <>
       <Head>
-        <title>My Profile</title>
+        <title>Mon profil</title>
       </Head>
         <Profile {...session.user.data} />
     </>

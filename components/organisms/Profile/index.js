@@ -149,11 +149,11 @@ function TabPanelContent({ value, index, data }) {
 function About({phoneNumber, names, email }) {
 	return (
 		<section className="space-y-8">
-			<h2 className="text-sky font-semibold">Personal Information</h2>
+			<h2 className="text-sky font-semibold">Informations personnelles</h2>
 
 			<div className="md:w-3/6 space-y-4">
 				<div className="grid grid-cols-2">
-					<h5 className="font-semibold">Name :</h5>
+					<h5 className="font-semibold">Nom et Prénom :</h5>
 					<span className="text-gray-500">{names}</span>
 				</div>
 
@@ -163,7 +163,7 @@ function About({phoneNumber, names, email }) {
 				</div>
 
 				<div className="grid grid-cols-2">
-					<h5 className="font-semibold">Phone Number :</h5>
+					<h5 className="font-semibold">Numéro de téléphone :</h5>
 					<span className="text-gray-500">{phoneNumber}</span>
 				</div>
 
@@ -173,7 +173,7 @@ function About({phoneNumber, names, email }) {
 				</div>
 
 				<div className="grid grid-cols-2">
-					<h5 className="font-semibold">Home Address :</h5>
+					<h5 className="font-semibold">Adresse du domicile :</h5>
 					<span className="text-gray-500">---</span>
 				</div>
 
