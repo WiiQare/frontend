@@ -11,7 +11,7 @@ const Page = () => {
   return (
     <>
       <Head>
-        <title>WiiQare - Send Money for health</title>
+        <title>WiiQare - A smart and secure way to save and pay for your health</title>
         <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
       </Head>
       <Carousel />
