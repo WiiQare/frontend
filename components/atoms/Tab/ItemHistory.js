@@ -51,7 +51,7 @@ const ItemHistory = ({stripePaymentId, transactionHash, patient, currency, sende
                         </thead>
                         <tbody>
                             <tr>
-                                <th>#{voucher.id}</th>
+                                <th>#000{voucher.id}</th>
                                 <td>Carte Bancaire</td>
                                 <td>{new Intl.DateTimeFormat('fr', { dateStyle: 'full' }).format(new Date(createdAt))}</td>
                                 <td className='flex gap-1 items-center'><CurrencyFlag currency={currency} className="rounded-full !h-4 !w-4 object-cover" /> {new Intl.NumberFormat("en-US", {style: 'currency', currency}).format(amount)}</td>
