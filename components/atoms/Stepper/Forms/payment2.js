@@ -31,12 +31,13 @@ function Payment2({data:symbols}) {
 
 function Amount({ amount, setAmount, symbols, patient }) {
 
+	console.log(patient);
 	const ValidationSchema = yup.object().shape({
 		amount: yup.number().required("Please enter valid amount").min(2)
 	});
 
 	const [currencyPatient, setCurrencyPatient] = useState(countries[patient?.country?.toUpperCase() ?? "CD"].currencies[0]);
-	const [currencyPatientName, setCurrencyPatientName] = useState("Franc Congolais");
+	const [currencyPatientName, setCurrencyPatientName] = useState(patient.countryLabel ?? "DR Congo");
 	
 	const [currencySender, setCurrencySender] = useState("EUR");
 	const [convertRequest, setConvertRequest] = useState(false);

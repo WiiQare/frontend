@@ -40,6 +40,7 @@ function Identity2() {
 	const [newBenecifiare, setNewBenecifiare] = useState(false);
 	const [activeIndexSlide, setActiveIndexSlide] = useState(null);
 	const [country, setCountry] = useState('cd');
+	const [countryLabel, setCountryLabel] = useState('RD Congo');
 	const [allBeneficiare, setAllBeneficiare] = useState([]);
 	const [tempBeneficiare, setTempBeneficiare] = useState([]);
 
@@ -68,7 +69,7 @@ function Identity2() {
 
 			} else {
 				setState({ type: 1, message: "Enregistré avec succès" })
-				dispatch(setPatientDispatch({ ...res }))
+				dispatch(setPatientDispatch({ ...res, countryLabel }))
 
 				setActiveStepIndex(activeStepIndex + 1);
 
@@ -77,7 +78,6 @@ function Identity2() {
 	});
 
 	const onSubmit = (values) => {
-		console.log("ok")
 		if (Object.keys(values).length == 0) return console.log("Pas de données");
 
 		console.log(values);
@@ -85,7 +85,7 @@ function Identity2() {
 
 		if (patientExist) {
 			// let {phoneNumber, firstName, lastName, email, ...data} = data
-			dispatch(setPatientDispatch({ ...client.patient, ...data }))
+			dispatch(setPatientDispatch({ ...client.patient, ...data, countryLabel }))
 			setActiveStepIndex(activeStepIndex + 1);
 
 		} else {
@@ -292,7 +292,7 @@ function Identity2() {
 								<div className="flex flex-col gap-1">
 									<div className="flex flex-col md:flex-row gap-6 w-full">
 										<div className="md:w-1/3 w-full inline-flex">
-											<CountryContext.Provider value={{ country, setCountry }}>
+											<CountryContext.Provider value={{ country, setCountry, setCountryLabel }}>
 												<CountrySelect />
 											</CountryContext.Provider>
 										</div>

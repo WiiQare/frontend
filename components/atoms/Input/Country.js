@@ -7,14 +7,14 @@ import { CountryContext } from '../Stepper/Forms/identity2';
 
 export default function CountrySelect() {
 
-	const {setCountry} = useContext(CountryContext)
+	const {setCountry, setCountryLabel} = useContext(CountryContext)
 
 	return (
 		<Autocomplete
 			id="country-select-demo"
 			className='w-full'
 			contentEditable={false}
-			onChange={(e, value) => setCountry(value.code.toLowerCase())}
+			onChange={(e, value) => {setCountryLabel(value.label); setCountry(value.code.toLowerCase())}}
 			options={countries}
 			autoHighlight
 			getOptionLabel={(option) => option.label}
