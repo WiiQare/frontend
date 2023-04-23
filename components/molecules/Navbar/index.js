@@ -2,7 +2,7 @@ import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import Image from "next/image";
 import Link from "next/link";
 import { HiMenuAlt3 } from "react-icons/hi";
-import { MdOutlinePersonOutline, MdMailOutline } from "react-icons/md";
+import { MdOutlinePersonOutline, MdMailOutline, MdOutlineLogout } from "react-icons/md";
 import {
 	AiOutlineArrowRight,
 	AiOutlineBell,
@@ -235,7 +235,7 @@ const Menu = ({ session, handleSignOut }) => {
 
 							<Dropdown.Item>
 								<p className="text-center w-full flex items-center justify-center text-lg text-gray-500 font-light gap-2">
-									See All Notification
+								voir toutes les notifications
 									<AiOutlineArrowRight />
 								</p>
 							</Dropdown.Item>
@@ -281,7 +281,7 @@ const Menu = ({ session, handleSignOut }) => {
 										className="text-lg text-sky"
 										size={23}
 									/>
-									<font>Profile</font>
+									<font>Profil</font>
 								</span>
 							</Link>
 						</Dropdown.Item>
@@ -289,7 +289,7 @@ const Menu = ({ session, handleSignOut }) => {
 							<Link href={"/inbox"}>
 								<span className="flex gap-3 text-lg items-center">
 									<MdMailOutline className="text-lg text-green-500" size={23} />
-									<font>Inbox</font>
+									<font>Message</font>
 								</span>
 							</Link>
 						</Dropdown.Item>
@@ -297,8 +297,8 @@ const Menu = ({ session, handleSignOut }) => {
 						<Dropdown.Item>
 							<button onClick={handleSignOut}>
 								<span className="flex gap-3 text-lg items-center">
-									<MdMailOutline className="text-lg text-red-500" size={23} />
-									<font>Logout</font>
+									<MdOutlineLogout className="text-lg text-red-500" size={23} />
+									<font>Se déconnecter</font>
 								</span>
 							</button>
 						</Dropdown.Item>
