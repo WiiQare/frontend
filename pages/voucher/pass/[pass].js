@@ -52,7 +52,7 @@ function Pass() {
 						/>
 						<h1 className="font-extrabold text-gray-700 text-lg hidden md:flex">Pass Santé</h1>
 					</div>
-					<span className="text-xs flex items-center gap-1">Pass Sante ID:
+					<span className="text-xs flex items-center gap-1">Pass Santé ID:
 						<CopyToClipboard text={data.transactionHash} onCopy={() => {
 							setCopy(true); setTimeout(() => {
 								setCopy(false)
