@@ -50,7 +50,7 @@ function Pass() {
 							src={logoDark}
 							className="h-6 md:h-9 object-left object-contain w-min"
 						/>
-						<h1 className="font-extrabold text-gray-700 text-lg hidden md:flex">Pass Sante</h1>
+						<h1 className="font-extrabold text-gray-700 text-lg hidden md:flex">Pass Santé</h1>
 					</div>
 					<span className="text-xs flex items-center gap-1">Pass Sante ID:
 						<CopyToClipboard text={data.transactionHash} onCopy={() => {
@@ -112,22 +112,30 @@ function Pass() {
 				</div>
 			</>
 
-			<div className="flex flex-col gap-5 items-center">
+			<div className="flex flex-col gap-5 items-center md:pt-8">
 				<span className="text-sm text-gray-600">Suivez-nous sur les réseaux sociaux</span>
-				<div className="flex gap-8 items-center justify-center">
+				<div className="flex gap-5 items-center justify-center">
 					<Link href={"https://twitter.com"} target="_blank" legacyBehavior>
-						<img src="/images/socials/twitter.webp" alt="Twitter" className="w-6 cursor-pointer tooltip" data-tip="Facebook" />
+						<a className="cursor-pointer tooltip border border-gray-200 rounded-lg px-3 py-2" data-tip="Twitter"> 
+							<img src="/images/socials/twitter.webp" alt="Twitter" className="w-6"  />
+						</a>
 					</Link>
 					<Link href={"https://facebook.com"} target="_blank" legacyBehavior>
-						<img src="/images/socials/facebook.webp" alt="Facebook" className="w-6 cursor-pointer tooltip" data-tip="Facebook" />
+						<a className="cursor-pointer tooltip border border-gray-200 rounded-lg px-3 py-2" data-tip="Facebook"> 
+							<img src="/images/socials/facebook.webp" alt="Facebook" className="w-6" />
+						</a>
 					</Link>
 
 					<Link href={"https://linkedin.com"} target="_blank" legacyBehavior>
-						<img src="/images/socials/linkedin.webp" alt="LinkedIn" className="w-6 cursor-pointer tooltip" data-tip="Facebook" />
+						<a className="cursor-pointer tooltip border border-gray-200 rounded-lg px-3 py-2" data-tip="LinkedIn"> 
+							<img src="/images/socials/linkedin.webp" alt="LinkedIn" className="w-6 cursor-pointer" />
+						</a>
 					</Link>
 
-					<Link href={"https://youtube.com"} target="_blank" legacyBehavior>
-						<img src="/images/socials/youtube.webp" alt="Youtube" className="w-6 cursor-pointer tooltip" data-tip="Facebook" />
+					<Link href={"https://instagram.com"} target="_blank" legacyBehavior>
+						<a className="cursor-pointer tooltip border border-gray-200 rounded-lg px-3 py-2" data-tip="Instagram"> 
+							<img src="/images/socials/instagram.png" alt="Instagram" className="w-6 cursor-pointer" />
+						</a>
 					</Link>
 
 				</div>
