@@ -175,7 +175,7 @@ function TabItems({ value }) {
 							<button className="bg-orange text-sm py-2 px-4 rounded-lg effect-up text-white" onClick={() => handleAddFriend()}>
 								+ Ajouter un ami
 							</button>
-							<button className="border border-orange text-sm py-2 px-4 rounded-lg text-orange effect-up">Submit</button>
+							<button className="border border-orange text-sm py-2 px-4 rounded-lg text-orange effect-up">Envoyer</button>
 						</div>
 					</div>
 
