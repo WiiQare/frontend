@@ -11,14 +11,14 @@ import CurrencyFlag from "react-currency-flags";
 
 function Pass() {
 	const router = useRouter()
-  	const { pass } = router.query;
+	const { pass } = router.query;
 
 	const { Canvas } = useQRCode();
 	const [copy, setCopy] = useState(false);
 
-    const {data, isLoading, isError} = Fetcher(`/payment/voucher?paymentId=${pass}`);
+	const { data, isLoading, isError } = Fetcher(`/payment/voucher?paymentId=${pass}`);
 
-	if(isLoading) return (<>
+	if (isLoading) return (<>
 		<div className="flex flex-col gap-6 justify-between items-center h-full w-full pt-20 overflow-hidden">
 			<div role="status">
 				<svg aria-hidden="true" className="inline w-10 h-10 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,19 +30,19 @@ function Pass() {
 		</div>
 	</>)
 
-	if(isError) return (<>
+	if (isError) return (<>
 		<div className="flex flex-col gap-6 items-center h-screen w-full pt-56 overflow-hidden">
-			<HiExclamation size={100} className="text-red-600"/>
+			<HiExclamation size={100} className="text-red-600" />
 			<span>Error Voucher !</span>
 		</div>
 	</>)
 
-	const SliceText = ({text}) => {
+	const SliceText = ({ text }) => {
 		return <>{text.slice(0, 8)}...{text.slice(-7)}</>
 	}
 
 	return (
-		<div className="flex flex-col gap-6 justify-between items-center h-full w-full pt-20 overflow-hidden">
+		<div className="flex flex-col gap-14 justify-between items-center h-full w-full pt-20 overflow-hidden">
 			<>
 				<div className="flex flex-col items-center text-center space-y-2">
 					<div className="flex flex-col items-center select-none">
@@ -61,9 +61,9 @@ function Pass() {
 							<div className="flex items-center gap-1">
 								[
 								<div className="tooltip" data-tip={!copy ? "Copy to clipboard" : "✓ Copy"}>
-									<span className="text-orange cursor-pointer"><SliceText text={data.transactionHash}/></span>
+									<span className="text-orange cursor-pointer"><SliceText text={data.transactionHash} /></span>
 								</div>
-								] 
+								]
 							</div>
 						</CopyToClipboard>
 					</span>
@@ -100,17 +100,38 @@ function Pass() {
 							<img className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800" src="/images/femme.png" alt="Image Description" />
 						</div>
 
-						
+
 						<h4 className="text-sm text-center">
-						<span className="flex items-center justify-center gap-2">
-							<span className="font-semibold flex items-center gap-1">
-								<CurrencyFlag currency={data.currency} className="rounded-full !h-4 !w-4 object-cover" /> {new Intl.NumberFormat("en-US", {style: 'currency', currency: data.currency}).format(data.amount)}</span> 
-								Pass santé WiiQare 
+							<span className="flex items-center justify-center gap-2">
+								<span className="font-semibold flex items-center gap-1">
+									<CurrencyFlag currency={data.currency} className="rounded-full !h-4 !w-4 object-cover" /> {new Intl.NumberFormat("en-US", { style: 'currency', currency: data.currency }).format(data.amount)}</span>
+								Pass santé WiiQare
 							</span>
 							de <span className="text-orange font-semibold">{data.sender.firstName}</span> à <span className="text-orange font-semibold">{data.patient.firstName}</span></h4>
 					</div>
 				</div>
 			</>
+
+			<div className="flex flex-col gap-5 items-center">
+				<span className="text-sm text-gray-600">Suivez-nous sur les réseaux sociaux</span>
+				<div className="flex gap-8 items-center justify-center">
+					<Link href={"https://twitter.com"} target="_blank" legacyBehavior>
+						<img src="/images/socials/twitter.webp" alt="Twitter" className="w-6 cursor-pointer tooltip" data-tip="Facebook" />
+					</Link>
+					<Link href={"https://facebook.com"} target="_blank" legacyBehavior>
+						<img src="/images/socials/facebook.webp" alt="Facebook" className="w-6 cursor-pointer tooltip" data-tip="Facebook" />
+					</Link>
+
+					<Link href={"https://linkedin.com"} target="_blank" legacyBehavior>
+						<img src="/images/socials/linkedin.webp" alt="LinkedIn" className="w-6 cursor-pointer tooltip" data-tip="Facebook" />
+					</Link>
+
+					<Link href={"https://youtube.com"} target="_blank" legacyBehavior>
+						<img src="/images/socials/youtube.webp" alt="Youtube" className="w-6 cursor-pointer tooltip" data-tip="Facebook" />
+					</Link>
+
+				</div>
+			</div>
 
 			<span className="text-sm text-gray-400 absolute bottom-6">Contactez-Nous: <Link href={"tel:+243979544127"} legacyBehavior>+243 979 544 127</Link></span>
 
