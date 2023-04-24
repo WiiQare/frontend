@@ -9,6 +9,8 @@ import { HiExclamation } from "react-icons/hi";
 import { useRouter } from 'next/router'
 import CurrencyFlag from "react-currency-flags";
 
+import { GrFacebook, GrInstagram, GrLinkedin, GrTwitter } from "react-icons/gr";
+
 function Pass() {
 	const router = useRouter()
 	const { pass } = router.query;
@@ -117,24 +119,24 @@ function Pass() {
 				<div className="flex gap-5 items-center justify-center">
 					<Link href={"https://twitter.com"} target="_blank" legacyBehavior>
 						<a className="cursor-pointer tooltip border border-gray-200 rounded-lg px-3 py-2" data-tip="Twitter"> 
-							<img src="/images/twitter_social.webp" width={20} height={20} alt="Twitter" className="w-6"  />
+							<GrTwitter  className="text-[#00acee]"/>
 						</a>
 					</Link>
 					<Link href={"https://facebook.com"} target="_blank" legacyBehavior>
 						<a className="cursor-pointer tooltip border border-gray-200 rounded-lg px-3 py-2" data-tip="Facebook"> 
-							<img src="/images/facebook_social.webp" width={20} height={20} alt="Facebook" className="w-6" />
+							<GrFacebook className="text-[#3b5998]"/>
 						</a>
 					</Link>
 
 					<Link href={"https://linkedin.com"} target="_blank" legacyBehavior>
 						<a className="cursor-pointer tooltip border border-gray-200 rounded-lg px-3 py-2" data-tip="LinkedIn"> 
-							<img src="/images/linkedin_social.webp" width={20} height={20} alt="LinkedIn" className="w-6 cursor-pointer" />
+							<GrLinkedin className="text-[#0e76a8]"/>
 						</a>
 					</Link>
 
 					<Link href={"https://instagram.com"} target="_blank" legacyBehavior>
 						<a className="cursor-pointer tooltip border border-gray-200 rounded-lg px-3 py-2" data-tip="Instagram"> 
-							<img src="/images/instagram_social.png" width={20} height={20} alt="Instagram" className="w-6 cursor-pointer" />
+							<GrInstagram className="text-[#E4405F]"/>
 						</a>
 					</Link>
 

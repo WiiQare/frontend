@@ -37,39 +37,39 @@ const Dashboard = ({ children, className }) => {
 		);
 
 	return (<>
-		<div class="flex animate-pulse">
+		<div className="flex animate-pulse">
 			<div className="w-1/4 bg-gray-100 h-screen hidden md:flex"></div>
 			<div className="w-full space-y-7">
 				<div className="bg-gray-100 h-10 shadow-sm"></div>
 
 				<div className="px-20 w-2/3 h-full flex flex-col justify-center mx-auto">
-					<div class="flex-shrink-0">
-						<span class="w-12 h-12 block bg-gray-200 rounded-full dark:bg-gray-700"></span>
+					<div className="flex-shrink-0">
+						<span className="w-12 h-12 block bg-gray-200 rounded-full dark:bg-gray-700"></span>
 					</div>
 
-					<div class="ml-4 mt-2 w-full mb-8">
-						<h3 class="h-4 bg-gray-200 rounded-md dark:bg-gray-700" style={{ width: "40%" }}></h3>
+					<div className="ml-4 mt-2 w-full mb-8">
+						<h3 className="h-4 bg-gray-200 rounded-md dark:bg-gray-700" style={{ width: "40%" }}></h3>
 
-						<ul class="mt-5 space-y-3">
-							<li class="w-full h-4 bg-gray-200 rounded-md dark:bg-gray-700"></li>
-							<li class="w-full h-4 bg-gray-200 rounded-md dark:bg-gray-700"></li>
-							<li class="w-full h-4 bg-gray-200 rounded-md dark:bg-gray-700"></li>
-							<li class="w-full h-4 bg-gray-200 rounded-md dark:bg-gray-700"></li>
+						<ul className="mt-5 space-y-3">
+							<li className="w-full h-4 bg-gray-200 rounded-md dark:bg-gray-700"></li>
+							<li className="w-full h-4 bg-gray-200 rounded-md dark:bg-gray-700"></li>
+							<li className="w-full h-4 bg-gray-200 rounded-md dark:bg-gray-700"></li>
+							<li className="w-full h-4 bg-gray-200 rounded-md dark:bg-gray-700"></li>
 						</ul>
 					</div>
 
-					<div class="flex-shrink-0">
-						<span class="w-12 h-12 block bg-gray-200 rounded-full dark:bg-gray-700"></span>
+					<div className="flex-shrink-0">
+						<span className="w-12 h-12 block bg-gray-200 rounded-full dark:bg-gray-700"></span>
 					</div>
 
-					<div class="ml-4 mt-2 w-full">
-						<h3 class="h-4 bg-gray-200 rounded-md dark:bg-gray-700" style={{ width: "40%" }}></h3>
+					<div className="ml-4 mt-2 w-full">
+						<h3 className="h-4 bg-gray-200 rounded-md dark:bg-gray-700" style={{ width: "40%" }}></h3>
 
-						<ul class="mt-5 space-y-3">
-							<li class="w-full h-4 bg-gray-200 rounded-md dark:bg-gray-700"></li>
-							<li class="w-full h-4 bg-gray-200 rounded-md dark:bg-gray-700"></li>
-							<li class="w-full h-4 bg-gray-200 rounded-md dark:bg-gray-700"></li>
-							<li class="w-full h-4 bg-gray-200 rounded-md dark:bg-gray-700"></li>
+						<ul className="mt-5 space-y-3">
+							<li className="w-full h-4 bg-gray-200 rounded-md dark:bg-gray-700"></li>
+							<li className="w-full h-4 bg-gray-200 rounded-md dark:bg-gray-700"></li>
+							<li className="w-full h-4 bg-gray-200 rounded-md dark:bg-gray-700"></li>
+							<li className="w-full h-4 bg-gray-200 rounded-md dark:bg-gray-700"></li>
 						</ul>
 					</div>
 				</div>

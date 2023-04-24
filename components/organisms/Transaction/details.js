@@ -100,49 +100,49 @@ const DetailsTransaction = () => {
                 </div>
 
                 <div className="flex flex-col gap-6">
-                    <div class="w-full h-60 m-auto bg-red-100 rounded-xl relative text-white drop-shadow-sm ">
+                    <div className="w-full h-60 m-auto bg-red-100 rounded-xl relative text-white drop-shadow-sm ">
 
-                        <img class="relative object-cover w-full h-full rounded-xl" src="https://i.imgur.com/kGkSg1v.png" />
+                        <img className="relative object-cover w-full h-full rounded-xl" src="https://i.imgur.com/kGkSg1v.png" />
 
-                        <div class="w-full px-8 absolute top-6 flex flex-col gap-5">
-                            <div class="flex justify-between">
-                                <div class="space-y-1">
-                                    <p class="font-extralight">
+                        <div className="w-full px-8 absolute top-6 flex flex-col gap-5">
+                            <div className="flex justify-between">
+                                <div className="space-y-1">
+                                    <p className="font-extralight">
                                         Peter NDENGO M.
                                     </p>
                                     <h1 className='md:text-3xl font-bold'>$4950.00</h1>
                                 </div>
                                 <div>
-                                    <img class="w-20 h-16 object-contain" src="/images/logo.png" />
+                                    <img className="w-20 h-16 object-contain" src="/images/logo.png" />
                                 </div>
                             </div>
 
                             <div className='space-y-2'>
-                                <div class="pt-1">
-                                    <p class="font-medium tracking-more-wider text-center">
+                                <div className="pt-1">
+                                    <p className="font-medium tracking-more-wider text-center">
                                         ****  ****  ****  7632
                                     </p>
                                 </div>
-                                <div class="pt-5">
-                                    <div class="flex justify-around">
-                                        <div class="">
-                                            <p class="font-extralight text-xs">
+                                <div className="pt-5">
+                                    <div className="flex justify-around">
+                                        <div className="">
+                                            <p className="font-extralight text-xs">
                                                 Date
                                             </p>
-                                            <p class="font-medium tracking-wider text-sm">
+                                            <p className="font-medium tracking-wider text-sm">
                                                 22/02/15
                                             </p>
                                         </div>
-                                        <div class="">
-                                            <p class="font-extralight text-xs">
+                                        <div className="">
+                                            <p className="font-extralight text-xs">
                                                 Time
                                             </p>
-                                            <p class="font-medium tracking-wider text-sm">
+                                            <p className="font-medium tracking-wider text-sm">
                                                 03:25
                                             </p>
                                         </div>
 
-                                        <div class="">
+                                        <div className="">
                                             <ButtonBuy withIcon={false} />
                                         </div>
                                     </div>
