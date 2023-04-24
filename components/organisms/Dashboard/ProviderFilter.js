@@ -34,7 +34,7 @@ const filters = [
 
 const ProviderFilter = () => {
   return (
-    <div className="px-4 space-y-4">
+    <div className="px-4 space-y-4 pb-24 md:pb-4">
       <h1 className="md:text-2xl text-gray-700 font-bold flex-wrap flex items-center gap-2 text-lg">
       Les hôpitaux partenaires dans le pays{" "}
         <Image src={drc} loading="lazy" className="w-6" /> RD Congo
