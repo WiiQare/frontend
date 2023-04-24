@@ -13,7 +13,7 @@ const VoucherHome = () => {
 				<WithQR />
 			</div> */}
 
-			<div className="bg-white drop-shadow-sm rounded-xl py-6 px-24 flex flex-col justify-center items-center gap-8 w-full relative">
+			<div className="bg-white drop-shadow-sm rounded-xl py-6 px-10 md:px-24 flex flex-col justify-center items-center gap-8 w-full relative">
 				<HiCreditCard size={60} className="text-orange" />
 				<div className="space-y-3 text-center w-full flex flex-col justify-center items-center">
 					<h1 className="text-gray-800 text-lg">Prenez soin de vos proches </h1>
@@ -36,7 +36,7 @@ const VoucherHome = () => {
 				</div>
 			</div>
 
-			<div className="bg-white drop-shadow-sm rounded-xl py-6 px-24 flex flex-col justify-center items-center gap-8 w-full relative">
+			<div className="bg-white drop-shadow-sm rounded-xl py-6 px-10 md:px-24 flex flex-col justify-center items-center gap-8 w-full relative">
 				<HiUserGroup size={60} className="text-sky" />
 				<div className="space-y-3 text-center w-full flex flex-col items-center">
 					<h1 className="text-gray-800 text-lg">Parrainez vos amis</h1>
