@@ -54,7 +54,8 @@ const Profile = ({phoneNumber, names, email}) => {
 
 			<section className="w-full flex flex-col gap-8 items-start pb-20 md:pb-0">
 				<div className="w-full overflow-hidden md:col-span-2 rounded-lg p-4 flex flex-col gap-6 bg-white drop-shadow-sm">
-					<div className="bg-[url(https://i.goopics.net/a5yedr.jpg)] bg-no-repeat h-56 rounded-lg"></div>
+					<div before={"+ Cliquez pour changer de couverture"} className="bg-[url(/images/bg.jpeg)] bg-no-repeat relative bg-cover h-56 rounded-lg hover:before:bg-[rgba(0,0,0,.5)] hover:before:cursor-pointer before:transition-all before:duration-200 content before:w-full before:h-full overflow-hidden before:absolute hover:before:content-[attr(before)] before:flex before:justify-center before:items-center before:text-gray-200">
+					</div>
 
 					<div className="flex justify-between items-center md:px-6">
 						<div className="flex gap-5 items-center relative">
