@@ -117,24 +117,24 @@ function Pass() {
 				<div className="flex gap-5 items-center justify-center">
 					<Link href={"https://twitter.com"} target="_blank" legacyBehavior>
 						<a className="cursor-pointer tooltip border border-gray-200 rounded-lg px-3 py-2" data-tip="Twitter"> 
-							<Image src="/images/socials/twitter.webp" width={20} height={20} alt="Twitter" className="w-6"  />
+							<img src="/images/twitter_social.webp" width={20} height={20} alt="Twitter" className="w-6"  />
 						</a>
 					</Link>
 					<Link href={"https://facebook.com"} target="_blank" legacyBehavior>
 						<a className="cursor-pointer tooltip border border-gray-200 rounded-lg px-3 py-2" data-tip="Facebook"> 
-							<Image src="/images/socials/facebook.webp" width={20} height={20} alt="Facebook" className="w-6" />
+							<img src="/images/facebook_social.webp" width={20} height={20} alt="Facebook" className="w-6" />
 						</a>
 					</Link>
 
 					<Link href={"https://linkedin.com"} target="_blank" legacyBehavior>
 						<a className="cursor-pointer tooltip border border-gray-200 rounded-lg px-3 py-2" data-tip="LinkedIn"> 
-							<Image src="/images/socials/linkedin.webp" width={20} height={20} alt="LinkedIn" className="w-6 cursor-pointer" />
+							<img src="/images/linkedin_social.webp" width={20} height={20} alt="LinkedIn" className="w-6 cursor-pointer" />
 						</a>
 					</Link>
 
 					<Link href={"https://instagram.com"} target="_blank" legacyBehavior>
 						<a className="cursor-pointer tooltip border border-gray-200 rounded-lg px-3 py-2" data-tip="Instagram"> 
-							<Image src="/images/socials/instagram.png" width={20} height={20} alt="Instagram" className="w-6 cursor-pointer" />
+							<img src="/images/instagram_social.png" width={20} height={20} alt="Instagram" className="w-6 cursor-pointer" />
 						</a>
 					</Link>
 
