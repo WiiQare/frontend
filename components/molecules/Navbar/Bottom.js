@@ -12,7 +12,7 @@ const MenuBottom = ({activePath}) => {
 
   const Items = [
     {
-      title: "Home",
+      title: "Accueil",
       icon: ({ size, className }) => <SlHome size={size} className={className} />,
       link: "/",
       active: ["/"],
@@ -39,7 +39,7 @@ const MenuBottom = ({activePath}) => {
     },
   
     {
-      title: "Settings",
+      title: "Paramètres",
       icon: ({ size, className }) => (
         <SlSettings size={size} className={className} />
       ),
