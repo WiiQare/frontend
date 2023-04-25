@@ -10,98 +10,18 @@ import TabPanelContent from '../../atoms/Tab/PanelContent';
 
 const TabHistories = [
     {
-        name: "Monthly",
-        transactions: [
-            {
-                fullname: "Bienvenu Z.",
-                email: "bzigabe@hotmail.com",
-                createdAt: {
-                    date: "June 1, 2023",
-                    hour: "08:22 AM"
-                },
-                amount: "5,321",
-                paymentMethod: "Mastercard",
-                state: 1
-            },
-            {
-                fullname: "Alain MK",
-                email: "frdrcpeter@hotmail.com",
-                createdAt: {
-                    date: "June 1, 2023",
-                    hour: "08:22 AM"
-                },
-                amount: "1,429",
-                paymentMethod: "Mastercard",
-                state: 0
-            }
-        ]
+        name: "Mensuel",
+        transactions: []
     },
 
     {
-        name: "Weekly",
-        transactions: [
-            {
-                fullname: "Bienvenu Z.",
-                email: "frdrcpeter@hotmail.com",
-                createdAt: {
-                    date: "June 1, 2023",
-                    hour: "08:22 AM"
-                },
-                amount: "5,321",
-                paymentMethod: "Mastercard",
-                state: 1
-            },
-            {
-                fullname: "Alain MK",
-                email: "frdrcpeter@hotmail.com",
-                createdAt: {
-                    date: "June 1, 2023",
-                    hour: "08:22 AM"
-                },
-                amount: "1,429",
-                paymentMethod: "Mastercard",
-                state: 1
-            },
-            {
-                fullname: "Alain MK",
-                email: "frdrcpeter@hotmail.com",
-                createdAt: {
-                    date: "June 1, 2023",
-                    hour: "08:22 AM"
-                },
-                amount: "1,429",
-                paymentMethod: "Mastercard",
-                state: 0
-            },
-            {
-                fullname: "Alain MK",
-                email: "frdrcpeter@gmail.com",
-                createdAt: {
-                    date: "June 1, 2023",
-                    hour: "08:22 AM"
-                },
-                amount: "1,429",
-                paymentMethod: "Mastercard",
-                state: 2
-            }
-        ]
+        name: "Hebdomadaire",
+        transactions: []
     },
 
     {
-        name: "Today",
-        transactions: [
-            {
-                fullname: "Peter NDENGO",
-                email: "frdrcpeter@hotmail.com",
-                createdAt: {
-                    date: "June 1, 2023",
-                    hour: "08:22 AM"
-                },
-                amount: "5,321",
-                paymentMethod: "Mastercard",
-                state: 1
-            }
-        ]
+        name: "Aujourd'hui",
+        transactions: []
     }
 ]
 

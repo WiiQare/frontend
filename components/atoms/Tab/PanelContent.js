@@ -16,6 +16,8 @@ const PanelContent = ({ transactions, value, index }) => {
         setTransaction({state: true, transaction: data})
     }, [data]);
 
+    console.log("data", data);
+
     return (
         <TabPanel value={value} index={index} >
 
@@ -25,11 +27,11 @@ const PanelContent = ({ transactions, value, index }) => {
                     <div className="w-full flex flex-col items-center gap-3">
                         <span className="text-gray-400 text-xs font-normal">Chargement en cours...</span>
                     </div>
-                ) : data.length == 0 ? (
+                ) : data.length == 0 || data.code ? (
                     <div className="w-full flex flex-col items-center gap-3">
                         <span className="text-gray-400 text-xs font-normal">Aucune transaction...</span>
                     </div>
-                ): data.map((item, i) => <ItemHistory {...item} key={i} value={value} index={index} total={data.length ?? 0} />)}
+                ): data && data.map((item, i) => <ItemHistory {...item} key={i} value={value} index={index} total={data.length ?? 0} />)}
             
             </section>
 
