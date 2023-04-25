@@ -12,6 +12,7 @@ import Link from "next/link";
 
 
 const ItemHistory = ({ stripePaymentId, transactionHash, patient, currency, sender, senderAmount, senderCurrency, voucher, email, createdAt, amount, paymentMethod, status, value, index, total }) => {
+    console.log(status);
     const { Canvas } = useQRCode();
     const [isOpen, setIsOpen] = useState(false);
     const [copy, setCopy] = useState(false);
@@ -43,21 +44,21 @@ const ItemHistory = ({ stripePaymentId, transactionHash, patient, currency, send
                     </div>
                 </div>
 
-                <div className="flex flex-col text-sm font-medium">
+                <div className="flex flex-col text-sm font-medium capitalize">
                     <span>{new Intl.DateTimeFormat('fr', { dateStyle: 'full' }).format(new Date(createdAt))}</span>
                     <span>{new Intl.DateTimeFormat('fr', { timeStyle: 'short' }).format(new Date(createdAt))}</span>
                 </div>
 
-                <h1 className="font-bold text-lg">{new Intl.NumberFormat("en-US", { style: 'currency', currency: senderCurrency }).format(senderAmount)}</h1>
-                <h1 className="font-bold text-lg">{paymentMethod ?? "Carte"}</h1>
+                <h1 className="font-medium text-md">{new Intl.NumberFormat("en-US", { style: 'currency', currency: senderCurrency }).format(senderAmount)}</h1>
+                <h1 className="font-medium text-md">{paymentMethod ?? "Carte"}</h1>
 
                 <ButtonNoAction
-                    color={status == 0 ? 'orange' : status == "succes" ? "[#2BC155]" : "gray-300"}
+                    color={status == 0 ? 'orange' : status == "success" ? "green-500" : "gray-300"}
                     text={status == 0 ? 'Pending' : status == 'success' ? "Succès" : "Echec"}
                 />
 
-                <button onClick={openModal} className='font-semibold uppercase text-sm p-2 rounded-lg hover:bg-gray-200 transition-all duration-200 flex gap-1 items-center'>
-                    <HiOutlineEye size={20} /> Pass santé
+                <button onClick={openModal} className='font-normal uppercase text-sm p-2 rounded-lg hover:bg-gray-200 transition-all duration-200 flex gap-1 items-center'>
+                    <HiOutlineEye size={20} /> <span className='hidden md:flex'>Pass santé</span> 
                 </button>
 
                 <Transition appear show={isOpen} as={Fragment}>

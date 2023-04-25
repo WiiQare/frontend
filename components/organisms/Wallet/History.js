@@ -34,13 +34,13 @@ const HistoryWallet = () => {
     };
 
     return (
-        <div className="space-y-4 bg-white py-8 px-6 drop-shadow-sm rounded-lg">
+        <div className="space-y-4 bg-white py-8 md:px-6 px-3 drop-shadow-sm rounded-lg">
 
             <Box sx={{ width: '100%' }}>
 
                 <SimpleHeader title={"Historique de paiement"} describe={"Liste de toutes les transactions effectuées"}>
                     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" className='text-sm md:text-md'>
                             {TabHistories.map((item, index) => <Tab label={item.name} transactions={item.transactions} {...a11yProps(index)} key={index} />)}
                         </Tabs>
                     </Box>
@@ -66,7 +66,7 @@ export function TabPanel(props) {
             {...other}
         >
             {value === index && (
-                <Box sx={{ p: 3 }}>
+                <Box sx={{ p: 1 }}>
                     <Typography>{children}</Typography>
                 </Box>
             )}
