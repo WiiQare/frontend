@@ -40,7 +40,7 @@ const CardProvider = () => {
             {/* Pricing */}
             <div className='text-gray-700 flex md:block items-center gap-4 space-y-2'>
                 <h5 className='font-light'>Adresse</h5>
-                <h3 className='text-2xl font-semibold'><span className='text-lg'>3e Rue, C/Limete</span></h3>
+                <h3 className='text-2xl font-semibold'><span className='text-lg'>3e Rue, C/Limete - Kinshasa</span></h3>
             </div>
 
             {/* Buttons */}
