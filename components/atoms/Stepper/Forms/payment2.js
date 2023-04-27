@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { FormContext } from "../../../../pages/voucher/buy";
-import { HiOutlineInformationCircle } from "react-icons/hi";
+import { HiArrowSmLeft, HiOutlineInformationCircle } from "react-icons/hi";
 import * as yup from "yup";
 import StripePayment from "../../../molecules/Stripe";
 import { useSession } from "next-auth/react";
@@ -23,13 +23,13 @@ function Payment2({data:symbols}) {
 	return (
 		<>
 			{/* <div className="text-2xl font-medium my-4 capitalize">Choice your payment method !</div> */}
-			{amount == 0 ? <Amount amount={amount} setAmount={setAmount} symbols={symbols} patient={client.patient} /> : <StripePayment amount={amount} senderId={data.user.data.userId} patientId={client.patient.id} email={data.user.data.email} />}
+			{amount == 0 ? <Amount amount={amount} setAmount={setAmount} symbols={symbols} patient={client.patient} setActiveStepIndex={setActiveStepIndex} activeStepIndex={activeStepIndex} /> : <StripePayment amount={amount} senderId={data.user.data.userId} patientId={client.patient.id} email={data.user.data.email} setAmount={setAmount} />}
 		</>
 	);
 }
 
 
-function Amount({ amount, setAmount, symbols, patient }) {
+function Amount({ amount, setAmount, symbols, patient, setActiveStepIndex, activeStepIndex }) {
 
 	console.log(patient);
 	const ValidationSchema = yup.object().shape({
@@ -80,7 +80,12 @@ function Amount({ amount, setAmount, symbols, patient }) {
 			<Form className="flex justify-center w-full  py-4 items-end">
 				<div className="grid lg:grid-cols-2 lg:px-10 gap-6">
 					<div className="px-4 pt-8">
-						<p className="text-xl font-medium">Details du Patient</p>
+						<div className="flex gap-2 items-center mb-3">
+							<button className="border border-gray-300 rounded-xl py-1 px-2 hover:bg-gray-200" type="button" onClick={() => setActiveStepIndex(activeStepIndex - 1)}>
+								<HiArrowSmLeft size={24}/>
+							</button>
+							<p className="text-xl font-medium">Details du Patient</p>
+						</div>
 						<p className="text-gray-400 text-xs">Confirmer les informations et choisissez la methode de paiement</p>
 
 

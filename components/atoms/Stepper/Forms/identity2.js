@@ -2,7 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { ErrorMessage, Field, FormikProvider, useFormik } from "formik";
 import { FormContext } from "../../../../pages/voucher/buy";
 import * as yup from "yup";
-import { HiArrowSmRight, HiOutlineInformationCircle } from "react-icons/hi";
+import { HiArrowSmLeft, HiArrowSmRight, HiOutlineInformationCircle } from "react-icons/hi";
 import { useSession } from "next-auth/react";
 import { FiChevronRight, FiUserPlus } from "react-icons/fi";
 
@@ -388,8 +388,9 @@ function Identity2() {
 									</div>
 								</Stack>
 
-								<div className="flex flex-row-reverse ">
+								<div className="flex flex-row-reverse justify-between">
 
+									
 									<button
 										className="bg-primary flex gap-3 items-center w-fit font-medium text-white my-2 py-3 px-5 hover:bg-blue-500 duration-200 transition-all hover:shadow rounded-lg"
 										type="submit"
@@ -398,6 +399,14 @@ function Identity2() {
 
 									</button>
 
+									<button
+										className="bg-primary flex gap-3 items-center w-fit font-medium text-white my-2 py-3 px-5 hover:bg-blue-500 duration-200 transition-all hover:shadow rounded-lg"
+										type="button"
+										onClick={() => setNewBenecifiare(false)}
+									>
+										 <HiArrowSmLeft /> Précédent
+
+									</button>
 
 								</div>
 							</form>

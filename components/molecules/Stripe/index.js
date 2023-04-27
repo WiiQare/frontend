@@ -6,21 +6,19 @@ import { Elements } from "@stripe/react-stripe-js";
 import { useDispatch, useSelector } from "react-redux";
 import { countries } from "country-data";
 import CurrencyFlag from 'react-currency-flags';
+import { HiArrowSmLeft } from 'react-icons/hi';
 
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
 
-const StripePayment = ({ amount, senderId, patientId, email }) => {
+const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
 
 	console.log(amount);
 
 	const [clientSecret, setClientSecret] = useState("");
 	const [methodPayment, setMethodPayment] = useState("card");
 	const client = useSelector((state) => state.app.client);
-
-
-	console.log(client.patient);
 
 	useEffect(() => {
 		// Create PaymentIntent as soon as the page loads
@@ -59,7 +57,12 @@ const StripePayment = ({ amount, senderId, patientId, email }) => {
 					<div className="flex justify-center w-full  py-4 items-end">
 						<div className="grid lg:grid-cols-2 lg:px-10 gap-6">
 							<div className="px-4 pt-8">
-								<p className="text-xl font-medium">Details du Patient</p>
+								<div className="flex gap-2 items-center mb-3">
+									<button className="border border-gray-300 rounded-xl py-1 px-2 hover:bg-gray-200" type="button" onClick={() => setAmount(0)}>
+										<HiArrowSmLeft size={24} />
+									</button>
+									<p className="text-xl font-medium">Details du Patient</p>
+								</div>
 								<p className="text-gray-400 text-xs">Confirmer les informations et choisissez la methode de paiement</p>
 
 
@@ -119,30 +122,30 @@ const StripePayment = ({ amount, senderId, patientId, email }) => {
 								</div>
 
 								<p className="mt-8 text-lg font-medium">Modes de paiement</p>
-						<form className="mt-5 grid gap-6">
-							<div className="relative">
-								<input className="peer hidden" id="radio_1" type="radio" name="radio" checked={methodPayment == 'card' ? true : false} onClick={() => setMethodPayment('card')} />
-								<span className="peer-checked:border-orange absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
-								<label className="peer-checked:border-2 peer-checked:border-orange peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_1">
-									<img className="w-14 object-contain" src="/images/carte-bancaire.png" alt="" />
-									<div className="ml-5">
-										<span className="mt-2 font-semibold">Carte Bancaire</span>
-										<p className="text-slate-500 text-sm leading-6">Visa & Mastercard</p>
+								<form className="mt-5 grid gap-6">
+									<div className="relative">
+										<input className="peer hidden" id="radio_1" type="radio" name="radio" checked={methodPayment == 'card' ? true : false} onClick={() => setMethodPayment('card')} />
+										<span className="peer-checked:border-orange absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
+										<label className="peer-checked:border-2 peer-checked:border-orange peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_1">
+											<img className="w-14 object-contain" src="/images/carte-bancaire.png" alt="" />
+											<div className="ml-5">
+												<span className="mt-2 font-semibold">Carte Bancaire</span>
+												<p className="text-slate-500 text-sm leading-6">Visa & Mastercard</p>
+											</div>
+										</label>
 									</div>
-								</label>
-							</div>
-							<div className="relative">
-								<input className="peer hidden" id="radio_2" type="radio" name="radio" checked={methodPayment != 'card' ? true : false} onClick={() => setMethodPayment('crypto')}/>
-								<span className="peer-checked:border-orange absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
-								<label className="peer-checked:border-2 peer-checked:border-orange peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_2">
-									<img className="w-14 object-contain" src="/images/crypto-monnaie.png" alt="" />
-									<div className="ml-5">
-										<span className="mt-2 font-semibold">Crypto Monnaie</span>
-										<p className="text-slate-500 text-sm leading-6">Ethereum (ETH) & Bitcoin (BTC)</p>
+									<div className="relative">
+										<input className="peer hidden" id="radio_2" type="radio" name="radio" checked={methodPayment != 'card' ? true : false} onClick={() => setMethodPayment('crypto')} />
+										<span className="peer-checked:border-orange absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
+										<label className="peer-checked:border-2 peer-checked:border-orange peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_2">
+											<img className="w-14 object-contain" src="/images/crypto-monnaie.png" alt="" />
+											<div className="ml-5">
+												<span className="mt-2 font-semibold">Crypto Monnaie</span>
+												<p className="text-slate-500 text-sm leading-6">Ethereum (ETH) & Bitcoin (BTC)</p>
+											</div>
+										</label>
 									</div>
-								</label>
-							</div>
-						</form>
+								</form>
 							</div>
 
 							<div className="mt-6 bg-gray-50 px-4 pt-8 lg:mt-0">
@@ -154,13 +157,13 @@ const StripePayment = ({ amount, senderId, patientId, email }) => {
 
 											<div>
 												<Elements options={options} stripe={stripePromise}>
-													<CheckoutForm amount={amount} senderId={senderId} email={email ?? ""}/>
+													<CheckoutForm amount={amount} senderId={senderId} email={email ?? ""} />
 												</Elements>
 											</div>
 										</>
 									) : (
 										<div className='h-full w-full flex flex-col justify-center items-center gap-4'>
-											<img src="/images/maintenance.png" alt="Maintenace" className='w-40 opacity-60'/>
+											<img src="/images/maintenance.png" alt="Maintenace" className='w-40 opacity-60' />
 											<p className='text-gray-500 text-sm'>Service indisponible actuellement...</p>
 										</div>
 									)
