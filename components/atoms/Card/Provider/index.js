@@ -30,30 +30,23 @@ const CardProvider = () => {
             </div>
 
             {/* Category */}
-            <div className='space-y-2'>
-                <span className='py-1 px-2 rounded-full bg-[rgba(254,128,35,.3)] text-xs text-gray-700 font-light flex items-center gap-2 w-fit'>TeleHealth <CiCircleInfo size={18} /></span>
+            {/* <div className='space-y-2'>
+                <span className='py-1 px-2 rounded-full bg-[rgba(254,128,35,.3)] text-xs text-gray-700 font-light flex items-center gap-2 w-fit'>Clinique <CiCircleInfo size={18} /></span>
                 <ul className='space-y-2 w-64'>
-                    <li className='flex items-center gap-2 text-xs text-gray-700 font-light'><FcCheckmark size={18}/> Consultation Service 24/7 - Generalists and Specialists</li>
-                    <li className='flex items-center gap-2 text-xs text-gray-700 font-light'><FcCheckmark /> Insurance Benefits GHC 76,000</li>
-                    <li className='flex items-center gap-2 text-xs text-gray-700 font-light'><FcCheckmark /> Medication Benefits GHC 180</li>
+                    <li className='flex items-center gap-2 text-xs text-gray-700 font-light'><FcCheckmark size={18}/> 4e Rue, C/Limete</li>
                 </ul>
-            </div>
+            </div> */}
 
             {/* Pricing */}
             <div className='text-gray-700 flex md:block items-center gap-4 space-y-2'>
-                <h5 className='font-light'>Starts at</h5>
-                <h3 className='text-2xl font-semibold'>$12.15<span className='font-extralight text-lg'>/mo</span></h3>
-                <HiUserGroup size={24} className="hidden md:block"/>
+                <h5 className='font-light'>Adresse</h5>
+                <h3 className='text-2xl font-semibold'><span className='text-lg'>3e Rue, C/Limete</span></h3>
             </div>
 
             {/* Buttons */}
             <div className='self-center flex md:flex-col gap-3'>
-                <Link href={"/learn"} legacyBehavior>
-                    <button className='bg-blue-600 text-white font-extralight py-3 md:px-9 px-5 rounded-lg text-sm'>Learn more</button>
-                </Link>
-
-                <Link href={"/learn"} legacyBehavior>
-                    <button className='border border-blue-600 hover:bg-[rgba(28,100,242,.3)] text-blue-600 font-extralight py-3 md:px-9 px-5 rounded-lg text-sm transition duration-300'>Enroll now</button>
+                <Link href={"#"} legacyBehavior>
+                    <button className='bg-blue-600 text-white font-extralight py-3 md:px-9 px-5 rounded-lg text-sm'>En savoir plus</button>
                 </Link>
             </div>
         </div>
