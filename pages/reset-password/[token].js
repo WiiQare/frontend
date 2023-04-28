@@ -11,7 +11,7 @@ function Reset() {
   return (
     <>
       <Head>
-        <title>WiiQare | Forgot Password</title>
+        <title>WiiQare | Nouveau mot de passe</title>
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"

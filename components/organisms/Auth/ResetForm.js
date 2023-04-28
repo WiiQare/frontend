@@ -39,16 +39,16 @@ function ResetForm() {
 						
 						<div className="form-items !w-full !max-w-full flex flex-col items-center mx-auto">
 							<div className="md:w-3/4 mx-auto">
-								<div className="form-title">Create a new password</div>
+								<div className="form-title">Créer un nouveau mot de passe</div>
 								<Box sx={{ mb: 3, mt: 2 }}></Box>
 								<form id="signinform" className="">
 									<Stack spacing={2}>
 										
 										<FormControl fullWidth variant="outlined">
-											<InputLabel htmlFor="outlined-basic1">Enter New Password</InputLabel>
+											<InputLabel htmlFor="outlined-basic1">Nouveau mot de passe</InputLabel>
 											<OutlinedInput
 												id="outlined-basic1"
-												label="New Password"
+												label="Nouveau mot de passe"
 												type={showPassword ? "text" : "password"}
 												endAdornment={
 													<InputAdornment position="end">
@@ -65,10 +65,10 @@ function ResetForm() {
 										</FormControl>
 
                                         <FormControl fullWidth variant="outlined">
-											<InputLabel htmlFor="outlined-basic1">Confirm New Password</InputLabel>
+											<InputLabel htmlFor="outlined-basic1">Confirmez Mot de passe</InputLabel>
 											<OutlinedInput
 												id="outlined-basic1"
-												label="Confirm Password"
+												label="Confirmez Mot de passe"
 												type={showcPassword ? "text" : "password"}
 												endAdornment={
 													<InputAdornment position="end">
@@ -91,7 +91,7 @@ function ResetForm() {
 												onClick={() => { }}
 												className="bg-yellow"
 											>
-												CHANGE PASSWORD
+												Changer le mot de passe
 											</Button>
 										</Box>
 									</Stack>
