@@ -75,7 +75,7 @@ function ForgotForm() {
 								{
 									!complete ? (
 										<>
-											<div className="form-title">Forgot Password</div>
+											<div className="form-title">Mot de passe oublié</div>
 											<Box sx={{ mb: 3, mt: 2 }}></Box>
 											<form id="signinform" className="" onSubmit={formik.handleSubmit}>
 												<Stack spacing={2}>
@@ -84,7 +84,7 @@ function ForgotForm() {
 														<TextField
 															id="outlined-basic"
 															fullWidth
-															label="E-mail Address"
+															label="Adresse email"
 															variant="outlined"
 															name="email"
 															{...formik.getFieldProps('email')}
