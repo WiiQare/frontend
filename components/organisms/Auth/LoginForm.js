@@ -119,6 +119,11 @@ function LoginForm() {
 												label={t('signIn.field.email')}
 												variant="outlined"
 												name="email"
+												InputProps={
+													{
+														className: "input-email"
+													}
+												}
 												className="lowercase"
 												{...formik.getFieldProps('email')}
 											/>
@@ -162,7 +167,7 @@ function LoginForm() {
 												size="large"
 												variant="contained"
 												type="submit"
-												className="bg-yellow text-uppercase"
+												className="bg-yellow text-uppercase login"
 											>
 
 												{btnClick ? (

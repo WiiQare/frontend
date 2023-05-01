@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest  --watchAll",
-    "cypress:open": "cypress open"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
