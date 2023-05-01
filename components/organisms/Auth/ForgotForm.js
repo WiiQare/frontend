@@ -119,7 +119,7 @@ function ForgotForm() {
 					</div>
 				</div>
 			</div>
-			<BlinkSnackbar />
+			{/* <BlinkSnackbar /> */}
 		</>
 	);
 	return (

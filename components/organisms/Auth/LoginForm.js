@@ -119,6 +119,7 @@ function LoginForm() {
 												label={t('signIn.field.email')}
 												variant="outlined"
 												name="email"
+												className="lowercase"
 												{...formik.getFieldProps('email')}
 											/>
 											{formik.errors.email && formik.touched.email ? <span className="text-rose-500 text-left text-xs px-1">{formik.errors.email}</span> : <></>}
@@ -184,7 +185,7 @@ function LoginForm() {
 					</div>
 				</div>
 			</div>
-			<BlinkSnackbar />
+			{/* <BlinkSnackbar /> */}
 		</>
 	);
 	return (

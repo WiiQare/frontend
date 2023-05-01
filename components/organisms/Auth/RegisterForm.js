@@ -125,7 +125,7 @@ const RegisterForm = () => {
 					</div>
 				</div>
 			</div>
-			<BlinkSnackbar />
+			{/* <BlinkSnackbar /> */}
 		</>
 	);
 }

@@ -71,6 +71,7 @@ function Email() {
                             id="outlined-basic"
                             fullWidth
                             label="E-mail Address"
+                            className="lowercase"
                             variant="outlined"
                             name="email"
                             {...formik.getFieldProps('email')} 
