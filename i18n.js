@@ -22,7 +22,7 @@ i18n
                     signIn: {
                         title: 'Sign in to your account',
                         field: {
-                            email: 'E-mail Address',
+                            email: 'E-mail Address or Phone Number',
                             password: 'Password'
                         },
                         forgot: 'Forgot your password ?',
@@ -47,7 +47,7 @@ i18n
                     signIn: {
                         title: 'Connectez-vous à votre compte',
                         field: {
-                            email: 'Entrez votre adresse email',
+                            email: 'Entrez votre adresse email ou Numéro de Téléphone',
                             password: 'Entrez votre mot de passe'
                         },
                         forgot: 'Mot de passe oublié ?',

@@ -42,8 +42,8 @@ const authOptions = {
 
                 const response = await fetch("https://api.wiiqare-app.com/api/v1/session", Options);
                 const json = await response.json();
-
-                if (json.code) throw new Error(json.message)
+ 
+                if (json.code) throw new Error(json.description)
                 return json
             }
         }),

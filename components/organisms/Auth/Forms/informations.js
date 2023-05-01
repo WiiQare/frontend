@@ -202,7 +202,7 @@ function Information() {
 
                     <div className="flex items-center !mt-10 mb-2">
                         <input id="link-checkbox" type="checkbox" value="" className="w-4 h-4 text-orange bg-gray-100 border-gray-300 rounded focus:ring-orange focus:ring-1" onChange={(e) => setTerm(e.target.checked)}/>
-                        <label for="link-checkbox" className="h-4 ml-2 text-sm font-normal text-gray-600 dark:text-gray-300">j'accepte les <a href="#" className="text-primary hover:underline">termes et conditions</a> d'utilisation.</label>
+                        <label for="link-checkbox" className="h-4 ml-2 text-sm font-normal text-gray-600 dark:text-gray-300">j'accepte les <a href="https://wiiqare.com/privacy/" className="text-primary hover:underline">termes et conditions</a> d'utilisation.</label>
                     </div>
 
                     <Box>
