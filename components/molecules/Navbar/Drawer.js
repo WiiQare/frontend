@@ -8,6 +8,8 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { useMutation } from "react-query";
 import { sendMessage } from "../../../lib/helper";
+import LoadingButton from "../../atoms/Loader/LoadingButton";
+import Image from "next/image";
 
 
 export default function Drawer() {
@@ -69,6 +71,7 @@ function ItemMessage({ name, message, onClick }) {
 function Conversation({ close, setMessages, messages, isLoading, isError, user, senderId, token }) {
 
     const [text, setText] = useState('');
+    const [isFromAdmin, setIsFromAdmin] = useState(false);
     const sendMessageMutation = useMutation(sendMessage, {
         onSuccess: (res) => {
 
@@ -92,16 +95,16 @@ function Conversation({ close, setMessages, messages, isLoading, isError, user, 
     };
 
     const ValidationSchema = yup.object().shape({
-		message: yup.string().required("Message ne doit pas être vide"),
-	});
+        message: yup.string().required("Message ne doit pas être vide"),
+    });
 
     // Formik hook
-	const formik = useFormik({
-		initialValues: {
-			message: ''
-		},
-		onSubmit
-	})
+    const formik = useFormik({
+        initialValues: {
+            message: ''
+        },
+        onSubmit
+    })
 
     return (
         <div className="flex flex-col bg-gray-100 flex-auto md:w-96 w-full h-full relative">
@@ -111,7 +114,7 @@ function Conversation({ close, setMessages, messages, isLoading, isError, user, 
                 </button>
                 <div className="flex gap-2 items-center">
                     <img src={`/images/favicon.png`} alt="" className="rounded-xl w-10 h-10" />
-                    <h3 className="font-semibold text-gray-700">Aleks de WiiQare</h3>
+                    <h3 className="font-semibold text-gray-700 flex flex-col">Odette de WiiQare <span className="text-xs text-gray-500 font-light flex gap-1 items-center"><span className="h-2 w-2 rounded-full bg-green-400 flex">&nbsp;</span> En ligne</span></h3>
                 </div>
             </div>
             <div
@@ -130,40 +133,79 @@ function Conversation({ close, setMessages, messages, isLoading, isError, user, 
                                         messages && messages.length > 0 ? (
                                             <>
                                                 {
-                                                    messages.map((message) => (
-
+                                                    messages.map((message, item) => (
                                                         <>
                                                             {
-                                                                message.isFromUser ? (
-                                                                    <div className="col-start-3 col-end-13 p-3 rounded-lg">
-                                                                        <div className="flex items-center justify-start flex-row-reverse">
-                                                                            <div
-                                                                                className="flex items-center justify-center h-10 w-10 rounded-full bg-orange text-white flex-shrink-0"
-                                                                            >
-                                                                                {user[0]}
-                                                                            </div>
-                                                                            <div
-                                                                                className="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl"
-                                                                            >
-                                                                                <div>{message.message}</div>
+                                                                message.isFromUser && item == 0 ? (
+                                                                    <>
+                                                                        <div className="col-start-3 col-end-13 p-3 rounded-lg">
+                                                                            <div className="flex items-center justify-start flex-row-reverse">
+                                                                                <div
+                                                                                    className="flex items-center justify-center h-10 w-10 rounded-full bg-orange text-white flex-shrink-0"
+                                                                                >
+                                                                                    {user[0]}
+                                                                                </div>
+                                                                                <div
+                                                                                    className="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl"
+                                                                                >
+                                                                                    <div>{message.message}</div>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+
+                                                                        <div className="col-start-1 col-end-12 p-3 rounded-lg">
+                                                            <div className="flex flex-row items-center">
+                                                                <div
+                                                                    className="flex items-center justify-center h-10 w-10 rounded-full bg-gray-300 flex-shrink-0"
+                                                                >
+                                                                    OD
+                                                                </div>
+                                                                <div
+                                                                    className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl flex flex-col gap-2"
+                                                                >
+                                                                    <div>Bonjour Mr./ Mme <span className="uppercase">{user}</span>, merci de nous avoir laisser votre message, nous vous répondrons dans pas longtemps...</div>
+                                                                    <span className="text-xs text-gray-400 capitalize">WiiQare - {new Intl.DateTimeFormat('fr-FR', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date())}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                                    </>
                                                                 ) : (
-                                                                    <div className="col-start-1 col-end-12 p-3 rounded-lg">
-                                                                        <div className="flex flex-row items-center">
-                                                                            <div
-                                                                                className="flex items-center justify-center h-10 w-10 rounded-full bg-gray-300 flex-shrink-0"
-                                                                            >
-                                                                                WT
-                                                                            </div>
-                                                                            <div
-                                                                                className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl"
-                                                                            >
-                                                                                <div>{message.message}</div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                                    <>
+                                                                        {
+                                                                            message.isFromUser ? (
+                                                                                <div className="col-start-3 col-end-13 p-3 rounded-lg">
+                                                                                    <div className="flex items-center justify-start flex-row-reverse">
+                                                                                        <div
+                                                                                            className="flex items-center justify-center h-10 w-10 rounded-full bg-orange text-white flex-shrink-0"
+                                                                                        >
+                                                                                            {user[0]}
+                                                                                        </div>
+                                                                                        <div
+                                                                                            className="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl"
+                                                                                        >
+                                                                                            <div>{message.message}</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            ) : (
+                                                                                <div className="col-start-1 col-end-12 p-3 rounded-lg">
+                                                                                    <div className="flex flex-row items-center">
+                                                                                        <div
+                                                                                            className="flex items-center justify-center h-10 w-10 rounded-full bg-gray-300 flex-shrink-0"
+                                                                                        >
+                                                                                            OD
+                                                                                        </div>
+                                                                                        <div
+                                                                                            className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl"
+                                                                                        >
+                                                                                            <div>{message.message}</div>
+                                                                                            <span className="text-xs text-gray-400 capitalize">WiiQare - {new Intl.DateTimeFormat('fr-FR', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date())}</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            )
+                                                                        }
+                                                                    </>
                                                                 )
                                                             }
                                                         </>
@@ -171,27 +213,13 @@ function Conversation({ close, setMessages, messages, isLoading, isError, user, 
                                                     ))
                                                 }
 
-                                                {
-                                                    messages.length == 1 && (
-                                                        <div className="col-start-1 col-end-12 p-3 rounded-lg">
-                                                        <div className="flex flex-row items-center">
-                                                            <div
-                                                                className="flex items-center justify-center h-10 w-10 rounded-full bg-gray-300 flex-shrink-0"
-                                                            >
-                                                                WT
-                                                            </div>
-                                                            <div
-                                                                className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl flex flex-col gap-2"
-                                                            >
-                                                                <div>Bonjour Mr./ Mme <span className="uppercase">{user}</span>, merci de nous avoir laisser votre message, nous vous répondrons dans pas longtemps...</div>
-                                                                <span className="text-xs text-gray-400">WiiQare Team</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    )
-                                                }
                                             </>
-                                        ) : <>Démarrer un conversation avec notre équipe...</>
+                                        ) : (<div className="col-span-full h-96 px-10 justify-center flex items-center">
+                                            <div className="flex flex-col gap-3 items-center">
+                                                <Image src={"https://i.goopics.net/26opd3.png"} width={80} height={80} className="w-14 opacity-80" />
+                                                <span className="text-xs text-gray-400 text-center w-full">Démarrer une conversation avec notre équipe...</span>
+                                            </div>
+                                        </div>)
                                     }
 
                                 </div>
@@ -200,8 +228,8 @@ function Conversation({ close, setMessages, messages, isLoading, isError, user, 
                     )
                 }
 
-				<form id="sendMessageform" onSubmit={formik.handleSubmit}>
-            
+                <form id="sendMessageform" onSubmit={formik.handleSubmit}>
+
                     <div
                         className="flex flex-row items-center h-16 bg-white w-full px-4 absolute bottom-40 md:bottom-20"
                     >
@@ -232,7 +260,7 @@ function Conversation({ close, setMessages, messages, isLoading, isError, user, 
                                     name="message"
                                     value={text}
                                     onChange={(e) => { setText(e.target.value) }}
-                                    className="flex w-full border rounded-xl focus:outline-none focus:border-indigo-300 pl-4 h-10"
+                                    className="flex w-full border rounded-xl focus:outline-none focus:border-indigo-300 pl-2 pr-9 h-10"
                                 />
                                 <button
                                     className="absolute flex items-center justify-center h-full w-12 right-0 top-0 text-gray-400 hover:text-gray-600"
@@ -259,22 +287,30 @@ function Conversation({ close, setMessages, messages, isLoading, isError, user, 
                                 type="submit"
                                 className={`flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-3 h-fit flex-shrink-0 disabled:bg-gray-400`} disabled={!text ? true : false}
                             >
-                                <span className="ml-2">
-                                    <svg
-                                        className="w-4 h-4 transform rotate-45 -mt-px"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                                        ></path>
-                                    </svg>
-                                </span>
+                                {
+                                    sendMessageMutation.isLoading ? (
+                                        <div className="animate-spin inline-block w-4 h-4 border-[2px] border-current border-t-transparent text-white rounded-full" role="status" ariaLabel="loading">
+                                            <span className="sr-only">Loading...</span>
+                                        </div>
+                                    ) : (
+                                        <span className="ml-1">
+                                            <svg
+                                                className="w-4 h-4 transform rotate-45 -mt-px"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                    )
+                                }
                             </button>
                         </div>
                     </div>
