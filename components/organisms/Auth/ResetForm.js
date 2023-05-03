@@ -62,7 +62,7 @@ function ResetForm() {
 
 	const onSubmit = async (values) => {
 		if (Object.keys(values).length == 0) return console.log("Pas de données");
-		newChangePassword.mutate({...values, token})
+		newChangePassword.mutate({...values, resetPasswordToken: token})
 	};
 
 	const closeToast = () => {
