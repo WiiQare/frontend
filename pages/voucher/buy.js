@@ -16,11 +16,11 @@ const Page = ({data}) => {
     return (
         <>
             <Head>
-                <title>Acheter un pass santé</title>
+                <title>Envoyer un pass santé</title>
             </Head>
             <div className="p-2 space-y-6 md:py-8 md:px-6">
                 <CardHeader
-                    title={"Acheter un pass santé"}
+                    title={"Envoyer un pass santé"}
                     breadcrumbs={[
                         {
                             item: "Accueil",
@@ -39,7 +39,7 @@ const Page = ({data}) => {
                     <div className="w-full overflow-hidden md:col-span-2 rounded-lg py-8 flex flex-col gap-6 bg-white drop-shadow-sm">
                         <div className="px-8 space-y-8">
                             <div>
-                                <h2 className="font-semibold text-3xl">{activeStepIndex == 2 ? 'Envoyer' :  'Acheter'} un pass santé</h2>
+                                <h2 className="font-semibold text-3xl">Envoyer un pass santé</h2>
                             </div>
                             <div className="flex flex-col gap-4">
                                 <FormContext.Provider value={{ activeStepIndex, setActiveStepIndex, formData, setFormData }}>
