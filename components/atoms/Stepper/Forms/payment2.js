@@ -37,7 +37,7 @@ function Amount({ amount, setAmount, symbols, patient, setActiveStepIndex, activ
 	});
 
 	const [currencyPatient, setCurrencyPatient] = useState(countries[patient?.country?.toUpperCase() ?? "CD"].currencies[0]);
-	const [currencyPatientName, setCurrencyPatientName] = useState(patient.countryLabel ?? "DR Congo");
+	const [currencyPatientName, setCurrencyPatientName] = useState(patient.countryLabel ?? new Intl.DisplayNames(['en'], {type: 'region'}).of(patient?.country?.toUpperCase()));
 	
 	const [currencySender, setCurrencySender] = useState("EUR");
 	const [convertRequest, setConvertRequest] = useState(false);
