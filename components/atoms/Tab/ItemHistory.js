@@ -231,7 +231,7 @@ const ItemHistory = ({ stripePaymentId, transactionHash, patient, currency, send
 
                 </div>
                 <span className="w-52 bg-gray-200 h-fit p-2 rounded-lg flex items-center gap-2 text-sm text-gray-600">
-                    <CiCircleInfo size={30} className="text-gray-400" /> {voucher.status}
+                    <span className='tooltip tooltip-bottom text-xs' data-tip="Le Health Pass peut être échangé lorsqu'il est présenté à un fournisseur de soins de santé partenaire de WiiQare"><CiCircleInfo size={23} className="text-gray-400" /></span> {voucher.status}
                 </span>
             </div>
         </div>

@@ -27,7 +27,7 @@ const Page = ({data}) => {
                             link: "/"
                         },
                         {
-                            item: "Acheter un pass santé",
+                            item: "Envoyer un pass santé",
                             link: "/voucher/buy"
                         }
                     ]}
