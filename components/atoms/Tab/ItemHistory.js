@@ -199,7 +199,7 @@ const ItemHistory = ({ stripePaymentId, transactionHash, patient, currency, send
                     <table className="table table-zebra text-xs w-full">
                         <thead>
                             <tr>
-                                <th>Paiement ID</th>
+                                <th>Transaction ID</th>
                                 <th>Methode de paiement</th>
                                 <th>Date</th>
                                 <th>Montant réçu</th>

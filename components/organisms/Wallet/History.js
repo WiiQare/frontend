@@ -38,7 +38,7 @@ const HistoryWallet = () => {
 
             <Box sx={{ width: '100%' }}>
 
-                <SimpleHeader title={"Historique de paiement"} describe={"Liste de toutes les transactions effectuées"}>
+                <SimpleHeader title={"Historique des transactions"} describe={"Liste de toutes les transactions effectuées"}>
                     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" className='text-sm md:text-md'>
                             {TabHistories.map((item, index) => <Tab label={item.name} transactions={item.transactions} {...a11yProps(index)} key={index} />)}
