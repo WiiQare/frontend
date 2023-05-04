@@ -18,7 +18,6 @@ export default function Drawer() {
     const { status, data: session } = useSession();
     const [allMessages, setAllMessages] = useState(null);
 
-    console.log("Drawer", session);
     const { data, isLoading, isError } = Fetcher(`/messaging?senderId=${session.user.data.userId}`, session.user.data.access_token);
 
     useEffect(() => {
@@ -128,7 +127,7 @@ function Conversation({ close, setMessages, messages, isLoading, isError, user, 
                         <div className="flex flex-col overflow-x-auto mb-4">
                             <div className="flex flex-col h-full">
 
-                                <div className="grid grid-cols-12 gap-y-2">
+                                <div className="grid grid-cols-12 gap-y-2 overflow-y-scroll">
                                     {
                                         messages && messages.length > 0 ? (
                                             <>

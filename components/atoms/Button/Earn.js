@@ -35,7 +35,7 @@ const ButtonEarn = ({ modal, children }) => {
                     >
                         <div className="fixed inset-0 bg-black bg-opacity-25" />
                     </Transition.Child>
-                    <ContentModal title={modal.title} tabs={true}>
+                    <ContentModal title={modal.title} tabs={true} closeModal={closeModal}>
                         {children}
                     </ContentModal>
                 </Dialog>
