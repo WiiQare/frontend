@@ -31,7 +31,6 @@ function Payment2({data:symbols}) {
 
 function Amount({ amount, setAmount, symbols, patient, setActiveStepIndex, activeStepIndex }) {
 
-	console.log(patient);
 	const ValidationSchema = yup.object().shape({
 		amount: yup.number().required("Please enter valid amount").min(2)
 	});
@@ -183,7 +182,7 @@ function Amount({ amount, setAmount, symbols, patient, setActiveStepIndex, activ
 
 								<div className="flex items-center justify-between">
 									<p className="text-sm font-medium text-gray-900">Taux d'échange</p>
-									<p className="font-normal text-sm text-gray-600">{currencySender == "EUR" ? "€" : "$"} 1.00 = <span className="text-orange">{convertResult?.info?.rate.toFixed(2) ?? ''} {convertResult?.query?.to ?? currencyPatient}</span></p>
+									<p className="font-normal text-sm text-gray-600">{currencySender == "EUR" ? "€" : "$"} 1.00 = <span className="text-orange">{convertResult?.info?.rate.toFixed(2) ?? ''} {currencyPatient ?? convertResult?.query?.to}</span></p>
 								</div>
 
 								<div className="flex items-center justify-between">
