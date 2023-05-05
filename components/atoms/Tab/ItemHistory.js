@@ -309,8 +309,8 @@ const ItemHistory = ({ stripePaymentId, transactionHash, patient, currency, send
                                                                         <span className="absolute flex items-center justify-center w-6 h-6 bg-green-400 rounded-full -left-3 ring-8 ring-white">
                                                                             <MdCheck className='!text-white' color='#fff' style={{ color: "#fff" }} />
                                                                         </span>
-                                                                        <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900">Transfert créer <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">Latest</span></h3>
-                                                                        <time className="block mb-2 text-sm font-normal leading-none text-gray-400">Janvier 13, 2023</time>
+                                                                        <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900">Transfert Créer <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">Début</span></h3>
+                                                                        <time className="block mb-2 text-sm font-normal leading-none text-gray-400">{new Intl.DateTimeFormat('fr', { dateStyle: 'long' }).format(new Date(createdAt))}</time>
 
                                                                     </li>
                                                                     <li className="mb-10 ml-6">
@@ -318,21 +318,21 @@ const ItemHistory = ({ stripePaymentId, transactionHash, patient, currency, send
                                                                             <MdCheck className='!text-white' color='#fff' style={{ color: "#fff" }} />
                                                                         </span>
                                                                         <h3 className="mb-1 text-lg font-semibold text-gray-900">Traitement WiiQare</h3>
-                                                                        <time className="block mb-2 text-sm font-normal leading-none text-gray-400">Decembre 7, 2022</time>
+                                                                        <time className="block mb-2 text-sm font-normal leading-none text-gray-400">{new Intl.DateTimeFormat('fr', { dateStyle: 'long' }).format(new Date(createdAt))}</time>
                                                                     </li>
                                                                     <li className="ml-6 mb-10">
                                                                         <span className="absolute flex items-center justify-center w-6 h-6 bg-green-400 rounded-full -left-3 ring-8 ring-white">
                                                                             <MdCheck className='!text-white' color='#fff' style={{ color: "#fff" }} />
                                                                         </span>
-                                                                        <h3 className="mb-1 text-lg font-semibold text-gray-900">Traitement du partenaire local</h3>
-                                                                        <time className="block mb-2 text-sm font-normal leading-none text-gray-400">Decembre 2, 2022</time>
+                                                                        <h3 className="mb-1 text-lg font-semibold text-gray-900">Pass Santé  QR Code Généré</h3>
+                                                                        <time className="block mb-2 text-sm font-normal leading-none text-gray-400">{new Intl.DateTimeFormat('fr', { dateStyle: 'long' }).format(new Date(createdAt))}</time>
                                                                     </li>
 
                                                                     <li className="ml-6">
                                                                         <span className="absolute flex items-center justify-center w-6 h-6 bg-gray-200 rounded-full -left-3 ring-8 ring-white">
                                                                         </span>
                                                                         <h3 className="mb-1 text-lg font-semibold text-gray-400">Utilisation du Pass santé</h3>
-                                                                        <time className="block mb-2 text-sm font-normal leading-none text-gray-200">Decembre 2, 2022</time>
+                                                                        <time className="block mb-2 text-sm font-normal leading-none text-gray-200">En cours ...</time>
                                                                     </li>
                                                                 </ol>
                                                             </div>
