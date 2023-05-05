@@ -269,7 +269,41 @@ const ItemHistory = ({ stripePaymentId, transactionHash, patient, currency, send
                                                                 </h3>
                                                             </Dialog.Title>
 
-                                                            <div className='px-8'>
+                                                            <div className='px-8 space-y-8'>
+
+                                                                <div className='space-y-4'>
+                                                                    <div className="flex gap-4 items-center px-5 justify-center">
+                                                                        <img className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800" src="/images/homme.png" alt="Image Description" />
+                                                                        <BiTransferAlt size={30} className='text-gray-400' />
+                                                                        <img className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800" src="/images/femme.png" alt="Image Description" />
+                                                                    </div>
+
+
+                                                                    <span className="text-xs flex justify-center items-center gap-1">Pass Sante ID:
+                                                                        <CopyToClipboard text={transactionHash} onCopy={() => {
+                                                                            setCopy(true); setTimeout(() => {
+                                                                                setCopy(false)
+                                                                            }, 2000);
+                                                                        }}>
+                                                                            <div className="flex items-center gap-1">
+                                                                                [
+                                                                                <div className="tooltip" data-tip={!copy ? "Copy to clipboard" : "✓ Copy"}>
+                                                                                    <span className="text-orange cursor-pointer"><SliceText text={"0xf59b12eccfc5faedbc4657bd593d6d6a0c679623"} /></span>
+                                                                                </div>
+                                                                                ]
+                                                                            </div>
+                                                                        </CopyToClipboard>
+                                                                    </span>
+
+                                                                    <h4 className="text-sm text-center">
+                                                        <span className="flex items-center justify-center gap-2">
+                                                            <span className="font-semibold flex items-center gap-1">
+                                                                <CurrencyFlag currency={currency} className="rounded-full !h-4 !w-4 object-cover" /> {new Intl.NumberFormat("en-US", { style: 'currency', currency }).format(amount)}</span>
+                                                            Pass santé WiiQare
+                                                        </span>
+                                                        de <span className="text-orange font-semibold">{sender.firstName}</span> à <span className="text-orange font-semibold">{patient.firstName}</span></h4>
+                                                                </div>
+
                                                                 <ol className="relative border-l border-gray-200">
                                                                     <li className="mb-10 ml-6">
                                                                         <span className="absolute flex items-center justify-center w-6 h-6 bg-green-400 rounded-full -left-3 ring-8 ring-white">
@@ -277,7 +311,7 @@ const ItemHistory = ({ stripePaymentId, transactionHash, patient, currency, send
                                                                         </span>
                                                                         <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900">Transfert créer <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">Latest</span></h3>
                                                                         <time className="block mb-2 text-sm font-normal leading-none text-gray-400">Janvier 13, 2023</time>
-                                                    
+
                                                                     </li>
                                                                     <li className="mb-10 ml-6">
                                                                         <span className="absolute flex items-center justify-center w-6 h-6 bg-green-400 rounded-full -left-3 ring-8 ring-white">
@@ -292,7 +326,6 @@ const ItemHistory = ({ stripePaymentId, transactionHash, patient, currency, send
                                                                         </span>
                                                                         <h3 className="mb-1 text-lg font-semibold text-gray-900">Traitement du partenaire local</h3>
                                                                         <time className="block mb-2 text-sm font-normal leading-none text-gray-400">Decembre 2, 2022</time>
-                                                                        <p className="text-sm font-normal text-gray-500">Get started with dozens of web components and interactive elements built on top of Tailwind CSS.</p>
                                                                     </li>
 
                                                                     <li className="ml-6">
