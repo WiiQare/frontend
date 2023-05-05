@@ -1,7 +1,6 @@
 import { CiCircleInfo } from "react-icons/ci";
 import { HiUserGroup } from "react-icons/hi";
 import ButtonEarn from "../../atoms/Button/Earn";
-import WithQR from "../../atoms/Card/Debit/withQR";
 import { TabPanel } from "../../atoms/Modal/content";
 import { HiCreditCard } from "react-icons/hi2";
 import ButtonBuy from "../../atoms/Button/Buy";
@@ -9,9 +8,6 @@ import ButtonBuy from "../../atoms/Button/Buy";
 const VoucherHome = () => {
 	return (
 		<div className="p-2 md:pb-8 md:px-6 flex flex-col md:flex-row gap-8 md:gap-12 justify-center">
-			{/* <div className="md:min-w-5/6 flex">
-				<WithQR />
-			</div> */}
 
 			<div className="bg-white drop-shadow-sm rounded-xl py-6 px-10 md:px-24 flex flex-col justify-center items-center gap-8 w-full relative">
 				<HiCreditCard size={60} className="text-orange" />

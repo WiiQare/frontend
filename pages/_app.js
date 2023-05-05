@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 import Head from "next/head";
 import NextNProgress from "nextjs-progressbar";
 import { SessionProvider } from "next-auth/react";
@@ -21,6 +21,9 @@ const App = ({ Component, pageProps }) => {
   const [draw, setDraw] = useState(false);
   const getLayout = Component.getLayout ?? ((page) => page);
 
+  useEffect(() => {
+    import('preline')
+  }, [])
   return (
     <>
       <Head>
