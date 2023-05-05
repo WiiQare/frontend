@@ -225,7 +225,7 @@ const ItemHistory = ({ stripePaymentId, transactionHash, patient, currency, send
                                 <td>{new Intl.DateTimeFormat('fr', { dateStyle: 'full' }).format(new Date(createdAt))}</td>
                                 <td className='flex gap-1 items-center'><CurrencyFlag currency={currency} className="rounded-full !h-4 !w-4 object-cover" /> {new Intl.NumberFormat("en-US", { style: 'currency', currency }).format(amount)}</td>
                                 <td>
-                                    <div onClick={openModalTracking} type="button" className='cursor-pointer'>
+                                    <div onClick={openModalTracking} type="button" className='cursor-pointer' title='Voir Tracking Security'>
 
                                         {
                                             status == "success" ? (
