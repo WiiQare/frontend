@@ -263,9 +263,10 @@ const ItemHistory = ({ stripePaymentId, transactionHash, patient, currency, send
                                                         leaveTo="opacity-0 scale-95"
                                                     >
                                                         <Dialog.Panel className="w-full max-w-md p-6 overflow-hidden text-left transition-all transform bg-white shadow-xl rounded-xl space-y-8">
-                                                            <Dialog.Title as="div" className="flex justify-between items-center">
+                                                            <Dialog.Title as="div" className="flex gap-2 items-center">
+                                                                <MdSecurity size={17} className='text-gray-600'/>
                                                                 <h3 className="text-md font-semibold leading-6 text-gray-900">
-                                                                    Tracking <span className='text-orange'> Security</span>
+                                                                Sécurité & <span className='text-orange'> Suivi</span>
                                                                 </h3>
                                                             </Dialog.Title>
 
@@ -358,23 +359,3 @@ const ItemHistory = ({ stripePaymentId, transactionHash, patient, currency, send
 }
 
 export default ItemHistory;
-
-function ItemsDetails({ title, value, otherValue, exclamation = false, last = true }) {
-    return (
-        <div className="flex flex-col hover:shadow-sm w-full">
-            <div className='flex justify-between px-6 py-2 items-center'>
-                <div className='flex flex-col  mb-2 gap-1'>
-                    <h1 className='font-normal text-md text-gray-400 text-sm'>{title}</h1>
-                    <div className='flex gap-2 items-center'>
-                        <h3 className='font-bold text-xl text-gray-700'>{value}</h3>
-                        {otherValue && <span className='text-sm text-gray-400'> - {otherValue}</span>}
-                    </div>
-                </div>
-
-                {exclamation && <AiOutlineExclamationCircle size={24} className='text-gray-300 cursor-pointer hover:text-orange transition-all duration-200' />}
-            </div>
-
-            {last && <hr />}
-        </div>
-    )
-}
