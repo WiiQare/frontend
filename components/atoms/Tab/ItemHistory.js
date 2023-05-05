@@ -10,7 +10,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Link from "next/link";
 import { AiOutlineExclamationCircle } from 'react-icons/ai';
 import { BiTransferAlt } from 'react-icons/bi';
-import { MdPayments, MdSecurity } from 'react-icons/md';
+import { MdCheck, MdPayments, MdSecurity } from 'react-icons/md';
 import { GrSecure, IconName } from "react-icons/gr";
 
 
@@ -146,8 +146,8 @@ const ItemHistory = ({ stripePaymentId, transactionHash, patient, currency, send
 
                                                 <div className="flex flex-col items-center gap-2">
                                                     <div className="flex -space-x-2">
-                                                        <img className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800" src="/images/homme.png" alt="Image Description" />
-                                                        <img className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800" src="/images/femme.png" alt="Image Description" />
+                                                        <img className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white" src="/images/homme.png" alt="Image Description" />
+                                                        <img className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white" src="/images/femme.png" alt="Image Description" />
                                                     </div>
 
                                                     <h4 className="text-sm text-center">
@@ -230,9 +230,9 @@ const ItemHistory = ({ stripePaymentId, transactionHash, patient, currency, send
                                         {
                                             status == "success" ? (
 
-                                                <span className="bg-green-400 text-white w-min h-min py-1 px-2 rounded-full flex items-center gap-1"><MdSecurity className='!text-white' color='#fff' style={{color: "#fff"}}/> Succès</span>
+                                                <span className="bg-green-400 text-white w-min h-min py-1 px-2 rounded-full flex items-center gap-1"><MdSecurity className='!text-white' color='#fff' style={{ color: "#fff" }} /> Succès</span>
                                             ) : (
-                                                <span className="bg-red-400 w-min h-min py-1 px-2 rounded-full flex items-center gap-1"><MdSecurity className='text-white' color='#fff'/> Echec</span>
+                                                <span className="bg-red-400 w-min h-min py-1 px-2 rounded-full flex items-center gap-1"><MdSecurity className='text-white' color='#fff' /> Echec</span>
                                             )
                                         }
 
@@ -262,57 +262,47 @@ const ItemHistory = ({ stripePaymentId, transactionHash, patient, currency, send
                                                         leaveFrom="opacity-100 scale-100"
                                                         leaveTo="opacity-0 scale-95"
                                                     >
-                                                        <Dialog.Panel className="w-full max-w-lg p-6 overflow-hidden text-left transition-all transform bg-white shadow-xl rounded-xl space-y-4">
+                                                        <Dialog.Panel className="w-full max-w-md p-6 overflow-hidden text-left transition-all transform bg-white shadow-xl rounded-xl space-y-8">
                                                             <Dialog.Title as="div" className="flex justify-between items-center">
                                                                 <h3 className="text-md font-semibold leading-6 text-gray-900">
                                                                     Tracking <span className='text-orange'> Security</span>
                                                                 </h3>
                                                             </Dialog.Title>
 
-                                                            <div className='flex justify-center flex-col gap-6 h-full items-center mx-auto py-4 md:py-10 mb-14'>
-                                                                <div className='w-full bg-white rounded-xl py-8 min-h-fit flex '>
-                                                                    <div className="flex flex-col gap-6 justify-center w-full">
-                                                                        <div className="flex flex-col items-center text-center space-y-2">
-                                                                            <div className="flex flex-col items-center select-none">
-                                                                                <h1 className="font-extrabold text-gray-700 text-lg hidden md:flex">Voucher Details</h1>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div className="flex gap-4 items-center px-5 justify-center">
-                                                                            <img className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800" src="/images/homme.png" alt="Image Description" />
-                                                                            <BiTransferAlt size={30} className='text-gray-400' />
-                                                                            <img className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800" src="/images/femme.png" alt="Image Description" />
-                                                                        </div>
-
-
-                                                                        <span className="text-xs flex justify-center items-center gap-1">Pass Sante ID:
-                                                                            <CopyToClipboard text={transactionHash} onCopy={() => {
-                                                                                setCopy(true); setTimeout(() => {
-                                                                                    setCopy(false)
-                                                                                }, 2000);
-                                                                            }}>
-                                                                                <div className="flex items-center gap-1">
-                                                                                    [
-                                                                                    <div className="tooltip" data-tip={!copy ? "Copy to clipboard" : "✓ Copy"}>
-                                                                                        <span className="text-orange cursor-pointer"><SliceText text={transactionHash} /></span>
-                                                                                    </div>
-                                                                                    ]
-                                                                                </div>
-                                                                            </CopyToClipboard>
+                                                            <div className='px-8'>
+                                                                <ol className="relative border-l border-gray-200">
+                                                                    <li className="mb-10 ml-6">
+                                                                        <span className="absolute flex items-center justify-center w-6 h-6 bg-green-400 rounded-full -left-3 ring-8 ring-white">
+                                                                            <MdCheck className='!text-white' color='#fff' style={{ color: "#fff" }} />
                                                                         </span>
+                                                                        <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900">Transfert créer <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">Latest</span></h3>
+                                                                        <time className="block mb-2 text-sm font-normal leading-none text-gray-400">Janvier 13, 2023</time>
+                                                    
+                                                                    </li>
+                                                                    <li className="mb-10 ml-6">
+                                                                        <span className="absolute flex items-center justify-center w-6 h-6 bg-green-400 rounded-full -left-3 ring-8 ring-white">
+                                                                            <MdCheck className='!text-white' color='#fff' style={{ color: "#fff" }} />
+                                                                        </span>
+                                                                        <h3 className="mb-1 text-lg font-semibold text-gray-900">Traitement WiiQare</h3>
+                                                                        <time className="block mb-2 text-sm font-normal leading-none text-gray-400">Decembre 7, 2022</time>
+                                                                    </li>
+                                                                    <li className="ml-6 mb-10">
+                                                                        <span className="absolute flex items-center justify-center w-6 h-6 bg-green-400 rounded-full -left-3 ring-8 ring-white">
+                                                                            <MdCheck className='!text-white' color='#fff' style={{ color: "#fff" }} />
+                                                                        </span>
+                                                                        <h3 className="mb-1 text-lg font-semibold text-gray-900">Traitement du partenaire local</h3>
+                                                                        <time className="block mb-2 text-sm font-normal leading-none text-gray-400">Decembre 2, 2022</time>
+                                                                        <p className="text-sm font-normal text-gray-500">Get started with dozens of web components and interactive elements built on top of Tailwind CSS.</p>
+                                                                    </li>
 
-                                                                        <ItemsDetails title={"Name Sender"} value={sender.firstName + " " + sender.lastName} exclamation={true} />
-                                                                        <ItemsDetails title={"Name Receiver"} value={patient.firstName + " " + patient.lastName} exclamation={true} />
-                                                                        <ItemsDetails title={"Amount Send"} value={new Intl.NumberFormat("en-US", { style: 'currency', currency }).format(amount)} otherValue={"2023 April 10"} />
-
-                                                                        <div className='flex justify-center'>
-                                                                            <button className='capitalize bg-orange w-fit  px-6 py-4 rounded-xl text-white flex gap-2 items-center effect-up shadow-md'><MdPayments size={20} /> Proceed to payment</button>
-                                                                        </div>
-
-                                                                    </div>
-                                                                </div>
+                                                                    <li className="ml-6">
+                                                                        <span className="absolute flex items-center justify-center w-6 h-6 bg-gray-200 rounded-full -left-3 ring-8 ring-white">
+                                                                        </span>
+                                                                        <h3 className="mb-1 text-lg font-semibold text-gray-400">Utilisation du Pass santé</h3>
+                                                                        <time className="block mb-2 text-sm font-normal leading-none text-gray-200">Decembre 2, 2022</time>
+                                                                    </li>
+                                                                </ol>
                                                             </div>
-
 
                                                         </Dialog.Panel>
                                                     </Transition.Child>
