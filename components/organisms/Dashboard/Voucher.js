@@ -35,7 +35,7 @@ const VoucherHome = () => {
 			<div className="bg-white drop-shadow-sm rounded-xl py-6 px-10 md:px-24 flex flex-col justify-center items-center gap-8 w-full relative">
 				<HiUserGroup size={60} className="text-sky" />
 				<div className="space-y-3 text-center w-full flex flex-col items-center z-40">
-					<h1 className="text-gray-800 text-lg">Parrainez vos amis</h1>
+					<h1 className="text-gray-800 text-lg">Invitez vos amis</h1>
 					<ButtonEarn modal={{ title: "Invite tes amis" }}></ButtonEarn>
 					<span data-popover-target="popover-description" className="absolute top-1 right-6 cursor-pointer text-gray-700 md:text-gray-400"><CiCircleInfo size={25} /></span>
 

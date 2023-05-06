@@ -21,7 +21,7 @@ import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import '@splidejs/react-splide/css';
 import avatar from "../../../../public/images/femme.png";
 import Image from "next/image";
-import { CiCircleCheck } from "react-icons/ci";
+import { CiCircleCheck, CiCircleInfo } from "react-icons/ci";
 import { BiCaretRight } from "react-icons/bi";
 import CountrySelect from "../../Input/Country";
 export const CountryContext = createContext();
@@ -296,7 +296,7 @@ function Identity2() {
 												<CountrySelect />
 											</CountryContext.Provider>
 										</div>
-										<div className="flex flex-col gap-1 md:w-2/3">
+										<div className="flex items-center gap-1 md:w-2/3">
 											<MuiPhoneNumber
 												fullWidth
 												label="Numéro de Téléphone"
@@ -307,7 +307,11 @@ function Identity2() {
 												defaultCountry={country}
 												name="phoneNumber"
 											/>
+										<span className="w-fit h-fit p-2 rounded-lg flex items-center gap-2 text-sm text-gray-600">
+											<span className='tooltip tooltip-bottom text-xs' data-tip={`${formik.values.phoneNumber.trim(" ") != "" ? formik.values.phoneNumber : "Ce numéro de téléphone"} devra être le numéro disponible, pour être utilisé à l'hôpital `}><CiCircleInfo size={23} className="text-gray-400" /></span>
+										</span>
 										</div>
+
 
 									</div>
 

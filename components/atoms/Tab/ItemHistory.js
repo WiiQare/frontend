@@ -230,9 +230,9 @@ const ItemHistory = ({ stripePaymentId, transactionHash, patient, currency, send
                                         {
                                             status == "success" ? (
 
-                                                <span className="bg-green-400 text-white w-min h-min py-1 px-2 rounded-full flex items-center gap-1"><MdSecurity className='!text-white' color='#fff' style={{ color: "#fff" }} /> Succès</span>
+                                                <span className="bg-green-400 text-white w-min h-min py-1 px-2 rounded-full flex items-center gap-1"><MdSecurity className='!text-white' color='#fff' style={{ color: "#fff" }} /> Pass Santé Généré</span>
                                             ) : (
-                                                <span className="bg-red-400 w-min h-min py-1 px-2 rounded-full flex items-center gap-1"><MdSecurity className='text-white' color='#fff' /> Echec</span>
+                                                <span className="bg-red-400 w-min h-min py-1 px-2 rounded-full flex items-center gap-1"><MdSecurity className='text-white' color='#fff' /> Pass Santé Généré</span>
                                             )
                                         }
 
@@ -325,7 +325,7 @@ const ItemHistory = ({ stripePaymentId, transactionHash, patient, currency, send
                                                                         <span className="absolute flex items-center justify-center w-6 h-6 bg-green-400 rounded-full -left-3 ring-8 ring-white">
                                                                             <MdCheck className='!text-white' color='#fff' style={{ color: "#fff" }} />
                                                                         </span>
-                                                                        <h3 className="mb-1 text-lg font-semibold text-gray-900">Pass Santé  QR Code Généré</h3>
+                                                                        <h3 className="mb-1 text-lg font-semibold text-gray-900">Pass Santé Généré</h3>
                                                                         <time className="block mb-2 text-sm font-normal leading-none text-gray-400">{new Intl.DateTimeFormat('fr', { dateStyle: 'long' }).format(new Date(createdAt))}</time>
                                                                     </li>
 
