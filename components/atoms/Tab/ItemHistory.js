@@ -12,10 +12,14 @@ import { AiOutlineExclamationCircle } from 'react-icons/ai';
 import { BiTransferAlt } from 'react-icons/bi';
 import { MdCheck, MdPayments, MdSecurity } from 'react-icons/md';
 import { GrSecure, IconName } from "react-icons/gr";
+import { useFormik } from 'formik';
+import { useMutation } from 'react-query';
+import { sendSMSHash } from '../../../lib/helper';
+import LoadingButton from '../Loader/LoadingButton';
 
 
-const ItemHistory = ({ stripePaymentId, transactionHash, patient, currency, sender, senderAmount, senderCurrency, voucher, email, createdAt, amount, paymentMethod, status, value, index, total }) => {
-    console.log(status);
+const ItemHistory = ({ shortenHash, stripePaymentId, transactionHash, patient, currency, sender, senderAmount, senderCurrency, voucher, email, createdAt, amount, paymentMethod, status, value, index, total, accessToken }) => {
+
     const { Canvas } = useQRCode();
     const [isOpen, setIsOpen] = useState(false);
     const [isOpenTracking, setIsOpenTracking] = useState(false);
@@ -41,6 +45,33 @@ const ItemHistory = ({ stripePaymentId, transactionHash, patient, currency, send
     const SliceText = ({ text }) => {
         return <>{text.slice(0, 8)}...{text.slice(-7)}</>
     }
+
+    const sendSMSMutation = useMutation(sendSMSHash,  {
+        onSuccess: (res) => {
+
+            console.log(res);
+            if(!res.code) {
+                // setState({type: 1, message: "Email sent successfully"})
+                // handleComplete()
+            } else {
+                // setState({type: 2, message:res.message ?? res.description})
+                // setTimeout(() => {
+                //     setState({ type: 0, message: "" })
+                // }, 3000);
+            };
+        }
+    });
+
+    const onSubmit = async (values) => {
+        sendSMSMutation.mutate({shortenHash, accessToken})
+    };
+
+
+     // Formik hook
+     const formik = useFormik({
+        initialValues: {},
+        onSubmit
+    })
 
     return (
         <div tabIndex={index} className={`${total > index + 1 ? "border-b py-3" : ""} collapse collapse-arrow  text-gray-700 overflow-scroll md:overflow-hidden`}>
@@ -177,12 +208,10 @@ const ItemHistory = ({ stripePaymentId, transactionHash, patient, currency, send
                                                         </a>
                                                     </Link>
 
-                                                    <Link href={`sms://+243814978651&?body=https://wiiqare-app.com/voucher/pass/${stripePaymentId}`} legacyBehavior target={"_blank"}>
-                                                        <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-                                                            <img src="/images/sms.png" alt="" className="w-6" />
-                                                            <span className="hidden md:flex">Message</span>
-                                                        </a>
-                                                    </Link>
+                                                    <button className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2" onClick={formik.handleSubmit}>
+                                                        <img src="/images/sms.png" alt="" className="w-6" />
+                                                        {sendSMSMutation.isLoading ? <LoadingButton /> : <span className="hidden md:flex">Message</span>}
+                                                    </button>
 
                                                     <CopyToClipboard text={`https://wiiqare-app.com/voucher/pass/${stripePaymentId}`} onCopy={() => {
                                                         setCopyLink(true); setTimeout(() => {
