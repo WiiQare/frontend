@@ -41,7 +41,7 @@ function Stepper() {
                 <div className="stepper-item flex items-center justify-center w-12 h-12 text-center font-medium border-2 rounded-full">
                     3
                 </div>
-                <span className="absolute -bottom-6 text-xs w-max md:-left-8">générer un <span className="hidden md:inline">pass santé QR Code </span> </span>
+                <span className="absolute -bottom-6 text-xs w-max md:-left-8">Généré un <span className="hidden md:inline">Pass Santé </span> </span>
             </div>
         </div>
     );

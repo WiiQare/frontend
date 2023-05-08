@@ -39,11 +39,11 @@ const ProviderFilter = () => {
       Les hôpitaux partenaires dans le pays{" "}
         <Image src={drc} loading="lazy" className="w-6" /> RD Congo
       </h1>
-      <div className="flex gap-2 flex-col md:flex-row md:gap-4 justify-between items-center">
+      {/* <div className="flex gap-2 flex-col md:flex-row md:gap-4 justify-between items-center">
         {filters.map((item, i) => (
           <DropdownFilter className="w-full md:w-1/3" {...item} key={i} />
         ))}
-      </div>
+      </div> */}
       <div className="space-y-6">
         <CardProvider />
         <CardProvider />

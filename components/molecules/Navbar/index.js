@@ -77,7 +77,7 @@ const Menu = ({ session, handleSignOut }) => {
 						<HiMenuAlt3 className="text-4xl text-blue-600" />
 					</button>
 
-					<form className="">
+					{/* <form className="">
 						<label htmlFor="voice-search" className="sr-only">
 							Search
 						</label>
@@ -123,13 +123,13 @@ const Menu = ({ session, handleSignOut }) => {
 								</svg>
 							</button>
 						</div>
-					</form>
+					</form> */}
 				</div>
 			</div>
 
 			<div className="flex items-center justify-between gap-8 md:gap-20">
 				<div className="flex items-center md:gap-6">
-					<div className="">
+					{/* <div className="">
 						<Box>
 							<IconButton
 								onClick={handleClick}
@@ -200,7 +200,7 @@ const Menu = ({ session, handleSignOut }) => {
 								English
 							</MenuItem>
 						</MenuMui>
-					</div>
+					</div> */}
 
 					<div className="flex">
 						<Dropdown
