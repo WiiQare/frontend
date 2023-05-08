@@ -9,6 +9,12 @@ import Fetcher from "../../../../lib/Fetcher";
 import { HiExclamation } from "react-icons/hi";
 import { useRouter } from "next/router";
 import CurrencyFlag from "react-currency-flags";
+import { useMutation } from "react-query";
+import { sendSMSHash } from "../../../../lib/helper";
+import { useFormik } from "formik";
+import { useSession } from "next-auth/react";
+import LoadingButton from "../../Loader/LoadingButton";
+import Toast from "../../Toast";
 
 function Send() {
 	const { Canvas } = useQRCode();
@@ -16,10 +22,41 @@ function Send() {
 	const [copy, setCopy] = useState(false);
 	const {query} = useRouter();
 	const [copyLink, setCopyLink] = useState(false);
+    const [state, setState] = useState({ type: 0, message: "" });
     const {data, isLoading, isError} = Fetcher(`/payment/voucher?paymentId=${query.payment_intent}`);
+	const { data:session } = useSession();
 
+	const sendSMSMutation = useMutation(sendSMSHash,  {
+        onSuccess: (res) => {
 
-	console.log(data);
+            console.log(res);
+            if(!res.code) {
+                setState({type: 1, message: "SMS envoyé avec succès"})
+                setTimeout(() => {
+                    setState({ type: 0, message: "" })
+                }, 3000);
+            } else {
+                setState({type: 2, message:res.message ?? res.description})
+                setTimeout(() => {
+                    setState({ type: 0, message: "" })
+                }, 3000);
+            };
+        }
+    });
+
+	const onSubmit = async (values) => {
+        sendSMSMutation.mutate({shortenHash: data.shortenHash, accessToken: session.user.data.access_token})
+    };
+
+    const closeToast = () => {
+		setState({ type: 0, message: "" })
+	}
+
+     // Formik hook
+     const formik = useFormik({
+        initialValues: {},
+        onSubmit
+    })
 
 	if(isLoading || isError) return (<>
 		<div role="status">
@@ -36,6 +73,7 @@ function Send() {
 	}
 	return (
 		<div className="flex flex-col gap-6 justify-center items-center">
+        	{state.type > 0 ? state.type == 2 ? <Toast type={"danger"} message={state.message} close={closeToast}/> : (state.type == 1 ? <Toast type={"success"} message={state.message} close={closeToast}/> : <></>) : <></>}
 			<div className="flex flex-col items-center text-center space-y-2">
 				<div className="flex flex-col items-center select-none">
 					<Image
@@ -119,12 +157,10 @@ function Send() {
 						</a>
 					</Link>
 
-					<Link href={`sms://+243814978651&?body=https://wiiqare-app.com/voucher/pass/${data.stripePaymentId}`} legacyBehavior target={"_blank"}>
-						<a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-							<img src="/images/sms.png" alt="" className="w-6" />
-							<span className="hidden md:flex">Message</span> 
-						</a>
-					</Link>
+					<button className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2" type="submit" onClick={formik.handleSubmit}>
+						<img src="/images/sms.png" alt="" className="w-6" />
+						{sendSMSMutation.isLoading ? <LoadingButton /> : <span className="hidden md:flex">Message</span>}
+					</button>
 
 					<CopyToClipboard text={`https://wiiqare-app.com/voucher/pass/${data.stripePaymentId}`} onCopy={() => {
 						setCopyLink(true); setTimeout(() => {

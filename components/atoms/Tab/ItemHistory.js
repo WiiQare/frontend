@@ -16,6 +16,7 @@ import { useFormik } from 'formik';
 import { useMutation } from 'react-query';
 import { sendSMSHash } from '../../../lib/helper';
 import LoadingButton from '../Loader/LoadingButton';
+import Toast from '../Toast';
 
 
 const ItemHistory = ({ shortenHash, stripePaymentId, transactionHash, patient, currency, sender, senderAmount, senderCurrency, voucher, email, createdAt, amount, paymentMethod, status, value, index, total, accessToken }) => {
@@ -23,6 +24,7 @@ const ItemHistory = ({ shortenHash, stripePaymentId, transactionHash, patient, c
     const { Canvas } = useQRCode();
     const [isOpen, setIsOpen] = useState(false);
     const [isOpenTracking, setIsOpenTracking] = useState(false);
+    const [state, setState] = useState({ type: 0, message: "" });
     const [copy, setCopy] = useState(false);
     const [copyLink, setCopyLink] = useState(false);
 
@@ -51,13 +53,15 @@ const ItemHistory = ({ shortenHash, stripePaymentId, transactionHash, patient, c
 
             console.log(res);
             if(!res.code) {
-                // setState({type: 1, message: "Email sent successfully"})
-                // handleComplete()
+                setState({type: 1, message: "SMS envoyé avec succès"})
+                setTimeout(() => {
+                    setState({ type: 0, message: "" })
+                }, 3000);
             } else {
-                // setState({type: 2, message:res.message ?? res.description})
-                // setTimeout(() => {
-                //     setState({ type: 0, message: "" })
-                // }, 3000);
+                setState({type: 2, message:res.message ?? res.description})
+                setTimeout(() => {
+                    setState({ type: 0, message: "" })
+                }, 3000);
             };
         }
     });
@@ -66,6 +70,9 @@ const ItemHistory = ({ shortenHash, stripePaymentId, transactionHash, patient, c
         sendSMSMutation.mutate({shortenHash, accessToken})
     };
 
+    const closeToast = () => {
+		setState({ type: 0, message: "" })
+	}
 
      // Formik hook
      const formik = useFormik({
@@ -118,6 +125,7 @@ const ItemHistory = ({ shortenHash, stripePaymentId, transactionHash, patient, c
                             <div className="fixed inset-0 bg-black bg-opacity-25" />
                         </Transition.Child>
                         <div className="fixed inset-0 overflow-y-auto">
+                            {state.type > 0 ? state.type == 2 ? <Toast type={"danger"} message={state.message} close={closeToast}/> : (state.type == 1 ? <Toast type={"success"} message={state.message} close={closeToast}/> : <></>) : <></>}
                             <div className="flex items-center justify-center min-h-full p-4 text-center">
                                 <Transition.Child
                                     as={Fragment}
