@@ -107,7 +107,7 @@ function ForgotForm() {
 										</>
 									) : (
 										<div className="flex flex-col gap-3 items-center">
-											<Image src={"https://i.goopics.net/fuiyr8.png"} width={80} height={80} className="w-28" />
+											<img src={"https://i.goopics.net/fuiyr8.png"} width={80} height={80} className="w-28" />
 											<span className="text-xs text-gray-400 ">Un mail de réinitialisation a été envoyé à votre adresse email</span>
 										</div>
 									)

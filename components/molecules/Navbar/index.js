@@ -208,12 +208,12 @@ const Menu = ({ session, handleSignOut }) => {
 							inline={true}
 							className="shadow-sm rounded-2xl w-fit"
 							label={
-								<IconBadge total={-1}>
+								<IconBadge total={0}>
 									<AiOutlineBell size={25} />
 								</IconBadge>
 							}
 						>
-							<NotificationBadge
+							{/* <NotificationBadge
 								avatar={avatar}
 								time={"29 July 2020 - 02:26 PM"}
 								title={"Dr sultads Send you Photo"}
@@ -238,7 +238,7 @@ const Menu = ({ session, handleSignOut }) => {
 								voir toutes les notifications
 									<AiOutlineArrowRight />
 								</p>
-							</Dropdown.Item>
+							</Dropdown.Item> */}
 						</Dropdown>
 					</div>
 

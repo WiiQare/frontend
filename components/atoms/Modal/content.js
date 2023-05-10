@@ -231,12 +231,13 @@ function TabItems({ value, accessToken, closeModal, setState }) {
 							</div>
 
 							<div className="flex flex-row-reverse gap-4">
-								<button className="bg-orange text-sm py-2 px-4 rounded-lg effect-up text-white" onClick={() => handleAddFriend()} type="button">
-									+ Ajouter un ami
-								</button>
-								<button className="border border-orange text-sm py-2 px-4 rounded-lg text-orange effect-up"  type="submit" form="invite-email">
+								<button className=" bg-orange text-sm py-2 px-4 rounded-lg effect-up text-white"  type="submit" form="invite-email">
 									{newInviteMutation.isLoading ? <LoadingButton /> : 'Envoyer'}								
 								</button>
+								<button className="border border-orange text-sm py-2 px-4 rounded-lg text-orange effect-up" onClick={() => handleAddFriend()} type="button">
+									+ Ajouter un ami
+								</button>
+								
 							</div>
 						</form>
 					</div>
@@ -277,11 +278,11 @@ function TabItems({ value, accessToken, closeModal, setState }) {
 							</div>
 
 							<div className="flex flex-row-reverse gap-4">
-								<button className="bg-orange text-sm py-2 px-4 rounded-lg effect-up text-white" onClick={() => handleAddFriend(true)} type="button">
-									+ Ajouter un ami
-								</button>
-								<button className="border border-orange text-sm py-2 px-4 rounded-lg text-orange effect-up" type="submit" form="invite-sms">
+								<button className="bg-orange text-sm py-2 px-4 rounded-lg effect-up text-white" type="submit" form="invite-sms">
 									{newInviteMutation.isLoading ? <LoadingButton /> : 'Envoyer'}
+								</button>
+								<button className="border border-orange text-sm py-2 px-4 rounded-lg text-orange effect-up" onClick={() => handleAddFriend(true)} type="button">
+									+ Ajouter un ami
 								</button>
 							</div>
 						</form>
