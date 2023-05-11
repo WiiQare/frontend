@@ -287,7 +287,7 @@ function Identity2() {
 						</>
 					) : (
 						<FormikProvider value={formik}>
-							<form onSubmit={formik.handleSubmit}>
+							<form onSubmit={formik.handleSubmit} autoComplete="false">
 
 								<div className="flex flex-col gap-1">
 									<div className="flex flex-col md:flex-row gap-6 w-full">
@@ -328,6 +328,7 @@ function Identity2() {
 												label="Nom de famille"
 												variant="outlined"
 												name="firstName"
+												autoComplete="off"
 												{...formik.getFieldProps('firstName')}
 											/>
 

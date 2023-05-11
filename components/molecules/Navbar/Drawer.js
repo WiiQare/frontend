@@ -215,7 +215,7 @@ function Conversation({ close, setMessages, messages, isLoading, isError, user, 
                                             </>
                                         ) : (<div className="col-span-full h-96 px-10 justify-center flex items-center">
                                             <div className="flex flex-col gap-3 items-center">
-                                                <Image src={"https://i.goopics.net/26opd3.png"} width={80} height={80} className="w-14 opacity-80" />
+                                                <img src={"https://i.goopics.net/26opd3.png"} width={80} height={80} className="w-14 opacity-80" />
                                                 <span className="text-xs text-gray-400 text-center w-full">Démarrer une conversation avec notre équipe...</span>
                                             </div>
                                         </div>)
