@@ -208,11 +208,12 @@ const Menu = ({ session, handleSignOut }) => {
 							inline={true}
 							className="shadow-sm rounded-2xl w-fit"
 							label={
-								<IconBadge total={0}>
+								<IconBadge total={-1}>
 									<AiOutlineBell size={25} />
 								</IconBadge>
 							}
 						>
+							<p className="p-4 px-7 text-xs text-gray-400">Aucune notification pour le moment...</p> 
 							{/* <NotificationBadge
 								avatar={avatar}
 								time={"29 July 2020 - 02:26 PM"}
