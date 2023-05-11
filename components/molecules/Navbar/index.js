@@ -213,7 +213,10 @@ const Menu = ({ session, handleSignOut }) => {
 								</IconBadge>
 							}
 						>
-							<p className="p-4 px-7 text-xs text-gray-400">Aucune notification pour le moment...</p> 
+							<div className="p-4 px-7 flex flex-col gap-2 items-center">
+                        		<img src={"https://i.goopics.net/nf1fwc.png"} width={80} height={80} className="w-14 opacity-70" />
+								<p className="text-xs text-gray-400">Aucune notification pour le moment...</p> 
+							</div>
 							{/* <NotificationBadge
 								avatar={avatar}
 								time={"29 July 2020 - 02:26 PM"}
