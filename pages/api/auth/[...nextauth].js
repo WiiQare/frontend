@@ -3,8 +3,8 @@ import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from 'next-auth/providers/credentials';
 
 const authOptions = {
-    maxAge: 10 * 60 * 60,
     session: {
+        maxAge: 24 * 60 * 60,
         strategy: 'jwt'
     },
     callbacks: {

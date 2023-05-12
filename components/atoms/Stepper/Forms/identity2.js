@@ -80,11 +80,11 @@ function Identity2() {
 	const onSubmit = (values) => {
 		if (Object.keys(values).length == 0) return console.log("Pas de données");
 
-		console.log(values);
+		!values.email ? delete values.email : null;
+		
 		const data = { ...formData, ...values };
 
 		if (patientExist) {
-			// let {phoneNumber, firstName, lastName, email, ...data} = data
 			dispatch(setPatientDispatch({ ...client.patient, ...data, countryLabel }))
 			setActiveStepIndex(activeStepIndex + 1);
 
