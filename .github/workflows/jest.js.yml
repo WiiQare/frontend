@@ -26,9 +26,4 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
       - run: yarn install --frozen-lockfile
-      - run: yarn test
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          flags: unittests
+      - run: yarn test:ci
