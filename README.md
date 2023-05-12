@@ -1,6 +1,7 @@
 # WiiQare Frontend
 
 [![Deploy to AWS](https://github.com/WiiQare/frontend/actions/workflows/main.yml/badge.svg)](https://github.com/WiiQare/frontend/actions/workflows/main.yml)
+[![Tests](https://github.com/WiiQare/frontend/actions/workflows/jest.js.yml/badge.svg)](https://github.com/WiiQare/frontend/actions/workflows/jest.js.yml)
 
 This is a [Next.js](https://nextjs.org/) project for the frontend of WiiQare remittance application
 
