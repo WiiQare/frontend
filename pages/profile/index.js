@@ -3,13 +3,18 @@ import DashboardLayout from "../../layouts/Dashboard";
 import Profile from "../../components/organisms/Profile";
 import { useSession } from "next-auth/react";
 import Fetcher from "../../lib/Fetcher";
+import { useContext, useEffect } from "react";
+import { DrawContext } from "../_app";
 
 const Page = () => {
   
 	const { data:session } = useSession();
   const {data, isLoading, isError} = Fetcher(`/payer/${session.user.data.userId}`, session.user.data.id);
+  const { draw, setDraw } = useContext(DrawContext);
 
-  console.log(session.user.data.userId, data)
+  useEffect(() => {
+   setDraw(false)
+  }, [setDraw]);
 
   return (
     <>
