@@ -30,7 +30,10 @@ const Sidebar = ({ activePath }) => {
         />
       ))}
 
-      <span className="text-xs text-gray-400 absolute bottom-24">&copy; Copyright <span className="text-red-600">❤️</span> WiiQare {new Date().getFullYear()}</span>
+      <span className="text-xs text-gray-400 absolute bottom-24">
+        &copy; Copyright <span className="text-red-600">❤️</span> WiiQare{" "}
+        {new Date().getFullYear()}
+      </span>
     </div>
   );
 };
