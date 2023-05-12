@@ -15,11 +15,11 @@ import { useSession } from "next-auth/react";
 
 const TabHistories = [
 	{
-		name: "About"
+		name: "À propos"
 	},
 
 	{
-		name: "Settings",
+		name: "Paramètres",
 	}
 ]
 
@@ -80,7 +80,7 @@ const Profile = ({phoneNumber, names, email}) => {
 				</div>
 
 				<div className="md:w-3/4 w-full">
-					<div className="min-full md:col-span-3 rounded-lg p-4 flex flex-col gap-4 bg-white drop-shadow-sm">
+					<div className="min-full md:col-span-3 rounded-lg p-4 flex flex-col gap-4 bg-white drop-shadow-sm overflow-hidden">
 						<Box sx={{ width: '100%' }}>
 
 							<Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -149,7 +149,7 @@ function TabPanelContent({ value, index, data }) {
 
 function About({phoneNumber, names, email }) {
 	return (
-		<section className="space-y-8">
+		<section className="space-y-8 ">
 			<h2 className="text-sky font-semibold">Informations personnelles</h2>
 
 			<div className="md:w-3/6 space-y-4">
@@ -160,7 +160,7 @@ function About({phoneNumber, names, email }) {
 
 				<div className="grid grid-cols-2">
 					<h5 className="font-semibold">Email :</h5>
-					<span className="text-gray-500">{email}</span>
+					<span className="text-gray-500 w-2 md:w-full">{email}</span>
 				</div>
 
 				<div className="grid grid-cols-2">
