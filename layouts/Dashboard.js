@@ -40,7 +40,7 @@ const Dashboard = ({ children, className }) => {
 		<div className="flex animate-pulse">
 			<div className="w-1/4 bg-gray-100 h-screen hidden md:flex"></div>
 			<div className="w-full space-y-7">
-				<div className="bg-gray-100 h-10 shadow-sm"></div>
+				<div className="bg-gray-100 h-10 shadow-sm"></div> 
 
 				<div className="px-20 w-2/3 h-full flex flex-col justify-center mx-auto">
 					<div className="flex-shrink-0">
