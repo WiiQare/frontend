@@ -108,7 +108,7 @@ function LoginForm() {
 
 						<div className="form-items !w-full !max-w-full flex flex-col items-center mx-auto">
 							<div className="md:w-3/4 mx-auto">
-								<div className="form-title">{t('signIn.title')}</div>
+								<div className="form-title">Connectez-vous à votre compte</div>
 								<Box sx={{ mb: 3, mt: 2 }}></Box>
 								<form id="signinform" onSubmit={formik.handleSubmit}>
 									<Stack spacing={2}>
@@ -116,7 +116,7 @@ function LoginForm() {
 											<TextField
 												id="outlined-basic"
 												fullWidth
-												label={t('signIn.field.email')}
+												label={"Entrez votre adresse email ou Numéro de Téléphone"}
 												variant="outlined"
 												name="email"
 												InputProps={
@@ -131,10 +131,10 @@ function LoginForm() {
 										</div>
 										<div className="space-y-1 flex flex-col gap-1">
 											<FormControl fullWidth variant="outlined">
-												<InputLabel htmlFor="outlined-basic1">{t('signIn.field.password')}</InputLabel>
+												<InputLabel htmlFor="outlined-basic1">{"Entrez votre mot de passe"}</InputLabel>
 												<OutlinedInput
 													id="outlined-basic1"
-													label={t('signIn.field.email')}
+													label={"Entrez votre mot de passe"}
 													type={showPassword ? "text" : "password"}
 													name="password"
 													{...formik.getFieldProps('password')}
@@ -157,7 +157,7 @@ function LoginForm() {
 											<Typography color="text.secondary" variant="caption">
 												<Link href={"/forgot/password"} legacyBehavior>
 													<a>
-														{t('signIn.forgot')}
+														{"Mot de passe oublié ?"}
 													</a>
 												</Link>
 											</Typography>
@@ -172,7 +172,7 @@ function LoginForm() {
 
 												{btnClick ? (
 													<LoadingButton />
-												) : t('signIn.buttons.submit')}
+												) : "Se connecter"}
 
 											</Button>
 										</Box>
