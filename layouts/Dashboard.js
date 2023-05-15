@@ -36,7 +36,7 @@ const Dashboard = ({ children, className }) => {
 			</>
 		);
 
-	return (<> 
+	return (<>
 		<div className="flex animate-pulse">
 			<div className="w-1/4 bg-gray-100 h-screen hidden md:flex"></div>
 			<div className="w-full space-y-7">
