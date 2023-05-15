@@ -43,6 +43,7 @@ function Identity2() {
 	const [countryLabel, setCountryLabel] = useState('RD Congo');
 	const [allBeneficiare, setAllBeneficiare] = useState([]);
 	const [tempBeneficiare, setTempBeneficiare] = useState([]);
+	const [dial, setDial] = useState("243");
 
 	const renderError = (message) => (
 		<p className="text-xs text-red-600 font-light flex items-center gap-1"><HiOutlineInformationCircle />{message}</p>
@@ -54,7 +55,7 @@ function Identity2() {
 		email: yup.string().email(),
 		homeAddress: yup.string().required("L'adresse du domicile est un champ obligatoire"),
 		city: yup.string().required("La ville est un champ obligatoire"),
-		phoneNumber: yup.string(),
+		phoneNumber: yup.string().required("Téléphone est requis"),
 		country: yup.string()
 	});
 
@@ -297,25 +298,27 @@ function Identity2() {
 											</CountryContext.Provider>
 										</div>
 										<div className="flex items-center gap-1 md:w-2/3">
-											<MuiPhoneNumber
-												fullWidth
-												label="Numéro de Téléphone"
-												variant="outlined"
-												countryCodeEditable={false}
-												select={false}
-												onChange={(value, country) => { formik.setFieldValue("phoneNumber", value); formik.setFieldValue("country", country.countryCode) }}
-												defaultCountry={country}
-												name="phoneNumber"
-											/>
+											<div className="flex flex-col w-full gap-1">
+												<MuiPhoneNumber
+													fullWidth
+													label="Numéro de Téléphone"
+													variant="outlined"
+													countryCodeEditable={false}
+													select={false}
+													onChange={(value, country) => { formik.setFieldValue("phoneNumber", value); formik.setFieldValue("country", country.countryCode); setDial(country.dialCode) }}
+													defaultCountry={country}
+													name="phoneNumber"
+												/>
+												{(formik.values.phoneNumber.trim(" ") == "" || formik.values.phoneNumber.replace("+"+dial, ' ').trim(" ") == "") ?  renderError("Entrez le numéro de téléphone"): <></>}										
+											</div>
 										<span className="w-fit h-fit p-2 rounded-lg flex items-center gap-2 text-sm text-gray-600">
-											<span className='tooltip tooltip-bottom text-xs' data-tip={`${formik.values.phoneNumber.trim(" ") != "" ? formik.values.phoneNumber : "Ce numéro de téléphone"} devra être le numéro disponible, pour être utilisé à l'hôpital `}><CiCircleInfo size={23} className="text-gray-400" /></span>
+											<span className='tooltip tooltip-bottom text-xs' data-tip={`${formik.values.phoneNumber.trim(" ") != "" ? formik.values.phoneNumber : "Ce numéro de téléphone"} devra être le numéro disponible, pour être utilisé à l'hôpital `}><CiCircleInfo size={23} className="text-red-400" /></span>
 										</span>
 										</div>
 
 
 									</div>
 
-									{formik.errors.phoneNumber || formik.errors.country ? renderError(formik.errors.country + " and " + formik.errors.phoneNumber) : <></>}
 								</div>
 
 								<Stack spacing={1.5} className="w-full mt-3">
@@ -332,7 +335,7 @@ function Identity2() {
 												{...formik.getFieldProps('firstName')}
 											/>
 
-											{formik.errors.firstName ? renderError(formik.errors.firstName) : <></>}
+											{formik.errors.firstName && formik.touched.firstName ? renderError(formik.errors.firstName) : <></>}
 										</div>
 
 										<div className="flex flex-col gap-1 w-full">
@@ -345,7 +348,7 @@ function Identity2() {
 												name="lastName"
 												{...formik.getFieldProps('lastName')}
 											/>
-											{formik.errors.lastName ? renderError(formik.errors.lastName) : <></>}
+											{formik.errors.lastName && formik.touched.lastName ? renderError(formik.errors.lastName) : <></>}
 
 										</div>
 									</div>
@@ -374,7 +377,7 @@ function Identity2() {
 												{...formik.getFieldProps('homeAddress')}
 											/>
 
-											{formik.errors.homeAddress ? renderError(formik.errors.homeAddress) : <></>}
+											{formik.errors.homeAddress && formik.touched.homeAddress ? renderError(formik.errors.homeAddress) : <></>}
 										</div>
 
 										<div className="flex flex-col gap-1 w-full">
@@ -387,7 +390,7 @@ function Identity2() {
 												name="city"
 												{...formik.getFieldProps('city')}
 											/>
-											{formik.errors.city ? renderError(formik.errors.city) : <></>}
+											{formik.errors.city && formik.touched.city ? renderError(formik.errors.city) : <></>}
 
 										</div>
 									</div>
