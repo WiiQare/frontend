@@ -67,6 +67,9 @@ export default function CheckoutForm({amount, senderId, email}) {
             },
         });
 
+        //Clear all item on localstorage
+        if(!error) localStorage.clear();
+
         // This point will only be reached if there is an immediate error when
         // confirming the payment. Otherwise, your customer will be redirected to
         // your `return_url`. For some payment methods like iDEAL, your customer will
@@ -98,7 +101,7 @@ export default function CheckoutForm({amount, senderId, email}) {
 
             <div className="w-full flex flex-row-reverse">
                 
-				<button disabled={isLoading || !stripe || !elements} type="submit" className="mb-8 w-full rounded-md bg-orange effect-up px-6 py-4 font-medium text-white">{!isLoading ? "Acheter pass santé"  : "Chargement..."}</button>
+				<button disabled={isLoading || !stripe || !elements} type="submit" className="mb-8 w-full rounded-md bg-orange effect-up px-6 py-4 font-medium text-white">{!isLoading ? "Envoyer Pass Santé"  : "Chargement..."}</button>
 
             </div>
 

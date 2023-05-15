@@ -100,13 +100,13 @@ function Identity2() {
 
 	const formik = useFormik({
 		initialValues: {
-			firstName: "",
-			lastName: "",
-			email: "",
-			homeAddress: "",
-			city: "",
-			phoneNumber: "",
-			country: "",
+			firstName: localStorage.getItem("firstName") ?? "",
+			lastName:localStorage.getItem("lastName") ?? "",
+			email: localStorage.getItem("email") ?? "",
+			homeAddress: localStorage.getItem("homeAddress") ?? "",
+			city: localStorage.getItem("city") ?? "",
+			phoneNumber: localStorage.getItem("phoneNumber") ?? "",
+			country: localStorage.getItem("country") ?? "",
 		},
 		validationSchema: ValidationSchema,
 		onSubmit
@@ -305,7 +305,9 @@ function Identity2() {
 													variant="outlined"
 													countryCodeEditable={false}
 													select={false}
-													onChange={(value, country) => { formik.setFieldValue("phoneNumber", value); formik.setFieldValue("country", country.countryCode); setDial(country.dialCode) }}
+													value={localStorage.getItem("phoneNumber") ?? ''}
+													defaultValue={localStorage.getItem("phoneNumber") ?? ''}
+													onChange={(value, country) => { formik.setFieldValue("phoneNumber", value); formik.setFieldValue("country", country.countryCode); setDial(country.dialCode); localStorage.setItem("phoneNumber", value); localStorage.setItem("country", country.countryCode) }}
 													defaultCountry={country}
 													name="phoneNumber"
 												/>
@@ -331,6 +333,8 @@ function Identity2() {
 												label="Nom de famille"
 												variant="outlined"
 												name="firstName"
+												defaultValue={localStorage.getItem("firstName") ?? ''}
+												onKeyUp={(e) => { localStorage.setItem("firstName", e.target.value) }}
 												autoComplete="off"
 												{...formik.getFieldProps('firstName')}
 											/>
@@ -346,6 +350,8 @@ function Identity2() {
 												label="Prénom"
 												variant="outlined"
 												name="lastName"
+												defaultValue={localStorage.getItem("lastName") ?? ""}
+												onKeyUp={(e) => { localStorage.setItem("lastName", e.target.value) }}
 												{...formik.getFieldProps('lastName')}
 											/>
 											{formik.errors.lastName && formik.touched.lastName ? renderError(formik.errors.lastName) : <></>}
@@ -360,6 +366,8 @@ function Identity2() {
 											label="Adresse e-mail (optional)"
 											variant="outlined"
 											name="email"
+											defaultValue={localStorage.getItem("email") ?? ''}
+											onKeyUp={(e) => { localStorage.setItem("email", e.target.value) }}
 											{...formik.getFieldProps('email')}
 										/>
 										{formik.errors.email && formik.touched.email ? <span className="flex items-center gap-1 text-rose-500 text-left text-xs px-1"><HiOutlineInformationCircle /><span>{formik.errors.email}</span></span> : <></>}
@@ -374,6 +382,8 @@ function Identity2() {
 												label="Adresse du domicile"
 												variant="outlined"
 												name="homeAddress"
+												defaultValue={localStorage.getItem("homeAddress") ?? ''}
+												onKeyUp={(e) => { localStorage.setItem("homeAddress", e.target.value) }}
 												{...formik.getFieldProps('homeAddress')}
 											/>
 
@@ -388,6 +398,8 @@ function Identity2() {
 												label="Ville"
 												variant="outlined"
 												name="city"
+												defaultValue={localStorage.getItem("city") ?? ''}
+												onKeyUp={(e) => { localStorage.setItem("city", e.target.value) }}
 												{...formik.getFieldProps('city')}
 											/>
 											{formik.errors.city && formik.touched.city ? renderError(formik.errors.city) : <></>}
