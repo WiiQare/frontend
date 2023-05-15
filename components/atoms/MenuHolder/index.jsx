@@ -46,7 +46,7 @@ export default function MenuHolder({ href, label }) {
   return (
     <div className="menu-holder">
       <ul className="main-links">
-        <li>
+        {/* <li>
           <Box>
             <Tooltip title="Language">
               <IconButton
@@ -113,7 +113,7 @@ export default function MenuHolder({ href, label }) {
               </>
             ))}
           </Menu>
-        </li>
+        </li> */}
         <li>
           <Box sx={{ mx: 2 }}>
             <Link className="normal-link" href={href}>

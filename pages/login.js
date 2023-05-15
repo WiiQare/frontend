@@ -13,7 +13,7 @@ function Login() {
   return (
     <>
       <Head>
-        <title>Wiiqare | Login</title>
+        <title>Wiiqare | Connexion</title>
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
