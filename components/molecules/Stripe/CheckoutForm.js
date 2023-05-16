@@ -49,6 +49,7 @@ export default function CheckoutForm({amount, senderId, email}) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        localStorage.clear()
 
         if (!stripe || !elements) {
             // Stripe.js has not yet loaded.
@@ -66,9 +67,6 @@ export default function CheckoutForm({amount, senderId, email}) {
                 return_url: `https://wiiqare-app.com/voucher/buy?step=end&senderId=${senderId}`
             },
         });
-
-        //Clear all item on localstorage
-        if(!error) localStorage.clear();
 
         // This point will only be reached if there is an immediate error when
         // confirming the payment. Otherwise, your customer will be redirected to

@@ -14,8 +14,6 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
 const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
 
-	console.log(amount);
-
 	const [clientSecret, setClientSecret] = useState("");
 	const [methodPayment, setMethodPayment] = useState("card");
 	const client = useSelector((state) => state.app.client);
