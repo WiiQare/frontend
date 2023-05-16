@@ -49,6 +49,7 @@ export default function CheckoutForm({amount, senderId, email}) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        localStorage.clear()
 
         if (!stripe || !elements) {
             // Stripe.js has not yet loaded.
