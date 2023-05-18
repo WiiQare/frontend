@@ -68,6 +68,7 @@
     "yup": "^1.0.2"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.10.4",
     "autoprefixer": "^10.4.13",
     "cypress": "^12.11.0",
     "postcss": "^8.4.21",
