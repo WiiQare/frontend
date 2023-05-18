@@ -42,8 +42,10 @@ const authOptions = {
 
                 const response = await fetch("https://api.wiiqare-app.com/api/v1/session", Options);
                 const json = await response.json();
- 
+
                 if (json.code) throw new Error(json.description)
+                if (json.type != "PAYER") throw new Error("Vous n'êtes pas authoriser de vous connecter")
+
                 return json
             }
         }),
