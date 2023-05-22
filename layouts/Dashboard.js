@@ -11,9 +11,15 @@ const Dashboard = ({ children, className }) => {
 	const { status, data } = useSession();
 
 	useEffect(() => {
-		if (status === 'unauthenticated') Router.replace('/login')
-		console.log(status, data);
-	}, [status]);
+		if (data.expires) {
+			
+			let now  = new Date();
+			let expires = new Date(data.expires)
+			if ((expires < now) || (status === 'unauthenticated')) Router.replace('/login')
+
+		} else Router.replace('/login')
+
+	}, [status, new Date()]);
 
 	const handleSignOut = () => {
 		signOut();
