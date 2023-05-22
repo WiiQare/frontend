@@ -1,13 +1,10 @@
 import React, { useContext } from "react";
 import { FormContext } from "../../../pages/voucher/buy";
-import Identity from "./Forms/identity";
-import Payment from "./Forms/payment";
 import Send from "./Forms/send";
 import Identity2 from "./Forms/identity2";
 import Payment2 from "./Forms/payment2";
 
-
-function Step({data}) {
+function Step({ data }) {
   const { activeStepIndex } = useContext(FormContext);
   let stepContent;
 
