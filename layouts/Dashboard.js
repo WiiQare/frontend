@@ -11,7 +11,7 @@ const Dashboard = ({ children, className }) => {
 	const { status, data } = useSession();
 
 	useEffect(() => {
-		if (data.expires) {
+		if (data && data.expires) {
 			
 			let now  = new Date();
 			let expires = new Date(data.expires)
