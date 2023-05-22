@@ -24,7 +24,12 @@ describe("Identity2", () => {
     );
     component = res.container;
   });
+
   it("should render the component", () => {
     expect(component).toMatchSnapshot();
+  });
+
+  it("should render a text to add a beneficiary", () => {
+    expect(screen.getByText("Ajouter un bénéficiaire")).toBeInTheDocument();
   });
 });
