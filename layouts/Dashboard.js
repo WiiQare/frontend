@@ -13,7 +13,7 @@ const Dashboard = ({ children, className }) => {
 	useEffect(() => {
 		if (status === 'unauthenticated') Router.replace('/login')
 		console.log(status, data);
-	}, [status]);
+	}, [status, new Date()]);
 
 	const handleSignOut = () => {
 		signOut();

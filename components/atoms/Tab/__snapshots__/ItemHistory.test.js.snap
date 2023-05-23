@@ -1,0 +1,230 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ItemHistory should render the component 1`] = `
+<div>
+  <div
+    class=" collapse collapse-arrow  text-gray-700 overflow-scroll md:overflow-hidden"
+  >
+    <div
+      class="collapse-title flex gap-7 justify-between items-center "
+    >
+      <div
+        class="flex gap-3 items-center"
+      >
+        <div
+          class="w-16 h-16"
+        >
+          <img
+            alt="avatar"
+            class="object-cover rounded-full w-full h-full"
+            data-nimg="1"
+            decoding="async"
+            height="200"
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fui-avatars.com%2Fapi%2F%3Fuppercase%3Dtrue%26background%3DCCC%26name%3DJohn%26bold%3Dtrue%26color%3DFFF&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fui-avatars.com%2Fapi%2F%3Fuppercase%3Dtrue%26background%3DCCC%26name%3DJohn%26bold%3Dtrue%26color%3DFFF&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Fui-avatars.com%2Fapi%2F%3Fuppercase%3Dtrue%26background%3DCCC%26name%3DJohn%26bold%3Dtrue%26color%3DFFF&w=640&q=75 2x"
+            style="color: transparent;"
+            width="200"
+          />
+        </div>
+        <div>
+          <h1
+            class="font-bold text-sm"
+          >
+            John
+             
+          </h1>
+          <span
+            class="text-xs text-sky font-semibold"
+          />
+        </div>
+      </div>
+      <div
+        class="flex flex-col text-sm font-medium capitalize"
+      >
+        <span>
+          jeudi 2 mars 2023
+        </span>
+        <span>
+          01:00
+        </span>
+      </div>
+      <h1
+        class="font-medium text-md"
+      >
+        $NaN
+      </h1>
+      <h1
+        class="font-medium text-md"
+      >
+        Carte
+      </h1>
+      <button
+        class="border border-gray-300 hover:bg-gray-300 text-gray-300 font-normal h-fit  py-2 px-3 rounded-lg text-sm transition duration-300"
+      >
+        Echec
+      </button>
+      <button
+        class="font-normal uppercase text-sm p-2 rounded-lg hover:bg-gray-200 transition-all duration-200 flex gap-1 items-center"
+      >
+        <svg
+          fill="none"
+          height="20"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <path
+            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+        </svg>
+         
+        <span
+          class="hidden md:flex"
+        >
+          Pass santé
+        </span>
+      </button>
+    </div>
+    <div
+      class="collapse-content flex gap-4"
+    >
+      <div
+        class="overflow-x-auto w-5/6"
+      >
+        <table
+          class="table table-zebra text-xs w-full"
+        >
+          <thead>
+            <tr>
+              <th>
+                Transaction ID
+              </th>
+              <th>
+                Methode de paiement
+              </th>
+              <th>
+                Date
+              </th>
+              <th>
+                Montant réçu
+              </th>
+              <th>
+                Status
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>
+                #000
+                1
+              </th>
+              <td>
+                Carte Bancaire
+              </td>
+              <td>
+                jeudi 2 mars 2023
+              </td>
+              <td
+                class="flex gap-1 items-center"
+              >
+                <span
+                  class="sc-bcXHqe sc-gswNZR hipxMO dQcSwH rounded-full !h-4 !w-4 object-cover"
+                />
+                 
+                $NaN
+              </td>
+              <td>
+                <div
+                  class="cursor-pointer"
+                  title="Voir Tracking Security"
+                  type="button"
+                >
+                  <span
+                    class="bg-red-400 w-min h-min py-1 px-2 rounded-full flex items-center gap-1"
+                  >
+                    <svg
+                      class="text-white"
+                      color="#fff"
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-width="0"
+                      style="color: rgb(255, 255, 255);"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0 0h24v24H0z"
+                        fill="none"
+                      />
+                      <path
+                        d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"
+                      />
+                    </svg>
+                     Pass Santé Généré
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <span
+        class="w-52 bg-gray-200 h-fit p-2 rounded-lg flex items-center gap-2 text-sm text-gray-600"
+      >
+        <span
+          class="tooltip tooltip-bottom text-xs"
+          data-tip="Le pass santé peut être déclarer avant d'être présenté à un fournisseur de soins de santé partenaire de WiiQare"
+        >
+          <svg
+            class="text-gray-400"
+            fill="currentColor"
+            height="23"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="23"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              dataName="Circle Info"
+              id="Circle_Info"
+            >
+              <g>
+                <g>
+                  <path
+                    d="M11.5,15a.5.5,0,0,0,1,0h0V10.981a.5.5,0,0,0-1,0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="8.999"
+                    r="0.5"
+                  />
+                </g>
+                <path
+                  d="M12,2.065A9.934,9.934,0,1,1,2.066,12,9.945,9.945,0,0,1,12,2.065Zm0,18.867A8.934,8.934,0,1,0,3.066,12,8.944,8.944,0,0,0,12,20.932Z"
+                />
+              </g>
+            </g>
+          </svg>
+        </span>
+         
+      </span>
+    </div>
+  </div>
+</div>
+`;

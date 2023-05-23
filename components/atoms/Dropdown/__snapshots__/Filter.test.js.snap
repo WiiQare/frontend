@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filter should render Filter component 1`] = `
+<div>
+  <div
+    class="undefined dropdown dropdown-end flex"
+  >
+    <label
+      class=" bg-white border rounded-xl w-full py-2 px-4 flex justify-between items-center undefined"
+      tabindex="0"
+    >
+      <span
+        class="flex mr-2 gap-4 items-center"
+      >
+        <span
+          class="font-light"
+        >
+          Filter
+        </span>
+      </span>
+      <svg
+        fill="currentColor"
+        height="20"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 20 20"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </label>
+    <ul
+      class="undefined w-full mt-14 dropdown-content menu p-2 bg-white border rounded-box text-gray-700 font-light"
+      tabindex="0"
+    >
+      <li>
+        <a>
+          All
+        </a>
+      </li>
+      <li>
+        <a>
+          T-Shirt
+        </a>
+      </li>
+      <li>
+        <a>
+          Shirt
+        </a>
+      </li>
+      <li>
+        <a>
+          Pants
+        </a>
+      </li>
+      <li>
+        <a>
+          Shorts
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
