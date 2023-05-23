@@ -7,11 +7,10 @@ const DropdownFilter = ({
   items,
   className,
   labelClassName,
-  chevronDown=true,
+  chevronDown = true,
   dropClassName,
   onClick = () => {},
 }) => {
-
   return (
     <div className={`${className} dropdown dropdown-end flex`}>
       <label
@@ -19,13 +18,10 @@ const DropdownFilter = ({
         className={` bg-white border rounded-xl w-full py-2 px-4 flex justify-between items-center ${labelClassName}`}
       >
         <span className="flex mr-2 gap-4 items-center">
-          {typeof icon == 'function' ? icon() : icon}
+          {typeof icon == "function" ? icon() : icon}
           <span className="font-light">{label}</span>
         </span>
-        {
-          chevronDown ? <HiChevronDown size={20} /> : <></>
-        }
-        
+        {chevronDown ? <HiChevronDown size={20} /> : <></>}
       </label>
       <ul
         tabIndex={0}
