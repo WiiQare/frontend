@@ -111,6 +111,7 @@ const ItemHistory = ({
               width={200}
               height={200}
               className="object-cover rounded-full w-full h-full"
+              alt="avatar"
             />
           </div>
           <div>

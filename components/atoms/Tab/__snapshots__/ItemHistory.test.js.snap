@@ -15,6 +15,7 @@ exports[`ItemHistory should render the component 1`] = `
           class="w-16 h-16"
         >
           <img
+            alt="avatar"
             class="object-cover rounded-full w-full h-full"
             data-nimg="1"
             decoding="async"
