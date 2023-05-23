@@ -13,7 +13,9 @@ describe("ItemHistory", () => {
       <QueryClientProvider client={client}>
         <ItemHistory
           patient={{ firstName: "John" }}
-          createdAt="2023-02-03"
+          createdAt={new Date("2023-02-03").toLocaleString("fr", {
+            timeZone: "Europe/Paris",
+          })}
           senderCurrency="USD"
           voucher={{ id: 1, amount: 100, currency: "USD" }}
           currency={"USD"}

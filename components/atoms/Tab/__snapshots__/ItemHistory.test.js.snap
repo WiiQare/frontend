@@ -43,10 +43,10 @@ exports[`ItemHistory should render the component 1`] = `
         class="flex flex-col text-sm font-medium capitalize"
       >
         <span>
-          jeudi 2 février 2023
+          jeudi 2 mars 2023
         </span>
         <span>
-          19:00
+          01:00
         </span>
       </div>
       <h1
@@ -135,7 +135,7 @@ exports[`ItemHistory should render the component 1`] = `
                 Carte Bancaire
               </td>
               <td>
-                jeudi 2 février 2023
+                jeudi 2 mars 2023
               </td>
               <td
                 class="flex gap-1 items-center"
