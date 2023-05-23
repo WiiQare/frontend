@@ -3,6 +3,8 @@ import { render } from "@testing-library/react";
 import ItemHistory from "./ItemHistory";
 import { QueryClientProvider, QueryClient } from "react-query";
 
+jest.useFakeTimers().setSystemTime(new Date("2021-02-03"));
+
 describe("ItemHistory", () => {
   let component;
   beforeEach(() => {
@@ -11,7 +13,7 @@ describe("ItemHistory", () => {
       <QueryClientProvider client={client}>
         <ItemHistory
           patient={{ firstName: "John" }}
-          createdAt="2023-02-01"
+          createdAt="2023-02-03"
           senderCurrency="USD"
           voucher={{ id: 1, amount: 100, currency: "USD" }}
           currency={"USD"}
