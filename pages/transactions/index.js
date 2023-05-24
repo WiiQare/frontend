@@ -16,7 +16,7 @@ const Page = () => {
   return (
     <>
       <Head>
-        <title>Transactions</title>
+        <title>Historique de Transactions</title>
       </Head>
       <Transaction />
     </>
