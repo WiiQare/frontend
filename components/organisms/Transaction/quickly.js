@@ -10,6 +10,7 @@ import { useSession } from "next-auth/react";
 import avatar from "../../../public/images/femme.png";
 import Fetcher from "../../../lib/Fetcher";
 import { TransactionContext } from ".";
+import "@splidejs/react-splide/css";
 
 const Quickly = () => {
   const { transaction } = useContext(TransactionContext);
@@ -21,8 +22,7 @@ const Quickly = () => {
     session.user.data.access_token
   );
 
-  console.log("quick", transaction);
-
+  console.log("quickly", data);
   return (
     <>
       <div className="grid md:grid-cols-2 gap-3 md:gap-8">
@@ -100,6 +100,7 @@ const Quickly = () => {
                 <SplideTrack hasTrack={false}>
                   {data.map((item, index) => (
                     <SplideSlide
+                      key={index}
                       className="w-min flex flex-col gap-2 items-center justify-center p-3"
                       onClick={() => null}
                     >
@@ -120,10 +121,10 @@ const Quickly = () => {
                       </div>
 
                       <span className="font-semibold text-sm">
-                        {item.firstName} {item.lastName}
+                        {item?.firstName} {item?.lastName}
                       </span>
                       <span className="text-xs font-light">
-                        {item.phoneNumber}
+                        {item?.phoneNumber}
                       </span>
                     </SplideSlide>
                   ))}
@@ -225,9 +226,9 @@ const Quickly = () => {
                           </div>
                           <div>
                             <h3 className="font-semibold">
-                              {item.patient.firstName +
+                              {item.patient?.firstName ?? '' +
                                 " " +
-                                item.patient.lastName}
+                                item.patient?.lastName ?? ''}
                             </h3>
                             <span className="text-gray-400 text-xs capitalize">
                               <span>

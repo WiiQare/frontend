@@ -107,7 +107,7 @@ const ItemHistory = ({
         <div className="flex gap-3 items-center">
           <div className="w-16 h-16">
             <Image
-              src={`https://ui-avatars.com/api/?uppercase=true&background=CCC&name=${patient.firstName}&bold=true&color=FFF`}
+              src={`https://ui-avatars.com/api/?uppercase=true&background=CCC&name=${patient?.firstName ?? ''}&bold=true&color=FFF`}
               width={200}
               height={200}
               className="object-cover rounded-full w-full h-full"
@@ -117,10 +117,10 @@ const ItemHistory = ({
           <div>
             {/* text-xl */}
             <h1 className="font-bold text-sm">
-              {patient.firstName} {patient.lastName}
+              {patient?.firstName ?? ''} {patient?.lastName ?? ''}
             </h1>
             <span className="text-xs text-sky font-semibold">
-              {patient.phoneNumber}
+              {patient?.phoneNumber ?? ''}
             </span>
           </div>
         </div>
@@ -146,7 +146,7 @@ const ItemHistory = ({
         </h1>
         <h1 className="font-medium text-md">{paymentMethod ?? "Carte"}</h1>
 
-        <ButtonNoAction
+        {/* <ButtonNoAction
           color={
             status == 0
               ? "orange"
@@ -157,7 +157,7 @@ const ItemHistory = ({
           text={
             status == 0 ? "Pending" : status == "success" ? "Succès" : "Echec"
           }
-        />
+        /> */}
 
         <button
           onClick={openModal}
@@ -307,7 +307,7 @@ const ItemHistory = ({
                             </span>{" "}
                             à{" "}
                             <span className="text-orange font-semibold">
-                              {patient.firstName}
+                              {patient?.firstName ?? ''}
                             </span>
                           </h4>
                         </div>
@@ -433,8 +433,8 @@ const ItemHistory = ({
                     className="cursor-pointer"
                     title="Voir Tracking Security"
                   >
-                    {status == "success" ? (
-                      <span className="bg-green-400 text-white w-min h-min py-1 px-2 rounded-full flex items-center gap-1">
+                    
+                      <span className="!bg-green-400 text-white w-min h-min py-1 px-2 rounded-full flex items-center gap-1">
                         <MdSecurity
                           className="!text-white"
                           color="#fff"
@@ -442,12 +442,6 @@ const ItemHistory = ({
                         />{" "}
                         Pass Santé Généré
                       </span>
-                    ) : (
-                      <span className="bg-red-400 w-min h-min py-1 px-2 rounded-full flex items-center gap-1">
-                        <MdSecurity className="text-white" color="#fff" /> Pass
-                        Santé Généré
-                      </span>
-                    )}
                   </div>
 
                   <Transition appear show={isOpenTracking} as={Fragment}>
@@ -566,7 +560,7 @@ const ItemHistory = ({
                                     </span>{" "}
                                     à{" "}
                                     <span className="text-orange font-semibold">
-                                      {patient.firstName}
+                                      {patient?.firstName ?? ''}
                                     </span>
                                   </h4>
                                 </div>
