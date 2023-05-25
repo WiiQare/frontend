@@ -22,7 +22,7 @@ import Toast from "../../Toast";
 import MuiPhoneNumber from "material-ui-phone-number";
 import { Stack, TextField } from "@mui/material";
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
-// import "@splidejs/react-splide/css";
+import "@splidejs/react-splide/css";
 import avatar from "../../../../public/images/femme.png";
 import Image from "next/image";
 import { CiCircleCheck, CiCircleInfo } from "react-icons/ci";

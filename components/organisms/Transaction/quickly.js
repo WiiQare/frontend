@@ -10,6 +10,7 @@ import { useSession } from "next-auth/react";
 import avatar from "../../../public/images/femme.png";
 import Fetcher from "../../../lib/Fetcher";
 import { TransactionContext } from ".";
+import "@splidejs/react-splide/css";
 
 const Quickly = () => {
   const { transaction } = useContext(TransactionContext);
