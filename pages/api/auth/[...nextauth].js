@@ -4,7 +4,7 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 
 const authOptions = {
     session: {
-        maxAge: 86400,
+        maxAge: 85000,
         strategy: 'jwt'
     },
     callbacks: {
