@@ -25,15 +25,18 @@ To install and run this Next.js project locally, follow the steps below:
 
 1. Clone the GitHub repository to your local machine using the following command:
 
+
    ```shell
    git clone https://github.com/WiiQare/frontend.git "frontend-wiiQare"
    ```
+
 
 2. Navigate to the project directory :
 
    ```shell
    cd frontend-wiiQare
    ```
+
 
 3. Install dependencies using npm or yarn:
 
@@ -42,16 +45,20 @@ To install and run this Next.js project locally, follow the steps below:
 
    or
 
+
    yarn install
    ```
+
 
 4. Configure necessary environment variables, such as API keys, base URLs, etc., in a `.env` file in the root of the project.
 
 5. Launch the application in development mode:
 
+
     ```shell
     npm run dev
     ```
+
     The application will be accessible at the following address : `http://localhost:3000`.
 
 ## Project structure
@@ -88,3 +95,4 @@ This project is intended for healthcare purposes and should not be used in produ
 ## License
 
 This project is distributed under the GNU GENERAL PUBLIC LICENSE. For more information, please see the LICENSE file.
+
