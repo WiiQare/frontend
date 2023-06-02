@@ -28,8 +28,6 @@ const Profile = ({phoneNumber, names, email}) => {
 	const { data:session } = useSession();
     const {data, isLoading, isError} = Fetcher(`/payer/${session.user.data.userId}`, session.user.data.access_token);
 
-	console.log(data);
-
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
 	};

@@ -9,7 +9,6 @@ import { DrawContext } from "../_app";
 const Page = () => {
   
 	const { data:session } = useSession();
-  const {data, isLoading, isError} = Fetcher(`/payer/${session.user.data.userId}`, session.user.data.id);
   const { draw, setDraw } = useContext(DrawContext);
 
   useEffect(() => {

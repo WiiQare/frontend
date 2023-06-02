@@ -1,90 +1,98 @@
-# Documentation du Projet WiiQare
+# Documentation of the WiiQare Project
 
 [![Deploy to AWS](https://github.com/WiiQare/frontend/actions/workflows/main.yml/badge.svg)](https://github.com/WiiQare/frontend/actions/workflows/main.yml)
 [![Tests](https://github.com/WiiQare/frontend/actions/workflows/jest.js.yml/badge.svg?branch=main)](https://github.com/WiiQare/frontend/actions/workflows/jest.js.yml)
 [![codecov](https://codecov.io/gh/WiiQare/frontend/branch/main/graph/badge.svg?token=72SLV6EFSP)](https://codecov.io/gh/WiiQare/frontend)
 
 
-Ce projet Next.js est une application web développée pour une entreprise du secteur de la santé qui est WiiQare. Il vise à fournir une plateforme technologique robuste et conviviale pour répondre aux besoins spécifiques de l'industrie médicale, où les expatriés peuvent envoyer à leur membre de famille vivant dans les pays africains de l'argent pour des fins médicaux grâce à cette plateforme.
+This Next.js project is a web application developed for a healthcare company called WiiQare. Its aim is to provide a robust and user-friendly technological platform to meet the specific needs of the medical industry. Through this platform, expatriates can send money to their family members living in African countries for medical purposes.
 
-## Fonctionnalités principales
+## Main features
 
-1. **Achat de Pass santé**: Cela permet aux expatriés de pouvoir envoyer de l'argent aux membres de leur famille qui ne l'utiliserons que pour les soins de santé
+1. **Purchasing a health pass**: This allows expatriates to be able to send money to family members who will only use it for healthcare
 
-2. **Paiement Sécurisé**: La plateforme offre un moyen de paiement très sécurisé soit par Carte Bancaire avec Stripe soit avec la crypto Stable Coin
+2. **Secure payment**: The platform offers a very secure means of payment either by Credit Card with Stripe or with Stable Coin crypto
 
-3. **Historique des transactions**: L'historique des transactions et aussi le moyen de faire des quickly transfert avec un système d'historisation de bénéficiaire
+3. **Transaction history**: Transaction history and also the means to make quick transfers with a beneficiary history system
 
-4. **Système de Tracking**: Tout envoie de passe santé et tracké pour savoir où il en est dans son utilisation.
+4. **Tracking System**: Everything sends health and tracked password to know where it is in its use.
 
-5. **Contactez l'équipe WiiQare**: Possibilité d'envoyer et recevoir des messages venant la team WiiQare.
+5. **Contact the WiiQare team**: Ability to send and receive messages from the WiiQare team.
 
-## Configuration et installation
+## Setup and Installation
 
-Pour installer et exécuter localement ce projet Next.js, suivez les étapes ci-dessous :
+To install and run this Next.js project locally, follow the steps below:
 
-1. Clonez le dépôt GitHub sur votre machine locale en utilisant la commande suivante :
+1. Clone the GitHub repository to your local machine using the following command:
+
 
    ```shell
    git clone https://github.com/WiiQare/frontend.git "frontend-wiiQare"
    ```
 
-2. Accédez au répertoire du projet :
+
+2. Navigate to the project directory :
 
    ```shell
    cd frontend-wiiQare
    ```
 
-3. Installez les dépendances en utilisant npm ou yarn :
+
+3. Install dependencies using npm or yarn:
 
    ```shell
    npm install
 
-   ou
+   or
+
 
    yarn install
    ```
 
-4. Configurez les variables d'environnement nécessaires, telles que les clés d'API, les URL de base, etc., dans un fichier `.env` à la racine du projet.
 
-5. Lancer l'application en mode développement: 
+4. Configure necessary environment variables, such as API keys, base URLs, etc., in a `.env` file in the root of the project.
+
+5. Launch the application in development mode:
+
 
     ```shell
     npm run dev
     ```
-    L'application sera accessible à l'adresse suivante : `http://localhost:3000`.
 
-## Structure du projet
+    The application will be accessible at the following address : `http://localhost:3000`.
 
-La structure du projet est organisée de la manière suivante :
+## Project structure
 
-- `/pages`: Ce répertoire contient les différentes pages de l'application Next.js, telles que la page d'accueil, les pages de connexion, les pages de gestion des rendez-vous, etc.
-- `/components`: Ce répertoire contient les composants réutilisables utilisés à travers l'application, tels que les formulaires, les cartes, les barres de navigation, etc. Dans ce dossier la structuration est celle étudié en chimie partant du plus petit élémént au plus grand: 
-    - `atoms` (Pour les composant de base lié à aucune fonctionnalités des pages. Ex: Dropdown, button, modal, etc.), 
-    - `molecules` (C'est la composition des atoms pour former un composant aussi réutilisable), 
-    - `organisms` (Organisms c'est le composant principal d'une page).
-- `/api`: Ce répertoire contient les fichiers qui définissent les points de terminaison de l'API utilisée par l'application pour communiquer avec le backend.
-- `/styles`: Ce répertoire contient les fichiers CSS et les styles globaux utilisés pour la mise en forme de l'application.
-- `/public`: Ce répertoire contient les fichiers statiques, tels que les images, les icônes, etc.
+The structure of the project is organized as follows :
 
-## Contribuer
+- `/pages`: This directory contains the different pages of the Next.js application, such as the home page, login pages, appointment management pages, etc.
+- `/components`: This directory contains reusable components used throughout the application, such as forms, maps, navigation bars, etc. In this file the structuring is that studied in chemistry starting from the smallest element to the largest:
+    - `atoms` : For basic components linked to any page functionality. Ex: Dropdown, button, modal, etc. 
+    - `molecules` : It is the composition of atoms to form such a reusable component, 
+    - `organisms`: Organisms is the main component of a page.
+- `/api`: This directory contains the files that define the API endpoints used by the application to communicate with the backend.
+- `/styles`: This directory contains CSS files and global styles used for formatting the application.
+- `/public`: This directory contains static files, such as images, icons, etc.
 
-Les contributions à ce projet sont les bienvenues. Si vous souhaitez contribuer, veuillez suivre ces étapes :
+## Contribute
 
-1. Fork du projet depuis GitHub.
+Contributions to this project are welcome. If you would like to contribute, please follow these steps:
 
-2. Créez une branche pour votre fonctionnalité ou votre correctif.
+1. Fork the project from GitHub.
 
-3. Effectuez vos modifications.
+2. Create a branch for your feature or fix.
 
-4. Soumettez une demande de pull à la branche principale du projet.
+3. Make your changes.
 
-Nous apprécions vos contributions pour améliorer ce projet et le rendre encore plus utile pour le secteur de la santé.
+4. Submit a pull request to the main branch of the project.
 
-## Avertissement
+We appreciate your contributions to improve this project and make it even more useful for the health sector.
 
-Ce projet est destiné à des fins sanitaire et ne doit pas être utilisé en production sans une évaluation et une adaptation appropriées pour répondre aux exigences spécifiques de sécurité et de confidentialité des données de santé.
+## Warning
+
+This project is intended for healthcare purposes and should not be used in production without proper evaluation and adaptation to meet specific healthcare data security and privacy requirements.
 
 ## License
 
-Ce projet est distribué sous la licence GNU GENERAL PUBLIC LICENSE. Pour plus d'informations, veuillez consulter le fichier LICENSE.
+This project is distributed under the GNU GENERAL PUBLIC LICENSE. For more information, please see the LICENSE file.
+
