@@ -1,7 +1,6 @@
 # Documentation of the WiiQare Project
 
 [![Deploy to AWS](https://github.com/WiiQare/frontend/actions/workflows/main.yml/badge.svg)](https://github.com/WiiQare/frontend/actions/workflows/main.yml)
-[![Tests](https://github.com/WiiQare/frontend/actions/workflows/jest.js.yml/badge.svg?branch=main)](https://github.com/WiiQare/frontend/actions/workflows/jest.js.yml)
 [![codecov](https://codecov.io/gh/WiiQare/frontend/branch/main/graph/badge.svg?token=72SLV6EFSP)](https://codecov.io/gh/WiiQare/frontend)
 
 
