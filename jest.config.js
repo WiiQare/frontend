@@ -14,6 +14,8 @@ module.exports = {
     // Handle CSS imports (without CSS modules)
     "^.+\\.(css|sass|scss)$": "<rootDir>/__mocks__/styleMock.js",
 
+    "@splidejs/react-splide/css": "<rootDir>/__mocks__/styleMock.js",
+
     // Handle image imports
     // https://jestjs.io/docs/webpack#handling-static-assets
     "^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$": `<rootDir>/__mocks__/fileMock.js`,
