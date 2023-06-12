@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import ContentModal from "./content";
 import { SessionProvider } from "next-auth/react";
 import { Dialog, Transition } from "@headlessui/react";
