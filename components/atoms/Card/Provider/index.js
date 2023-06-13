@@ -13,7 +13,11 @@ const CardProvider = () => {
       {/* Provider */}
       <div className="flex gap-3">
         <div className="w-32 h-24 md:w-40 md:h-32 border py-2 rounded-lg overflow-hidden">
-          <Image src={bima} className="object-contain w-full h-full" />
+          <Image
+            src={bima}
+            className="object-contain w-full h-full"
+            alt="Healthcare provider"
+          />
         </div>
 
         <div className="flex flex-col gap-3">

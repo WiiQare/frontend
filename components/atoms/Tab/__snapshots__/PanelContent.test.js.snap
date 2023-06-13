@@ -3,9 +3,9 @@
 exports[`PanelContent should render the component 1`] = `
 <div>
   <div
-    aria-labelledby="simple-tab-[object Object]"
+    aria-labelledby="simple-tab-1"
     hidden=""
-    id="simple-tabpanel-[object Object]"
+    id="simple-tabpanel-1"
     role="tabpanel"
   />
 </div>
