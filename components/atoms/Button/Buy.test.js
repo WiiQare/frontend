@@ -18,4 +18,9 @@ describe("Buy button", () => {
     render(<Buy title={text} />);
     expect(screen.getByText(text)).toBeInTheDocument();
   });
+
+  it("should render the iconw without icon", () => {
+    render(<Buy withIcon={false} />);
+    expect(screen.getByRole("link")).toBeInTheDocument();
+  });
 });
