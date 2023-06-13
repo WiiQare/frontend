@@ -12,4 +12,21 @@ describe("Download button", () => {
     render(<Download />);
     expect(screen.getByText("Install WiiQare App")).toBeInTheDocument();
   });
+
+  it("should open the PWA prompt when clicked", () => {
+    const prompt = jest.fn();
+    jest.spyOn(window, "addEventListener").mockImplementation((event, cb) => {
+      cb({ preventDefault: jest.fn(), prompt });
+    });
+
+    console.log = jest.fn();
+
+    render(<Download />);
+    const button = screen.getByText("Install WiiQare App");
+    button.click();
+
+    expect(prompt).toHaveBeenCalledTimes(1);
+  });
+
+  it.todo("should render nothing when PWA is not supported");
 });
