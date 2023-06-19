@@ -7,12 +7,13 @@ import { SessionProvider } from "next-auth/react";
 describe("PanelContent", () => {
   let component;
   beforeEach(() => {
+    console.log = jest.fn();
     const res = render(
       <SessionProvider session={{ user: { data: { access_token: {} } } }}>
         <TransactionContext.Provider
           value={{ transaction: {}, setTransaction: () => {} }}
         >
-          <PanelContent value={{}} index={{}} />
+          <PanelContent value={0} index={1} />
         </TransactionContext.Provider>
       </SessionProvider>
     );

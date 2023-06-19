@@ -2,19 +2,23 @@ import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import Image from "next/image";
 import Link from "next/link";
 import { HiMenuAlt3 } from "react-icons/hi";
-import { MdOutlinePersonOutline, MdMailOutline, MdOutlineLogout } from "react-icons/md";
 import {
-	AiOutlineArrowRight,
-	AiOutlineBell,
-	AiOutlineMessage,
+  MdOutlinePersonOutline,
+  MdMailOutline,
+  MdOutlineLogout,
+} from "react-icons/md";
+import {
+  AiOutlineArrowRight,
+  AiOutlineBell,
+  AiOutlineMessage,
 } from "react-icons/ai";
 import {
-	Box,
-	Tooltip,
-	IconButton,
-	Avatar as AvatarMui,
-	Menu as MenuMui,
-	MenuItem
+  Box,
+  Tooltip,
+  IconButton,
+  Avatar as AvatarMui,
+  Menu as MenuMui,
+  MenuItem,
 } from "@mui/material";
 import { DrawContext } from "../../../pages/_app";
 
@@ -24,60 +28,59 @@ import avatar from "../../../public/images/homme.png";
 import IconBadge from "../../atoms/Icons/Badge";
 import NotificationBadge from "../../atoms/Card/Notifications/Badge";
 import { useContext, useState } from "react";
-import { signOut } from "next-auth/react"
-
+import { signOut } from "next-auth/react";
 
 const langFlags = {
-	gb: "https://flagcdn.com/60x45/gb.png",
-	fr: "https://flagcdn.com/60x45/fr.png",
+  gb: "https://flagcdn.com/60x45/gb.png",
+  fr: "https://flagcdn.com/60x45/fr.png",
 };
 
 const Menu = ({ session, handleSignOut }) => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [lang, setLang] = useState("fr");
+  const { draw, setDraw } = useContext(DrawContext);
 
-	const [anchorEl, setAnchorEl] = useState(null);
-	const [lang, setLang] = useState("fr");
-    const { draw, setDraw } = useContext(DrawContext);
+  const open = Boolean(anchorEl);
 
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
-	const open = Boolean(anchorEl);
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
-	const handleClick = (event) => {
-		setAnchorEl(event.currentTarget);
-	};
+  const handleLangChange = (lang) => {
+    setLang(lang);
+    setAnchorEl(null);
+  };
 
-	const handleClose = () => {
-		setAnchorEl(null);
-	};
+  return (
+    <div className="flex gap-12 mx-auto items-center justify-between fixed top-0 bg-white py-4 px-4 md:px-14 shadow-sm w-full z-50">
+      <div className="flex gap-16 items-center">
+        <div className="flex gap-2 items-center">
+          <Link href={"/"} legacyBehavior>
+            <Image
+              src={logo}
+              className="h-8 md:h-14 w-min object-left object-contain"
+              alt="Logo"
+            />
+          </Link>
+          <Link href={"/"} legacyBehavior>
+            <Image
+              src={logoDark}
+              className="h-6 md:h-9 object-left object-contain w-min"
+              alt="Logo"
+            />
+          </Link>
+        </div>
 
-	const handleLangChange = (lang) => {
-		setLang(lang);
-		setAnchorEl(null);
-	};
+        <div className="gap-4 items-center hidden md:flex">
+          <button className="cursor-pointer">
+            <HiMenuAlt3 className="text-4xl text-blue-600" />
+          </button>
 
-	return (
-		<div className="flex gap-12 mx-auto items-center justify-between fixed top-0 bg-white py-4 px-4 md:px-14 shadow-sm w-full z-50">
-			<div className="flex gap-16 items-center">
-				<div className="flex gap-2 items-center">
-					<Link href={"/"} legacyBehavior>
-						<Image
-							src={logo}
-							className="h-8 md:h-14 w-min object-left object-contain"
-						/>
-					</Link>
-					<Link href={"/"} legacyBehavior>
-						<Image
-							src={logoDark}
-							className="h-6 md:h-9 object-left object-contain w-min"
-						/>
-					</Link>
-				</div>
-
-				<div className="gap-4 items-center hidden md:flex">
-					<button className="cursor-pointer">
-						<HiMenuAlt3 className="text-4xl text-blue-600" />
-					</button>
-
-					{/* <form className="">
+          {/* <form className="">
 						<label htmlFor="voice-search" className="sr-only">
 							Search
 						</label>
@@ -124,12 +127,12 @@ const Menu = ({ session, handleSignOut }) => {
 							</button>
 						</div>
 					</form> */}
-				</div>
-			</div>
+        </div>
+      </div>
 
-			<div className="flex items-center justify-between gap-8 md:gap-20">
-				<div className="flex items-center md:gap-6">
-					{/* <div className="">
+      <div className="flex items-center justify-between gap-8 md:gap-20">
+        <div className="flex items-center md:gap-6">
+          {/* <div className="">
 						<Box>
 							<IconButton
 								onClick={handleClick}
@@ -202,22 +205,29 @@ const Menu = ({ session, handleSignOut }) => {
 						</MenuMui>
 					</div> */}
 
-					<div className="flex">
-						<Dropdown
-							arrowIcon={false}
-							inline={true}
-							className="shadow-sm rounded-2xl w-fit"
-							label={
-								<IconBadge total={-1}>
-									<AiOutlineBell size={25} />
-								</IconBadge>
-							}
-						>
-							<div className="p-4 px-7 flex flex-col gap-2 items-center">
-                        		<img src={"https://i.goopics.net/nf1fwc.png"} width={80} height={80} className="w-14 opacity-70" />
-								<p className="text-xs text-gray-400">Aucune notification pour le moment...</p> 
-							</div>
-							{/* <NotificationBadge
+          <div className="flex">
+            <Dropdown
+              arrowIcon={false}
+              inline={true}
+              className="shadow-sm rounded-2xl w-fit"
+              label={
+                <IconBadge total={-1}>
+                  <AiOutlineBell size={25} />
+                </IconBadge>
+              }
+            >
+              <div className="p-4 px-7 flex flex-col gap-2 items-center">
+                <img
+                  src={"https://i.goopics.net/nf1fwc.png"}
+                  width={80}
+                  height={80}
+                  className="w-14 opacity-70"
+                />
+                <p className="text-xs text-gray-400">
+                  Aucune notification pour le moment...
+                </p>
+              </div>
+              {/* <NotificationBadge
 								avatar={avatar}
 								time={"29 July 2020 - 02:26 PM"}
 								title={"Dr sultads Send you Photo"}
@@ -243,74 +253,78 @@ const Menu = ({ session, handleSignOut }) => {
 									<AiOutlineArrowRight />
 								</p>
 							</Dropdown.Item> */}
-						</Dropdown>
-					</div>
+            </Dropdown>
+          </div>
 
-					<div className="hidden md:flex">
-						<label htmlFor="my-drawer-4" onClick={() => setDraw(!draw)}>
-							<IconBadge total={-1}>
-								<AiOutlineMessage size={25} />
-							</IconBadge>
-						</label>
+          <div className="hidden md:flex">
+            <label htmlFor="my-drawer-4" onClick={() => setDraw(!draw)}>
+              <IconBadge total={-1}>
+                <AiOutlineMessage size={25} />
+              </IconBadge>
+            </label>
+          </div>
+        </div>
 
-
-					</div>
-				</div>
-
-				<div className="flex gap-3 items-center">
-					<div className="text-right hidden md:block">
-						<span>
-						Bonjour 👋 ,  <span className="font-bold">{session?.user?.data.names ?? session?.user?.data.name ?? ""}</span>
-						</span>
-						<h5 className="text-xs font-light">{session?.user?.email ?? ``}</h5>
-					</div>
-					<Dropdown
-						arrowIcon={false}
-						inline={true}
-						className="shadow-sm rounded-2xl w-48"
-						label={
-							<Avatar
-								alt="User settings"
-								img={session?.user?.data.image ?? `https://ui-avatars.com/api/?uppercase=true&background=FE8023&name=${session?.user?.data.names}&bold=true&color=FFF`}
-								rounded={true}
-								size={30}
-								className="w-12 h-12"
-							/>
-						}
-					>
-						<Dropdown.Item>
-							<Link href={"/profile"}>
-								<span className="flex gap-3 text-lg items-center">
-									<MdOutlinePersonOutline
-										className="text-lg text-sky"
-										size={23}
-									/>
-									<font>Profil</font>
-								</span>
-							</Link>
-						</Dropdown.Item>
-						<Dropdown.Item>
-							<Link href={"/inbox"}>
-								<span className="flex gap-3 text-lg items-center">
-									<MdMailOutline className="text-lg text-green-500" size={23} />
-									<font>Message</font>
-								</span>
-							</Link>
-						</Dropdown.Item>
-						<Dropdown.Divider />
-						<Dropdown.Item>
-							<button onClick={handleSignOut}>
-								<span className="flex gap-3 text-lg items-center">
-									<MdOutlineLogout className="text-lg text-red-500" size={23} />
-									<font>Se déconnecter</font>
-								</span>
-							</button>
-						</Dropdown.Item>
-					</Dropdown>
-				</div>
-			</div>
-		</div>
-	);
+        <div className="flex gap-3 items-center">
+          <div className="text-right hidden md:block">
+            <span>
+              Bonjour 👋 ,{" "}
+              <span className="font-bold">
+                {session?.user?.data.names ?? session?.user?.data.name ?? ""}
+              </span>
+            </span>
+            <h5 className="text-xs font-light">{session?.user?.email ?? ``}</h5>
+          </div>
+          <Dropdown
+            arrowIcon={false}
+            inline={true}
+            className="shadow-sm rounded-2xl w-48"
+            label={
+              <Avatar
+                alt="User settings"
+                img={
+                  session?.user?.data.image ??
+                  `https://ui-avatars.com/api/?uppercase=true&background=FE8023&name=${session?.user?.data.names}&bold=true&color=FFF`
+                }
+                rounded={true}
+                size={30}
+                className="w-12 h-12"
+              />
+            }
+          >
+            <Dropdown.Item>
+              <Link href={"/profile"}>
+                <span className="flex gap-3 text-lg items-center">
+                  <MdOutlinePersonOutline
+                    className="text-lg text-sky"
+                    size={23}
+                  />
+                  <font>Profil</font>
+                </span>
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <Link href={"/inbox"}>
+                <span className="flex gap-3 text-lg items-center">
+                  <MdMailOutline className="text-lg text-green-500" size={23} />
+                  <font>Message</font>
+                </span>
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item>
+              <button onClick={handleSignOut}>
+                <span className="flex gap-3 text-lg items-center">
+                  <MdOutlineLogout className="text-lg text-red-500" size={23} />
+                  <font>Se déconnecter</font>
+                </span>
+              </button>
+            </Dropdown.Item>
+          </Dropdown>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Menu;

@@ -110,6 +110,7 @@ const Quickly = () => {
                           className="object-cover rounded-xl"
                           width={80}
                           height={80}
+                          alt="Home"
                         />
                         <span
                           className={`${
@@ -222,13 +223,14 @@ const Quickly = () => {
                             <Image
                               src={avatar}
                               className="rounded-full object-cover"
+                              alt="Avatar"
                             />
                           </div>
                           <div>
                             <h3 className="font-semibold">
-                              {item.patient?.firstName ?? '' +
-                                " " +
-                                item.patient?.lastName ?? ''}
+                              {item.patient?.firstName ??
+                                "" + " " + item.patient?.lastName ??
+                                ""}
                             </h3>
                             <span className="text-gray-400 text-xs capitalize">
                               <span>

@@ -283,6 +283,7 @@ function Identity2() {
                                       className="object-cover rounded-xl"
                                       width={80}
                                       height={80}
+                                      alt="Beneficiare image"
                                     />
                                     <span
                                       className={`${

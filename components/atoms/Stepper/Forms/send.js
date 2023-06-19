@@ -109,6 +109,7 @@ function Send() {
           <Image
             src={logoDark}
             className="h-6 md:h-9 object-left object-contain w-min"
+            alt="WiiQare"
           />
           <h1 className="font-extrabold text-gray-700 text-lg hidden md:flex">
             {" "}
