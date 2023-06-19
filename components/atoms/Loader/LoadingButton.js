@@ -13,7 +13,7 @@ const LoadingButton = () => {
       >
         <span className="sr-only">Loading...</span>
       </div>
-      <span>En cours...</span>
+      <span>{t('signIn.buttons.waiting')}</span>
     </div>
   );
 };

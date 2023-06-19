@@ -94,7 +94,7 @@ function LoginForm() {
   const formHolder = (
     <>
       <div className="form-holder">
-        <MenuHolder href="/register" label="S'INSCRIRE" />
+        <MenuHolder href="/register" label={t('signIn.buttons.page')} />
 
         {state.type > 0 ? (
           state.type == 2 ? (
@@ -116,7 +116,7 @@ function LoginForm() {
           <div className="flex flex-col md:w-3/4 w-full border-opacity-50 gap-4">
             <div className="form-items !w-full !max-w-full flex flex-col items-center mx-auto">
               <div className="md:w-3/4 mx-auto">
-                <div className="form-title">Connectez-vous à votre compte</div>
+                <div className="form-title">{t('signIn.title')}</div>
                 <Box sx={{ mb: 3, mt: 2 }}></Box>
                 <form id="signinform" onSubmit={formik.handleSubmit}>
                   <Stack spacing={2}>
@@ -124,9 +124,7 @@ function LoginForm() {
                       <TextField
                         id="outlined-basic"
                         fullWidth
-                        label={
-                          "Entrez votre adresse email ou Numéro de Téléphone"
-                        }
+                        label={t('signIn.field.email')}
                         variant="outlined"
                         name="email"
                         InputProps={{
@@ -146,11 +144,11 @@ function LoginForm() {
                     <div className="space-y-1 flex flex-col gap-1">
                       <FormControl fullWidth variant="outlined">
                         <InputLabel htmlFor="outlined-basic1">
-                          {"Entrez votre mot de passe"}
+                          {t('signIn.field.password')}
                         </InputLabel>
                         <OutlinedInput
                           id="outlined-basic1"
-                          label={"Entrez votre mot de passe"}
+                          label={t('signIn.field.password')}
                           type={showPassword ? "text" : "password"}
                           name="password"
                           {...formik.getFieldProps("password")}
@@ -182,7 +180,7 @@ function LoginForm() {
                     <Box sx={{ textAlign: "right", mb: 2 }}>
                       <Typography color="text.secondary" variant="caption">
                         <Link href={"/forgot/password"} legacyBehavior>
-                          <a>{"Mot de passe oublié ?"}</a>
+                          <a>{t('signIn.forgot')}</a>
                         </Link>
                       </Typography>
                     </Box>
@@ -193,7 +191,7 @@ function LoginForm() {
                         type="submit"
                         className="bg-yellow text-uppercase login"
                       >
-                        {btnClick ? <LoadingButton /> : "Se connecter"}
+                        {btnClick ? <LoadingButton /> : t('signIn.buttons.submit')}
                       </Button>
                     </Box>
                   </Stack>
