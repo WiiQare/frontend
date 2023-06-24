@@ -1,6 +1,7 @@
 // You can learn more about each option below in the Jest docs: https://jestjs.io/docs/configuration.
 
 module.exports = {
+  setupFilesAfterEnv: ["<rootDir>/setupTests.js"],
   collectCoverageFrom: [
     "**/*.{js,jsx,ts,tsx}",
     "!**/*.d.ts",
