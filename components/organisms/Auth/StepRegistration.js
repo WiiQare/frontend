@@ -5,7 +5,6 @@ import Otp from "./Forms/otp";
 import { FormContextRegister } from "./RegisterForm";
 
 function StepRegistration() {
-
   const { activeStep } = useContext(FormContextRegister);
   let stepContent;
 
@@ -13,7 +12,6 @@ function StepRegistration() {
     case 0:
       stepContent = <Email />;
       break;
-
     case 1:
       stepContent = <Otp />;
       break;
