@@ -1,82 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`StepRegistration should render email if activeStep=0: email 1`] = `
-<div>
-  <div
-    class="MuiBox-root css-1vdpy2o"
-  >
-    <p
-      class="MuiTypography-root MuiTypography-body1 css-vkc4v8-MuiTypography-root"
-    >
-      Entrez votre email
-    </p>
-  </div>
-  <form
-    id="signupform"
-  >
-    <div
-      class="css-1p5q5e5-MuiStack-root"
-    >
-      <div
-        class="space-y-1"
-      >
-        <div
-          class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root lowercase css-wb57ya-MuiFormControl-root-MuiTextField-root"
-        >
-          <label
-            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
-            data-shrink="false"
-            for="outlined-basic"
-            id="outlined-basic-label"
-          >
-            E-mail Address
-          </label>
-          <div
-            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-md26zr-MuiInputBase-root-MuiOutlinedInput-root"
-          >
-            <input
-              aria-invalid="false"
-              class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
-              id="outlined-basic"
-              name="email"
-              type="text"
-              value=""
-            />
-            <fieldset
-              aria-hidden="true"
-              class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
-            >
-              <legend
-                class="css-yjsfm1"
-              >
-                <span>
-                  E-mail Address
-                </span>
-              </legend>
-            </fieldset>
-          </div>
-        </div>
-      </div>
-      <div
-        class="form-button"
-      >
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge css-jh47zj-MuiButtonBase-root-MuiButton-root"
-          tabindex="0"
-          type="submit"
-        >
-          L'ÉTAPE SUIVANTE
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-    </div>
-  </form>
-</div>
-`;
-
-exports[`StepRegistration should render information if activeStep=2: information 1`] = `
+exports[`Information renders 1`] = `
 <div>
   <div
     class="MuiBox-root css-1vdpy2o"
@@ -186,8 +110,8 @@ exports[`StepRegistration should render information if activeStep=2: information
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
             data-shrink="true"
-            for=":r3:"
-            id=":r3:-label"
+            for=":r2:"
+            id=":r2:-label"
           >
             Numéro de téléphone
           </label>
@@ -234,7 +158,7 @@ exports[`StepRegistration should render information if activeStep=2: information
             <input
               aria-invalid="false"
               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
-              id=":r3:"
+              id=":r2:"
               name="phoneNumber"
               placeholder="+1 (702) 123-4567"
               type="tel"
@@ -420,149 +344,6 @@ exports[`StepRegistration should render information if activeStep=2: information
           CRÉER UN COMPTE
         </button>
       </div>
-    </div>
-  </form>
-</div>
-`;
-
-exports[`StepRegistration should render otp if activeStep=1: otp 1`] = `
-<div>
-  <div
-    class="MuiBox-root css-1vdpy2o"
-  >
-    <p
-      class="MuiTypography-root MuiTypography-body1 css-vkc4v8-MuiTypography-root"
-    >
-      Un code vous a été envoyé, verifiez votre email
-    </p>
-  </div>
-  <div
-    class="MuiBox-root css-yzgae"
-  >
-    <span
-      class="MuiTypography-root MuiTypography-caption css-ol7wxs-MuiTypography-root"
-    >
-      Expire dans
-       
-      <span>
-        02
-        :
-        00
-      </span>
-    </span>
-  </div>
-  <form
-    id="signupform"
-  >
-    <div
-      class="form-text code"
-    >
-      <div
-        style="display: flex;"
-      >
-        <div
-          style="display: flex; align-items: center;"
-        >
-          <input
-            aria-label="Please enter verification code. Digit 1"
-            autocomplete="off"
-            class="  "
-            style="width: 1em; text-align: center; padding: 0px;"
-            type="tel"
-            value=""
-          />
-        </div>
-        <div
-          style="display: flex; align-items: center;"
-        >
-          <input
-            aria-label="Digit 2"
-            autocomplete="off"
-            class=" "
-            style="width: 1em; text-align: center; padding: 0px;"
-            type="tel"
-            value=""
-          />
-        </div>
-        <div
-          style="display: flex; align-items: center;"
-        >
-          <input
-            aria-label="Digit 3"
-            autocomplete="off"
-            class=" "
-            style="width: 1em; text-align: center; padding: 0px;"
-            type="tel"
-            value=""
-          />
-        </div>
-        <div
-          style="display: flex; align-items: center;"
-        >
-          <input
-            aria-label="Digit 4"
-            autocomplete="off"
-            class=" "
-            style="width: 1em; text-align: center; padding: 0px;"
-            type="tel"
-            value=""
-          />
-        </div>
-        <div
-          style="display: flex; align-items: center;"
-        >
-          <input
-            aria-label="Digit 5"
-            autocomplete="off"
-            class=" "
-            style="width: 1em; text-align: center; padding: 0px;"
-            type="tel"
-            value=""
-          />
-        </div>
-        <div
-          style="display: flex; align-items: center;"
-        >
-          <input
-            aria-label="Digit 6"
-            autocomplete="off"
-            class=" "
-            style="width: 1em; text-align: center; padding: 0px;"
-            type="tel"
-            value=""
-          />
-        </div>
-      </div>
-    </div>
-    <div
-      class="form-text text-holder"
-    >
-      <span
-        class="text-only"
-      >
-        Pas réçu de code ?
-         
-        <button
-          class="text-primary"
-          type="button"
-        >
-          Renvoyer le code
-        </button>
-      </span>
-    </div>
-    <div
-      class="form-button"
-    >
-      <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge css-jh47zj-MuiButtonBase-root-MuiButton-root"
-        tabindex="0"
-        type="submit"
-      >
-        L'ÉTAPE SUIVANTE
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
     </div>
   </form>
 </div>
