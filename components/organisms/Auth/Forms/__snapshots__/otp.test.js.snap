@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OTP renders 1`] = `
+<div>
+  <div
+    class="MuiBox-root css-1vdpy2o"
+  >
+    <p
+      class="MuiTypography-root MuiTypography-body1 css-vkc4v8-MuiTypography-root"
+    >
+      Un code vous a été envoyé, verifiez votre email
+    </p>
+  </div>
+  <div
+    class="MuiBox-root css-yzgae"
+  >
+    <span
+      class="MuiTypography-root MuiTypography-caption css-ol7wxs-MuiTypography-root"
+    >
+      Expire dans
+       
+      <span>
+        02
+        :
+        00
+      </span>
+    </span>
+  </div>
+  <form
+    id="signupform"
+  >
+    <div
+      class="form-text code"
+    >
+      <div
+        style="display: flex;"
+      >
+        <div
+          style="display: flex; align-items: center;"
+        >
+          <input
+            aria-label="Please enter verification code. Digit 1"
+            autocomplete="off"
+            class="  "
+            style="width: 1em; text-align: center; padding: 0px;"
+            type="tel"
+            value=""
+          />
+        </div>
+        <div
+          style="display: flex; align-items: center;"
+        >
+          <input
+            aria-label="Digit 2"
+            autocomplete="off"
+            class=" "
+            style="width: 1em; text-align: center; padding: 0px;"
+            type="tel"
+            value=""
+          />
+        </div>
+        <div
+          style="display: flex; align-items: center;"
+        >
+          <input
+            aria-label="Digit 3"
+            autocomplete="off"
+            class=" "
+            style="width: 1em; text-align: center; padding: 0px;"
+            type="tel"
+            value=""
+          />
+        </div>
+        <div
+          style="display: flex; align-items: center;"
+        >
+          <input
+            aria-label="Digit 4"
+            autocomplete="off"
+            class=" "
+            style="width: 1em; text-align: center; padding: 0px;"
+            type="tel"
+            value=""
+          />
+        </div>
+        <div
+          style="display: flex; align-items: center;"
+        >
+          <input
+            aria-label="Digit 5"
+            autocomplete="off"
+            class=" "
+            style="width: 1em; text-align: center; padding: 0px;"
+            type="tel"
+            value=""
+          />
+        </div>
+        <div
+          style="display: flex; align-items: center;"
+        >
+          <input
+            aria-label="Digit 6"
+            autocomplete="off"
+            class=" "
+            style="width: 1em; text-align: center; padding: 0px;"
+            type="tel"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="form-text text-holder"
+    >
+      <span
+        class="text-only"
+      >
+        Pas réçu de code ?
+         
+        <button
+          class="text-primary"
+          type="button"
+        >
+          Renvoyer le code
+        </button>
+      </span>
+    </div>
+    <div
+      class="form-button"
+    >
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge css-jh47zj-MuiButtonBase-root-MuiButton-root"
+        tabindex="0"
+        type="submit"
+      >
+        L'ÉTAPE SUIVANTE
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </form>
+</div>
+`;
