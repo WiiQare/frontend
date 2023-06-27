@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import React from "react";
 
 const LoadingButton = () => {
@@ -10,7 +11,7 @@ const LoadingButton = () => {
       >
         <span className="sr-only">Loading...</span>
       </div>
-      <span>En cours...</span>
+      <span>{t('signIn.buttons.waiting')}</span>
     </div>
   );
 };

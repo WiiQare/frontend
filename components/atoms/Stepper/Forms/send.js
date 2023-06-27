@@ -186,12 +186,12 @@ function Send() {
             <span className="flex items-center justify-center gap-2">
               <span className="font-semibold flex items-center gap-1">
                 <CurrencyFlag
-                  currency={data.currency}
+                  currency={data.currency ?? 'CDF'}
                   className="rounded-full !h-4 !w-4 object-cover"
                 />{" "}
                 {new Intl.NumberFormat("en-US", {
                   style: "currency",
-                  currency: data.currency,
+                  currency: data.currency ?? 'CDF',
                 }).format(data.amount)}
               </span>
               Pass santé WiiQare

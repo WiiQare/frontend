@@ -20,14 +20,16 @@ i18n
             en: {
                 translation: {
                     signIn: {
+                        question: 'Don\'t you have an account ?',
                         title: 'Sign in to your account',
                         field: {
                             email: 'E-mail Address or Phone Number',
-                            password: 'Password'
+                            password: 'Tape your password'
                         },
                         forgot: 'Forgot your password ?',
                         buttons: {
                             submit: 'SIGN IN',
+                            page: 'Register Now',
                             waiting: 'Wait a moment...',
                             or: 'OR',
                             google: 'Sign In with Google',
@@ -45,6 +47,7 @@ i18n
             fr: {
                 translation: {
                     signIn: {
+                        question: 'Vous n\'avez pas de compte ?',
                         title: 'Connectez-vous à votre compte',
                         field: {
                             email: 'Entrez votre adresse email ou Numéro de Téléphone',
@@ -54,6 +57,7 @@ i18n
                         buttons: {
                             submit: 'Se connecter',
                             waiting: 'En cours...',
+                            page: 'S\'inscrire',
                             or: 'OU',
                             google: 'Se connecter avec Google',
                             linkedin: 'Se connecter avec LinkedIn',
