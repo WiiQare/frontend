@@ -61,7 +61,7 @@ function Send() {
 
 	console.log(data);
 
-	if ((data && data.code && data.code == 'NULL_RESULT') || isLoading || isError)
+	if (isLoading || isError)
 		return (
 			<>
 				<div role="status">
