@@ -1,0 +1,489 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Carousel renders 1`] = `
+<div>
+  <div
+    class="px-2 pt-4 md:px-6"
+  >
+    <div
+      aria-label="Attribution"
+      aria-roledescription="carousel"
+      class="splide container mx-auto px-8 bg-yellow-300 rounded-3xl splide--loop splide--ltr splide--draggable is-active is-initialized"
+      id="splide01"
+      role="region"
+    >
+      <div
+        aria-atomic="true"
+        aria-live="polite"
+        class="splide__track splide__track--loop splide__track--ltr splide__track--draggable"
+        id="splide01-track"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        <ul
+          class="splide__list"
+          id="splide01-list"
+          role="presentation"
+          style="transform: translateX(0px);"
+        >
+          <li
+            aria-label="2 of 3"
+            aria-roledescription="slide"
+            class="splide__slide w-full splide__slide--clone is-visible"
+            id="splide01-clone01"
+            role="tabpanel"
+          >
+            <div
+              class="bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10"
+            >
+              <div
+                class="flex flex-col md:gap-7 gap-2"
+              >
+                <div
+                  class="space-y-3"
+                >
+                  <h1
+                    class="text-2xl md:text-5xl font-bold"
+                  >
+                    Life is Good
+                  </h1>
+                  <p
+                    class="text-xs md:text-sm text-gray-700 w-full flex"
+                  >
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem
+                  </p>
+                </div>
+                <a
+                  class="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md"
+                  href="#"
+                >
+                  Commencer
+                </a>
+              </div>
+              <div
+                class="hidden md:full md:flex justify-end "
+              >
+                <img
+                  alt="Startup"
+                  class="object-cover"
+                  data-nimg="1"
+                  decoding="async"
+                  height="24"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+                  style="color: transparent;"
+                  width="24"
+                />
+              </div>
+            </div>
+          </li>
+          <li
+            aria-label="3 of 3"
+            aria-roledescription="slide"
+            class="splide__slide w-full splide__slide--clone is-visible is-prev"
+            id="splide01-clone02"
+            role="tabpanel"
+          >
+            <div
+              class="bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10"
+            >
+              <div
+                class="flex flex-col md:gap-7 gap-2"
+              >
+                <div
+                  class="space-y-3"
+                >
+                  <h1
+                    class="text-2xl md:text-5xl font-bold"
+                  >
+                    Your health wallet
+                  </h1>
+                  <p
+                    class="text-xs md:text-sm text-gray-700 w-full flex"
+                  >
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem
+                  </p>
+                </div>
+                <a
+                  class="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md"
+                  href="#"
+                >
+                  Get Started
+                </a>
+              </div>
+              <div
+                class="hidden md:w-3/4 md:flex justify-end relative -bottom-4 "
+              >
+                <img
+                  alt="Phone"
+                  class="object-cover"
+                  data-nimg="1"
+                  decoding="async"
+                  height="24"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+                  style="color: transparent;"
+                  width="24"
+                />
+              </div>
+            </div>
+          </li>
+          <li
+            aria-label="1 of 3"
+            aria-roledescription="slide"
+            class="splide__slide w-full is-active is-visible"
+            id="splide01-slide01"
+            role="tabpanel"
+          >
+            <div
+              class="bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10"
+            >
+              <div
+                class="flex flex-col md:gap-7 gap-2"
+              >
+                <div
+                  class="space-y-3"
+                >
+                  <h1
+                    class="text-2xl md:text-5xl font-bold"
+                  >
+                    5$ pour votre 1èr Pass santé envoyé
+                  </h1>
+                  <p
+                    class="text-xs md:text-sm text-gray-700 w-full flex"
+                  >
+                    Gagnez une somme de 5$ pour votre première achat de passe santé WiiQare.
+                  </p>
+                </div>
+                <a
+                  class="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md"
+                  href="#"
+                >
+                  comment ça marche
+                </a>
+              </div>
+              <div
+                class="hidden justify-end md:w-3/4 md:flex"
+              >
+                <img
+                  alt="Wallet"
+                  class="object-cover"
+                  data-nimg="1"
+                  decoding="async"
+                  height="24"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+                  style="color: transparent;"
+                  width="24"
+                />
+              </div>
+            </div>
+          </li>
+          <li
+            aria-label="2 of 3"
+            aria-roledescription="slide"
+            class="splide__slide w-full is-visible is-next"
+            id="splide01-slide02"
+            role="tabpanel"
+          >
+            <div
+              class="bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10"
+            >
+              <div
+                class="flex flex-col md:gap-7 gap-2"
+              >
+                <div
+                  class="space-y-3"
+                >
+                  <h1
+                    class="text-2xl md:text-5xl font-bold"
+                  >
+                    Life is Good
+                  </h1>
+                  <p
+                    class="text-xs md:text-sm text-gray-700 w-full flex"
+                  >
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem
+                  </p>
+                </div>
+                <a
+                  class="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md"
+                  href="#"
+                >
+                  Commencer
+                </a>
+              </div>
+              <div
+                class="hidden md:full md:flex justify-end "
+              >
+                <img
+                  alt="Startup"
+                  class="object-cover"
+                  data-nimg="1"
+                  decoding="async"
+                  height="24"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+                  style="color: transparent;"
+                  width="24"
+                />
+              </div>
+            </div>
+          </li>
+          <li
+            aria-label="3 of 3"
+            aria-roledescription="slide"
+            class="splide__slide w-full is-visible"
+            id="splide01-slide03"
+            role="tabpanel"
+          >
+            <div
+              class="bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10"
+            >
+              <div
+                class="flex flex-col md:gap-7 gap-2"
+              >
+                <div
+                  class="space-y-3"
+                >
+                  <h1
+                    class="text-2xl md:text-5xl font-bold"
+                  >
+                    Your health wallet
+                  </h1>
+                  <p
+                    class="text-xs md:text-sm text-gray-700 w-full flex"
+                  >
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem
+                  </p>
+                </div>
+                <a
+                  class="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md"
+                  href="#"
+                >
+                  Get Started
+                </a>
+              </div>
+              <div
+                class="hidden md:w-3/4 md:flex justify-end relative -bottom-4 "
+              >
+                <img
+                  alt="Phone"
+                  class="object-cover"
+                  data-nimg="1"
+                  decoding="async"
+                  height="24"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+                  style="color: transparent;"
+                  width="24"
+                />
+              </div>
+            </div>
+          </li>
+          <li
+            aria-label="1 of 3"
+            aria-roledescription="slide"
+            class="splide__slide w-full splide__slide--clone is-active is-visible"
+            id="splide01-clone03"
+            role="tabpanel"
+          >
+            <div
+              class="bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10"
+            >
+              <div
+                class="flex flex-col md:gap-7 gap-2"
+              >
+                <div
+                  class="space-y-3"
+                >
+                  <h1
+                    class="text-2xl md:text-5xl font-bold"
+                  >
+                    5$ pour votre 1èr Pass santé envoyé
+                  </h1>
+                  <p
+                    class="text-xs md:text-sm text-gray-700 w-full flex"
+                  >
+                    Gagnez une somme de 5$ pour votre première achat de passe santé WiiQare.
+                  </p>
+                </div>
+                <a
+                  class="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md"
+                  href="#"
+                >
+                  comment ça marche
+                </a>
+              </div>
+              <div
+                class="hidden justify-end md:w-3/4 md:flex"
+              >
+                <img
+                  alt="Wallet"
+                  class="object-cover"
+                  data-nimg="1"
+                  decoding="async"
+                  height="24"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+                  style="color: transparent;"
+                  width="24"
+                />
+              </div>
+            </div>
+          </li>
+          <li
+            aria-label="2 of 3"
+            aria-roledescription="slide"
+            class="splide__slide w-full splide__slide--clone is-visible"
+            id="splide01-clone04"
+            role="tabpanel"
+          >
+            <div
+              class="bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10"
+            >
+              <div
+                class="flex flex-col md:gap-7 gap-2"
+              >
+                <div
+                  class="space-y-3"
+                >
+                  <h1
+                    class="text-2xl md:text-5xl font-bold"
+                  >
+                    Life is Good
+                  </h1>
+                  <p
+                    class="text-xs md:text-sm text-gray-700 w-full flex"
+                  >
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem
+                  </p>
+                </div>
+                <a
+                  class="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md"
+                  href="#"
+                >
+                  Commencer
+                </a>
+              </div>
+              <div
+                class="hidden md:full md:flex justify-end "
+              >
+                <img
+                  alt="Startup"
+                  class="object-cover"
+                  data-nimg="1"
+                  decoding="async"
+                  height="24"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+                  style="color: transparent;"
+                  width="24"
+                />
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="splide__arrows splide__arrows--ltr"
+      >
+        <button
+          aria-controls="splide01-track"
+          aria-label="Go to last slide"
+          class="splide__arrow splide__arrow--prev bg-transparent relative !-left-7 top-2 bottom-0 !bg-[#F0F4FD] p-4 text-3xl focus:ring-0"
+        >
+          <span
+            class="bg-white rounded-full p-1 !text-red-500"
+          >
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m9 19 8-7-8-7z"
+              />
+            </svg>
+          </span>
+        </button>
+        <button
+          aria-controls="splide01-track"
+          aria-label="Next slide"
+          class="splide__arrow splide__arrow--next bg-transparent relative !-right-7 top-2 bottom-0 !bg-[#F0F4FD] p-4 text-3xl focus:ring-0"
+        >
+          <span
+            class="bg-white rounded-full p-1 !text-red-500"
+          >
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m9 19 8-7-8-7z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <ul
+        aria-label="Select a slide to show"
+        class="splide__pagination splide__pagination--ltr"
+        role="tablist"
+      >
+        <li
+          role="presentation"
+        >
+          <button
+            aria-controls="splide01-slide01"
+            aria-label="Go to slide 1"
+            aria-selected="true"
+            class="splide__pagination__page is-active"
+            role="tab"
+            type="button"
+          />
+        </li>
+        <li
+          role="presentation"
+        >
+          <button
+            aria-controls="splide01-slide02"
+            aria-label="Go to slide 2"
+            class="splide__pagination__page"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          />
+        </li>
+        <li
+          role="presentation"
+        >
+          <button
+            aria-controls="splide01-slide03"
+            aria-label="Go to slide 3"
+            class="splide__pagination__page"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

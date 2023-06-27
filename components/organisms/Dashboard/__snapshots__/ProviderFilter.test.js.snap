@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProviderFilter renders 1`] = `
+<div>
+  <div
+    class="px-4 space-y-4 pb-24 md:pb-4"
+  >
+    <h1
+      class="md:text-2xl text-gray-700 font-bold flex-wrap flex items-center gap-2 text-lg"
+    >
+      Les hôpitaux partenaires dans le pays
+       
+      <img
+        alt="DRC"
+        class="w-6"
+        data-nimg="1"
+        decoding="async"
+        height="24"
+        loading="lazy"
+        src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+        srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+        style="color: transparent;"
+        width="24"
+      />
+       RD Congo
+    </h1>
+    <div
+      class="space-y-6"
+    >
+      <div
+        class="border hover:shadow rounded-lg py-4 px-5 flex flex-col md:flex-row justify-between gap-6 bg-white cursor-pointer"
+      >
+        <div
+          class="flex gap-3"
+        >
+          <div
+            class="w-32 h-24 md:w-40 md:h-32 border py-2 rounded-lg overflow-hidden"
+          >
+            <img
+              alt="Healthcare provider"
+              class="object-contain w-full h-full"
+              data-nimg="1"
+              decoding="async"
+              height="24"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+              style="color: transparent;"
+              width="24"
+            />
+          </div>
+          <div
+            class="flex flex-col gap-3"
+          >
+            <div
+              class="text-gray-700 space-y-2"
+            >
+              <h3
+                class="text-lg md:text-2xl font-bold"
+              >
+                HJ
+              </h3>
+              <span
+                class="text-sm font-light"
+              >
+                Provided by WiiQare
+              </span>
+            </div>
+            <span
+              class="flex gap-3 items-center text-sm text-gray-700 font-light"
+            >
+              <span
+                class="bg-orange px-2 py-1 text-white text-sm rounded-md w-fit flex gap-3 items-center"
+              >
+                3.69 
+                <svg
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 576 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                  />
+                </svg>
+              </span>
+              17 Plan
+            </span>
+          </div>
+        </div>
+        <div
+          class="text-gray-700 flex md:block items-center gap-4 space-y-2"
+        >
+          <h5
+            class="font-light"
+          >
+            Adresse
+          </h5>
+          <h3
+            class="text-2xl font-semibold"
+          >
+            <span
+              class="text-lg"
+            >
+              3e Rue, C/Limete - Kinshasa
+            </span>
+          </h3>
+        </div>
+        <div
+          class="self-center flex md:flex-col gap-3"
+        >
+          <button
+            class="bg-blue-600 text-white font-extralight py-3 md:px-9 px-5 rounded-lg text-sm"
+          >
+            En savoir plus
+          </button>
+        </div>
+      </div>
+      <div
+        class="border hover:shadow rounded-lg py-4 px-5 flex flex-col md:flex-row justify-between gap-6 bg-white cursor-pointer"
+      >
+        <div
+          class="flex gap-3"
+        >
+          <div
+            class="w-32 h-24 md:w-40 md:h-32 border py-2 rounded-lg overflow-hidden"
+          >
+            <img
+              alt="Healthcare provider"
+              class="object-contain w-full h-full"
+              data-nimg="1"
+              decoding="async"
+              height="24"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+              style="color: transparent;"
+              width="24"
+            />
+          </div>
+          <div
+            class="flex flex-col gap-3"
+          >
+            <div
+              class="text-gray-700 space-y-2"
+            >
+              <h3
+                class="text-lg md:text-2xl font-bold"
+              >
+                HJ
+              </h3>
+              <span
+                class="text-sm font-light"
+              >
+                Provided by WiiQare
+              </span>
+            </div>
+            <span
+              class="flex gap-3 items-center text-sm text-gray-700 font-light"
+            >
+              <span
+                class="bg-orange px-2 py-1 text-white text-sm rounded-md w-fit flex gap-3 items-center"
+              >
+                3.69 
+                <svg
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 576 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                  />
+                </svg>
+              </span>
+              17 Plan
+            </span>
+          </div>
+        </div>
+        <div
+          class="text-gray-700 flex md:block items-center gap-4 space-y-2"
+        >
+          <h5
+            class="font-light"
+          >
+            Adresse
+          </h5>
+          <h3
+            class="text-2xl font-semibold"
+          >
+            <span
+              class="text-lg"
+            >
+              3e Rue, C/Limete - Kinshasa
+            </span>
+          </h3>
+        </div>
+        <div
+          class="self-center flex md:flex-col gap-3"
+        >
+          <button
+            class="bg-blue-600 text-white font-extralight py-3 md:px-9 px-5 rounded-lg text-sm"
+          >
+            En savoir plus
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

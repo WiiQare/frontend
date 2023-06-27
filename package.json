@@ -71,6 +71,7 @@
     "@testing-library/react": "^14.0.0",
     "autoprefixer": "^10.4.13",
     "cypress": "^12.11.0",
+    "identity-obj-proxy": "^3.0.0",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.4"
   }
