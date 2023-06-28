@@ -11,6 +11,7 @@ import {
 import Link from "next/link";
 import React from "react";
 import { useTranslation, Trans } from "react-i18next";
+import { HiChevronDown, HiOutlineTranslate } from "react-icons/hi";
 
 const langFlags = {
   gb: "https://flagcdn.com/60x45/gb.png",
@@ -46,73 +47,14 @@ export default function MenuHolder({ href, label }) {
   return (
     <div className="menu-holder">
       <ul className="main-links">
-         <li>
-          <Box>
-            <Tooltip title="Language">
-              <IconButton
-                onClick={handleClick}
-                size="small"
-                sx={{ ml: 2 }}
-                aria-controls={open ? "account-menu" : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? "true" : undefined}
-              >
-                <Avatar
-                  // variant="square"
-                  sx={{ width: 24, height: 24 }}
-                  src={lngs[lang].flag}
-                />
-              </IconButton>
-            </Tooltip>
-          </Box>
-          <Menu
-            anchorEl={anchorEl}
-            id="account-menu"
-            open={open}
-            onClose={handleClose}
-            onClick={handleClose}
-            PaperProps={{
-              elevation: 0,
-              sx: {
-                overflow: "visible",
-                filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-                mt: 1.5,
-                "& .MuiAvatar-root": {
-                  width: 24,
-                  height: 24,
-                  ml: -0.5,
-                  mr: 1,
-                },
-                "&:before": {
-                  content: '""',
-                  display: "block",
-                  position: "absolute",
-                  top: 0,
-                  right: 14,
-                  width: 10,
-                  height: 10,
-                  bgcolor: "background.paper",
-                  transform: "translateY(-50%) rotate(45deg)",
-                  zIndex: 0,
-                },
-              },
-            }}
-            transformOrigin={{ horizontal: "right", vertical: "top" }}
-            anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-          >
-            {Object.keys(lngs).map((lng) => (
-              <>
-                <MenuItem key={lng} onClick={() => handleLangChange(lng)}>
-                  <Avatar
-                    // variant="square"
-                    sx={{ width: 24, height: 24 }}
-                    src={lngs[lng].flag}
-                  />
-                  {lngs[lng].nativeName}
-                </MenuItem>
-              </>
-            ))}
-          </Menu>
+        <li>
+          <details className="dropdown">
+            <summary className="m-1 btn px-2 -py-1 bg-transparent text-gray-800 text-xs border-2 hover:border-gray-300 border-none space-x-1 hover:!bg-gray-100"><HiOutlineTranslate size={23} className="text-gray-600"/> <HiChevronDown size={20} className="text-gray-400"/></summary>
+            <ul className="shadow-sm menu dropdown-content z-[1] w-max rounded-xl">
+              <li><button onClick={() => handleLangChange("fr")}>Français</button></li>
+              <li><button onClick={() => handleLangChange("en")}>Anglais&nbsp;&nbsp;</button></li>
+            </ul>
+          </details>
         </li>
         <li>
           <Box sx={{ mx: 2 }}>
