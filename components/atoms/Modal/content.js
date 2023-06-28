@@ -239,6 +239,7 @@ function TabItems({ value, accessToken, closeModal, setState }) {
                       <button
                         className="bg-red-300 rounded-full hover:bg-red-700 hover:text-white transition duration-200"
                         onClick={() => handleRemoveFriends(index)}
+                        role="remove"
                       >
                         <HiXMark />
                       </button>
@@ -298,6 +299,7 @@ function TabItems({ value, accessToken, closeModal, setState }) {
                         type="button"
                         className="bg-red-300 rounded-full hover:bg-red-700 hover:text-white transition duration-200"
                         onClick={() => handleRemoveFriends(index, true)}
+                        role="remove"
                       >
                         <HiXMark />
                       </button>
