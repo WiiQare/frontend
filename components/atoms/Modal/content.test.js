@@ -19,10 +19,10 @@ global.IntersectionObserver = class IntersectionObserver {
 
 describe("ContentModal", () => {
   let component;
-  const queryClient = new QueryClient(); // Create a new QueryClient
+  const queryClient = new QueryClient();
   beforeEach(() => {
     const res = render(
-      <QueryClientProvider client={queryClient}> {/* Use QueryClientProvider here */}
+      <QueryClientProvider client={queryClient}>
         <SessionProvider 
           session={{ 
             user: { 
@@ -41,7 +41,7 @@ describe("ContentModal", () => {
             </Dialog>
           </Transition>
         </SessionProvider>
-      </QueryClientProvider> // Close QueryClientProvider here
+      </QueryClientProvider>
     );
     component = res.container;
   });
