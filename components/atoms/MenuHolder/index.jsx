@@ -48,7 +48,6 @@ export default function MenuHolder({ href, label }) {
     <div className="menu-holder">
       <ul className="main-links">
         <li>
-
           <details className="dropdown">
             <summary className="m-1 btn px-2 -py-1 bg-transparent text-gray-800 text-xs border-2 hover:border-gray-300 border-none space-x-1 hover:!bg-gray-100"><HiOutlineTranslate size={23} className="text-gray-600"/> <HiChevronDown size={20} className="text-gray-400"/></summary>
             <ul className="shadow-sm menu dropdown-content z-[1] w-max rounded-xl">
