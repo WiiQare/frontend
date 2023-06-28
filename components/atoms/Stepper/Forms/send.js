@@ -61,7 +61,15 @@ function Send() {
 
 	console.log(data);
 
-	if (isLoading || isError)
+	const SliceText = ({ text }) => {
+		return (
+			<>
+				{text.slice(0, 8)}...{text.slice(-7)}
+			</>
+		);
+	};
+
+	if (isLoading || isError) {
 		return (
 			<>
 				<div role="status">
@@ -85,14 +93,9 @@ function Send() {
 				</div>
 			</>
 		);
+	}
+	
 
-	const SliceText = ({ text }) => {
-		return (
-			<>
-				{text.slice(0, 8)}...{text.slice(-7)}
-			</>
-		);
-	};
 	return (
 		<div className="flex flex-col gap-6 justify-center items-center">
 			{state.type > 0 ? (
