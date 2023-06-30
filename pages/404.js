@@ -10,7 +10,13 @@ const Error404 = () => {
         <div className="flex-1 min-h-full min-w-full rounded-3xl bg-white shadow-xl p-10 lg:p-20 text-gray-800 relative md:flex items-center text-center md:text-left">
           <div className="w-full md:w-1/2">
             <div className="mb-10 lg:mb-20">
-              <Image alt="logo" src="/images/logo_dark.png" className="h-10" />
+              <Image
+                alt="logo"
+                src="/images/logo_dark.png"
+                width={40}
+                height={40}
+                className="h-10"
+              />
             </div>
             <div className="mb-10 md:mb-20 text-gray-600 font-light">
               <h1 className="font-black uppercase text-3xl lg:text-5xl text-orange mb-10">
@@ -28,7 +34,7 @@ const Error404 = () => {
             </div>
           </div>
           <div className="w-full md:w-1/2 text-center">
-            <Image alt="404" src="/images/404.png" />
+            <Image alt="404" src="/images/404.png" height={40} width={40} />
             <a
               href="https://www.freepik.com/vectors/business"
               target="_blank"
@@ -54,6 +60,8 @@ const Error404 = () => {
               alt="favicon"
               className="object-cover object-center w-full h-full rounded-full"
               src="/images/favicon.png"
+              width={40}
+              height={40}
             />
           </a>
         </div>
