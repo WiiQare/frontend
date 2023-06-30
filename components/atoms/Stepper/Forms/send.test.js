@@ -18,6 +18,7 @@ jest.mock("next/router", () => ({
 describe("Send", () => {
   let component;
   beforeEach(() => {
+    console.log = jest.fn();
     const queryClient = new QueryClient();
     const res = render(
       <SessionProvider session={{ user: { data: { userId: "random123" } } }}>
