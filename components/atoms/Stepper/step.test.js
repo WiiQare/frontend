@@ -16,7 +16,7 @@ describe("Stepper/Step", () => {
     const { container } = render(
       <FormContext.Provider
         value={{
-          activeStepIndex: 0,
+          activeStepIndex: 0, // identity step
         }}
       >
         <SessionProvider
@@ -37,5 +37,34 @@ describe("Stepper/Step", () => {
       </FormContext.Provider>
     );
     expect(container).toMatchSnapshot("identity step");
+  });
+
+  it.todo("renders payment");
+
+  it("renders send", () => {
+    const { container } = render(
+      <FormContext.Provider
+        value={{
+          activeStepIndex: 2, // send step
+        }}
+      >
+        <SessionProvider
+          session={{
+            user: {
+              data: {
+                userId: 1,
+              },
+            },
+          }}
+        >
+          <Provider store={store}>
+            <QueryClientProvider client={new QueryClient()}>
+              <Step />
+            </QueryClientProvider>
+          </Provider>
+        </SessionProvider>
+      </FormContext.Provider>
+    );
+    expect(container).toMatchSnapshot("send step");
   });
 });
