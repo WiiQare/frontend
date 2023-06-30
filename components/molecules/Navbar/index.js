@@ -217,7 +217,8 @@ const Menu = ({ session, handleSignOut }) => {
               }
             >
               <div className="p-4 px-7 flex flex-col gap-2 items-center">
-                <img
+                <Image
+                  alt=""
                   src={"https://i.goopics.net/nf1fwc.png"}
                   width={80}
                   height={80}

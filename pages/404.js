@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { BiLeftArrow } from "react-icons/bi";
+import Image from "next/image";
 
 const Error404 = () => {
   return (
@@ -9,13 +10,13 @@ const Error404 = () => {
         <div className="flex-1 min-h-full min-w-full rounded-3xl bg-white shadow-xl p-10 lg:p-20 text-gray-800 relative md:flex items-center text-center md:text-left">
           <div className="w-full md:w-1/2">
             <div className="mb-10 lg:mb-20">
-              <img src="/images/logo_dark.png" className="h-10" />
+              <Image alt="logo" src="/images/logo_dark.png" className="h-10" />
             </div>
             <div className="mb-10 md:mb-20 text-gray-600 font-light">
               <h1 className="font-black uppercase text-3xl lg:text-5xl text-orange mb-10">
                 You seem to be lost!
               </h1>
-              <p>The page you're looking for isn't available.</p>
+              <p>The page you&apos;re looking for isn&apos;t available.</p>
               <p>Try searching again or use the Go Back button below.</p>
             </div>
             <div className="mb-20 md:mb-0">
@@ -27,7 +28,7 @@ const Error404 = () => {
             </div>
           </div>
           <div className="w-full md:w-1/2 text-center">
-            <img src="/images/404.png" />
+            <Image alt="404" src="/images/404.png" />
             <a
               href="https://www.freepik.com/vectors/business"
               target="_blank"
@@ -49,7 +50,8 @@ const Error404 = () => {
             target="_blank"
             className="bg-white flex items-center justify-center w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12"
           >
-            <img
+            <Image
+              alt="favicon"
               className="object-cover object-center w-full h-full rounded-full"
               src="/images/favicon.png"
             />
