@@ -9,6 +9,12 @@ import Fetcher from "../../../../lib/Fetcher";
 import { HiExclamation, HiLockClosed, HiOutlineEye } from "react-icons/hi";
 import { useRouter } from "next/router";
 import LoadingButton from "../../Loader/LoadingButton";
+import { useMutation } from "react-query";
+import { sendSMSHash } from "../../../../lib/helper";
+import { useFormik } from "formik";
+import { useSession } from "next-auth/react";
+import Toast from "../../Toast";
+import { CurrencyFlag } from "react-currency-flags/dist/components";
 
 function Send() {
 	const { Canvas } = useQRCode();
@@ -18,21 +24,61 @@ function Send() {
 	const [view, setView] = useState(false);
 	const [loadView, setLoadView] = useState(false);
 	const [copyLink, setCopyLink] = useState(false);
-	const { data, isLoading, isError } = Fetcher(
-		`/payment/voucher?paymentId=${payment_intent}`
+	const [state, setState] = useState({ type: 0, message: "" });
+	const [data, setData] = useState(null);
+	const { data:session } = useSession();
+	const { data: _voucherTest, isLoading, isError } = Fetcher(
+		`/`
 	);
 
-	console.log(data);
-	const {asPath} = useRouter();
+	console.log(session);
 
-	const handleView = () => {
+	const handleView = async () => {
 		setLoadView(true);
-		
-		setTimeout(() => {
+
+		let response = await fetch(`https://api.wiiqare-app.com/api/v1/payment/voucher?paymentId=${payment_intent}`)
+
+		setLoadView(false);
+
+		if (response.status == 200) {
+			setData(await response.json())
 			setView(true)
-			setLoadView(false);
-		}, 1500);
+		} else {
+			setData({ code: "NOT_FOUND" })
+		}
+
 	}
+
+	const sendSMSMutation = useMutation(sendSMSHash, {
+		onSuccess: (res) => {
+		  console.log(res);
+		  if (!res.code) {
+			setState({ type: 1, message: "SMS envoyé avec succès" });
+			setTimeout(() => {
+			  setState({ type: 0, message: "" });
+			}, 3000);
+		  } else {
+			setState({ type: 2, message: res.message ?? res.description });
+			setTimeout(() => {
+			  setState({ type: 0, message: "" });
+			}, 3000);
+		  }
+		},
+	  });
+
+	const onSubmit = async () => {
+		sendSMSMutation.mutate({ shortenHash: data.shortenHash, accessToken: session.accessToken });
+	  };
+	
+	  const closeToast = () => {
+		setState({ type: 0, message: "" });
+	  };
+	
+	  // Formik hook
+	  const formik = useFormik({
+		initialValues: {},
+		onSubmit,
+	  });
 
 	if (isLoading)
 		return (
@@ -76,9 +122,29 @@ function Send() {
 			</>
 		);
 	};
+	
 
 	return (
 		<div className="flex flex-col gap-6 justify-center items-center">
+			{state.type > 0 ? (
+                state.type == 2 ? (
+                  <Toast
+                    type={"danger"}
+                    message={state.message}
+                    close={closeToast}
+                  />
+                ) : state.type == 1 ? (
+                  <Toast
+                    type={"success"}
+                    message={state.message}
+                    close={closeToast}
+                  />
+                ) : (
+                  <></>
+                )
+              ) : (
+                <></>
+              )}
 			{
 				view ? (
 					<>
@@ -136,12 +202,7 @@ function Send() {
 										},
 									}}
 								/>
-								{/* <div className="absolute w-full h-full z-20 top-1/3 left-1.5/3 mx-auto">
-			<Image
-				src={logo}
-				className="h-6 md:h-9 object-left object-contain w-min"
-			/>
-		</div> */}
+								
 							</div>
 
 							<div className="flex flex-col items-center gap-1">
@@ -159,11 +220,15 @@ function Send() {
 								</div>
 
 								<h4 className="text-sm text-center">
+								<CurrencyFlag
+                                  currency={data.currency}
+                                  className="rounded-full !h-4 !w-4 object-cover"
+                                />{" "}
 									<span className="font-semibold">
-									{new Intl.NumberFormat("en-US", {
-										style: "currency",
-										currency: data.currency,
-									}).format(data.amount)}
+										{new Intl.NumberFormat("en-US", {
+											style: "currency",
+											currency: data.currency,
+										}).format(data.amount)}
 									</span>{" "}
 									Health Pass WiiQare <br /> From{" "}
 									<span className="text-orange font-semibold">
@@ -204,16 +269,17 @@ function Send() {
 									</a>
 								</Link>
 
-								<Link
-									href={`sms://+243814978651&?body=https://wiiqare-unicef.herokuapp.com/voucher/pass/${data.transactionHash}`}
-									legacyBehavior
-									target={"_blank"}
+								<button
+									className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
+									onClick={formik.handleSubmit}
 								>
-									<a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-										<img src="/images/sms.png" alt="" className="w-6" />
+									<img src="/images/sms.png" alt="" className="w-6" />
+									{sendSMSMutation.isLoading ? (
+										<LoadingButton />
+									) : (
 										<span className="hidden md:flex">Message</span>
-									</a>
-								</Link>
+									)}
+								</button>
 
 								<CopyToClipboard
 									text={`https://wiiqare-unicef.herokuapp.com/voucher/pass/${data.transactionHash}`}
@@ -230,7 +296,7 @@ function Send() {
 									>
 										<img src="/images/text.png" alt="" className="w-6" />
 										<span className="hidden md:flex">
-											{!copyLink ? "Copy Link" : "Successfully Copied"}
+											{!copyLink ? "Copier le lien" : "Copié avec succès"}
 										</span>
 									</button>
 								</CopyToClipboard>
@@ -395,7 +461,7 @@ function Send() {
 
 						<div className="flex flex-shrink-0 absolute top-0 justify-center items-center w-full h-full">
 							<div className="flex flex-col gap-8 justify-center items-center">
-								<HiLockClosed size={150}/>
+								<HiLockClosed size={150} />
 								<button onClick={handleView} className='bg-orange flex gap-2 effect-up justify-center items-center text-gray-100 font-normal h-fit  py-2 px-3 rounded-lg text-sm transition duration-300'>
 									{loadView ? <LoadingButton /> : (<><HiOutlineEye /> Voir Pass Santé</>)}
 								</button>
