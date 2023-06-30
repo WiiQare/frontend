@@ -9,7 +9,7 @@ export const FormContext = createContext();
 
 const Page = ({data}) => {
 
-    const {step, redirect_status} = useRouter().query;
+    const {step, redirect_status, view, payment_intent} = useRouter().query;
     const [activeStepIndex, setActiveStepIndex] = useState(step == "end" && redirect_status == "succeeded" ? 2 : 0);
     const [formData, setFormData] = useState({});
 
@@ -42,7 +42,7 @@ const Page = ({data}) => {
                                 <h2 className="font-semibold text-3xl">Envoyer un pass santé</h2>
                             </div>
                             <div className="flex flex-col gap-4">
-                                <FormContext.Provider value={{ activeStepIndex, setActiveStepIndex, formData, setFormData }}>
+                                <FormContext.Provider value={{ activeStepIndex, setActiveStepIndex, formData, setFormData, view, payment_intent }}>
                                     <div className="flex flex-col items-center justify-start">
                                         <Stepper />
                                         <Step data={data}/>
