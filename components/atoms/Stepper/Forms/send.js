@@ -160,16 +160,18 @@ function Send() {
 
 								<h4 className="text-sm text-center">
 									<span className="font-semibold">
-										{data.currency == "usd" ? "$" : data.currency}
-										{data.amount}
+									{new Intl.NumberFormat("en-US", {
+										style: "currency",
+										currency: data.currency,
+									}).format(data.amount)}
 									</span>{" "}
 									Health Pass WiiQare <br /> From{" "}
 									<span className="text-orange font-semibold">
-										<SliceText text={data.senderId} />
+										{data.sender.firstName}
 									</span>{" "}
 									To{" "}
 									<span className="text-orange font-semibold">
-										<SliceText text={data.voucher.patientId} />
+										{data.patient.firstName}
 									</span>
 								</h4>
 							</div>
