@@ -5,7 +5,7 @@ import Identity2 from "./Forms/identity2";
 import Payment2 from "./Forms/payment2";
 
 function Step({ data }) {
-  const { activeStepIndex } = useContext(FormContext);
+  const { activeStepIndex, view } = useContext(FormContext);
   let stepContent;
 
   switch (activeStepIndex) {
@@ -17,7 +17,7 @@ function Step({ data }) {
       stepContent = <Payment2 data={data} />;
       break;
     case 2:
-      stepContent = <Send />;
+      stepContent = <Send view={view} />;
       break;
     default:
       break;
