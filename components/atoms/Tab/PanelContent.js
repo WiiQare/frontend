@@ -13,13 +13,9 @@ const PanelContent = ({ value, index }) => {
     session.user.data.access_token
   );
 
-  console.log(data);
-
   useEffect(() => {
     setTransaction({ state: true, transaction: data });
   }, [data]);
-
-  console.log("data", data);
 
   return (
     <TabPanel value={value} index={index}>
