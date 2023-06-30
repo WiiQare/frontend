@@ -8,12 +8,15 @@ import Link from "next/link";
 import Fetcher from "../../../../lib/Fetcher";
 import { HiExclamation, HiLockClosed, HiOutlineEye } from "react-icons/hi";
 import { useRouter } from "next/router";
+import LoadingButton from "../../Loader/LoadingButton";
 
 function Send() {
 	const { Canvas } = useQRCode();
-	const { activeStepIndex, setActiveStepIndex, formData, setFormData, view, payment_intent } =
+	const { activeStepIndex, setActiveStepIndex, formData, setFormData, payment_intent } =
 		useContext(FormContext);
 	const [copy, setCopy] = useState(false);
+	const [view, setView] = useState(false);
+	const [loadView, setLoadView] = useState(false);
 	const [copyLink, setCopyLink] = useState(false);
 	const { data, isLoading, isError } = Fetcher(
 		`/payment/voucher?paymentId=${payment_intent}`
@@ -21,6 +24,15 @@ function Send() {
 
 	console.log(data);
 	const {asPath} = useRouter();
+
+	const handleView = () => {
+		setLoadView(true);
+		
+		setTimeout(() => {
+			setView(true)
+			setLoadView(false);
+		}, 1500);
+	}
 
 	if (isLoading)
 		return (
@@ -382,11 +394,9 @@ function Send() {
 						<div className="flex flex-shrink-0 absolute top-0 justify-center items-center w-full h-full">
 							<div className="flex flex-col gap-8 justify-center items-center">
 								<HiLockClosed size={150}/>
-								<Link href={asPath + "&view=1"} legacyBehavior>
-									<a className='bg-orange flex gap-2 effect-up justify-center items-center text-gray-100 font-normal h-fit  py-2 px-3 rounded-lg text-sm transition duration-300'>
-										<HiOutlineEye /> Voir Pass Santé
-									</a>
-								</Link>
+								<button onClick={handleView} className='bg-orange flex gap-2 effect-up justify-center items-center text-gray-100 font-normal h-fit  py-2 px-3 rounded-lg text-sm transition duration-300'>
+									{loadView ? <LoadingButton /> : (<><HiOutlineEye /> Voir Pass Santé</>)}
+								</button>
 							</div>
 						</div>
 					</div>
