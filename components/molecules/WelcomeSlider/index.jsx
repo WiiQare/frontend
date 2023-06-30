@@ -1,8 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
-
+import Image from "next/image";
 import Button from "@mui/material/Button";
-
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -33,7 +32,7 @@ function WelcomeSlider({ slides, settings = defaultSettings }) {
             {slides?.map((slide, idx) => (
               <div key={idx.toString()}>
                 <div className="details-holder">
-                  <img className="photo" src={slide.img} alt="" />
+                  <Image className="photo" src={slide.img} alt="" />
                   <div
                     className="bold-title"
                     dangerouslySetInnerHTML={{ __html: slide.title }}
@@ -52,7 +51,7 @@ function WelcomeSlider({ slides, settings = defaultSettings }) {
                       >
                         {slide.button?.label}
                       </Button>
-						          <InstallPWA />
+                      <InstallPWA />
                     </div>
                   )}
 

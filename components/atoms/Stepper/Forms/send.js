@@ -148,6 +148,7 @@ function Send() {
           <div className="flex flex-col items-center text-center space-y-2">
             <div className="flex flex-col items-center select-none">
               <Image
+                alt="logo"
                 src={logoDark}
                 className="h-6 md:h-9 object-left object-contain w-min"
               />
@@ -202,12 +203,12 @@ function Send() {
 
             <div className="flex flex-col items-center gap-1">
               <div className="flex -space-x-2">
-                <img
+                <Image
                   className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
                   src="/images/homme.png"
                   alt="Image Description"
                 />
-                <img
+                <Image
                   className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
                   src="/images/femme.png"
                   alt="Image Description"
@@ -248,7 +249,7 @@ function Send() {
                 target={"_blank"}
               >
                 <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-                  <img src="/images/whatsapp.png" alt="" className="w-6" />
+                  <Image src="/images/whatsapp.png" alt="" className="w-6" />
                   <span className="hidden md:flex">WhatsApp</span>
                 </a>
               </Link>
@@ -259,7 +260,7 @@ function Send() {
                 target={"_blank"}
               >
                 <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-                  <img
+                  <Image
                     src="/images/facebook-share.png"
                     alt=""
                     className="w-6"
@@ -272,7 +273,7 @@ function Send() {
                 className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
                 onClick={formik.handleSubmit}
               >
-                <img src="/images/sms.png" alt="" className="w-6" />
+                <Image src="/images/sms.png" alt="" className="w-6" />
                 {sendSMSMutation.isLoading ? (
                   <LoadingButton />
                 ) : (
@@ -293,7 +294,7 @@ function Send() {
                   type="button"
                   className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
                 >
-                  <img src="/images/text.png" alt="" className="w-6" />
+                  <Image src="/images/text.png" alt="" className="w-6" />
                   <span className="hidden md:flex">
                     {!copyLink ? "Copier le lien" : "Copié avec succès"}
                   </span>
@@ -307,6 +308,7 @@ function Send() {
           <div className="flex flex-col items-center text-center space-y-2">
             <div className="flex flex-col items-center select-none">
               <Image
+                alt="logo"
                 src={logoDark}
                 className="h-6 md:h-9 object-left object-contain w-min"
               />
@@ -367,12 +369,12 @@ function Send() {
 
             <div className="flex flex-col items-center gap-1">
               <div className="flex -space-x-2">
-                <img
+                <Image
                   className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
                   src="/images/homme.png"
                   alt="Image Description"
                 />
-                <img
+                <Image
                   className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
                   src="/images/femme.png"
                   alt="Image Description"
@@ -404,7 +406,7 @@ function Send() {
                 target={"_blank"}
               >
                 <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-                  <img src="/images/whatsapp.png" alt="" className="w-6" />
+                  <Image src="/images/whatsapp.png" alt="" className="w-6" />
                   <span className="hidden md:flex">WhatsApp</span>
                 </a>
               </Link>
@@ -415,7 +417,7 @@ function Send() {
                 target={"_blank"}
               >
                 <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-                  <img
+                  <Image
                     src="/images/facebook-share.png"
                     alt=""
                     className="w-6"
@@ -430,7 +432,7 @@ function Send() {
                 target={"_blank"}
               >
                 <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-                  <img src="/images/sms.png" alt="" className="w-6" />
+                  <Image src="/images/sms.png" alt="" className="w-6" />
                   <span className="hidden md:flex">Message</span>
                 </a>
               </Link>
@@ -448,7 +450,7 @@ function Send() {
                   type="button"
                   className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
                 >
-                  <img src="/images/text.png" alt="" className="w-6" />
+                  <Image src="/images/text.png" alt="" className="w-6" />
                   <span className="hidden md:flex">
                     {!copyLink ? "Copy Link" : "Successfully Copied"}
                   </span>

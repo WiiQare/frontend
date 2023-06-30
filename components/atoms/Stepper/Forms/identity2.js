@@ -272,6 +272,7 @@ function Identity2() {
                             <SplideTrack hasTrack={false}>
                               {tempBeneficiare.map((item, index) => (
                                 <SplideSlide
+                                  key={index}
                                   className="w-min flex flex-col gap-2 items-center justify-center p-3"
                                   onClick={() => handleSelect(item, index)}
                                 >
@@ -321,7 +322,7 @@ function Identity2() {
                           </Splide>
                         ) : (
                           <div className="w-full flex flex-col items-center gap-3">
-                            <img
+                            <Image
                               src="/images/box.png"
                               alt="Box image"
                               loading="lazy"

@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import { useContext } from "react";
 import { CountryContext } from "../Stepper/Forms/identity2";
+import Image from "next/image";
 
 export default function CountrySelect() {
   const { setCountry, setCountryLabel } = useContext(CountryContext);
@@ -26,7 +27,7 @@ export default function CountrySelect() {
           sx={{ "& > img": { mr: 2, flexShrink: 0 } }}
           {...props}
         >
-          <img
+          <Image
             loading="lazy"
             width="20"
             src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
