@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useMutation } from "react-query";
-
+import Image from "next/image";
 import OnboardingScreen from "../../molecules/OnboardingScreen";
 import MenuHolder from "../../atoms/MenuHolder";
 import { emailValidate } from "../../../lib/validate";
@@ -13,6 +13,7 @@ import { sendEmailReset } from "../../../lib/helper";
 import Toast from "../../atoms/Toast";
 import { useFormik } from "formik";
 import LoadingButton from "../../atoms/Loader/LoadingButton";
+import { HiOutlineInformationCircle } from "react-icons/hi";
 
 function ForgotForm() {
   const matches = useMediaQuery("(max-width: 992px)");
@@ -132,7 +133,8 @@ function ForgotForm() {
                   </>
                 ) : (
                   <div className="flex flex-col gap-3 items-center">
-                    <img
+                    <Image
+                      alt=""
                       src={"https://i.goopics.net/fuiyr8.png"}
                       width={80}
                       height={80}

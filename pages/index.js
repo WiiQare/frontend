@@ -9,18 +9,18 @@ import { useContext, useEffect } from "react";
 import { DrawContext } from "./_app";
 
 const Page = () => {
-
   const { draw, setDraw } = useContext(DrawContext);
 
   useEffect(() => {
-   setDraw(false)
+    setDraw(false);
   }, [setDraw]);
-
 
   return (
     <>
       <Head>
-        <title>WiiQare - A smart and secure way to save and pay for your health</title>
+        <title>
+          WiiQare - A smart and secure way to save and pay for your health
+        </title>
         <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
       </Head>
       <Carousel />

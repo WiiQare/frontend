@@ -114,9 +114,10 @@ const DetailsTransaction = () => {
 
         <div className="flex flex-col gap-6">
           <div className="w-full h-60 m-auto bg-red-100 rounded-xl relative text-white drop-shadow-sm ">
-            <img
+            <Image
               className="relative object-cover w-full h-full rounded-xl"
               src="https://i.imgur.com/kGkSg1v.png"
+              alt=""
             />
 
             <div className="w-full px-8 absolute top-6 flex flex-col gap-5">
@@ -126,7 +127,8 @@ const DetailsTransaction = () => {
                   <h1 className="md:text-3xl font-bold">$4950.00</h1>
                 </div>
                 <div>
-                  <img
+                  <Image
+                    alt="logo"
                     className="w-20 h-16 object-contain"
                     src="/images/logo.png"
                   />

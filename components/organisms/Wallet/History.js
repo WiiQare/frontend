@@ -61,6 +61,7 @@ const HistoryWallet = () => {
         <div>
           {TabHistories.map((item, index) => (
             <TabPanelContent
+              key={index}
               transactions={item.transactions}
               value={value}
               index={index}

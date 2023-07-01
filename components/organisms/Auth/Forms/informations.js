@@ -248,14 +248,14 @@ function Information() {
               for="link-checkbox"
               className="h-4 ml-2 text-sm font-normal text-gray-600 dark:text-gray-300"
             >
-              j'accepte les{" "}
+              j&apos;accepte les{" "}
               <a
                 href="https://wiiqare.com/privacy/"
                 className="text-primary hover:underline"
               >
                 termes et conditions
               </a>{" "}
-              d'utilisation.
+              d&apos;utilisation.
             </label>
           </div>
 

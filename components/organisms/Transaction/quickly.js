@@ -62,7 +62,7 @@ const Quickly = () => {
             </div>
           ) : data.length == 0 ? (
             <div className="w-full flex flex-col items-center gap-3">
-              <img
+              <Image
                 src="/images/box.png"
                 alt="Box image"
                 loading="lazy"
@@ -199,7 +199,7 @@ const Quickly = () => {
               </div>
             ) : transaction?.transaction?.length == 0 ? (
               <div className="w-full flex flex-col items-center gap-3">
-                <img
+                <Image
                   src="/images/box.png"
                   alt="Box image"
                   loading="lazy"
