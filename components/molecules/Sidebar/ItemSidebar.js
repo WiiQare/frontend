@@ -1,7 +1,9 @@
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
+import { DrawContext } from "../../../pages/_app";
 
 const ItemSidebar = ({ title, icon, link, activePath }) => {
+  const {hideSide} = useContext(DrawContext)
   return (
     <Link href={link} legacyBehavior>
       <span className={`flex items-center gap-5 hover cursor-pointer`}>
@@ -21,7 +23,8 @@ const ItemSidebar = ({ title, icon, link, activePath }) => {
               : "text-gray-400 hover:!text-sky !transition !duration-300"
           }`}
         >
-          {title}
+          <span className={`${hideSide ? "hidden": ""}`}>{title}</span>
+          
         </span>
       </span>
     </Link>
