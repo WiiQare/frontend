@@ -102,7 +102,7 @@ export default function CheckoutForm({amount, senderId, email}) {
 
             <div className="w-full flex flex-row-reverse">
                 
-				<button disabled={isLoading || !stripe || !elements} type="submit" className="mb-8 w-full rounded-md bg-orange effect-up px-6 py-4 font-medium text-white">{!isLoading ? "Envoyer Pass Santé"  : "Chargement..."}</button>
+				<button disabled={isLoading || !stripe || !elements} type="submit" className="mb-8 w-full rounded-md bg-orange effect-up px-6 py-4 font-medium text-white">{!isLoading ? "Acheter Pass Santé"  : "Chargement..."}</button>
 
             </div>
 
