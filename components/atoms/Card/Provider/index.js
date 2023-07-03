@@ -7,23 +7,23 @@ import { CiCircleInfo } from "react-icons/ci";
 import bima from "../../../../public/images/hj.png";
 import { HiUserGroup } from "react-icons/hi";
 
-const CardProvider = () => {
+const CardProvider = ({name, email, phone, address, logoLink, city, businessType}) => {
   return (
     <div className="border hover:shadow rounded-lg py-4 px-5 flex flex-col md:flex-row justify-between gap-6 bg-white cursor-pointer">
       {/* Provider */}
       <div className="flex gap-3">
         <div className="w-32 h-24 md:w-40 md:h-32 border py-2 rounded-lg overflow-hidden">
-          <Image
-            src={bima}
+          <img
+            src={logoLink}
             className="object-contain w-full h-full"
-            alt="Healthcare provider"
+            alt={name + " Logo"}
           />
         </div>
 
         <div className="flex flex-col gap-3">
           <div className="text-gray-700 space-y-2">
-            <h3 className="text-lg md:text-2xl font-bold">HJ</h3>
-            <span className="text-sm font-light">Provided by WiiQare</span>
+            <h3 className="text-lg md:text-2xl font-bold">{name}</h3>
+            <span className="text-sm font-light">{email}</span>
           </div>
 
           <span className="flex gap-3 items-center text-sm text-gray-700 font-light">
@@ -47,7 +47,7 @@ const CardProvider = () => {
       <div className="text-gray-700 flex md:block items-center gap-4 space-y-2">
         <h5 className="font-light">Adresse</h5>
         <h3 className="text-2xl font-semibold">
-          <span className="text-lg">3e Rue, C/Limete - Kinshasa</span>
+          <span className="text-lg">{address}</span>
         </h3>
       </div>
 
