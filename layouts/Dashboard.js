@@ -4,11 +4,13 @@ import MenuBottom from "../components/molecules/Navbar/Bottom";
 import Sidebar from "../components/molecules/Sidebar/Index";
 import { useSession, signOut } from "next-auth/react";
 import Router from "next/router";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { DrawContext } from "../pages/_app";
 
 const Dashboard = ({ children, className }) => {
 	const { pathname } = useRouter();
 	const { status, data } = useSession();
+	const {hideSide} = useContext(DrawContext)
 
 	useEffect(() => {
 		if (status === 'unauthenticated') Router.replace('/login')
@@ -23,11 +25,11 @@ const Dashboard = ({ children, className }) => {
 		return (
 			<>
 				<Menu session={data} handleSignOut={handleSignOut} />
-				<main className="min-h-[90vh] grid md:grid-cols-5 gap-6 mt-20">
+				<main className={`min-h-[90vh] grid ${hideSide ? "md:grid-cols-12": "md:grid-cols-5"} gap-6 mt-20`}>
 					<Sidebar activePath={pathname} />
 					<div></div>
 					<div
-						className={`${className} col-span-4 p-4 overflow-x-hidden bg-[#f0f4fd]`}
+						className={`${className} ${hideSide ? "col-span-11": "col-span-4"} p-4 overflow-x-hidden bg-[#f0f4fd]`}
 					>
 						{children}
 					</div>

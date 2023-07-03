@@ -29,6 +29,7 @@ import IconBadge from "../../atoms/Icons/Badge";
 import NotificationBadge from "../../atoms/Card/Notifications/Badge";
 import { useContext, useState } from "react";
 import { signOut } from "next-auth/react";
+import { CgMenuLeft } from "react-icons/cg";
 
 const langFlags = {
   gb: "https://flagcdn.com/60x45/gb.png",
@@ -38,7 +39,7 @@ const langFlags = {
 const Menu = ({ session, handleSignOut }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [lang, setLang] = useState("fr");
-  const { draw, setDraw } = useContext(DrawContext);
+  const { draw, setDraw, hideSide, setHideSide } = useContext(DrawContext);
 
   const open = Boolean(anchorEl);
 
@@ -76,8 +77,8 @@ const Menu = ({ session, handleSignOut }) => {
         </div>
 
         <div className="gap-4 items-center hidden md:flex">
-          <button className="cursor-pointer">
-            <HiMenuAlt3 className="text-4xl text-blue-600" />
+          <button className="cursor-pointer" onClick={() => setHideSide(!hideSide)}>
+            <CgMenuLeft className="text-4xl text-blue-600" />
           </button>
 
           {/* <form className="">

@@ -20,9 +20,9 @@ const CardProvider = ({name, email, phone, address, logoLink, city, businessType
           />
         </div>
 
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 md:w-72">
           <div className="text-gray-700 space-y-2">
-            <h3 className="text-lg md:text-2xl font-bold">{name}</h3>
+            <h3 className="text-lg md:text-lg font-bold">{name}</h3>
             <span className="text-sm font-light">{email}</span>
           </div>
 
@@ -44,10 +44,10 @@ const CardProvider = ({name, email, phone, address, logoLink, city, businessType
             </div> */}
 
       {/* Pricing */}
-      <div className="text-gray-700 flex md:block items-center gap-4 space-y-2">
+      <div className="text-gray-700 block items-center gap-4 md:space-y-2 md:w-64">
         <h5 className="font-light">Adresse</h5>
         <h3 className="text-2xl font-semibold">
-          <span className="text-lg">{address}</span>
+          <span className="text-sm">{address}</span>
         </h3>
       </div>
 
