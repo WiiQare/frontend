@@ -63,7 +63,7 @@ const ProviderFilter = () => {
       </div> */}
 			<div className="space-y-6">
 				{
-					data.map((provider) => <CardProvider {...provider} />)
+					data.map((provider, index) => <CardProvider {...provider} key={index}/>)
 				}
 			</div>
 		</div>
