@@ -97,6 +97,8 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                           <Image
                             src={`https://flagcdn.com/w20/${client.patient.country}.png`}
                             alt="cd"
+                            width={20}
+                            height={20}
                             className="rounded-full h-4 w-4 object-cover"
                           />{" "}
                           {countries[client.patient.country.toUpperCase()].name}
