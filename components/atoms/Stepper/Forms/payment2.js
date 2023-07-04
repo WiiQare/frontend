@@ -163,6 +163,8 @@ function Amount({
                             patient.country ?? "cd"
                           }.png`}
                           alt="cd"
+                          width={20}
+                          height={20}
                           className="rounded-full h-4 w-4 object-cover"
                         />{" "}
                         {
