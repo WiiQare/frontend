@@ -7,7 +7,7 @@ import { CiCircleInfo } from "react-icons/ci";
 import bima from "../../../../public/images/hj.png";
 import { HiUserGroup } from "react-icons/hi";
 
-const CardProvider = ({name, email, phone, address, logoLink, city, businessType}) => {
+const CardProvider = ({name, email, phone, address, logoLink, city, businessType, packages}) => {
   return (
     <div className="border hover:shadow rounded-lg py-4 px-5 flex flex-col md:flex-row justify-between gap-6 bg-white cursor-pointer">
       {/* Provider */}
@@ -28,9 +28,8 @@ const CardProvider = ({name, email, phone, address, logoLink, city, businessType
 
           <span className="flex gap-3 items-center text-sm text-gray-700 font-light">
             <span className="bg-orange px-2 py-1 text-white text-sm rounded-md w-fit flex gap-3 items-center">
-              3.69 <FaStar />
+              {packages ? packages.length : 0} Plan{packages.length > 1 ? "s" : ""}
             </span>
-            17 Plan
           </span>
         </div>
       </div>
