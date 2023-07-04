@@ -23,7 +23,7 @@ const Items = [
 const Sidebar = ({ activePath }) => {
   const {hideSide} = useContext(DrawContext)
   return (
-    <div className={`h-screen fixed bg-white px-6 py-12 ${hideSide ? "hidden": ""} md:flex flex-col gap-8`}>
+    <div className={`h-screen fixed bg-white px-6 py-12 ${hideSide ? "hidden": ""} hidden md:flex flex-col gap-8`}>
       {Items.map((item, index) => (
         <ItemSidebar
           {...item}
