@@ -47,6 +47,8 @@ const ListChat = () => {
             alt="Avatar"
             className="h-full w-full"
             loading="lazy"
+            width={40}
+            height={40}
           />
         </div>
         <div className="text-sm font-semibold mt-2">Peter NDENGO</div>
