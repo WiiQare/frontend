@@ -130,7 +130,7 @@ function Conversation({
           <BiArrowBack size={23} />
         </button>
         <div className="flex gap-2 items-center">
-          <Image
+          <img
             src={`/images/favicon.png`}
             alt=""
             className="rounded-xl w-10 h-10"
@@ -372,6 +372,8 @@ function ListItemChat({ handleChange }) {
             alt="Avatar"
             className="h-full w-full"
             loading="lazy"
+            width={40}
+            height={40}
           />
         </div>
         <div className="text-sm font-semibold mt-2">Peter NDENGO</div>

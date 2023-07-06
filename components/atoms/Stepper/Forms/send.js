@@ -190,7 +190,7 @@ function Send() {
 							<div className="border relative border-gray-300 rounded-lg overflow-hidden">
 								<Canvas
 									className="w-full"
-									text={`https://wiiqare-unicef.herokuapp.com/voucher/pass/${data.transactionHash}`}
+									text={`https://wiiqare-app.com/voucher/pass/${data.transactionHash}`}
 									options={{
 										level: "M",
 										margin: 1,
@@ -248,7 +248,7 @@ function Send() {
 							</h4>
 							<div className="flex justify-between">
 								<Link
-									href={`whatsapp://send?text=https://wiiqare-unicef.herokuapp.com/voucher/pass/${data.transactionHash}`}
+									href={`whatsapp://send?text=https://wiiqare-app.com/voucher/pass/${data.transactionHash}`}
 									legacyBehavior
 									target={"_blank"}
 								>
@@ -259,7 +259,7 @@ function Send() {
 								</Link>
 
 								<Link
-									href={`https://www.facebook.com/share.php?u=https://wiiqare-unicef.herokuapp.com/voucher/pass/${data.transactionHash}`}
+									href={`https://www.facebook.com/share.php?u=https://wiiqare-app.com/voucher/pass/${data.transactionHash}`}
 									legacyBehavior
 									target={"_blank"}
 								>
@@ -282,7 +282,7 @@ function Send() {
 								</button>
 
 								<CopyToClipboard
-									text={`https://wiiqare-unicef.herokuapp.com/voucher/pass/${data.transactionHash}`}
+									text={`https://wiiqare-app.com/voucher/pass/${data.transactionHash}`}
 									onCopy={() => {
 										setCopyLink(true);
 										setTimeout(() => {
@@ -347,7 +347,7 @@ function Send() {
 							<div className="border relative border-gray-300 rounded-lg overflow-hidden">
 								<Canvas
 									className="w-full"
-									text={`https://wiiqare-unicef.herokuapp.com/voucher/pass/0xcda1470a8117daaccf368eb4`}
+									text={`https://wiiqare-app.com/voucher/pass/0xcda1470a8117daaccf368eb4`}
 									options={{
 										level: "M",
 										margin: 1,
@@ -403,7 +403,7 @@ function Send() {
 							</h4>
 							<div className="flex justify-between">
 								<Link
-									href={`whatsapp://send?text=https://wiiqare-unicef.herokuapp.com/voucher/pass/${"0xcda1470a8117daaccf368eb4"}`}
+									href={`whatsapp://send?text=https://wiiqare-app.com/voucher/pass/${"0xcda1470a8117daaccf368eb4"}`}
 									legacyBehavior
 									target={"_blank"}
 								>
@@ -414,7 +414,7 @@ function Send() {
 								</Link>
 
 								<Link
-									href={`https://www.facebook.com/share.php?u=https://wiiqare-unicef.herokuapp.com/voucher/pass/${"0xcda1470a8117daaccf368eb4"}`}
+									href={`https://www.facebook.com/share.php?u=https://wiiqare-app.com/voucher/pass/${"0xcda1470a8117daaccf368eb4"}`}
 									legacyBehavior
 									target={"_blank"}
 								>
@@ -425,7 +425,7 @@ function Send() {
 								</Link>
 
 								<Link
-									href={`sms://+243814978651&?body=https://wiiqare-unicef.herokuapp.com/voucher/pass/${"0xcda1470a8117daaccf368eb4"}`}
+									href={`sms://+243814978651&?body=https://wiiqare-app.com/voucher/pass/${"0xcda1470a8117daaccf368eb4"}`}
 									legacyBehavior
 									target={"_blank"}
 								>
@@ -436,7 +436,7 @@ function Send() {
 								</Link>
 
 								<CopyToClipboard
-									text={`https://wiiqare-unicef.herokuapp.com/voucher/pass/${"0xcda1470a8117daaccf368eb4"}`}
+									text={`https://wiiqare-app.com/voucher/pass/${"0xcda1470a8117daaccf368eb4"}`}
 									onCopy={() => {
 										setCopyLink(true);
 										setTimeout(() => {

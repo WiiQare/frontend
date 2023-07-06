@@ -322,7 +322,7 @@ function Identity2() {
                           </Splide>
                         ) : (
                           <div className="w-full flex flex-col items-center gap-3">
-                            <Image
+                            <img
                               src="/images/box.png"
                               alt="Box image"
                               loading="lazy"
