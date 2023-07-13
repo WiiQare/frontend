@@ -35,24 +35,7 @@ const Page = ({data}) => {
                     print={false}
                 />
 
-                <section className="w-full pb-20 md:pb-0">
-                    <div className="w-full overflow-hidden md:col-span-2 rounded-lg py-8 flex flex-col gap-6 bg-white drop-shadow-sm">
-                        <div className="px-8 space-y-8">
-                            <div>
-                                <h2 className="font-semibold text-3xl">Envoyer un pass santé</h2>
-                            </div>
-                            <div className="flex flex-col gap-4">
-                                <FormContext.Provider value={{ activeStepIndex, setActiveStepIndex, formData, setFormData, view, payment_intent }}>
-                                    <div className="flex flex-col items-center justify-start">
-                                        <Stepper />
-                                        <Step data={data}/>
-                                    </div>
-                                </FormContext.Provider>
-                            </div>
-                        </div>
-
-                    </div>
-                </section>
+                Hello
             </div>
         </>
     );
