@@ -118,15 +118,9 @@ const Hospital = () => {
                             ) : (
 
                                 <div className="py-10 mx-auto w-1/2 flex flex-col justify-center items-center gap-4">
-                                    <div className="flex justify-center items-center">
-                                        <img src="/images/service.png" alt="" className="w-40 opacity-80 object-cover" />
-                                    </div>
-
-                                    <p className="text-gray-500 text-sm">Aucun service actuellement ajouté...</p>
-                                    <button onClick={() => openModal()} className='bg-orange text-white text-sm px-3 py-2.5 rounded-lg effect-up shadow-sm font-medium flex'>
-                                        <CiSquarePlus className="mr-2 h-5 w-5" />
-                                        Ajouter
-                                    </button>
+                                    
+                                    <p className="text-gray-500 text-sm">Aucun hôpital actuellement ajouté...</p>
+                                    
                                 </div>
                             )}
 
