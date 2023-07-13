@@ -4,6 +4,7 @@ import { SlHome, SlGlobe, SlSettings, SlSpeech } from "react-icons/sl";
 import ItemBottom from "./ItemBottom";
 import IconBadge from "../../atoms/Icons/Badge";
 import { DrawContext } from "../../../pages/_app";
+import { LiaHospital } from "react-icons/lia";
 
 const MenuBottom = ({ activePath }) => {
   const { draw, setDraw } = useContext(DrawContext);
@@ -36,6 +37,15 @@ const MenuBottom = ({ activePath }) => {
         </label>
       ),
       active: ["/messages", "/messages/[id]"],
+    },
+
+    {
+      title: "Hôpital",
+      icon: ({ size, className }) => (
+        <LiaHospital size={size + 5} className={className} />
+      ),
+      link: "/hospitals",
+      active: ["/hospitals", "/hospitals/[id]"],
     },
 
     {
