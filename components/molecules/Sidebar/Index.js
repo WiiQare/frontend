@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
-import { SlHome, SlWallet, SlEqualizer, SlGlobe } from "react-icons/sl";
+import { SlHome, SlGlobe } from "react-icons/sl";
+import { LiaHospital } from "react-icons/lia";
 import ItemSidebar from "./ItemSidebar";
 import { DrawContext } from "../../../pages/_app";
 
@@ -17,6 +18,15 @@ const Items = [
     ),
     link: "/transactions",
     active: ["/transactions", "/transactions/[id]"],
+  },
+
+  {
+    title: "Hôpital",
+    icon: ({ size, className }) => (
+      <LiaHospital size={size + 5} className={className} />
+    ),
+    link: "/hospitals",
+    active: ["/hospitals", "/hospitals/[id]"],
   },
 ];
 
