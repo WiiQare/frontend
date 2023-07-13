@@ -1,5 +1,6 @@
 import Head from "next/head";
 import DashboardLayout from "../../layouts/Dashboard";
+import CardHeader from "../../components/atoms/Card/Header";
 
 const Page = ({data}) => {
 
