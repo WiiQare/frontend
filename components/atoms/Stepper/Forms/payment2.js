@@ -199,9 +199,14 @@ function Payment2() {
       }
     };
 
+    let symbol = []
+
     for (const property in datas.symbols) {
-      setSymbols([...symbols, { country: datas.symbols[property], code: property }])
+      symbol.push({ country: datas.symbols[property], code: property });
+      //setSymbols([...symbols, { country: datas.symbols[property], code: property }])
     }
+
+    setSymbols(symbol);
 
   }, []);
 
