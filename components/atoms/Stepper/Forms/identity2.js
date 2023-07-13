@@ -209,7 +209,7 @@ function Identity2() {
       <div className="flex flex-col justify-start md:w-2/3 w-full gap-4">
         {!newBenecifiare ? (
           <>
-            {allBeneficiare && allBeneficiare.length > 0 ? (
+            {/* {allBeneficiare && allBeneficiare.length > 0 ? (
               <>
                 <div className="space-y-1 w-full">
                   <TextField
@@ -344,7 +344,7 @@ function Identity2() {
               </>
             ) : (
               <></>
-            )}
+            )} */}
 
             <div className="mt-6">
               <div
