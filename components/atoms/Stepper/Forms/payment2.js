@@ -488,7 +488,7 @@ function Amount({
                             currency={symbol.country}
                             selected={symbol.code == currencyPatient}
                           >
-                            {symbol.code} {symbol.country}
+                            {symbol.code} {symbol.country} xxx
                           </option>
                         ))}
                       </select>
