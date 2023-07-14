@@ -235,8 +235,8 @@ function Conversation({
                 ) : (
                   <div className="col-span-full h-96 px-10 justify-center flex items-center">
                     <div className="flex flex-col gap-3 items-center">
-                      <Image
-                        alt=""
+                      <img
+                        alt="Default message"
                         src={"https://i.goopics.net/26opd3.png"}
                         width={80}
                         height={80}

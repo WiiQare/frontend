@@ -347,7 +347,7 @@ function Amount({
                     <li className="flex justify-between w-full">
                       Pays:{" "}
                       <b className="text-gray-700 flex gap-1 items-center">
-                        <Image
+                        <img
                           src={`https://flagcdn.com/w20/${patient.country ?? "cd"
                             }.png`}
                           alt="cd"
