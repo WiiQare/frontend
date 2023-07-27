@@ -1,19 +1,22 @@
 import Link from "next/link";
 import Image from "next/image";
-import { FaStar } from "react-icons/fa";
-import { FcCheckmark } from "react-icons/fc";
-import { CiCircleInfo } from "react-icons/ci";
 
-import bima from "../../../../public/images/hj.png";
-import { HiUserGroup } from "react-icons/hi";
-
-const CardProvider = ({name, email, phone, address, logoLink, city, businessType, packages}) => {
+const CardProvider = ({
+  name,
+  email,
+  phone,
+  address,
+  logoLink,
+  city,
+  businessType,
+  packages,
+}) => {
   return (
     <div className="border hover:shadow rounded-lg py-4 px-5 flex flex-col md:flex-row justify-between gap-6 bg-white cursor-pointer">
       {/* Provider */}
       <div className="flex gap-3">
         <div className="w-32 h-24 md:w-40 md:h-32 border py-2 rounded-lg overflow-hidden">
-          <img
+          <Image
             src={logoLink}
             className="object-contain w-full h-full"
             alt={name + " Logo"}
@@ -28,7 +31,8 @@ const CardProvider = ({name, email, phone, address, logoLink, city, businessType
 
           <span className="flex gap-3 items-center text-sm text-gray-700 font-light">
             <span className="bg-orange px-2 py-1 text-white text-sm rounded-md w-fit flex gap-3 items-center">
-              {packages ? packages.length : 0} Plan{packages.length > 1 ? "s" : ""}
+              {packages ? packages.length : 0} Plan
+              {packages.length > 1 ? "s" : ""}
             </span>
           </span>
         </div>

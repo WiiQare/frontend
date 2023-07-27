@@ -4,7 +4,7 @@ import CardProvider from ".";
 
 describe("CardProvider", () => {
   test("should render CardProvider component", () => {
-    render(<CardProvider />);
-    expect(screen.getByText("HJ")).toBeInTheDocument();
+    const { container } = render(<CardProvider packages={[]} />);
+    expect(container).toMatchSnapshot();
   });
 });
