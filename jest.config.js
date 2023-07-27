@@ -17,6 +17,8 @@ module.exports = {
 
     "@splidejs/react-splide/css": "<rootDir>/__mocks__/styleMock.js",
 
+    "react-icons/lia": "<rootDir>/__mocks__/styleMock.js",
+
     // Handle image imports
     // https://jestjs.io/docs/webpack#handling-static-assets
     "^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$": `<rootDir>/__mocks__/fileMock.js`,
