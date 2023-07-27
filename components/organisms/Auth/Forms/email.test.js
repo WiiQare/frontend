@@ -6,11 +6,7 @@ import { FormContextRegister } from "../RegisterForm";
 import { Provider } from "react-redux";
 import { store } from "../../../../redux/store";
 import { QueryClientProvider, QueryClient } from "react-query";
-import { sendEmail } from "../../../../lib/helper";
-
-jest.mock("../../../../lib/helper", () => ({
-  sendEmail: jest.fn().mockResolvedValue({ code: 0 }),
-}));
+import * as Helpers from "../../../../lib/helper";
 
 describe("Email", () => {
   let container;
@@ -49,6 +45,7 @@ describe("Email", () => {
   });
 
   it("should send email", async () => {
+    jest.spyOn(Helpers, "sendEmail").mockResolvedValueOnce({});
     const user = userEvent.setup();
     const email = "test@example.com";
     const emailInput = screen.getByLabelText("E-mail Address");
@@ -63,7 +60,25 @@ describe("Email", () => {
     await user.type(emailInput, email);
     expect(emailInput).toHaveValue(email);
     await user.click(submitButton);
-    expect(sendEmail).toHaveBeenCalledTimes(1);
-    expect(sendEmail).toHaveBeenCalledWith({ email });
+    expect(Helpers.sendEmail).toHaveBeenCalledTimes(1);
+    expect(Helpers.sendEmail).toHaveBeenCalledWith({ email });
+  });
+
+  it("should handle error if email is not sent", async () => {
+    jest.spyOn(Helpers, "sendEmail").mockResolvedValueOnce({
+      code: 400,
+      message: "Email failed to send",
+    });
+    const user = userEvent.setup();
+    const email = "test@example.com";
+    const emailInput = screen.getByLabelText("E-mail Address");
+    const submitButton = screen.getByRole("button", {
+      name: "L'ÉTAPE SUIVANTE",
+    });
+
+    await user.type(emailInput, email);
+    await user.click(submitButton);
+    expect(Helpers.sendEmail).toHaveBeenCalledTimes(1);
+    expect(Helpers.sendEmail).toHaveBeenCalledWith({ email });
   });
 });
