@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import Login from "@/pages/login";
+import Login from "./login";
 import { render, screen } from "@testing-library/react";
 
 jest.mock("next/router", () => ({

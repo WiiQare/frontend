@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import Error404 from "@/pages/404";
+import Error404 from "./404";
 import { render } from "@testing-library/react";
 
 describe("404 page", () => {

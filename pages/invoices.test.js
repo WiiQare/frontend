@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import Invoices from "@/pages/invoices";
+import Invoices from "./invoices";
 import { render, screen } from "@testing-library/react";
 
 describe("Invoices page", () => {

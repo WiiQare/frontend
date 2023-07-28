@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import Page from "@/pages/checkout";
+import Page from "./checkout";
 import { render, screen } from "@testing-library/react";
 require("jest-fetch-mock").enableMocks();
 

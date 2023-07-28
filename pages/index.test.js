@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import Index from "@/pages/index";
+import Index from "./index";
 import { render } from "@testing-library/react";
 import { DrawContext } from "./_app";
 import { SessionProvider } from "next-auth/react";
