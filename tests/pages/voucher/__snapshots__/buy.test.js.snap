@@ -1,0 +1,212 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Buy should render the page 1`] = `
+<div>
+  <div
+    class="p-2 space-y-6 md:py-8 md:px-6"
+  >
+    <div
+      class="border w-full rounded-lg py-8 px-6 flex flex-col flex-wrap md:flex-row justify-between gap-4 bg-white cursor-pointer"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <h1
+          class="md:text-2xl text-gray-700 font-bold flex-wrap flex items-center gap-2 text-lg"
+        >
+          Envoyer un pass santé
+        </h1>
+        <ul
+          class="flex gap-2"
+        >
+          <li>
+            <span
+              class="flex gap-2 font-semibold text-sky"
+            >
+              Accueil
+              <span>
+                /
+              </span>
+            </span>
+          </li>
+          <li>
+            <span
+              class="flex gap-2 font-light text-gray-500"
+            >
+              Envoyer un pass santé
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="flex flex-row flex-wrap  gap-2 center justify-end space-x-2"
+      />
+    </div>
+    <section
+      class="w-full pb-20 md:pb-0"
+    >
+      <div
+        class="w-full overflow-hidden md:col-span-2 rounded-lg py-8 flex flex-col gap-6 bg-white drop-shadow-sm"
+      >
+        <div
+          class="px-8 space-y-8"
+        >
+          <div>
+            <h2
+              class="font-semibold text-3xl"
+            >
+              Envoyer un pass santé
+            </h2>
+          </div>
+          <div
+            class="flex flex-col gap-4"
+          >
+            <div
+              class="flex flex-col items-center justify-start"
+            >
+              <div
+                class="w-full md:w-2/3 flex flex-row items-center justify-center py-4 mb-14 md:mb-16"
+              >
+                <div
+                  class="flex flex-col relative"
+                >
+                  <div
+                    class="stepper-item flex items-center justify-center w-12 h-12 text-center font-medium border-2 rounded-full bg-primary text-white"
+                  >
+                    1
+                  </div>
+                  <span
+                    class="absolute -bottom-6 text-xs w-max md:-left-8"
+                  >
+                    Identité 
+                    <span
+                      class="hidden md:inline"
+                    >
+                      du beneficiare
+                    </span>
+                     
+                  </span>
+                </div>
+                <div
+                  class="flex-auto border-t-2"
+                />
+                <div
+                  class="flex flex-col relative"
+                >
+                  <div
+                    class="stepper-item flex items-center justify-center w-12 h-12 text-center font-medium border-2 rounded-full"
+                  >
+                    2
+                  </div>
+                  <span
+                    class="absolute -bottom-6 text-xs w-max md:-left-8"
+                  >
+                    Résumé 
+                    <span
+                      class="hidden md:inline"
+                    >
+                      de paiement
+                    </span>
+                     
+                  </span>
+                </div>
+                <div
+                  class="flex-auto border-t-2"
+                />
+                <div
+                  class="flex flex-col relative"
+                >
+                  <div
+                    class="stepper-item flex items-center justify-center w-12 h-12 text-center font-medium border-2 rounded-full"
+                  >
+                    3
+                  </div>
+                  <span
+                    class="absolute -bottom-6 text-xs w-max md:-left-8"
+                  >
+                    Généré un 
+                    <span
+                      class="hidden md:inline"
+                    >
+                      Pass Santé 
+                    </span>
+                     
+                  </span>
+                </div>
+              </div>
+              <div
+                class="flex flex-col justify-start md:w-2/3 w-full gap-4"
+              >
+                <div
+                  class="mt-6"
+                >
+                  <div
+                    class="w-full bg-gray-100 py-4 px-6 border-2 border-dashed border-gray-700 rounded-lg cursor-pointer hover:shadow-md hover:bg-gray-200 flex justify-between"
+                  >
+                    <div
+                      class="flex gap-5 items-center"
+                    >
+                      <svg
+                        fill="none"
+                        height="26"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        width="26"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
+                        />
+                        <circle
+                          cx="8.5"
+                          cy="7"
+                          r="4"
+                        />
+                        <line
+                          x1="20"
+                          x2="20"
+                          y1="8"
+                          y2="14"
+                        />
+                        <line
+                          x1="23"
+                          x2="17"
+                          y1="11"
+                          y2="11"
+                        />
+                      </svg>
+                      <h4
+                        class="font-semibold md:text-lg text-sm"
+                      >
+                        Ajouter un bénéficiaire
+                      </h4>
+                    </div>
+                    <svg
+                      fill="none"
+                      height="26"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="26"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <polyline
+                        points="9 18 15 12 9 6"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+`;

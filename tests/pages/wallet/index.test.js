@@ -1,6 +1,6 @@
-import Wallet from "../../../pages/wallet";
+import Wallet from "@/pages/wallet";
 import { render } from "@testing-library/react";
-import { TransactionContext } from "../../../components/organisms/Transaction";
+import { TransactionContext } from "@/components/organisms/Transaction";
 import { SessionProvider } from "next-auth/react";
 
 describe("Wallet", () => {
