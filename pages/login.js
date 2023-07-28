@@ -5,7 +5,7 @@ import { LOGIN_SLIDES } from "../utils/constants";
 import { useMediaQuery, CssBaseline } from "@mui/material";
 import Head from "next/head";
 import React from "react";
-import { useTranslation, Trans } from 'react-i18next';
+import { useTranslation, Trans } from "react-i18next";
 
 function Login() {
   const matches = useMediaQuery("(max-width: 992px)");

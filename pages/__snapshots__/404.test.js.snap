@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`404 page should render the 404 page 1`] = `
+<div>
+  <div
+    class="min-w-screen min-h-screen bg-blue-100 flex items-center p-5 lg:p-20 overflow-hidden relative"
+  >
+    <div
+      class="flex-1 min-h-full min-w-full rounded-3xl bg-white shadow-xl p-10 lg:p-20 text-gray-800 relative md:flex items-center text-center md:text-left"
+    >
+      <div
+        class="w-full md:w-1/2"
+      >
+        <div
+          class="mb-10 lg:mb-20"
+        >
+          <img
+            alt="logo"
+            class="h-10"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimages%2Flogo_dark.png&w=96&q=75"
+            srcset="/_next/image?url=%2Fimages%2Flogo_dark.png&w=48&q=75 1x, /_next/image?url=%2Fimages%2Flogo_dark.png&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+        <div
+          class="mb-10 md:mb-20 text-gray-600 font-light"
+        >
+          <h1
+            class="font-black uppercase text-3xl lg:text-5xl text-orange mb-10"
+          >
+            You seem to be lost!
+          </h1>
+          <p>
+            The page you're looking for isn't available.
+          </p>
+          <p>
+            Try searching again or use the Go Back button below.
+          </p>
+        </div>
+        <div
+          class="mb-20 md:mb-0"
+        >
+          <a
+            class="text-lg font-light outline-none focus:outline-none transform transition-all hover:scale-110 text-orange hover:text-yellow-600 flex items-center gap-1"
+            href="/"
+          >
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.464 2.114a.998.998 0 0 0-1.033.063l-13 9a1.003 1.003 0 0 0 0 1.645l13 9A1 1 0 0 0 19 21V3a1 1 0 0 0-.536-.886zM17 19.091 6.757 12 17 4.909v14.182z"
+              />
+            </svg>
+             Go Back
+          </a>
+        </div>
+      </div>
+      <div
+        class="w-full md:w-1/2 text-center"
+      >
+        <img
+          alt="404"
+          data-nimg="1"
+          decoding="async"
+          height="40"
+          loading="lazy"
+          src="/_next/image?url=%2Fimages%2F404.png&w=96&q=75"
+          srcset="/_next/image?url=%2Fimages%2F404.png&w=48&q=75 1x, /_next/image?url=%2Fimages%2F404.png&w=96&q=75 2x"
+          style="color: transparent;"
+          width="40"
+        />
+        <a
+          class="text-xs text-gray-300"
+          href="https://www.freepik.com/vectors/business"
+          target="_blank"
+        >
+          WiiQare à votre service
+        </a>
+      </div>
+    </div>
+    <div
+      class="w-64 md:w-96 h-96 md:h-full bg-blue-200 bg-opacity-30 absolute -top-64 md:-top-96 right-20 md:right-32 rounded-full pointer-events-none -rotate-45 transform"
+    />
+    <div
+      class="w-96 h-full bg-yellow-200 bg-opacity-20 absolute -bottom-96 right-64 rounded-full pointer-events-none -rotate-45 transform"
+    />
+  </div>
+  <div
+    class="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10"
+  >
+    <div>
+      <a
+        class="bg-white flex items-center justify-center w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12"
+        href="#"
+        target="_blank"
+        title="Buy me a beer"
+      >
+        <img
+          alt="favicon"
+          class="object-cover object-center w-full h-full rounded-full"
+          data-nimg="1"
+          decoding="async"
+          height="40"
+          loading="lazy"
+          src="/_next/image?url=%2Fimages%2Ffavicon.png&w=96&q=75"
+          srcset="/_next/image?url=%2Fimages%2Ffavicon.png&w=48&q=75 1x, /_next/image?url=%2Fimages%2Ffavicon.png&w=96&q=75 2x"
+          style="color: transparent;"
+          width="40"
+        />
+      </a>
+    </div>
+  </div>
+</div>
+`;

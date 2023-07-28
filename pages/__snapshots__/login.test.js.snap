@@ -1,0 +1,515 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login page should render the login page 1`] = `
+<div>
+  <div
+    class="container-fluid signin"
+    id="form-section"
+  >
+    <div
+      class="website-logo"
+    >
+      <a
+        href="/"
+      >
+        <div
+          class="logo"
+          style="width: 150px; height: 50px;"
+        />
+      </a>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="info-slider-holder"
+      >
+        <div
+          class="info-holder"
+        >
+          <div
+            class="mini-testimonials-slider"
+          >
+            <div
+              class="slick-slider slick-initialized"
+              dir="ltr"
+            >
+              <div
+                class="slick-list"
+              >
+                <div
+                  class="slick-track"
+                  style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+                >
+                  <div
+                    aria-hidden="false"
+                    class="slick-slide slick-active slick-current"
+                    data-index="0"
+                    style="outline: none; width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        style="width: 100%; display: inline-block;"
+                        tabindex="-1"
+                      >
+                        <div
+                          class="details-holder"
+                        >
+                          <img
+                            alt=""
+                            class="photo"
+                            src="/images/hospital-bed-.png"
+                          />
+                          <div
+                            class="bold-title"
+                          >
+                            Access to healthcare is one of the biggest challenges in 
+                            <span>
+                              Africa.
+                            </span>
+                          </div>
+                          <h5>
+                            WiiQare empowers you to keep aside money in case you’re sick.
+                          </h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    class="slick-slide"
+                    data-index="1"
+                    style="outline: none; width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        style="width: 100%; display: inline-block;"
+                        tabindex="-1"
+                      >
+                        <div
+                          class="details-holder"
+                        >
+                          <img
+                            alt=""
+                            class="photo"
+                            src="/images/WiiQare-is-secured.png"
+                          />
+                          <div
+                            class="bold-title"
+                          >
+                            Easy to create a secure 
+                            <span>
+                              account
+                            </span>
+                          </div>
+                          <h5>
+                            Creating an account is simple and straightforward.
+                          </h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    class="slick-slide"
+                    data-index="2"
+                    style="outline: none; width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        style="width: 100%; display: inline-block;"
+                        tabindex="-1"
+                      >
+                        <div
+                          class="details-holder"
+                        >
+                          <img
+                            alt=""
+                            class="photo"
+                            src="/images/set-your-savings- .png"
+                          />
+                          <div
+                            class="bold-title"
+                          >
+                            Define your saving goal and set aside money for your 
+                            <span>
+                               health
+                            </span>
+                          </div>
+                          <h5>
+                            Decide how much you want to save for health, and we will help you achieve your goal.
+                          </h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    class="slick-slide"
+                    data-index="3"
+                    style="outline: none; width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        style="width: 100%; display: inline-block;"
+                        tabindex="-1"
+                      >
+                        <div
+                          class="details-holder"
+                        >
+                          <img
+                            alt=""
+                            class="photo"
+                            src="/images/Easy-payment-scan-QR-code.png"
+                          />
+                          <div
+                            class="bold-title"
+                          >
+                            Making a payment is ABC 
+                            <span>
+                              simple
+                            </span>
+                          </div>
+                          <h5>
+                            To make a payment, simply scan a QR code.
+                          </h5>
+                          <div
+                            class="form-button flex flex-col gap-3"
+                          >
+                            <button
+                              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge css-jh47zj-MuiButtonBase-root-MuiButton-root"
+                              id="submit"
+                              tabindex="0"
+                              type="submit"
+                            >
+                              Get Started
+                              <span
+                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                              />
+                            </button>
+                            <button
+                              aria-label="Install app"
+                              class="link-button bg-gray-800 py-2.5 text-md font-medium uppercase text-center text-white rounded-lg"
+                              id="setup_button"
+                              title="Install app"
+                            >
+                              Install WiiQare App
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul
+                class="slick-dots"
+                style="display: block;"
+              >
+                <li
+                  class="slick-active"
+                >
+                  <button>
+                    1
+                  </button>
+                </li>
+                <li
+                  class=""
+                >
+                  <button>
+                    2
+                  </button>
+                </li>
+                <li
+                  class=""
+                >
+                  <button>
+                    3
+                  </button>
+                </li>
+                <li
+                  class=""
+                >
+                  <button>
+                    4
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="form-holder"
+      >
+        <div
+          class="menu-holder"
+        >
+          <ul
+            class="main-links"
+          >
+            <li>
+              <details
+                class="dropdown"
+              >
+                <summary
+                  class="m-1 btn px-2 -py-1 bg-transparent text-gray-800 text-xs border-2 hover:border-gray-300 border-none space-x-1 hover:!bg-gray-100"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="text-gray-600"
+                    fill="none"
+                    height="23"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="23"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                   
+                  <svg
+                    aria-hidden="true"
+                    class="text-gray-400"
+                    fill="currentColor"
+                    height="20"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 20 20"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </summary>
+                <ul
+                  class="shadow-sm menu dropdown-content z-[1] w-max rounded-xl"
+                >
+                  <li>
+                    <button>
+                      Français
+                    </button>
+                  </li>
+                  <li>
+                    <button>
+                      Anglais  
+                    </button>
+                  </li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <div
+                class="MuiBox-root css-1at62qq"
+              >
+                <a
+                  class="normal-link"
+                  href="/register"
+                >
+                  signIn.question
+                </a>
+              </div>
+            </li>
+            <li>
+              <div
+                class="MuiBox-root css-0"
+              >
+                <a
+                  href="/register"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium bg-yellow css-sghohy-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    signIn.buttons.page
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="signin-signup-form"
+        >
+          <div
+            class="flex flex-col md:w-3/4 w-full border-opacity-50 gap-4"
+          >
+            <div
+              class="form-items !w-full !max-w-full flex flex-col items-center mx-auto"
+            >
+              <div
+                class="md:w-3/4 mx-auto"
+              >
+                <div
+                  class="form-title"
+                >
+                  signIn.title
+                </div>
+                <div
+                  class="MuiBox-root css-19bt0nb"
+                />
+                <form
+                  id="signinform"
+                >
+                  <div
+                    class="css-1p5q5e5-MuiStack-root"
+                  >
+                    <div
+                      class="space-y-1 flex flex-col gap-1"
+                    >
+                      <div
+                        class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root lowercase css-wb57ya-MuiFormControl-root-MuiTextField-root"
+                      >
+                        <label
+                          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
+                          data-shrink="false"
+                          for="outlined-basic"
+                          id="outlined-basic-label"
+                        >
+                          signIn.field.email
+                        </label>
+                        <div
+                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl input-email css-md26zr-MuiInputBase-root-MuiOutlinedInput-root"
+                        >
+                          <input
+                            aria-invalid="false"
+                            class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                            id="outlined-basic"
+                            name="email"
+                            type="text"
+                            value=""
+                          />
+                          <fieldset
+                            aria-hidden="true"
+                            class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+                          >
+                            <legend
+                              class="css-yjsfm1"
+                            >
+                              <span>
+                                signIn.field.email
+                              </span>
+                            </legend>
+                          </fieldset>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="space-y-1 flex flex-col gap-1"
+                    >
+                      <div
+                        class="MuiFormControl-root MuiFormControl-fullWidth css-q8hpuo-MuiFormControl-root"
+                      >
+                        <label
+                          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
+                          data-shrink="false"
+                          for="outlined-basic1"
+                        >
+                          signIn.field.password
+                        </label>
+                        <div
+                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root"
+                        >
+                          <input
+                            aria-invalid="false"
+                            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
+                            id="outlined-basic1"
+                            name="password"
+                            type="password"
+                            value=""
+                          />
+                          <div
+                            class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
+                          >
+                            <button
+                              aria-label="toggle password visibility"
+                              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root"
+                              tabindex="0"
+                              type="button"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                data-testid="VisibilityIcon"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"
+                                />
+                              </svg>
+                              <span
+                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                              />
+                            </button>
+                          </div>
+                          <fieldset
+                            aria-hidden="true"
+                            class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+                          >
+                            <legend
+                              class="css-yjsfm1"
+                            >
+                              <span>
+                                signIn.field.password
+                              </span>
+                            </legend>
+                          </fieldset>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="MuiBox-root css-xtaagk"
+                    >
+                      <span
+                        class="MuiTypography-root MuiTypography-caption css-ol7wxs-MuiTypography-root"
+                      >
+                        <a
+                          href="/forgot/password"
+                        >
+                          signIn.forgot
+                        </a>
+                      </span>
+                    </div>
+                    <div
+                      class="MuiBox-root css-0"
+                    >
+                      <button
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge bg-yellow text-uppercase login css-jh47zj-MuiButtonBase-root-MuiButton-root"
+                        tabindex="0"
+                        type="submit"
+                      >
+                        signIn.buttons.submit
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
