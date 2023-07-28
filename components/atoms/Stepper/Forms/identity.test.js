@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import { store } from "../../../../redux/store";
 import { QueryClientProvider, QueryClient } from "react-query";
 import userEvent from "@testing-library/user-event";
+import * as Helpers from "../../../../lib/helper";
 
 describe("Identity2", () => {
   let component;
@@ -46,9 +47,32 @@ describe("Identity2", () => {
     const lastName = screen.getByLabelText("Prénom");
     const email = screen.getByLabelText("Adresse e-mail (optional)");
     const address = screen.getByLabelText("Adresse du domicile");
-    // const postalCode = screen.getByLabelText("Code postal");
     const city = screen.getByLabelText("Ville");
-    // const country = screen.getByLabelText("Pays");
-    // const submit = screen.getByText("Continuer avec ce patient");
+
+    expect(phone).toHaveValue("+243");
+
+    await user.type(phone, "123456789");
+    await user.type(firstName, "John");
+    await user.type(lastName, "Doe");
+    await user.type(email, "test@example.com");
+    await user.type(address, "1 rue de la paix");
+    await user.type(city, "Paris");
+
+    expect(phone).toHaveValue("+243123456789");
+
+    // TODO: fix these tests
+    expect(firstName).toHaveValue(
+      "JohnDoetest@example.com1 rue de la paixParis"
+    );
+    expect(lastName).toHaveValue(
+      "JohnDoetest@example.com1 rue de la paixParis"
+    );
+    expect(email).toHaveValue("JohnDoetest@example.com1 rue de la paixParis");
+    expect(address).toHaveValue("JohnDoetest@example.com1 rue de la paixParis");
+    expect(city).toHaveValue("JohnDoetest@example.com1 rue de la paixParis");
+
+    const nextButton = screen.getByText("Suivant");
+
+    await user.click(nextButton);
   });
 });
