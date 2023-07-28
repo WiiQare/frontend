@@ -1,0 +1,777 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Index page should render the index page 1`] = `
+<div>
+  <div
+    class="px-2 pt-4 md:px-6"
+  >
+    <div
+      aria-label="Attribution"
+      aria-roledescription="carousel"
+      class="splide container mx-auto px-8 bg-yellow-300 rounded-3xl splide--loop splide--ltr splide--draggable is-active is-initialized"
+      id="splide01"
+      role="region"
+    >
+      <div
+        aria-atomic="true"
+        aria-live="polite"
+        class="splide__track splide__track--loop splide__track--ltr splide__track--draggable"
+        id="splide01-track"
+        style="padding-left: 0px; padding-right: 0px;"
+      >
+        <ul
+          class="splide__list"
+          id="splide01-list"
+          role="presentation"
+          style="transform: translateX(0px);"
+        >
+          <li
+            aria-label="2 of 3"
+            aria-roledescription="slide"
+            class="splide__slide w-full splide__slide--clone is-visible"
+            id="splide01-clone01"
+            role="tabpanel"
+          >
+            <div
+              class="bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10"
+            >
+              <div
+                class="flex flex-col md:gap-7 gap-2"
+              >
+                <div
+                  class="space-y-3"
+                >
+                  <h1
+                    class="text-2xl md:text-5xl font-bold"
+                  >
+                    Life is Good
+                  </h1>
+                  <p
+                    class="text-xs md:text-sm text-gray-700 w-full flex"
+                  >
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem
+                  </p>
+                </div>
+                <a
+                  class="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md"
+                  href="#"
+                >
+                  Commencer
+                </a>
+              </div>
+              <div
+                class="hidden md:full md:flex justify-end "
+              >
+                <img
+                  alt="Startup"
+                  class="object-cover"
+                  data-nimg="1"
+                  decoding="async"
+                  height="24"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+                  style="color: transparent;"
+                  width="24"
+                />
+              </div>
+            </div>
+          </li>
+          <li
+            aria-label="3 of 3"
+            aria-roledescription="slide"
+            class="splide__slide w-full splide__slide--clone is-visible is-prev"
+            id="splide01-clone02"
+            role="tabpanel"
+          >
+            <div
+              class="bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10"
+            >
+              <div
+                class="flex flex-col md:gap-7 gap-2"
+              >
+                <div
+                  class="space-y-3"
+                >
+                  <h1
+                    class="text-2xl md:text-5xl font-bold"
+                  >
+                    Your health wallet
+                  </h1>
+                  <p
+                    class="text-xs md:text-sm text-gray-700 w-full flex"
+                  >
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem
+                  </p>
+                </div>
+                <a
+                  class="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md"
+                  href="#"
+                >
+                  Get Started
+                </a>
+              </div>
+              <div
+                class="hidden md:w-3/4 md:flex justify-end relative -bottom-4 "
+              >
+                <img
+                  alt="Phone"
+                  class="object-cover"
+                  data-nimg="1"
+                  decoding="async"
+                  height="24"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+                  style="color: transparent;"
+                  width="24"
+                />
+              </div>
+            </div>
+          </li>
+          <li
+            aria-label="1 of 3"
+            aria-roledescription="slide"
+            class="splide__slide w-full is-active is-visible"
+            id="splide01-slide01"
+            role="tabpanel"
+          >
+            <div
+              class="bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10"
+            >
+              <div
+                class="flex flex-col md:gap-7 gap-2"
+              >
+                <div
+                  class="space-y-3"
+                >
+                  <h1
+                    class="text-2xl md:text-5xl font-bold"
+                  >
+                    5$ pour votre 1èr Pass santé envoyé
+                  </h1>
+                  <p
+                    class="text-xs md:text-sm text-gray-700 w-full flex"
+                  >
+                    Gagnez une somme de 5$ pour votre première achat de passe santé WiiQare.
+                  </p>
+                </div>
+                <a
+                  class="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md"
+                  href="#"
+                >
+                  comment ça marche
+                </a>
+              </div>
+              <div
+                class="hidden justify-end md:w-3/4 md:flex"
+              >
+                <img
+                  alt="Wallet"
+                  class="object-cover"
+                  data-nimg="1"
+                  decoding="async"
+                  height="24"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+                  style="color: transparent;"
+                  width="24"
+                />
+              </div>
+            </div>
+          </li>
+          <li
+            aria-label="2 of 3"
+            aria-roledescription="slide"
+            class="splide__slide w-full is-visible is-next"
+            id="splide01-slide02"
+            role="tabpanel"
+          >
+            <div
+              class="bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10"
+            >
+              <div
+                class="flex flex-col md:gap-7 gap-2"
+              >
+                <div
+                  class="space-y-3"
+                >
+                  <h1
+                    class="text-2xl md:text-5xl font-bold"
+                  >
+                    Life is Good
+                  </h1>
+                  <p
+                    class="text-xs md:text-sm text-gray-700 w-full flex"
+                  >
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem
+                  </p>
+                </div>
+                <a
+                  class="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md"
+                  href="#"
+                >
+                  Commencer
+                </a>
+              </div>
+              <div
+                class="hidden md:full md:flex justify-end "
+              >
+                <img
+                  alt="Startup"
+                  class="object-cover"
+                  data-nimg="1"
+                  decoding="async"
+                  height="24"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+                  style="color: transparent;"
+                  width="24"
+                />
+              </div>
+            </div>
+          </li>
+          <li
+            aria-label="3 of 3"
+            aria-roledescription="slide"
+            class="splide__slide w-full is-visible"
+            id="splide01-slide03"
+            role="tabpanel"
+          >
+            <div
+              class="bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10"
+            >
+              <div
+                class="flex flex-col md:gap-7 gap-2"
+              >
+                <div
+                  class="space-y-3"
+                >
+                  <h1
+                    class="text-2xl md:text-5xl font-bold"
+                  >
+                    Your health wallet
+                  </h1>
+                  <p
+                    class="text-xs md:text-sm text-gray-700 w-full flex"
+                  >
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem
+                  </p>
+                </div>
+                <a
+                  class="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md"
+                  href="#"
+                >
+                  Get Started
+                </a>
+              </div>
+              <div
+                class="hidden md:w-3/4 md:flex justify-end relative -bottom-4 "
+              >
+                <img
+                  alt="Phone"
+                  class="object-cover"
+                  data-nimg="1"
+                  decoding="async"
+                  height="24"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+                  style="color: transparent;"
+                  width="24"
+                />
+              </div>
+            </div>
+          </li>
+          <li
+            aria-label="1 of 3"
+            aria-roledescription="slide"
+            class="splide__slide w-full splide__slide--clone is-active is-visible"
+            id="splide01-clone03"
+            role="tabpanel"
+          >
+            <div
+              class="bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10"
+            >
+              <div
+                class="flex flex-col md:gap-7 gap-2"
+              >
+                <div
+                  class="space-y-3"
+                >
+                  <h1
+                    class="text-2xl md:text-5xl font-bold"
+                  >
+                    5$ pour votre 1èr Pass santé envoyé
+                  </h1>
+                  <p
+                    class="text-xs md:text-sm text-gray-700 w-full flex"
+                  >
+                    Gagnez une somme de 5$ pour votre première achat de passe santé WiiQare.
+                  </p>
+                </div>
+                <a
+                  class="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md"
+                  href="#"
+                >
+                  comment ça marche
+                </a>
+              </div>
+              <div
+                class="hidden justify-end md:w-3/4 md:flex"
+              >
+                <img
+                  alt="Wallet"
+                  class="object-cover"
+                  data-nimg="1"
+                  decoding="async"
+                  height="24"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+                  style="color: transparent;"
+                  width="24"
+                />
+              </div>
+            </div>
+          </li>
+          <li
+            aria-label="2 of 3"
+            aria-roledescription="slide"
+            class="splide__slide w-full splide__slide--clone is-visible"
+            id="splide01-clone04"
+            role="tabpanel"
+          >
+            <div
+              class="bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10"
+            >
+              <div
+                class="flex flex-col md:gap-7 gap-2"
+              >
+                <div
+                  class="space-y-3"
+                >
+                  <h1
+                    class="text-2xl md:text-5xl font-bold"
+                  >
+                    Life is Good
+                  </h1>
+                  <p
+                    class="text-xs md:text-sm text-gray-700 w-full flex"
+                  >
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem
+                  </p>
+                </div>
+                <a
+                  class="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md"
+                  href="#"
+                >
+                  Commencer
+                </a>
+              </div>
+              <div
+                class="hidden md:full md:flex justify-end "
+              >
+                <img
+                  alt="Startup"
+                  class="object-cover"
+                  data-nimg="1"
+                  decoding="async"
+                  height="24"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+                  style="color: transparent;"
+                  width="24"
+                />
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="splide__arrows splide__arrows--ltr"
+      >
+        <button
+          aria-controls="splide01-track"
+          aria-label="Go to last slide"
+          class="splide__arrow splide__arrow--prev bg-transparent relative !-left-7 top-2 bottom-0 !bg-[#F0F4FD] p-4 text-3xl focus:ring-0"
+        >
+          <span
+            class="bg-white rounded-full p-1 !text-red-500"
+          >
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m9 19 8-7-8-7z"
+              />
+            </svg>
+          </span>
+        </button>
+        <button
+          aria-controls="splide01-track"
+          aria-label="Next slide"
+          class="splide__arrow splide__arrow--next bg-transparent relative !-right-7 top-2 bottom-0 !bg-[#F0F4FD] p-4 text-3xl focus:ring-0"
+        >
+          <span
+            class="bg-white rounded-full p-1 !text-red-500"
+          >
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m9 19 8-7-8-7z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <ul
+        aria-label="Select a slide to show"
+        class="splide__pagination splide__pagination--ltr"
+        role="tablist"
+      >
+        <li
+          role="presentation"
+        >
+          <button
+            aria-controls="splide01-slide01"
+            aria-label="Go to slide 1"
+            aria-selected="true"
+            class="splide__pagination__page is-active"
+            role="tab"
+            type="button"
+          />
+        </li>
+        <li
+          role="presentation"
+        >
+          <button
+            aria-controls="splide01-slide02"
+            aria-label="Go to slide 2"
+            class="splide__pagination__page"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          />
+        </li>
+        <li
+          role="presentation"
+        >
+          <button
+            aria-controls="splide01-slide03"
+            aria-label="Go to slide 3"
+            class="splide__pagination__page"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    class="p-2 md:pb-8 md:px-6 flex flex-col md:flex-row gap-8 md:gap-12 justify-center"
+  >
+    <div
+      class="bg-white drop-shadow-sm rounded-xl py-6 px-10 md:px-24 flex flex-col justify-center items-center gap-8 w-full relative"
+    >
+      <svg
+        aria-hidden="true"
+        class="text-orange"
+        fill="currentColor"
+        height="60"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 24 24"
+        width="60"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4.5 3.75a3 3 0 00-3 3v.75h21v-.75a3 3 0 00-3-3h-15z"
+        />
+        <path
+          clip-rule="evenodd"
+          d="M22.5 9.75h-21v7.5a3 3 0 003 3h15a3 3 0 003-3v-7.5zm-18 3.75a.75.75 0 01.75-.75h6a.75.75 0 010 1.5h-6a.75.75 0 01-.75-.75zm.75 2.25a.75.75 0 000 1.5h3a.75.75 0 000-1.5h-3z"
+          fill-rule="evenodd"
+        />
+      </svg>
+      <div
+        class="space-y-3 text-center w-full flex flex-col justify-center items-center z-40"
+      >
+        <h1
+          class="text-gray-800 text-lg"
+        >
+          Prenez soin de vos proches 
+        </h1>
+        <div
+          class="buy"
+        >
+          <a
+            class="flex items-center gap-2 justify-between rounded-lg bg-orange py-2 px-3 effect-up shadow text-white py-3 px-4"
+            href="/voucher/buy"
+          >
+            <span
+              class="bg-white text-sky p-1 rounded-md"
+            >
+              <svg
+                aria-hidden="true"
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 4v16m8-8H4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+            <span
+              class="text-sm font-light"
+            >
+              Envoyer un pass santé
+            </span>
+          </a>
+        </div>
+        <span
+          class="absolute z-50 top-1 right-6 cursor-pointer text-gray-700 md:text-gray-400"
+          data-popover-target="popover-description"
+        >
+          <svg
+            fill="currentColor"
+            height="25"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="25"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              id="Circle_Info"
+            >
+              <g>
+                <g>
+                  <path
+                    d="M11.5,15a.5.5,0,0,0,1,0h0V10.981a.5.5,0,0,0-1,0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="8.999"
+                    r="0.5"
+                  />
+                </g>
+                <path
+                  d="M12,2.065A9.934,9.934,0,1,1,2.066,12,9.945,9.945,0,0,1,12,2.065Zm0,18.867A8.934,8.934,0,1,0,3.066,12,8.944,8.944,0,0,0,12,20.932Z"
+                />
+              </g>
+            </g>
+          </svg>
+        </span>
+        <div
+          class="absolute z-50 invisible inline-block text-sm font-light text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72 "
+          data-popover="true"
+          id="popover-description"
+          role="tooltip"
+        >
+          <div
+            class="p-3 space-y-2 text-left"
+          >
+            <h3
+              class="font-semibold text-gray-900 dark:text-white"
+            >
+              Description
+            </h3>
+            <p>
+              <strong>
+                La pass santé WiiQare  
+              </strong>
+               est un moyen rapide et sans frais de faciliter l’accès aux soins de qualité pour vos proches en Afrique.
+            </p>
+            <a
+              class="flex items-center font-medium text-blue-600 dark:text-blue-500 dark:hover:text-blue-600 hover:text-blue-700"
+              href="www.wiiqare.com"
+            >
+              Read more 
+              <svg
+                aria-hidden="true"
+                class="w-4 h-4 ml-1"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </a>
+          </div>
+          <div
+            data-popper-arrow="true"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="bg-white drop-shadow-sm rounded-xl py-6 px-10 md:px-24 flex flex-col justify-center items-center gap-8 w-full relative"
+    >
+      <svg
+        aria-hidden="true"
+        class="text-sky"
+        fill="currentColor"
+        height="60"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 20 20"
+        width="60"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"
+        />
+      </svg>
+      <div
+        class="space-y-3 text-center w-full flex flex-col items-center z-40"
+      >
+        <h1
+          class="text-gray-800 text-lg"
+        >
+          Invitez vos amis
+        </h1>
+        <button
+          class="flex bg-sky px-4 py-4 justify-center text-white items-center rounded-xl hover:shadow-md gap-2 w-auto md:w-52"
+        >
+          <svg
+            fill="currentColor"
+            height="25"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="25"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              id="Dollar"
+            >
+              <g>
+                <path
+                  d="M12,21.934A9.934,9.934,0,1,1,21.934,12,9.945,9.945,0,0,1,12,21.934ZM12,3.066A8.934,8.934,0,1,0,20.934,12,8.944,8.944,0,0,0,12,3.066Z"
+                />
+                <path
+                  d="M14.5,13.5a2.006,2.006,0,0,1-2,2v1.01a.5.5,0,0,1-1,0V15.5H10.25a.5.5,0,0,1,0-1H12.5a1,1,0,0,0,0-2h-1a2,2,0,0,1,0-4V7.49a.5.5,0,0,1,1,0V8.5h1.25a.5.5,0,0,1,0,1H11.5a1,1,0,0,0,0,2h1A2.006,2.006,0,0,1,14.5,13.5Z"
+                />
+              </g>
+            </g>
+          </svg>
+          <span
+            class="text-xs font-light"
+          >
+            Gagnez 5$
+          </span>
+        </button>
+        <span
+          class="absolute top-1 right-6 cursor-pointer text-gray-700 md:text-gray-400"
+          data-popover-target="popover-description"
+        >
+          <svg
+            fill="currentColor"
+            height="25"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="25"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              id="Circle_Info"
+            >
+              <g>
+                <g>
+                  <path
+                    d="M11.5,15a.5.5,0,0,0,1,0h0V10.981a.5.5,0,0,0-1,0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="8.999"
+                    r="0.5"
+                  />
+                </g>
+                <path
+                  d="M12,2.065A9.934,9.934,0,1,1,2.066,12,9.945,9.945,0,0,1,12,2.065Zm0,18.867A8.934,8.934,0,1,0,3.066,12,8.944,8.944,0,0,0,12,20.932Z"
+                />
+              </g>
+            </g>
+          </svg>
+        </span>
+        <div
+          class="absolute z-50 invisible inline-block text-sm font-light text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72 "
+          data-popover="true"
+          id="popover-description"
+          role="tooltip"
+        >
+          <div
+            class="p-3 space-y-2 text-left"
+          >
+            <h3
+              class="font-semibold text-gray-900 dark:text-white"
+            >
+              Description
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit cumque hic sunt nemo fugiat porro, exercitationem commodi velit dolor eos nam sint sapiente iure maxime vitae nisi error autem tempora.
+            </p>
+            <a
+              class="flex items-center font-medium text-blue-600 dark:text-blue-500 dark:hover:text-blue-600 hover:text-blue-700"
+              href="#"
+            >
+              Read more 
+              <svg
+                aria-hidden="true"
+                class="w-4 h-4 ml-1"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </a>
+          </div>
+          <div
+            data-popper-arrow="true"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="px-4 space-y-4 pb-24 md:pb-4 flex justify-center items-center"
+  >
+    Loading...
+  </div>
+</div>
+`;
