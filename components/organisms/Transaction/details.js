@@ -131,6 +131,8 @@ const DetailsTransaction = () => {
                     alt="logo"
                     className="w-20 h-16 object-contain"
                     src="/images/logo.png"
+                    width={100}
+                    height={100}
                   />
                 </div>
               </div>
