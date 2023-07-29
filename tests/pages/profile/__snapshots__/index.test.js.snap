@@ -1,0 +1,567 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile should render the page 1`] = `
+<div>
+  <div
+    class="p-2 space-y-6 md:py-8 md:px-6 mb-20 md:mb-6"
+  >
+    <div
+      class="border w-full rounded-lg py-8 px-6 flex flex-col flex-wrap md:flex-row justify-between gap-4 bg-white cursor-pointer"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <h1
+          class="md:text-2xl text-gray-700 font-bold flex-wrap flex items-center gap-2 text-lg"
+        >
+          Mon profil
+        </h1>
+        <ul
+          class="flex gap-2"
+        >
+          <li>
+            <span
+              class="flex gap-2 font-semibold text-sky"
+            >
+              Accueil
+              <span>
+                /
+              </span>
+            </span>
+          </li>
+          <li>
+            <span
+              class="flex gap-2 font-light text-gray-500"
+            />
+          </li>
+        </ul>
+      </div>
+      <div
+        class="flex flex-row flex-wrap  gap-2 center justify-end space-x-2"
+      />
+    </div>
+    <section
+      class="w-full flex flex-col gap-8 items-start pb-20 md:pb-0"
+    >
+      <div
+        class="w-full overflow-hidden md:col-span-2 rounded-lg p-4 flex flex-col gap-6 bg-white drop-shadow-sm"
+      >
+        <div
+          before="+ Cliquez pour changer de couverture"
+          class="bg-[url(https://i.goopics.net/46v87b.jpg)] bg-no-repeat relative bg-cover h-56 rounded-lg hover:before:bg-[rgba(0,0,0,.5)] hover:before:cursor-pointer before:transition-all before:duration-200 content before:w-full before:h-full overflow-hidden before:absolute hover:before:content-[attr(before)] before:flex before:justify-center before:items-center before:text-gray-200"
+        />
+        <div
+          class="flex justify-between items-center md:px-6"
+        >
+          <div
+            class="flex gap-5 items-center relative"
+          >
+            <div
+              class="w-20 h-20"
+            >
+              <img
+                alt=""
+                class="object-cover rounded-full h-full w-full"
+                data-nimg="1"
+                decoding="async"
+                height="80"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fui-avatars.com%2Fapi%2F%3Fuppercase%3Dtrue%26background%3DFE8023%26name%3Dundefined%26bold%3Dtrue%26color%3DFFF&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fui-avatars.com%2Fapi%2F%3Fuppercase%3Dtrue%26background%3DFE8023%26name%3Dundefined%26bold%3Dtrue%26color%3DFFF&w=96&q=75 1x, /_next/image?url=https%3A%2F%2Fui-avatars.com%2Fapi%2F%3Fuppercase%3Dtrue%26background%3DFE8023%26name%3Dundefined%26bold%3Dtrue%26color%3DFFF&w=256&q=75 2x"
+                style="color: transparent;"
+                width="80"
+              />
+            </div>
+            <div
+              class=""
+            >
+              <h1
+                class="text-sky font-bold text-xl"
+              />
+              <span
+                class="text-xs"
+              />
+            </div>
+          </div>
+          <div>
+            <button
+              class="bg-[rgb(29,170,230,.6)] p-2 border-2 border-sky rounded-md text-white hover:bg-[rgb(29,170,230,.8)] w-fit"
+              for="avatar"
+            >
+              <svg
+                fill="currentColor"
+                height="22"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 24 24"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8c-2.168 0-4 1.832-4 4s1.832 4 4 4 4-1.832 4-4-1.832-4-4-4zm0 6c-1.065 0-2-.935-2-2s.935-2 2-2 2 .935 2 2-.935 2-2 2z"
+                />
+                <path
+                  d="M20 5h-2.586l-2.707-2.707A.996.996 0 0 0 14 2h-4a.996.996 0 0 0-.707.293L6.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zM4 18V7h3c.266 0 .52-.105.707-.293L10.414 4h3.172l2.707 2.707A.996.996 0 0 0 17 7h3l.002 11H4z"
+                />
+              </svg>
+            </button>
+            <input
+              class="hidden"
+              id="avatar"
+              name=""
+              type="file"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="md:w-3/4 w-full"
+      >
+        <div
+          class="min-full md:col-span-3 rounded-lg p-4 flex flex-col gap-4 bg-white drop-shadow-sm overflow-hidden"
+        >
+          <div
+            class="MuiBox-root css-8atqhb"
+          >
+            <div
+              class="MuiBox-root css-1gsv261"
+            >
+              <div
+                class="MuiTabs-root css-1ujnqem-MuiTabs-root"
+              >
+                <div
+                  class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
+                  style="overflow: hidden; margin-bottom: 0px;"
+                >
+                  <div
+                    aria-label="basic tabs example"
+                    class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
+                    role="tablist"
+                  >
+                    <button
+                      aria-controls="simple-tabpanel-0"
+                      aria-selected="true"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected css-1h9z7r5-MuiButtonBase-root-MuiTab-root"
+                      id="simple-tab-0"
+                      role="tab"
+                      tabindex="0"
+                      type="button"
+                    >
+                      À propos
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                    <button
+                      aria-controls="simple-tabpanel-1"
+                      aria-selected="false"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1h9z7r5-MuiButtonBase-root-MuiTab-root"
+                      id="simple-tab-1"
+                      role="tab"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      Paramètres
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                  <span
+                    class="MuiTabs-indicator css-1aquho2-MuiTabs-indicator"
+                    style="left: 0px; width: 0px;"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="min-w-full"
+            >
+              <div
+                aria-labelledby="simple-tab-0"
+                id="simple-tabpanel-0"
+                role="tabpanel"
+              >
+                <div
+                  class="MuiBox-root css-19kzrtu"
+                >
+                  <p
+                    class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+                  >
+                    <section
+                      class="space-y-8 "
+                    >
+                      <h2
+                        class="text-sky font-semibold"
+                      >
+                        Informations personnelles
+                      </h2>
+                      <div
+                        class="md:w-3/6 space-y-4"
+                      >
+                        <div
+                          class="grid grid-cols-2"
+                        >
+                          <h5
+                            class="font-semibold"
+                          >
+                            Nom et Prénom :
+                          </h5>
+                          <span
+                            class="text-gray-500"
+                          />
+                        </div>
+                        <div
+                          class="grid grid-cols-2"
+                        >
+                          <h5
+                            class="font-semibold"
+                          >
+                            Email :
+                          </h5>
+                          <span
+                            class="text-gray-500 w-2 md:w-full"
+                          />
+                        </div>
+                        <div
+                          class="grid grid-cols-2"
+                        >
+                          <h5
+                            class="font-semibold"
+                          >
+                            Téléphone :
+                          </h5>
+                          <span
+                            class="text-gray-500"
+                          />
+                        </div>
+                        <div
+                          class="grid grid-cols-2"
+                        >
+                          <h5
+                            class="font-semibold"
+                          >
+                            Age :
+                          </h5>
+                          <span
+                            class="text-gray-500"
+                          >
+                            --
+                          </span>
+                        </div>
+                        <div
+                          class="grid grid-cols-2"
+                        >
+                          <h5
+                            class="font-semibold"
+                          >
+                            Adresse :
+                          </h5>
+                          <span
+                            class="text-gray-500"
+                          >
+                            ---
+                          </span>
+                        </div>
+                      </div>
+                    </section>
+                  </p>
+                </div>
+              </div>
+              <div
+                aria-labelledby="simple-tab-1"
+                hidden=""
+                id="simple-tabpanel-1"
+                role="tabpanel"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+`;
+
+exports[`Transactions should render the page 1`] = `
+<div>
+  <div
+    class="p-2 space-y-6 md:py-8 md:px-6 mb-20 md:mb-6"
+  >
+    <div
+      class="border w-full rounded-lg py-8 px-6 flex flex-col flex-wrap md:flex-row justify-between gap-4 bg-white cursor-pointer"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <h1
+          class="md:text-2xl text-gray-700 font-bold flex-wrap flex items-center gap-2 text-lg"
+        >
+          Mon profil
+        </h1>
+        <ul
+          class="flex gap-2"
+        >
+          <li>
+            <span
+              class="flex gap-2 font-semibold text-sky"
+            >
+              Accueil
+              <span>
+                /
+              </span>
+            </span>
+          </li>
+          <li>
+            <span
+              class="flex gap-2 font-light text-gray-500"
+            />
+          </li>
+        </ul>
+      </div>
+      <div
+        class="flex flex-row flex-wrap  gap-2 center justify-end space-x-2"
+      />
+    </div>
+    <section
+      class="w-full flex flex-col gap-8 items-start pb-20 md:pb-0"
+    >
+      <div
+        class="w-full overflow-hidden md:col-span-2 rounded-lg p-4 flex flex-col gap-6 bg-white drop-shadow-sm"
+      >
+        <div
+          before="+ Cliquez pour changer de couverture"
+          class="bg-[url(https://i.goopics.net/46v87b.jpg)] bg-no-repeat relative bg-cover h-56 rounded-lg hover:before:bg-[rgba(0,0,0,.5)] hover:before:cursor-pointer before:transition-all before:duration-200 content before:w-full before:h-full overflow-hidden before:absolute hover:before:content-[attr(before)] before:flex before:justify-center before:items-center before:text-gray-200"
+        />
+        <div
+          class="flex justify-between items-center md:px-6"
+        >
+          <div
+            class="flex gap-5 items-center relative"
+          >
+            <div
+              class="w-20 h-20"
+            >
+              <img
+                alt=""
+                class="object-cover rounded-full h-full w-full"
+                data-nimg="1"
+                decoding="async"
+                height="80"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fui-avatars.com%2Fapi%2F%3Fuppercase%3Dtrue%26background%3DFE8023%26name%3Dundefined%26bold%3Dtrue%26color%3DFFF&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fui-avatars.com%2Fapi%2F%3Fuppercase%3Dtrue%26background%3DFE8023%26name%3Dundefined%26bold%3Dtrue%26color%3DFFF&w=96&q=75 1x, /_next/image?url=https%3A%2F%2Fui-avatars.com%2Fapi%2F%3Fuppercase%3Dtrue%26background%3DFE8023%26name%3Dundefined%26bold%3Dtrue%26color%3DFFF&w=256&q=75 2x"
+                style="color: transparent;"
+                width="80"
+              />
+            </div>
+            <div
+              class=""
+            >
+              <h1
+                class="text-sky font-bold text-xl"
+              />
+              <span
+                class="text-xs"
+              />
+            </div>
+          </div>
+          <div>
+            <button
+              class="bg-[rgb(29,170,230,.6)] p-2 border-2 border-sky rounded-md text-white hover:bg-[rgb(29,170,230,.8)] w-fit"
+              for="avatar"
+            >
+              <svg
+                fill="currentColor"
+                height="22"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 24 24"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8c-2.168 0-4 1.832-4 4s1.832 4 4 4 4-1.832 4-4-1.832-4-4-4zm0 6c-1.065 0-2-.935-2-2s.935-2 2-2 2 .935 2 2-.935 2-2 2z"
+                />
+                <path
+                  d="M20 5h-2.586l-2.707-2.707A.996.996 0 0 0 14 2h-4a.996.996 0 0 0-.707.293L6.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zM4 18V7h3c.266 0 .52-.105.707-.293L10.414 4h3.172l2.707 2.707A.996.996 0 0 0 17 7h3l.002 11H4z"
+                />
+              </svg>
+            </button>
+            <input
+              class="hidden"
+              id="avatar"
+              name=""
+              type="file"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="md:w-3/4 w-full"
+      >
+        <div
+          class="min-full md:col-span-3 rounded-lg p-4 flex flex-col gap-4 bg-white drop-shadow-sm overflow-hidden"
+        >
+          <div
+            class="MuiBox-root css-8atqhb"
+          >
+            <div
+              class="MuiBox-root css-1gsv261"
+            >
+              <div
+                class="MuiTabs-root css-1ujnqem-MuiTabs-root"
+              >
+                <div
+                  class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
+                  style="overflow: hidden; margin-bottom: 0px;"
+                >
+                  <div
+                    aria-label="basic tabs example"
+                    class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
+                    role="tablist"
+                  >
+                    <button
+                      aria-controls="simple-tabpanel-0"
+                      aria-selected="true"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected css-1h9z7r5-MuiButtonBase-root-MuiTab-root"
+                      id="simple-tab-0"
+                      role="tab"
+                      tabindex="0"
+                      type="button"
+                    >
+                      À propos
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                    <button
+                      aria-controls="simple-tabpanel-1"
+                      aria-selected="false"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1h9z7r5-MuiButtonBase-root-MuiTab-root"
+                      id="simple-tab-1"
+                      role="tab"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      Paramètres
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                  <span
+                    class="MuiTabs-indicator css-1aquho2-MuiTabs-indicator"
+                    style="left: 0px; width: 0px;"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="min-w-full"
+            >
+              <div
+                aria-labelledby="simple-tab-0"
+                id="simple-tabpanel-0"
+                role="tabpanel"
+              >
+                <div
+                  class="MuiBox-root css-19kzrtu"
+                >
+                  <p
+                    class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+                  >
+                    <section
+                      class="space-y-8 "
+                    >
+                      <h2
+                        class="text-sky font-semibold"
+                      >
+                        Informations personnelles
+                      </h2>
+                      <div
+                        class="md:w-3/6 space-y-4"
+                      >
+                        <div
+                          class="grid grid-cols-2"
+                        >
+                          <h5
+                            class="font-semibold"
+                          >
+                            Nom et Prénom :
+                          </h5>
+                          <span
+                            class="text-gray-500"
+                          />
+                        </div>
+                        <div
+                          class="grid grid-cols-2"
+                        >
+                          <h5
+                            class="font-semibold"
+                          >
+                            Email :
+                          </h5>
+                          <span
+                            class="text-gray-500 w-2 md:w-full"
+                          />
+                        </div>
+                        <div
+                          class="grid grid-cols-2"
+                        >
+                          <h5
+                            class="font-semibold"
+                          >
+                            Téléphone :
+                          </h5>
+                          <span
+                            class="text-gray-500"
+                          />
+                        </div>
+                        <div
+                          class="grid grid-cols-2"
+                        >
+                          <h5
+                            class="font-semibold"
+                          >
+                            Age :
+                          </h5>
+                          <span
+                            class="text-gray-500"
+                          >
+                            --
+                          </span>
+                        </div>
+                        <div
+                          class="grid grid-cols-2"
+                        >
+                          <h5
+                            class="font-semibold"
+                          >
+                            Adresse :
+                          </h5>
+                          <span
+                            class="text-gray-500"
+                          >
+                            ---
+                          </span>
+                        </div>
+                      </div>
+                    </section>
+                  </p>
+                </div>
+              </div>
+              <div
+                aria-labelledby="simple-tab-1"
+                hidden=""
+                id="simple-tabpanel-1"
+                role="tabpanel"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+`;

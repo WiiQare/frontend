@@ -10,7 +10,7 @@ jest.mock("next/router", () => ({
   }),
 }));
 
-describe("Transactions id page", () => {
+describe("Reset Password", () => {
   it("should render the page", () => {
     const queryClient = new QueryClient();
     const { container } = render(
