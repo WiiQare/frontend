@@ -125,6 +125,8 @@ function ItemMessage({ name, message, onClick }) {
           src={`https://ui-avatars.com/api/?uppercase=true&background=random&name=${name}&bold=false&color=FFF`}
           alt=""
           className="rounded-full"
+          width={20}
+          height={20}
         />
       </div>
       <div className="ml-2 text-sm font-semibold">{name}</div>
