@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Transactions id page should render the page 1`] = `
+exports[`Reset Password should render the page 1`] = `
 <div>
   <div
     class="container-fluid signin"
