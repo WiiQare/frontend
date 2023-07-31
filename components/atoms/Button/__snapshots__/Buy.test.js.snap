@@ -10,10 +10,11 @@ exports[`Buy button should render the component 1`] = `
       class="bg-white text-sky p-1 rounded-md"
     >
       <svg
+        aria-hidden="true"
         fill="none"
         height="1em"
         stroke="currentColor"
-        stroke-width="0"
+        stroke-width="2"
         viewBox="0 0 24 24"
         width="1em"
         xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +23,6 @@ exports[`Buy button should render the component 1`] = `
           d="M12 4v16m8-8H4"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="2"
         />
       </svg>
     </span>

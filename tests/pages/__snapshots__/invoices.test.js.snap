@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`invoices page should render the invoices page 1`] = `
+<div>
+  <div>
+    <h2
+      class="text-black font-w700 mt-4"
+    >
+      Invoices
+    </h2>
+  </div>
+</div>
+`;

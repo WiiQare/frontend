@@ -47,10 +47,11 @@ exports[`Voucher renders 1`] = `
               class="bg-white text-sky p-1 rounded-md"
             >
               <svg
+                aria-hidden="true"
                 fill="none"
                 height="1em"
                 stroke="currentColor"
-                stroke-width="0"
+                stroke-width="2"
                 viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +60,6 @@ exports[`Voucher renders 1`] = `
                   d="M12 4v16m8-8H4"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  stroke-width="2"
                 />
               </svg>
             </span>
@@ -84,7 +84,6 @@ exports[`Voucher renders 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <g
-              dataName="Circle Info"
               id="Circle_Info"
             >
               <g>
@@ -155,6 +154,7 @@ exports[`Voucher renders 1`] = `
       class="bg-white drop-shadow-sm rounded-xl py-6 px-10 md:px-24 flex flex-col justify-center items-center gap-8 w-full relative"
     >
       <svg
+        aria-hidden="true"
         class="text-sky"
         fill="currentColor"
         height="60"
@@ -221,7 +221,6 @@ exports[`Voucher renders 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <g
-              dataName="Circle Info"
               id="Circle_Info"
             >
               <g>

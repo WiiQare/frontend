@@ -79,6 +79,7 @@ exports[`Stepper/Step renders send: send step 1`] = `
     class="flex flex-col gap-6 items-center h-screen w-full overflow-hidden"
   >
     <svg
+      aria-hidden="true"
       class="text-red-600"
       fill="currentColor"
       height="100"

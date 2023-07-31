@@ -19,6 +19,7 @@ exports[`Filter should render Filter component 1`] = `
         </span>
       </span>
       <svg
+        aria-hidden="true"
         fill="currentColor"
         height="20"
         stroke="currentColor"
