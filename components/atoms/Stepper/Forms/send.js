@@ -248,7 +248,7 @@ function Send() {
 							</h4>
 							<div className="flex justify-between">
 								<Link
-									href={`whatsapp://send?text=https://wiiqare-app.com/voucher/pass/${data.transactionHash}`}
+									href={`whatsapp://send?text=https://wiiqare-app.com/voucher/pass/${payment_intent}`}
 									legacyBehavior
 									target={"_blank"}
 								>
@@ -259,7 +259,7 @@ function Send() {
 								</Link>
 
 								<Link
-									href={`https://www.facebook.com/share.php?u=https://wiiqare-app.com/voucher/pass/${data.transactionHash}`}
+									href={`https://www.facebook.com/share.php?u=https://wiiqare-app.com/voucher/pass/${payment_intent}`}
 									legacyBehavior
 									target={"_blank"}
 								>
@@ -282,7 +282,7 @@ function Send() {
 								</button>
 
 								<CopyToClipboard
-									text={`https://wiiqare-app.com/voucher/pass/${data.transactionHash}`}
+									text={`https://wiiqare-app.com/voucher/pass/${payment_intent}`}
 									onCopy={() => {
 										setCopyLink(true);
 										setTimeout(() => {
