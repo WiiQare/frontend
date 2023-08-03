@@ -6,6 +6,7 @@ import Breadcrumb from "../../Breadcrumbs";
 import { HiOutlinePrinter } from "react-icons/hi";
 
 const CardHeader = ({
+  children = null,
   title,
   sort,
   filter,
@@ -51,6 +52,8 @@ const CardHeader = ({
         ) : (
           <></>
         )}
+
+        {children ? children : <></>}
 
         {filter ? (
           <DropdownFilter

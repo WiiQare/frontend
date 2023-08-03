@@ -1,14 +1,14 @@
 import Head from "next/head";
 import DashboardLayout from "../../layouts/Dashboard";
-import Wallet from "../../components/organisms/Wallet";
+import NewSaving from "../../components/organisms/Wallet/New";
 
 const Page = () => {
   return (
     <>
       <Head>
-        <title>My Wallet</title>
+        <title>Ajout d'un nouvelle épargne santé</title>
       </Head>
-      <Wallet />
+      <NewSaving />
     </>
   );
 };
