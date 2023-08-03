@@ -4,7 +4,7 @@ import { SlHome, SlGlobe, SlSettings, SlSpeech } from "react-icons/sl";
 import ItemBottom from "./ItemBottom";
 import IconBadge from "../../atoms/Icons/Badge";
 import { DrawContext } from "../../../pages/_app";
-import { LiaHospital } from "react-icons/lia";
+import { LiaHandHoldingUsdSolid, LiaHospital } from "react-icons/lia";
 
 const MenuBottom = ({ activePath }) => {
   const { draw, setDraw } = useContext(DrawContext);
@@ -27,16 +27,25 @@ const MenuBottom = ({ activePath }) => {
       active: ["/transactions", "/transactions/[id]"],
     },
 
+    // {
+    //   title: "Messages",
+    //   icon: ({ size, className }) => (
+    //     <label htmlFor="my-drawer-4" onClick={() => setDraw(!draw)}>
+    //       <IconBadge className={"py-0"}>
+    //         <SlSpeech size={size} className={className} />
+    //       </IconBadge>
+    //     </label>
+    //   ),
+    //   active: ["/messages", "/messages/[id]"],
+    // },
+
     {
-      title: "Messages",
+      title: "Épargne",
       icon: ({ size, className }) => (
-        <label htmlFor="my-drawer-4" onClick={() => setDraw(!draw)}>
-          <IconBadge className={"py-0"}>
-            <SlSpeech size={size} className={className} />
-          </IconBadge>
-        </label>
+        <LiaHandHoldingUsdSolid size={size + 5} className={className} />
       ),
-      active: ["/messages", "/messages/[id]"],
+      link: "/saving",
+      active: ["/saving", "/saving/[id]", "/saving/new"],
     },
 
     {
