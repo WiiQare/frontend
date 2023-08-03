@@ -27,6 +27,8 @@ const ItemHistory = ({
   senderCurrency,
   voucher,
   createdAt,
+  updatedAt,
+  ownerType,
   amount,
   paymentMethod,
   status,
@@ -631,12 +633,22 @@ const ItemHistory = ({
                                   </li>
 
                                   <li className="ml-6">
-                                    <span className="absolute flex items-center justify-center w-6 h-6 bg-gray-200 rounded-full -left-3 ring-8 ring-white"></span>
-                                    <h3 className="mb-1 text-lg font-semibold text-gray-400">
+                                    <span className={`absolute flex items-center justify-center w-6 h-6 ${ownerType == 'PROVIDER' ? 'bg-green-400' : 'bg-gray-200'} rounded-full -left-3 ring-8 ring-white`}>
+                                      {
+                                        ownerType == 'PROVIDER' && <MdCheck
+                                        className="!text-white"
+                                        color="#fff"
+                                        style={{ color: "#fff" }}
+                                      />
+                                      }
+                                    </span>
+                                    <h3 className={`mb-1 text-lg font-semibold ${ownerType == 'PROVIDER' ? 'text-gray-900': 'text-gray-400'}`}>
                                       Utilisation du Pass santé
                                     </h3>
-                                    <time className="block mb-2 text-sm font-normal leading-none text-gray-200">
-                                      En cours ...
+                                    <time className={`block mb-2 text-sm font-normal leading-none ${ownerType == 'PROVIDER' ? 'text-gray-400' : 'text-gray-200'} `}>
+                                      { ownerType == 'PROVIDER' ? new Intl.DateTimeFormat("fr", {
+                                        dateStyle: "long",
+                                      }).format(new Date(updatedAt)) : 'En cours ...'}
                                     </time>
                                   </li>
                                 </ol>

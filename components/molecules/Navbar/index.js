@@ -258,7 +258,7 @@ const Menu = ({ session, handleSignOut }) => {
             </Dropdown>
           </div>
 
-          <div className="hidden md:flex">
+          <div className="flex">
             <label htmlFor="my-drawer-4" onClick={() => setDraw(!draw)}>
               <IconBadge total={-1}>
                 <AiOutlineMessage size={25} />

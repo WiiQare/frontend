@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { SlHome, SlGlobe } from "react-icons/sl";
-import { LiaHospital } from "react-icons/lia";
+import { LiaHandHoldingUsdSolid, LiaHospital } from "react-icons/lia";
 import ItemSidebar from "./ItemSidebar";
 import { DrawContext } from "../../../pages/_app";
 
@@ -28,6 +28,16 @@ const Items = [
     link: "/hospitals",
     active: ["/hospitals", "/hospitals/[id]"],
   },
+
+  {
+    title: "Épargne de Santé",
+    icon: ({ size, className }) => (
+      <LiaHandHoldingUsdSolid size={size + 5} className={className} />
+    ),
+    link: "/saving",
+    active: ["/saving", "/saving/[id]", "/saving/new"],
+  },
+  
 ];
 
 const Sidebar = ({ activePath }) => {
