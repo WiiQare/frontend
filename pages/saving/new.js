@@ -6,7 +6,7 @@ const Page = () => {
   return (
     <>
       <Head>
-        <title>Ajout d'un nouvelle épargne santé</title>
+        <title>{"Ajout d'un nouvelle épargne santé "}</title>
       </Head>
       <NewSaving />
     </>
