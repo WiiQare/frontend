@@ -29,15 +29,14 @@ const WalletBalance = ({ wallet, progresses }) => {
 
                     <div className="text-sm hidden md:block">
                         <span className="uppercase">DERNIER DÉPÔT</span>
-                        <h6 className="text-gray-700">2023 Juin 13</h6>
+                        <h6 className="text-gray-700"></h6>
                     </div>
 
                     <div className="text-sm hidden md:block">
-                        <span className="uppercase">Card Holder</span>
-                        <h6 className="text-gray-700">{wallet.holder}</h6>
+                        <span className="uppercase">Numéro de portefeuille</span>
+                        <h1 className=" text-gray-900 font-semibold hidden md:block">{wallet.number}</h1>
                     </div>
 
-                    <h1 className=" text-gray-900 font-semibold hidden md:block">{wallet.number}</h1>
 
                     <span className="w-12 hidden md:block"></span>
                 </div>

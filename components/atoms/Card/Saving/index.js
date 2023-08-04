@@ -121,6 +121,7 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                                                     //     convertAutomatically(null);
                                                                     // }}
                                                                     >
+                                                                        <option>CDF</option>
                                                                         <option selected>USD</option>
                                                                         <option>EUR</option>
                                                                     </select>
