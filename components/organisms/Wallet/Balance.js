@@ -22,7 +22,7 @@ const WalletBalance = ({ wallet, progresses }) => {
                     <div className="flex gap-2 items-center">
                         <CiWallet size={80} className="text-sky" />
                         <div className="text-gray-700">
-                            <h1 className="font-semibold text-xl">Total d'épargne</h1>
+                            <h1 className="font-semibold text-xl">{"Total d'épargne"}</h1>
                             <h3 className="font-bold text-3xl">${wallet.amount}</h3>
                         </div>
                     </div>
