@@ -62,10 +62,13 @@ const StripePayment = ({ plan }) => {
                 >
                   <HiArrowSmLeft size={24} />
                 </button>
+
                 <p className="text-xl font-medium">{"Détails de l'épargne"}</p>
               </div>
               <p className="text-gray-400 text-xs">
                 Confirmer les informations et choisissez la methode de paiement 
+
+             
               </p>
 
               <div className="items-center sm:flex w-full">
