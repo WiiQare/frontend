@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useContext, useState } from "react";
 import { HiArrowLongRight } from 'react-icons/hi2';
 import { Dialog, Transition } from '@headlessui/react';
 import { useFormik } from "formik";
@@ -6,6 +6,7 @@ import { BiTransferAlt } from "react-icons/bi";
 import { TextField } from "@mui/material";
 import * as yup from "yup";
 import { useRouter } from 'next/router';
+import { DrawContext } from "../../../../pages/_app";
 
 
 const SavingCard = ({ title, img, month = 12 }) => {
@@ -17,6 +18,7 @@ const SavingCard = ({ title, img, month = 12 }) => {
     const [currency, setCurrency] = useState("USD")
     const [state, setState] = useState({ type: 0, message: '' });
     const router = useRouter();
+    const { setSaving, saving } = useContext(DrawContext);
 
 
     const closeModal = () => {
@@ -25,6 +27,7 @@ const SavingCard = ({ title, img, month = 12 }) => {
 
     const openModal = () => {
         setIsOpen(true)
+        setSaving({...saving, title, month})
     }
 
     const calculatePrice = (amount) => {
@@ -55,6 +58,7 @@ const SavingCard = ({ title, img, month = 12 }) => {
             return null
         }
 
+        setSaving({...saving, target: {amount: values.amount, currency}})
         calculatePrice(parseInt(values.amount))
 
         console.log(pricing);
@@ -208,7 +212,7 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                                                 <h1 class="mt-1 text-md font-semibold text-center text-gray-800 capitalize lg:text-xl">Prix calculer</h1>
 
                                                                 <div class="mt-8 space-y-8">
-                                                                    <div onClick={() => setPlan(pricing[0])} class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${plan.type == "DAY" ? 'border-blue-500' : ''}`}>
+                                                                    <div onClick={() => {setPlan(pricing[0]); setSaving({...saving, plan: pricing[0]})}} class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${plan.type == "DAY" ? 'border-blue-500' : ''}`}>
                                                                         <div class="flex items-center">
                                                                             <svg xmlns="http://www.w3.org/2000/svg" class={`w-5 h-5 sm:h-9 sm:w-9 ${plan.type == "DAY" ? 'text-blue-600' : 'text-gray-400'}`} viewBox="0 0 20 20" fill="currentColor">
                                                                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
@@ -231,7 +235,7 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                                                             <span class="text-base font-medium">/jour</span></h2>
                                                                     </div>
 
-                                                                    <div onClick={() => setPlan(pricing[1])} class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${plan.type == "WEEK" ? 'border-blue-500' : ''}`}>
+                                                                    <div onClick={() => {setPlan(pricing[1]); setSaving({...saving, plan: pricing[1]})}} class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${plan.type == "WEEK" ? 'border-blue-500' : ''}`}>
                                                                         <div class="flex items-center">
                                                                             <svg xmlns="http://www.w3.org/2000/svg" class={`w-5 h-5 sm:h-9 sm:w-9 ${plan.type == "WEEK" ? 'text-blue-600' : 'text-gray-400'}`} viewBox="0 0 20 20" fill="currentColor">
                                                                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
@@ -254,7 +258,7 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                                                             <span class="text-base font-medium">/Sem.</span></h2>
                                                                     </div>
 
-                                                                    <div onClick={() => setPlan(pricing[2])} class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${plan.type == "MONTH" ? 'border-blue-500' : ''}`}>
+                                                                    <div onClick={() => {setPlan(pricing[2]); setSaving({...saving, plan: pricing[2]})}} class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${plan.type == "MONTH" ? 'border-blue-500' : ''}`}>
                                                                         <div class="flex items-center">
                                                                             <svg xmlns="http://www.w3.org/2000/svg" class={`w-5 h-5 sm:h-9 sm:w-9 ${plan.type == "MONTH" ? 'text-blue-600' : 'text-gray-400'}`} viewBox="0 0 20 20" fill="currentColor">
                                                                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />

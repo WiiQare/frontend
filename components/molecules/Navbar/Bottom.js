@@ -45,7 +45,7 @@ const MenuBottom = ({ activePath }) => {
         <LiaHandHoldingUsdSolid size={size + 5} className={className} />
       ),
       link: "/saving",
-      active: ["/saving", "/saving/[id]", "/saving/new"],
+      active: ["/saving", "/saving/[id]", "/saving/new", "/saving/summary"],
     },
 
     {
