@@ -19,6 +19,7 @@ export const DrawContext = createContext();
 
 const App = ({ Component, pageProps }) => {
   const [draw, setDraw] = useState(false);
+  const [saving, setSaving] = useState({});
   const [hideSide, setHideSide] = useState(false);
   const getLayout = Component.getLayout ?? ((page) => page);
 
@@ -41,7 +42,7 @@ const App = ({ Component, pageProps }) => {
           <Provider store={store}>
             <NextNProgress height={3} color="#FE8023" />
             <ThemeProvider theme={theme}>
-              <DrawContext.Provider value={{draw, setDraw, hideSide, setHideSide}}>
+              <DrawContext.Provider value={{draw, setDraw, hideSide, setHideSide, saving, setSaving}}>
                 {draw ? <Drawer /> : <></>}
                 {getLayout(<Component {...pageProps} />)}
               </DrawContext.Provider>
