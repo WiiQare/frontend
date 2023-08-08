@@ -50,7 +50,10 @@ const StripePayment = () => {
 
     if (!saving.plan)
         return (
-            <>Aucun Plan n'a été selectionner</>
+            <div className="flex flex-col items-center justify-center py-20 gap-6">
+                <img src="https://i.goopics.net/s7t0br.png" className="w-40 opacity-80"/>
+                <span className="text-xs text-gray-600">Aucun objectif n'a été défini, le premier paiement n'est pas possible...</span>
+            </div>
         )
 
     return (
