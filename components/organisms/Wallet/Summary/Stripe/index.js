@@ -143,18 +143,11 @@ const StripePayment = () => {
 
                             <p className="mt-8 text-lg font-medium">Modes de paiement</p>
                             <form className="mt-5 grid gap-6">
-                                <div className="relative">
-                                    <input
-                                        className="peer hidden"
-                                        id="radio_1"
-                                        type="radio"
-                                        name="radio"
-                                        checked={methodPayment == "card" ? true : false}
-                                        onClick={() => setMethodPayment("card")}
-                                    />
-                                    <span className="peer-checked:border-orange absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
+                                <div className="relative" onClick={() => setMethodPayment("card")}>
+                                    
+                                    <span className={`${methodPayment == "card" ? 'border-orange' : '' } absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white`}></span>
                                     <label
-                                        className="peer-checked:border-2 peer-checked:border-orange peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4"
+                                        className={`${methodPayment == "card" ? 'border-2 border-orange peer-checked:bg-gray-50' : '' } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
                                         for="radio_1"
                                     >
                                         <img
@@ -170,18 +163,10 @@ const StripePayment = () => {
                                         </div>
                                     </label>
                                 </div>
-                                <div className="relative">
-                                    <input
-                                        className="peer hidden"
-                                        id="radio_2"
-                                        type="radio"
-                                        name="radio"
-                                        checked={methodPayment != "card" ? true : false}
-                                        onClick={() => setMethodPayment("crypto")}
-                                    />
-                                    <span className="peer-checked:border-orange absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
+                                <div className="relative" onClick={() => setMethodPayment("crypto")}>
+                                    <span className={`${methodPayment == "crypto" ? 'border-orange' : '' } absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white`}></span>
                                     <label
-                                        className="peer-checked:border-2 peer-checked:border-orange peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4"
+                                        className={`${methodPayment == "crypto" ? 'border-2 border-orange peer-checked:bg-gray-50' : '' } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
                                         for="radio_2"
                                     >
                                         <img
@@ -198,33 +183,30 @@ const StripePayment = () => {
                                     </label>
                                 </div>
 
-                                <div className="relative">
-                                    <input
-                                        className="peer hidden"
-                                        id="radio_3"
-                                        type="radio"
-                                        name="radio"
-                                        checked={methodPayment != "card" && methodPayment != "crypto" ? true : false}
-                                        onClick={() => setMethodPayment("mobile")}
-                                    />
-                                    <span className="peer-checked:border-orange absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
-                                    <label
-                                        className="peer-checked:border-2 peer-checked:border-orange peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4"
-                                        for="radio_3"
-                                    >
-                                        <img
-                                            className="w-14 object-contain"
-                                            src="https://i.goopics.net/com9rd.png"
-                                            alt=""
-                                        />
-                                        <div className="ml-5">
-                                            <span className="mt-2 font-semibold">Mobile Money</span>
-                                            <p className="text-slate-500 text-sm leading-6">
-                                                Mpesa, Orange & Airtel Money
-                                            </p>
+                                {
+                                    saving.target.currency != "EUR" ? (
+                                        <div className="relative" onClick={() => setMethodPayment("mobile")}>
+
+                                            <span className={`${methodPayment == "mobile" ? 'border-orange' : '' } absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white`}></span>
+                                            <label
+                                                className={`${methodPayment == "mobile" ? 'border-2 border-orange peer-checked:bg-gray-50' : '' } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
+                                                for="radio_3"
+                                            >
+                                                <img
+                                                    className="w-14 object-contain"
+                                                    src="https://i.goopics.net/com9rd.png"
+                                                    alt=""
+                                                />
+                                                <div className="ml-5">
+                                                    <span className="mt-2 font-semibold">Mobile Money</span>
+                                                    <p className="text-slate-500 text-sm leading-6">
+                                                        Mpesa, Orange & Airtel Money
+                                                    </p>
+                                                </div>
+                                            </label>
                                         </div>
-                                    </label>
-                                </div>
+                                    ) : (<></>)
+                                }
                             </form>
                         </div>
 
@@ -257,7 +239,10 @@ const StripePayment = () => {
                                     </p>
                                 </div>
                             ) : (
-                                <>Mobile Money</>
+                                <><p className="text-xl font-medium">Informations Mobile Money</p>
+                                <p className="text-gray-400 text-xs mb-4">
+                                    Completez vos informations de Mobile Money
+                                </p></>
                             )}
                         </div>
                     </div>

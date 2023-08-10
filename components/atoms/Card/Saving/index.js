@@ -27,7 +27,7 @@ const SavingCard = ({ title, img, month = 12 }) => {
 
     const openModal = () => {
         setIsOpen(true)
-        setSaving({...saving, title, month})
+        setSaving({ ...saving, title, month })
     }
 
     const calculatePrice = (amount) => {
@@ -35,7 +35,7 @@ const SavingCard = ({ title, img, month = 12 }) => {
         let prices = [];
 
         debugger;
-        
+
         prices.push({ amount: amount / (month * 31), type: "DAY", currency })
         prices.push({ amount: amount / (month * 4), type: "WEEK", currency })
         prices.push({ amount: amount / (month), type: "MONTH", currency })
@@ -58,7 +58,7 @@ const SavingCard = ({ title, img, month = 12 }) => {
             return null
         }
 
-        setSaving({...saving, target: {amount: values.amount, currency}})
+        setSaving({ ...saving, target: { amount: values.amount, currency } })
         calculatePrice(parseInt(values.amount))
 
         console.log(pricing);
@@ -143,8 +143,17 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                                 </div>
 
                                                 <form className="flex w-full gap-8 flex-col" id="object" onSubmit={formik.handleSubmit}>
-                                                    <div className="flex flex-col gap-1">
+                                                    <div className="flex flex-col gap-3">
 
+                                                        <div className="flex justify-between items-center">
+                                                            <h1 className='font-normal text-md text-gray-400'>Choisir la devise : </h1>
+
+                                                            <label for="Toggle4" className="inline-flex items-center rounded-full overflow-hidden cursor-pointer bg-white border-2 border-primary text-primary">
+                                                                <span onClick={(e) => setCurrency('CDF')} className={`px-4 py-2  ${currency == 'CDF' ? 'bg-primary text-white' : 'bg-transparent text-primary'} font-semibold select-none text-sm`}>CDF</span>
+                                                                <span onClick={(e) => setCurrency('EUR')} className={`px-4 py-2  ${currency == 'EUR' ? 'bg-primary text-white' : 'bg-transparent text-primary'} font-semibold select-none text-sm`}>EUR</span>
+                                                                <span onClick={(e) => setCurrency('USD')} className={`px-4 py-2  font-semibold ${currency == 'USD' ? 'bg-primary text-white' : 'bg-transparent text-primary'} select-none text-sm`}>USD</span>
+                                                            </label>
+                                                        </div>
                                                         <div>
                                                             <label
                                                                 for="hs-inline-leading-pricing-select-label"
@@ -157,13 +166,13 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                                                     type="number"
                                                                     id="hs-inline-leading-pricing-select-label"
                                                                     name="amount"
-                                                                    className="py-3 px-4 pl-9 pr-20 block w-full border-gray-200 shadow-sm rounded-md text-lg focus:z-10 focus:border-blue-500 focus:ring-blue-500 focus:ring-1 outline-none"
+                                                                    className={`py-3 px-4 ${currency == "USD" || currency == "EUR" ? "pl-9" : "pl-16"} pr-5 block w-full border-gray-200 shadow-sm rounded-md text-lg focus:z-10 focus:border-blue-500 focus:ring-blue-500 focus:ring-1 outline-none`}
                                                                     placeholder="0.00"
                                                                     {...formik.getFieldProps('amount')}
                                                                 />
                                                                 <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none z-20 pl-4">
                                                                     <span className="text-gray-500 font-semibold text-lg">
-                                                                        $
+                                                                        {currency == "USD" ? "$" : currency == "EUR" ? "€" : "CDF"}
                                                                     </span>
                                                                 </div>
                                                                 <div className="absolute inset-y-0 right-0 flex items-center text-gray-500 pr-px">
@@ -173,18 +182,7 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                                                     >
                                                                         Currency
                                                                     </label>
-                                                                    <select
-                                                                        id="hs-inline-leading-select-currency"
-                                                                        name="currency"
-                                                                        className="block w-full border-transparent rounded-md focus:ring-0 text-lg py-2"
-                                                                        onChange={(e) => {
-                                                                            setCurrency(e.target.value);
-                                                                        }}
-                                                                    >
-                                                                        <option value="USD" selected>USD</option>
-                                                                        <option value="CDF">CDF</option>
-                                                                        <option value="EUR">EUR</option>
-                                                                    </select>
+                                                                    
                                                                 </div>
 
                                                             </div>
@@ -212,7 +210,7 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                                                 <h1 class="mt-1 text-md font-semibold text-center text-gray-800 capitalize lg:text-xl">Prix calculer</h1>
 
                                                                 <div class="mt-8 space-y-8">
-                                                                    <div onClick={() => {setPlan(pricing[0]); setSaving({...saving, plan: pricing[0]})}} class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${plan.type == "DAY" ? 'border-blue-500' : ''}`}>
+                                                                    <div onClick={() => { setPlan(pricing[0]); setSaving({ ...saving, plan: pricing[0] }) }} class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${plan.type == "DAY" ? 'border-blue-500' : ''}`}>
                                                                         <div class="flex items-center">
                                                                             <svg xmlns="http://www.w3.org/2000/svg" class={`w-5 h-5 sm:h-9 sm:w-9 ${plan.type == "DAY" ? 'text-blue-600' : 'text-gray-400'}`} viewBox="0 0 20 20" fill="currentColor">
                                                                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
@@ -235,7 +233,7 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                                                             <span class="text-base font-medium">/jour</span></h2>
                                                                     </div>
 
-                                                                    <div onClick={() => {setPlan(pricing[1]); setSaving({...saving, plan: pricing[1]})}} class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${plan.type == "WEEK" ? 'border-blue-500' : ''}`}>
+                                                                    <div onClick={() => { setPlan(pricing[1]); setSaving({ ...saving, plan: pricing[1] }) }} class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${plan.type == "WEEK" ? 'border-blue-500' : ''}`}>
                                                                         <div class="flex items-center">
                                                                             <svg xmlns="http://www.w3.org/2000/svg" class={`w-5 h-5 sm:h-9 sm:w-9 ${plan.type == "WEEK" ? 'text-blue-600' : 'text-gray-400'}`} viewBox="0 0 20 20" fill="currentColor">
                                                                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
@@ -258,7 +256,7 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                                                             <span class="text-base font-medium">/Sem.</span></h2>
                                                                     </div>
 
-                                                                    <div onClick={() => {setPlan(pricing[2]); setSaving({...saving, plan: pricing[2]})}} class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${plan.type == "MONTH" ? 'border-blue-500' : ''}`}>
+                                                                    <div onClick={() => { setPlan(pricing[2]); setSaving({ ...saving, plan: pricing[2] }) }} class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${plan.type == "MONTH" ? 'border-blue-500' : ''}`}>
                                                                         <div class="flex items-center">
                                                                             <svg xmlns="http://www.w3.org/2000/svg" class={`w-5 h-5 sm:h-9 sm:w-9 ${plan.type == "MONTH" ? 'text-blue-600' : 'text-gray-400'}`} viewBox="0 0 20 20" fill="currentColor">
                                                                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
