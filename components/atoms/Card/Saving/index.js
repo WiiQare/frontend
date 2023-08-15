@@ -7,10 +7,16 @@ import { TextField } from "@mui/material";
 import * as yup from "yup";
 import { useRouter } from 'next/router';
 import { DrawContext } from "../../../../pages/_app";
+import { useMutation } from "react-query";
+import LoadingButton from "../../Loader/LoadingButton";
+import { addPlan } from "../../../../lib/helper";
+import { useSession } from "next-auth/react";
+import Toast from "../../Toast";
 
 
 const SavingCard = ({ title, img, month = 12 }) => {
 
+    const { data: session } = useSession();
     const [isOpen, setIsOpen] = useState(false);
     const [isCalculate, setIsCalculate] = useState(false);
     const [plan, setPlan] = useState({ type: "", amount: 0, currency: 'USD' });
@@ -20,6 +26,7 @@ const SavingCard = ({ title, img, month = 12 }) => {
     const router = useRouter();
     const { setSaving, saving } = useContext(DrawContext);
 
+    console.log("session", session);
 
     const closeModal = () => {
         setIsOpen(false)
@@ -33,8 +40,6 @@ const SavingCard = ({ title, img, month = 12 }) => {
     const calculatePrice = (amount) => {
 
         let prices = [];
-
-        debugger;
 
         prices.push({ amount: amount / (month * 31), type: "DAY", currency })
         prices.push({ amount: amount / (month * 4), type: "WEEK", currency })
@@ -83,12 +88,49 @@ const SavingCard = ({ title, img, month = 12 }) => {
         <p className="text-xs text-red-600 font-light flex items-center gap-1 px-1">{message}</p>
     );
 
+    const newPlan = useMutation(addPlan, {
+        onSuccess: (res) => {
+            if (res.code) {
+                setState({ type: 2, message: res.message ?? res.description });
+                setTimeout(() => {
+                setState({ type: 0, message: "" });
+                }, 3000);
+            } else {
+                router.push('/saving/summary');
+              }
+        },
+      });
+
     const summaryPage = () => {
-        router.push('/saving/summary');
+        console.log(saving);
+        newPlan.mutate({
+            user: session.user.data.userId,
+            type: title == "Pour moi" ? "MOI" : title.toUpperCase() ,
+            amount: saving.target.amount,
+            currency: saving.target.currency,
+            frequency: plan.type,
+            accessToken: session.accessToken
+        });
     }
+
+    const closeToast = () => {
+        setState({ type: 0, message: "" });
+    };
 
     return (
         <>
+
+        {state.type > 0 ? (
+                state.type == 2 ? (
+                <Toast type={"danger"} message={state.message} close={closeToast} />
+                ) : state.type == 1 ? (
+                <Toast type={"success"} message={state.message} close={closeToast} />
+                ) : (
+                <></>
+                )
+            ) : (
+                <></>
+            )}
             <div onClick={() => openModal()} className="order-2 md:order-1 bg-white p-5 md:p-10 flex flex-col justify-center items-center rounded-lg shadow-sm hover:shadow-md duration-200 transition-all cursor-pointer gap-4">
                 <div className="p-3 rounded-md border border-blue-200 w-fit">
                     <img src={img} alt="Myself" className="w-20" />
@@ -148,7 +190,7 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                                         <div className="flex justify-between items-center">
                                                             <h1 className='font-normal text-md text-gray-400'>Choisir la devise : </h1>
 
-                                                            <label for="Toggle4" className="inline-flex items-center rounded-full overflow-hidden cursor-pointer bg-white border-2 border-primary text-primary">
+                                                            <label htmlFor="Toggle4" className="inline-flex items-center rounded-full overflow-hidden cursor-pointer bg-white border-2 border-primary text-primary">
                                                                 <span onClick={(e) => setCurrency('CDF')} className={`px-4 py-2  ${currency == 'CDF' ? 'bg-primary text-white' : 'bg-transparent text-primary'} font-semibold select-none text-sm`}>CDF</span>
                                                                 <span onClick={(e) => setCurrency('EUR')} className={`px-4 py-2  ${currency == 'EUR' ? 'bg-primary text-white' : 'bg-transparent text-primary'} font-semibold select-none text-sm`}>EUR</span>
                                                                 <span onClick={(e) => setCurrency('USD')} className={`px-4 py-2  font-semibold ${currency == 'USD' ? 'bg-primary text-white' : 'bg-transparent text-primary'} select-none text-sm`}>USD</span>
@@ -156,7 +198,7 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                                         </div>
                                                         <div>
                                                             <label
-                                                                for="hs-inline-leading-pricing-select-label"
+                                                                htmlFor="hs-inline-leading-pricing-select-label"
                                                                 className="block text-sm font-semibold mb-2"
                                                             >
                                                                 Votre objectif (Pour {month} mois)
@@ -177,7 +219,7 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                                                 </div>
                                                                 <div className="absolute inset-y-0 right-0 flex items-center text-gray-500 pr-px">
                                                                     <label
-                                                                        for="hs-inline-leading-select-currency"
+                                                                        htmlFor="hs-inline-leading-select-currency"
                                                                         className="sr-only"
                                                                     >
                                                                         Currency
