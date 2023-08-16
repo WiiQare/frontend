@@ -4,7 +4,11 @@ import { HiDotsVertical } from 'react-icons/hi';
 import CardProgress from '../../atoms/Card/Progress';
 import DropdownFilter from '../../atoms/Dropdown/Filter';
 
-const WalletBalance = ({ wallet, progresses }) => {
+const WalletBalance = ({ wallet, progresses, data }) => {
+
+    console.log(data);
+
+    if (data.isLoading) return <>Loading...</>
     return (
         <div className="container">
             <div className="bg-white drop-shadow-sm rounded-lg px-3 py-3">
@@ -42,49 +46,46 @@ const WalletBalance = ({ wallet, progresses }) => {
                 </div>
 
                 <div className="px-6 mt-8 space-y-7">
-                    {/* <div className="w-full bg-gray-200 rounded-full md:h-7">
-                        <div className={`bg-sky text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full w-[${wallet.progress}%] h-full flex items-center justify-center`}> {wallet.progress}%</div>
-                    </div> */}
 
-                    {/* <div className="grid md:grid-cols-2 gap-8 items-center">
-                        <CardProgress
-                            color={"text-purple"}
-                            value={progresses.installment.percent}
-                            title={"Pour moi"}
-                            amount={progresses.installment.amount}
-                            className={"bg-[#F9F1FC]"}
-                            link={"/saving/1"}
+                    {data.data && data.data.length > 0 ? (
+                        <>
+                            {
+                                data.data.length == 1 ? (
+                                    <div className="w-full bg-gray-200 rounded-full md:h-7">
+                                        <div className={`bg-sky text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full w-[${wallet.progress}%] h-full flex items-center justify-center`}> {wallet.progress}%</div>
+                                    </div>
+                                ) : <></>
+                            }
 
-                        />
+                            <div className="grid md:grid-cols-2 gap-8 items-center">
+                                {
+                                    data.data.map((saving, index) => (
+                                        <CardProgress
+                                            color={saving.operations.length * 10 <= 50 ? "text-purple" : saving.operations.length * 10 > 50 && saving.operations.length * 10 <= 75 ? "text-[#2ABB52]" : "text-[#441DE1]"}
+                                            value={saving.operations.length * 10}
+                                            title={saving.type == "MOI" ? "POUR MOI" : saving.type}
+                                            amount={saving.amount}
+                                            currency={saving.currency}
+                                            className={saving.operations.length * 10 <= 50 ? "bg-[#F9F1FC]" : saving.operations.length * 10 > 50 && saving.operations.length * 10 <= 75 ? "bg-[#E3F9E9]" : "bg-[#F4F2FE]"}
+                                            link={`/saving/${saving.id}`}
+                                            key={index}
+        
+                                        />
+                                    ))
+                                }
 
-                        <CardProgress
-                            color={"text-[#2ABB52]"}
-                            value={progresses.investment.percent}
-                            title={"Pour Famille"}
-                            amount={progresses.investment.amount}
-                            className={"bg-[#E3F9E9]"}
-                            link={"/saving/1"}
-                        />
+                                <Link href={"/learn"} legacyBehavior>
+                                    <button className='border border-sky hover:bg-sky hover:text-white text-sky font-normal h-fit  py-4 md:px-9 px-5 rounded-lg text-lg transition duration-300'>+ Générer un pass santé</button>
+                                </Link>
 
-                        <CardProgress
-                            color={"text-[#441DE1]"}
-                            value={progresses.property.percent}
-                            title={"Pour enfant"}
-                            amount={progresses.property.amount}
-                            className={"bg-[#F4F2FE]"}
-                            link={"/saving/1"}
-                        />
-
-                        <Link href={"/learn"} legacyBehavior>
-                            <button className='border border-sky hover:bg-sky hover:text-white text-sky font-normal h-fit  py-4 md:px-9 px-5 rounded-lg text-lg transition duration-300'>+ Générer un pass santé</button>
-                        </Link>
-
-                    </div> */}
-
-                    <div className='flex flex-col justify-center items-center my-10 md:my-20 gap-6'>
-                        <img src="https://i.goopics.net/ozsga7.png" alt="" className='md:w-44 w-28 opacity-80'/>
-                        <span className='text-gray-400 text-sm'>Aucun épargne actuellement en cours...</span>
-                    </div>
+                            </div>
+                        </>
+                    ) : (
+                        <div className='flex flex-col justify-center items-center my-10 md:my-20 gap-6'>
+                            <img src="https://i.goopics.net/ozsga7.png" alt="" className='md:w-44 w-28 opacity-80' />
+                            <span className='text-gray-400 text-sm'>Aucun épargne actuellement en cours...</span>
+                        </div>
+                    )}
                 </div>
 
             </div>

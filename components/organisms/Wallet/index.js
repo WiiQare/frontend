@@ -4,8 +4,16 @@ import WalletBalance from "./Balance";
 
 import { Button } from "flowbite-react";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
+import Fetcher from "../../../lib/Fetcher";
 
 const Wallet = () => {
+
+  const { data: session } = useSession();
+  const { data, isLoading, isError } = Fetcher(
+    `/savings/cf2eb389-cda1-470a-8117-daaccf368eb4`,
+    session.user.data.access_token
+  );
 
   return (
     <div className="p-2 space-y-6 md:py-8 md:px-6 mb-12">
@@ -43,6 +51,7 @@ const Wallet = () => {
             amount: "1,282",
           },
         }}
+        data={{data, isLoading}}
       />
 
       {/* <HistoryWallet /> */}
