@@ -84,7 +84,7 @@ function Pass() {
           <span className="text-xs flex items-center gap-1">
             Pass Santé ID:
             <CopyToClipboard
-              text={data.transactionHash}
+              text={data.voucherEntity.voucherHash}
               onCopy={() => {
                 setCopy(true);
                 setTimeout(() => {
@@ -99,7 +99,7 @@ function Pass() {
                   data-tip={!copy ? "Copy to clipboard" : "✓ Copy"}
                 >
                   <span className="text-orange cursor-pointer">
-                    <SliceText text={data.transactionHash} />
+                    <SliceText text={data.voucherEntity.voucherHash} />
                   </span>
                 </div>
                 ]
@@ -112,7 +112,7 @@ function Pass() {
           <div className="border relative border-gray-300 rounded-lg overflow-hidden">
             <Canvas
               className="w-full"
-              text={`${data.transactionHash}`}
+              text={`${data.voucherEntity.voucherHash}`}
               options={{
                 level: "M",
                 margin: 1,

@@ -35,8 +35,7 @@ function Send() {
 
 	const handleView = async () => {
 		setLoadView(true);
-
-		let response = await fetch(`https://api.wiiqare-app.com/api/v1/payment/voucher?paymentId=${payment_intent}`)
+		let response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/payment/voucher?paymentId=${payment_intent}`)
 
 		setLoadView(false);
 
@@ -116,11 +115,11 @@ function Send() {
 		);
 
 	const SliceText = ({ text }) => {
-		return (
+		return text? (
 			<>
 				{text.slice(0, 8)}...{text.slice(-7)}
 			</>
-		);
+		) : '';
 	};
 	
 
@@ -162,7 +161,7 @@ function Send() {
 							<span className="text-xs flex items-center gap-1">
 								Pass Sante ID:
 								<CopyToClipboard
-									text={data.transactionHash}
+									text={data.voucherEntity.voucherHash}
 									onCopy={() => {
 										setCopy(true);
 										setTimeout(() => {
@@ -177,7 +176,7 @@ function Send() {
 											data-tip={!copy ? "Copy to clipboard" : "✓ Copy"}
 										>
 											<span className="text-orange cursor-pointer">
-												<SliceText text={data.transactionHash} />
+												<SliceText text={data.voucherEntity.voucherHash} />
 											</span>
 										</div>
 										]
@@ -190,7 +189,7 @@ function Send() {
 							<div className="border relative border-gray-300 rounded-lg overflow-hidden">
 								<Canvas
 									className="w-full"
-									text={`https://wiiqare-app.com/voucher/pass/${data.transactionHash}`}
+									text={`${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/${data.voucherEntity.voucherHash}`}
 									options={{
 										level: "M",
 										margin: 1,
@@ -248,7 +247,7 @@ function Send() {
 							</h4>
 							<div className="flex justify-between">
 								<Link
-									href={`whatsapp://send?text=https://wiiqare-app.com/voucher/pass/${payment_intent}`}
+									href={`whatsapp://send?text=${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/${payment_intent}`}
 									legacyBehavior
 									target={"_blank"}
 								>
@@ -259,7 +258,7 @@ function Send() {
 								</Link>
 
 								<Link
-									href={`https://www.facebook.com/share.php?u=https://wiiqare-app.com/voucher/pass/${payment_intent}`}
+									href={`https://www.facebook.com/share.php?u=${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/${payment_intent}`}
 									legacyBehavior
 									target={"_blank"}
 								>
@@ -282,7 +281,7 @@ function Send() {
 								</button>
 
 								<CopyToClipboard
-									text={`https://wiiqare-app.com/voucher/pass/${payment_intent}`}
+									text={`${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/${payment_intent}`}
 									onCopy={() => {
 										setCopyLink(true);
 										setTimeout(() => {
