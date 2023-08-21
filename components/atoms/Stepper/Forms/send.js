@@ -66,7 +66,7 @@ function Send() {
 	  });
 
 	const onSubmit = async () => {
-		sendSMSMutation.mutate({ shortenHash: data.shortenHash, accessToken: session.accessToken });
+		sendSMSMutation.mutate({ shortenHash: data?.voucherEntity?.shortenHash, accessToken: session.accessToken });
 	  };
 	
 	  const closeToast = () => {
