@@ -39,7 +39,7 @@ function Send() {
   const handleView = async () => {
     setLoadView(true);
     let response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/v1/payment/voucher?paymentId=${payment_intent}`,
+      `https://api.wiiqare-app.com/api/v1/payment/voucher?paymentId=${payment_intent}`,
     );
 
     setLoadView(false);

@@ -39,7 +39,7 @@ const authOptions = {
             password: credentials.password,
           }),
         };
-        const url = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/session`;
+        const url = `https://api.wiiqare-app.com/api/v1/session`;
         const response = await fetch(url, Options);
         const json = await response.json();
 
