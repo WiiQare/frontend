@@ -26,8 +26,6 @@ const SavingCard = ({ title, img, month = 12 }) => {
     const router = useRouter();
     const { setSaving, saving } = useContext(DrawContext);
 
-    console.log("session", session);
-
     const closeModal = () => {
         setIsOpen(false)
     }
@@ -96,6 +94,7 @@ const SavingCard = ({ title, img, month = 12 }) => {
                 setState({ type: 0, message: "" });
                 }, 3000);
             } else {
+                setSaving({...saving, idSaving: res.id})
                 router.push('/saving/summary');
               }
         },

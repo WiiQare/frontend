@@ -19,6 +19,8 @@ const StripePayment = () => {
     const [clientSecret, setClientSecret] = useState("");
     const [methodPayment, setMethodPayment] = useState("card");
 
+    console.log(saving);
+
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
         fetch("/api/saving", {
