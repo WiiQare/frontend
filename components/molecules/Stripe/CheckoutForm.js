@@ -64,7 +64,7 @@ export default function CheckoutForm({ amount, senderId, email }) {
       confirmParams: {
         // Make sure to change this to your payment completion page
         //return_url: "http://localhost:3000/voucher/buy?step=end",
-        return_url: `${process.env.NEXT_PUBLIC_BASE_URL}/voucher/buy?step=end&senderId=${senderId}`,
+        return_url: `https://wiiqare-app.com/voucher/buy?step=end&senderId=${senderId}`,
       },
     });
 

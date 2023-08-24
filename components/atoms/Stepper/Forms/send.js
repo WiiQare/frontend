@@ -187,7 +187,7 @@ function Send() {
             <div className="border relative border-gray-300 rounded-lg overflow-hidden">
               <Canvas
                 className="w-full"
-                text={`${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/${data.voucherEntity.voucherHash}`}
+                text={`https://wiiqare-app.com/voucher/pass/${data.voucherEntity.voucherHash}`}
                 options={{
                   level: 'M',
                   margin: 1,
@@ -244,7 +244,7 @@ function Send() {
             </h4>
             <div className="flex justify-between">
               <Link
-                href={`whatsapp://send?text=${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/${payment_intent}`}
+                href={`whatsapp://send?text=https://wiiqare-app.com/voucher/pass/${payment_intent}`}
                 legacyBehavior
                 target={'_blank'}
               >
@@ -255,7 +255,7 @@ function Send() {
               </Link>
 
               <Link
-                href={`https://www.facebook.com/share.php?u=${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/${payment_intent}`}
+                href={`https://www.facebook.com/share.php?u=https://wiiqare-app.com/voucher/pass/${payment_intent}`}
                 legacyBehavior
                 target={'_blank'}
               >
@@ -282,7 +282,7 @@ function Send() {
               </button>
 
               <CopyToClipboard
-                text={`${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/${payment_intent}`}
+                text={`https://wiiqare-app.com/voucher/pass/${payment_intent}`}
                 onCopy={() => {
                   setCopyLink(true);
                   setTimeout(() => {
