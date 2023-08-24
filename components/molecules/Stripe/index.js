@@ -66,7 +66,7 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                 >
                   <HiArrowSmLeft size={24} />
                 </button>
-                <p className="text-xl font-medium">Details du Patient</p>
+                <p className="text-xl font-medium">Détails du Patient</p>
               </div>
               <p className="text-gray-400 text-xs">
                 Confirmer les informations et choisissez la methode de paiement
