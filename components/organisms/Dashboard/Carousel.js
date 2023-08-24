@@ -37,7 +37,7 @@ const Carousel = () => {
               <div className="flex flex-col md:gap-7 gap-2">
                 <div className="space-y-3">
                   <h1 className="text-2xl md:text-5xl font-bold">
-                    5$ pour votre 1èr Pass santé envoyé
+                    5$ pour votre 1èr Pass santé envoyésssss
                   </h1>
                   <p className="text-xs md:text-sm text-gray-700 w-full flex">
                     Gagnez une somme de 5$ pour votre première achat de passe
