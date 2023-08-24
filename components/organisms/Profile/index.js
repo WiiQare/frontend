@@ -1,30 +1,30 @@
-import Image from "next/image";
-import CardHeader from "../../atoms/Card/Header";
-import { BiCamera } from "react-icons/bi";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Box from "@mui/material/Box";
-import PropTypes from "prop-types";
-import Typography from "@mui/material/Typography";
-import { useState } from "react";
+import Image from 'next/image';
+import CardHeader from '../../atoms/Card/Header';
+import { BiCamera } from 'react-icons/bi';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
+import PropTypes from 'prop-types';
+import Typography from '@mui/material/Typography';
+import { useState } from 'react';
 import {
   FormControl,
   InputLabel,
   MenuItem,
   Select,
   TextField,
-} from "@mui/material";
-import { SWRConfig } from "swr";
-import Fetcher from "../../../lib/Fetcher";
-import { useSession } from "next-auth/react";
+} from '@mui/material';
+import { SWRConfig } from 'swr';
+import Fetcher from '../../../lib/Fetcher';
+import { useSession } from 'next-auth/react';
 
 const TabHistories = [
   {
-    name: "À propos",
+    name: 'À propos',
   },
 
   {
-    name: "Paramètres",
+    name: 'Paramètres',
   },
 ];
 
@@ -33,7 +33,7 @@ const Profile = ({ phoneNumber, names, email }) => {
   const { data: session } = useSession();
   const { data, isLoading, isError } = Fetcher(
     `/payer/${session.user.data.userId}`,
-    session.user.data.access_token
+    session.user.data.access_token,
   );
 
   const handleChange = (event, newValue) => {
@@ -43,15 +43,15 @@ const Profile = ({ phoneNumber, names, email }) => {
   return (
     <div className="p-2 space-y-6 md:py-8 md:px-6 mb-20 md:mb-6">
       <CardHeader
-        title={"Mon profil"}
+        title={'Mon profil'}
         breadcrumbs={[
           {
-            item: "Accueil",
-            link: "/",
+            item: 'Accueil',
+            link: '/',
           },
           {
             item: names,
-            link: "/profile",
+            link: '/profile',
           },
         ]}
         download={false}
@@ -61,7 +61,7 @@ const Profile = ({ phoneNumber, names, email }) => {
       <section className="w-full flex flex-col gap-8 items-start pb-20 md:pb-0">
         <div className="w-full overflow-hidden md:col-span-2 rounded-lg p-4 flex flex-col gap-6 bg-white drop-shadow-sm">
           <div
-            before={"+ Cliquez pour changer de couverture"}
+            before={'+ Cliquez pour changer de couverture'}
             className="bg-[url(https://i.goopics.net/46v87b.jpg)] bg-no-repeat relative bg-cover h-56 rounded-lg hover:before:bg-[rgba(0,0,0,.5)] hover:before:cursor-pointer before:transition-all before:duration-200 content before:w-full before:h-full overflow-hidden before:absolute hover:before:content-[attr(before)] before:flex before:justify-center before:items-center before:text-gray-200"
           ></div>
 
@@ -98,8 +98,8 @@ const Profile = ({ phoneNumber, names, email }) => {
 
         <div className="md:w-3/4 w-full">
           <div className="min-full md:col-span-3 rounded-lg p-4 flex flex-col gap-4 bg-white drop-shadow-sm overflow-hidden">
-            <Box sx={{ width: "100%" }}>
-              <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+            <Box sx={{ width: '100%' }}>
+              <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <Tabs
                   value={value}
                   onChange={handleChange}
@@ -162,7 +162,7 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
   };
 }
 
@@ -210,7 +210,7 @@ function About({ phoneNumber, names, email }) {
 }
 
 function Settings() {
-  const [state, setState] = useState("");
+  const [state, setState] = useState('');
 
   const handleState = (event) => {
     setState(event.target.value);
@@ -222,7 +222,7 @@ function Settings() {
       <div className="flex md:grid md:grid-cols-2 gap-8">
         <TextField
           fullWidth
-          type={"email"}
+          type={'email'}
           className="placeholder:text-gray-400 hover:outline-none focus:ring-0 border border-gray-300 rounded-lg focus:ring-sky"
           label="Adresse e-mail"
           placeholder="Adresse e-mail"
@@ -232,7 +232,7 @@ function Settings() {
 
         <TextField
           fullWidth
-          type={"password"}
+          type={'password'}
           className="placeholder:text-gray-400 hover:outline-none focus:ring-0 border border-gray-300 rounded-lg focus:ring-sky"
           label="Mot de passe"
           name="password"
@@ -244,7 +244,7 @@ function Settings() {
       <div className="">
         <TextField
           fullWidth
-          type={"text"}
+          type={'text'}
           className="placeholder:text-gray-400 hover:outline-none focus:ring-0 border border-gray-300 rounded-lg focus:ring-sky"
           label="Adress"
           placeholder="123 Main Street"
@@ -256,7 +256,7 @@ function Settings() {
       <div className="">
         <TextField
           fullWidth
-          type={"text"}
+          type={'text'}
           className="placeholder:text-gray-400 hover:outline-none focus:ring-0 border border-gray-300 rounded-lg focus:ring-sky"
           label="Adress 2"
           placeholder="123 Main Street"
@@ -276,11 +276,11 @@ function Settings() {
             onChange={handleState}
             className="text-sm"
           >
-            <MenuItem value={"Kinshasa"} selected={true}>
+            <MenuItem value={'Kinshasa'} selected={true}>
               Kinshasa
             </MenuItem>
-            <MenuItem value={"Goma"}>Goma</MenuItem>
-            <MenuItem value={"Lubumbashi"}>Lubumbashi</MenuItem>
+            <MenuItem value={'Goma'}>Goma</MenuItem>
+            <MenuItem value={'Lubumbashi'}>Lubumbashi</MenuItem>
           </Select>
         </FormControl>
       </div>
@@ -288,7 +288,7 @@ function Settings() {
       <div className="flex md:grid md:grid-cols-4 gap-8">
         <TextField
           fullWidth
-          type={"text"}
+          type={'text'}
           className="col-span-3 md:col-span-2 placeholder:text-gray-400 hover:outline-none focus:ring-0 border border-gray-300 rounded-lg focus:ring-sky"
           label="Ville"
           placeholder="Ville"
@@ -306,18 +306,18 @@ function Settings() {
               label="State"
               onChange={handleState}
             >
-              <MenuItem value={"Kinshasa"} selected={true}>
+              <MenuItem value={'Kinshasa'} selected={true}>
                 Kinshasa
               </MenuItem>
-              <MenuItem value={"Goma"}>Goma</MenuItem>
-              <MenuItem value={"Lubumbashi"}>Lubumbashi</MenuItem>
+              <MenuItem value={'Goma'}>Goma</MenuItem>
+              <MenuItem value={'Lubumbashi'}>Lubumbashi</MenuItem>
             </Select>
           </FormControl>
         </div>
 
         <TextField
           fullWidth
-          type={"text"}
+          type={'text'}
           className="placeholder:text-gray-400 hover:outline-none focus:ring-0 border border-gray-300 rounded-lg focus:ring-sky"
           label="ZIP"
           name="zip"

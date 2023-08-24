@@ -1,28 +1,28 @@
-import React, { useContext, useState, useEffect } from "react";
-import Stripe from "stripe";
-import { loadStripe } from "@stripe/stripe-js";
-import CheckoutForm from "./CheckoutForm";
-import { Elements } from "@stripe/react-stripe-js";
-import { useDispatch, useSelector } from "react-redux";
-import { countries } from "country-data";
-import CurrencyFlag from "react-currency-flags";
-import { HiArrowSmLeft } from "react-icons/hi";
-import Image from "next/image";
+import React, { useContext, useState, useEffect } from 'react';
+import Stripe from 'stripe';
+import { loadStripe } from '@stripe/stripe-js';
+import CheckoutForm from './CheckoutForm';
+import { Elements } from '@stripe/react-stripe-js';
+import { useDispatch, useSelector } from 'react-redux';
+import { countries } from 'country-data';
+import CurrencyFlag from 'react-currency-flags';
+import { HiArrowSmLeft } from 'react-icons/hi';
+import Image from 'next/image';
 
 const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
 );
 
 const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
-  const [clientSecret, setClientSecret] = useState("");
-  const [methodPayment, setMethodPayment] = useState("card");
+  const [clientSecret, setClientSecret] = useState('');
+  const [methodPayment, setMethodPayment] = useState('card');
   const client = useSelector((state) => state.app.client);
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("/api/session", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+    fetch('/api/session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         amount,
         senderId,
@@ -35,14 +35,14 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
   }, []);
 
   const appearance = {
-    theme: "flat",
-    labels: "floating",
+    theme: 'flat',
+    labels: 'floating',
     rules: {
-      ".Error": {
-        fontSize: "10px",
+      '.Error': {
+        fontSize: '10px',
       },
-      ".Label": {
-        fontSize: "10px",
+      '.Label': {
+        fontSize: '10px',
       },
     },
   };
@@ -76,23 +76,23 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                 <div className="py-5 w-full">
                   <h3 className="text-xl font-bold tracking-tight text-gray-900 ">
                     <a href="#">
-                      {client.patient.firstName}{" "}
+                      {client.patient.firstName}{' '}
                       {client.patient.lastName.toUpperCase()}
                     </a>
                   </h3>
                   <span className="text-gray-500 ">
-                    {client.patient?.email ?? ""}
+                    {client.patient?.email ?? ''}
                   </span>
                   <p className="mt-3 mb-4 font-light text-gray-500 w-full">
                     <ul className="flex flex-col gap-1 w-full text-sm">
                       <li className="flex justify-between w-full">
-                        Numéro de téléphone:{" "}
+                        Numéro de téléphone:{' '}
                         <b className="text-orange">
                           {client.patient.phoneNumber}
                         </b>
                       </li>
                       <li className="flex justify-between w-full">
-                        Pays:{" "}
+                        Pays:{' '}
                         <b className="text-gray-700 flex gap-1 items-center">
                           <Image
                             src={`https://flagcdn.com/w20/${client.patient.country}.png`}
@@ -100,16 +100,16 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                             width={20}
                             height={20}
                             className="rounded-full h-4 w-4 object-cover"
-                          />{" "}
+                          />{' '}
                           {countries[client.patient.country.toUpperCase()].name}
                         </b>
                       </li>
                       <li className="flex justify-between w-full">
-                        Ville:{" "}
+                        Ville:{' '}
                         <b className="text-gray-700">{client.patient.city}</b>
                       </li>
                       <li className="flex justify-between w-full">
-                        Adresse du domicile:{" "}
+                        Adresse du domicile:{' '}
                         <b className="text-gray-700">
                           {client.patient.homeAddress}
                         </b>
@@ -153,14 +153,14 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                     Taux d&apos;échange
                   </p>
                   <p className="font-normal text-sm text-gray-600">
-                    {client.patient.currency.sender == "USD"
-                      ? "$"
-                      : client.patient.currency.sender == "EUR"
-                      ? "€"
-                      : client.patient.currency.sender ?? "€"}{" "}
-                    1.00 ={" "}
+                    {client.patient.currency.sender == 'USD'
+                      ? '$'
+                      : client.patient.currency.sender == 'EUR'
+                      ? '€'
+                      : client.patient.currency.sender ?? '€'}{' '}
+                    1.00 ={' '}
                     <span className="text-orange">
-                      {client.patient.currency.rate.toFixed(2) ?? ""}{" "}
+                      {client.patient.currency.rate.toFixed(2) ?? ''}{' '}
                       {client.patient.currency.patient}
                     </span>
                   </p>
@@ -171,12 +171,12 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                     Il recevra
                   </p>
                   <p className="font-normal text-sm text-gray-600">
-                    {client?.patient?.currency?.patientAmount.toFixed(2) ?? 0}{" "}
-                    {client.patient.currency.patient == "USD"
-                      ? "$"
-                      : client.patient.currency.patient == "EUR"
-                      ? "€"
-                      : client.patient.currency.patient ?? "€"}
+                    {client?.patient?.currency?.patientAmount.toFixed(2) ?? 0}{' '}
+                    {client.patient.currency.patient == 'USD'
+                      ? '$'
+                      : client.patient.currency.patient == 'EUR'
+                      ? '€'
+                      : client.patient.currency.patient ?? '€'}
                   </p>
                 </div>
 
@@ -192,11 +192,11 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                   Montant à payer
                 </p>
                 <p className="text-2xl font-semibold text-gray-900">
-                  {client.patient.currency.sender == "USD"
-                    ? "$"
-                    : client.patient.currency.sender == "EUR"
-                    ? "€"
-                    : client.patient.currency.sender ?? "€"}{" "}
+                  {client.patient.currency.sender == 'USD'
+                    ? '$'
+                    : client.patient.currency.sender == 'EUR'
+                    ? '€'
+                    : client.patient.currency.sender ?? '€'}{' '}
                   {amount}
                 </p>
               </div>
@@ -209,8 +209,8 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                     id="radio_1"
                     type="radio"
                     name="radio"
-                    checked={methodPayment == "card" ? true : false}
-                    onClick={() => setMethodPayment("card")}
+                    checked={methodPayment == 'card' ? true : false}
+                    onClick={() => setMethodPayment('card')}
                   />
                   <span className="peer-checked:border-orange absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
                   <label
@@ -236,8 +236,8 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                     id="radio_2"
                     type="radio"
                     name="radio"
-                    checked={methodPayment != "card" ? true : false}
-                    onClick={() => setMethodPayment("crypto")}
+                    checked={methodPayment != 'card' ? true : false}
+                    onClick={() => setMethodPayment('crypto')}
                   />
                   <span className="peer-checked:border-orange absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
                   <label
@@ -261,7 +261,7 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
             </div>
 
             <div className="mt-6 bg-gray-50 px-4 pt-8 lg:mt-0">
-              {methodPayment == "card" ? (
+              {methodPayment == 'card' ? (
                 <>
                   <p className="text-xl font-medium">Informations Bancaire</p>
                   <p className="text-gray-400 text-xs mb-4">
@@ -273,7 +273,7 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                       <CheckoutForm
                         amount={amount}
                         senderId={senderId}
-                        email={email ?? ""}
+                        email={email ?? ''}
                       />
                     </Elements>
                   </div>

@@ -1,34 +1,34 @@
-import React, { useState } from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import React, { useState } from 'react';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-import OnboardingScreen from "../../molecules/OnboardingScreen";
+import OnboardingScreen from '../../molecules/OnboardingScreen';
 import {
   FormControl,
   IconButton,
   InputAdornment,
   InputLabel,
   OutlinedInput,
-} from "@mui/material";
-import MenuHolder from "../../atoms/MenuHolder";
-import { useFormik } from "formik";
-import * as yup from "yup";
-import { useMutation } from "react-query";
-import { useRouter } from "next/router";
-import LoadingButton from "../../atoms/Loader/LoadingButton";
-import Toast from "../../atoms/Toast";
-import { resetPassword } from "../../../lib/helper";
+} from '@mui/material';
+import MenuHolder from '../../atoms/MenuHolder';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import { useMutation } from 'react-query';
+import { useRouter } from 'next/router';
+import LoadingButton from '../../atoms/Loader/LoadingButton';
+import Toast from '../../atoms/Toast';
+import { resetPassword } from '../../../lib/helper';
 
 function ResetForm() {
-  const matches = useMediaQuery("(max-width: 992px)");
-  const [onboardingIsEnd, setOnboardingIsEnd] = React.useState("");
+  const matches = useMediaQuery('(max-width: 992px)');
+  const [onboardingIsEnd, setOnboardingIsEnd] = React.useState('');
   const [showPassword, setShowPassword] = React.useState(false);
   const [showcPassword, setShowcPassword] = React.useState(false);
-  const [state, setState] = useState({ type: 0, message: "" });
+  const [state, setState] = useState({ type: 0, message: '' });
   const router = useRouter();
   const { token } = router.query;
 
@@ -36,7 +36,7 @@ function ResetForm() {
   const handleClickShowcPassword = () => setShowcPassword((show) => !show);
 
   React.useEffect(() => {
-    setOnboardingIsEnd(localStorage.getItem("onboardingIsEnd") || "");
+    setOnboardingIsEnd(localStorage.getItem('onboardingIsEnd') || '');
   }, []);
 
   const newChangePassword = useMutation(resetPassword, {
@@ -44,45 +44,45 @@ function ResetForm() {
       if (res.code) {
         setState({ type: 2, message: res.message ?? res.description });
         setTimeout(() => {
-          setState({ type: 0, message: "" });
+          setState({ type: 0, message: '' });
         }, 3000);
       } else {
         setState({
           type: 1,
-          message: "Mot de passe réinitialoser avec succès",
+          message: 'Mot de passe réinitialoser avec succès',
         });
 
         setTimeout(() => {
-          router.push("/login");
+          router.push('/login');
         }, 2500);
       }
     },
   });
 
   const onSubmit = async (values) => {
-    if (Object.keys(values).length == 0) return console.log("Pas de données");
+    if (Object.keys(values).length == 0) return console.log('Pas de données');
     newChangePassword.mutate({ ...values, resetPasswordToken: token });
   };
 
   const closeToast = () => {
-    setState({ type: 0, message: "" });
+    setState({ type: 0, message: '' });
   };
 
   const ValidationSchema = yup.object().shape({
-    password: yup.string().required("Mot de passe est un champ obligatoire"),
+    password: yup.string().required('Mot de passe est un champ obligatoire'),
     confirmPassword: yup
       .string()
-      .required("Veuillez confirmer votre mot de passe")
+      .required('Veuillez confirmer votre mot de passe')
       .oneOf(
-        [yup.ref("password"), null],
-        "Le deux mot de passe ne correspondent pas"
+        [yup.ref('password'), null],
+        'Le deux mot de passe ne correspondent pas',
       ),
   });
 
   const formik = useFormik({
     initialValues: {
-      password: "",
-      confirmPassword: "",
+      password: '',
+      confirmPassword: '',
     },
     validationSchema: ValidationSchema,
     onSubmit,
@@ -105,13 +105,13 @@ function ResetForm() {
                 {state.type > 0 ? (
                   state.type == 2 ? (
                     <Toast
-                      type={"danger"}
+                      type={'danger'}
                       message={state.message}
                       close={closeToast}
                     />
                   ) : state.type == 1 ? (
                     <Toast
-                      type={"success"}
+                      type={'success'}
                       message={state.message}
                       close={closeToast}
                     />
@@ -136,9 +136,9 @@ function ResetForm() {
                       <OutlinedInput
                         id="outlined-basic1"
                         label="Nouveau mot de passe"
-                        type={showPassword ? "text" : "password"}
+                        type={showPassword ? 'text' : 'password'}
                         name="password"
-                        {...formik.getFieldProps("password")}
+                        {...formik.getFieldProps('password')}
                         endAdornment={
                           <InputAdornment position="end">
                             <IconButton
@@ -170,8 +170,8 @@ function ResetForm() {
                         id="outlined-basic1"
                         label="Confirmez Mot de passe"
                         name="confirmPassword"
-                        type={showcPassword ? "text" : "password"}
-                        {...formik.getFieldProps("confirmPassword")}
+                        type={showcPassword ? 'text' : 'password'}
+                        {...formik.getFieldProps('confirmPassword')}
                         endAdornment={
                           <InputAdornment position="end">
                             <IconButton
@@ -206,7 +206,7 @@ function ResetForm() {
                         {newChangePassword.isLoading ? (
                           <LoadingButton />
                         ) : (
-                          "Changer le mot de passe"
+                          'Changer le mot de passe'
                         )}
                       </Button>
                     </Box>
@@ -225,10 +225,10 @@ function ResetForm() {
       {matches && !onboardingIsEnd ? (
         <OnboardingScreen
           onStartClick={() => {
-            if (typeof window !== "undefined") {
-              localStorage.setItem("onboardingIsEnd", "onboardingIsEnd");
+            if (typeof window !== 'undefined') {
+              localStorage.setItem('onboardingIsEnd', 'onboardingIsEnd');
             }
-            setOnboardingIsEnd("onboardingIsEnd");
+            setOnboardingIsEnd('onboardingIsEnd');
           }}
         />
       ) : (

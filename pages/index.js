@@ -1,12 +1,12 @@
-import Head from "next/head";
+import Head from 'next/head';
 
-import DashboardLayout from "../layouts/Dashboard";
+import DashboardLayout from '../layouts/Dashboard';
 
-import VoucherHome from "../components/organisms/Dashboard/Voucher";
-import ProviderFilter from "../components/organisms/Dashboard/ProviderFilter";
-import Carousel from "../components/organisms/Dashboard/Carousel";
-import { useContext, useEffect } from "react";
-import { DrawContext } from "./_app";
+import VoucherHome from '../components/organisms/Dashboard/Voucher';
+import ProviderFilter from '../components/organisms/Dashboard/ProviderFilter';
+import Carousel from '../components/organisms/Dashboard/Carousel';
+import { useContext, useEffect } from 'react';
+import { DrawContext } from './_app';
 
 const Page = () => {
   const { draw, setDraw } = useContext(DrawContext);

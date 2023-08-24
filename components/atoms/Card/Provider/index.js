@@ -1,5 +1,5 @@
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
 
 const CardProvider = ({
   name,
@@ -19,7 +19,7 @@ const CardProvider = ({
           <img
             src={logoLink}
             className="object-contain w-full h-full"
-            alt={name + " Logo"}
+            alt={name + ' Logo'}
           />
         </div>
 
@@ -32,7 +32,7 @@ const CardProvider = ({
           <span className="flex gap-3 items-center text-sm text-gray-700 font-light">
             <span className="bg-orange px-2 py-1 text-white text-sm rounded-md w-fit flex gap-3 items-center">
               {packages ? packages.length : 0} Plan
-              {packages.length > 1 ? "s" : ""}
+              {packages.length > 1 ? 's' : ''}
             </span>
           </span>
         </div>
@@ -56,7 +56,7 @@ const CardProvider = ({
 
       {/* Buttons */}
       <div className="self-center flex md:flex-col gap-3">
-        <Link href={"#"} legacyBehavior>
+        <Link href={'#'} legacyBehavior>
           <button className="bg-blue-600 text-white font-extralight py-3 md:px-9 px-5 rounded-lg text-sm">
             En savoir plus
           </button>

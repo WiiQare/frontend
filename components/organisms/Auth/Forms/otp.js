@@ -1,21 +1,21 @@
-import React, { useContext, useState } from "react";
-import { FormContextRegister } from "../RegisterForm";
-import { Box, Button, Typography } from "@mui/material";
-import OtpInput from "react18-input-otp";
-import { useQueryClient, useMutation } from "react-query";
-import { setRegister } from "../../../../redux/reducer";
-import { useFormik } from "formik";
-import { sendEmail, sendOtp } from "../../../../lib/helper";
-import Toast from "../../../atoms/Toast";
-import { useSelector, useDispatch } from "react-redux";
-import LoadingButton from "../../../atoms/Loader/LoadingButton";
-import Countdown from "react-countdown";
+import React, { useContext, useState } from 'react';
+import { FormContextRegister } from '../RegisterForm';
+import { Box, Button, Typography } from '@mui/material';
+import OtpInput from 'react18-input-otp';
+import { useQueryClient, useMutation } from 'react-query';
+import { setRegister } from '../../../../redux/reducer';
+import { useFormik } from 'formik';
+import { sendEmail, sendOtp } from '../../../../lib/helper';
+import Toast from '../../../atoms/Toast';
+import { useSelector, useDispatch } from 'react-redux';
+import LoadingButton from '../../../atoms/Loader/LoadingButton';
+import Countdown from 'react-countdown';
 
 function Otp() {
   const { activeStep, setActiveStep, formData, setFormData, handleComplete } =
     useContext(FormContextRegister);
-  const [state, setState] = useState({ type: 0, message: "" });
-  const [otp, setOtp] = useState("");
+  const [state, setState] = useState({ type: 0, message: '' });
+  const [otp, setOtp] = useState('');
   const [resend, setResend] = useState(false);
   const client = useSelector((state) => state.app.client);
   const dispatch = useDispatch();
@@ -26,15 +26,15 @@ function Otp() {
       if (res.code) {
         setState({ type: 2, message: res.description ?? res.message });
         setTimeout(() => {
-          setState({ type: 0, message: "" });
+          setState({ type: 0, message: '' });
         }, 3000);
       } else {
-        setState({ type: 1, message: "OTP exact" });
+        setState({ type: 1, message: 'OTP exact' });
         dispatch(
           setRegister({
             ...client.register,
             emailVerificationToken: res.emailVerificationToken,
-          })
+          }),
         );
         handleComplete();
       }
@@ -42,7 +42,7 @@ function Otp() {
   });
 
   const onSubmit = async ({ otpCode = null }) => {
-    console.log("submit", otpCode);
+    console.log('submit', otpCode);
     sendOtpMutation.mutate({
       email: client.register.email,
       otpCode: parseInt(otpCode) ?? parseInt(otp),
@@ -50,7 +50,7 @@ function Otp() {
   };
 
   const closeToast = () => {
-    setState({ type: 0, message: "" });
+    setState({ type: 0, message: '' });
   };
 
   // Formik hook
@@ -74,12 +74,12 @@ function Otp() {
     onSuccess: (res) => {
       console.log(res);
       if (!res.code) {
-        setState({ type: 1, message: "Email sent successfully" });
+        setState({ type: 1, message: 'Email sent successfully' });
         setResend(false);
       } else {
-        setState({ type: 2, message: "Error while sending OTP Code" });
+        setState({ type: 2, message: 'Error while sending OTP Code' });
         setTimeout(() => {
-          setState({ type: 0, message: "" });
+          setState({ type: 0, message: '' });
           setResend(false);
         }, 3000);
       }
@@ -95,9 +95,9 @@ function Otp() {
     <>
       {state.type > 0 ? (
         state.type == 2 ? (
-          <Toast type={"danger"} message={state.message} close={closeToast} />
+          <Toast type={'danger'} message={state.message} close={closeToast} />
         ) : state.type == 1 ? (
-          <Toast type={"success"} message={state.message} close={closeToast} />
+          <Toast type={'success'} message={state.message} close={closeToast} />
         ) : (
           <></>
         )
@@ -105,12 +105,12 @@ function Otp() {
         <></>
       )}
 
-      <Box sx={{ mb: 2, mt: 2, textAlign: "left" }}>
+      <Box sx={{ mb: 2, mt: 2, textAlign: 'left' }}>
         <Typography color="primary" variant="body1">
           Un code vous a été envoyé, verifiez votre email
         </Typography>
       </Box>
-      <Box sx={{ mb: 1, textAlign: "left" }}>
+      <Box sx={{ mb: 1, textAlign: 'left' }}>
         <Typography color="text.secondary" variant="caption">
           <Countdown date={Date.now() + 120000} renderer={renderer} />
         </Typography>
@@ -128,13 +128,13 @@ function Otp() {
 
         <div className="form-text text-holder">
           <span className="text-only">
-            Pas réçu de code ?{" "}
+            Pas réçu de code ?{' '}
             <button
               type="button"
               className="text-primary"
               onClick={() => resendCode()}
             >
-              {resend ? "En cours de renvoi..." : "Renvoyer le code"}
+              {resend ? 'En cours de renvoi...' : 'Renvoyer le code'}
             </button>
           </span>
         </div>
@@ -159,7 +159,7 @@ const renderer = ({ hours, minutes, seconds, completed }) => {
     // Render a countdown
     return (
       <>
-        Expire dans{" "}
+        Expire dans{' '}
         <span>
           {minutes < 10 ? `0${minutes}` : minutes}:
           {seconds < 10 ? `0${seconds}` : seconds}

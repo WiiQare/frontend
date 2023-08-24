@@ -24,18 +24,15 @@ To install and run this Next.js project locally, follow the steps below:
 
 1. Clone the GitHub repository to your local machine using the following command:
 
-
    ```shell
    git clone https://github.com/WiiQare/frontend.git "frontend-wiiQare"
    ```
-
 
 2. Navigate to the project directory :
 
    ```shell
    cd frontend-wiiQare
    ```
-
 
 3. Install dependencies using npm or yarn:
 
@@ -48,17 +45,15 @@ To install and run this Next.js project locally, follow the steps below:
    yarn install
    ```
 
-
 4. Configure necessary environment variables, such as API keys, base URLs, etc., in a `.env` file in the root of the project.
 
 5. Launch the application in development mode:
 
+   ```shell
+   npm run dev
+   ```
 
-    ```shell
-    npm run dev
-    ```
-
-    The application will be accessible at the following address : `http://localhost:3000`.
+   The application will be accessible at the following address : `http://localhost:3000`.
 
 ## Project structure
 
@@ -66,9 +61,9 @@ The structure of the project is organized as follows :
 
 - `/pages`: This directory contains the different pages of the Next.js application, such as the home page, login pages, appointment management pages, etc.
 - `/components`: This directory contains reusable components used throughout the application, such as forms, maps, navigation bars, etc. In this file the structuring is that studied in chemistry starting from the smallest element to the largest:
-    - `atoms` : For basic components linked to any page functionality. Ex: Dropdown, button, modal, etc. 
-    - `molecules` : It is the composition of atoms to form such a reusable component, 
-    - `organisms`: Organisms is the main component of a page.
+  - `atoms` : For basic components linked to any page functionality. Ex: Dropdown, button, modal, etc.
+  - `molecules` : It is the composition of atoms to form such a reusable component,
+  - `organisms`: Organisms is the main component of a page.
 - `/api`: This directory contains the files that define the API endpoints used by the application to communicate with the backend.
 - `/styles`: This directory contains CSS files and global styles used for formatting the application.
 - `/public`: This directory contains static files, such as images, icons, etc.
@@ -94,4 +89,3 @@ This project is intended for healthcare purposes and should not be used in produ
 ## License
 
 This project is distributed under the GNU GENERAL PUBLIC LICENSE. For more information, please see the LICENSE file.
-

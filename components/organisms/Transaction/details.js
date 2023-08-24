@@ -1,24 +1,24 @@
-import Image from "next/image";
-import Link from "next/link";
-import { CiCircleInfo, CiCircleList } from "react-icons/ci";
-import { IoIosCall } from "react-icons/io";
-import ButtonBuy from "../../atoms/Button/Buy";
-import CardHeader from "../../atoms/Card/Header";
-import SimpleHeader from "../../atoms/Card/Header/simple";
+import Image from 'next/image';
+import Link from 'next/link';
+import { CiCircleInfo, CiCircleList } from 'react-icons/ci';
+import { IoIosCall } from 'react-icons/io';
+import ButtonBuy from '../../atoms/Button/Buy';
+import CardHeader from '../../atoms/Card/Header';
+import SimpleHeader from '../../atoms/Card/Header/simple';
 
 const DetailsTransaction = () => {
   return (
     <div className="p-2 space-y-6 md:py-8 md:px-6">
       <CardHeader
-        title={"Transactions Détails"}
+        title={'Transactions Détails'}
         breadcrumbs={[
           {
-            item: "Transactions",
-            link: "/transactions",
+            item: 'Transactions',
+            link: '/transactions',
           },
           {
-            item: "#12345",
-            link: "/transactions/12345",
+            item: '#12345',
+            link: '/transactions/12345',
           },
         ]}
         download={true}
@@ -82,7 +82,7 @@ const DetailsTransaction = () => {
               <div className="flex gap-3 items-center">
                 <div className="w-16 md:w-20">
                   <Image
-                    src={"https://xsgames.co/randomusers/avatar.php?g=male"}
+                    src={'https://xsgames.co/randomusers/avatar.php?g=male'}
                     width={50}
                     height={50}
                     className="object-cover w-full h-full rounded-full"
@@ -99,7 +99,7 @@ const DetailsTransaction = () => {
                 </div>
               </div>
 
-              <Link href={"tel:+243814978651"} legacyBehavior>
+              <Link href={'tel:+243814978651'} legacyBehavior>
                 <button className="flex gap-4 items-center border border-sky rounded-lg px-4 py-3 text-sky">
                   <IoIosCall size={40} />
                   <div className="flex flex-col gap-1 text-sm">
@@ -169,14 +169,14 @@ const DetailsTransaction = () => {
 
           <div className="rounded-lg py-4 px-4 flex flex-col gap-6 bg-white drop-shadow-sm">
             <SimpleHeader
-              title={"Statistic"}
-              describe={"Lorem ipsum dolor sit amet, consectetur"}
+              title={'Statistic'}
+              describe={'Lorem ipsum dolor sit amet, consectetur'}
             />
 
             <div className="self-center">
               <div
                 className={`radial-progress text-purple`}
-                style={{ "--value": 85, "--size": "10rem" }}
+                style={{ '--value': 85, '--size': '10rem' }}
               >
                 <span className="text-2xl">85%</span>
               </div>

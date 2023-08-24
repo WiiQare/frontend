@@ -120,7 +120,7 @@ exports[`Voucher renders 1`] = `
             </h3>
             <p>
               <strong>
-                La pass santé WiiQare  
+                La pass santé WiiQare 
               </strong>
                est un moyen rapide et sans frais de faciliter l’accès aux soins de qualité pour vos proches en Afrique.
             </p>
@@ -128,7 +128,8 @@ exports[`Voucher renders 1`] = `
               class="flex items-center font-medium text-blue-600 dark:text-blue-500 dark:hover:text-blue-600 hover:text-blue-700"
               href="www.wiiqare.com"
             >
-              Read more 
+              Read more
+               
               <svg
                 aria-hidden="true"
                 class="w-4 h-4 ml-1"
@@ -262,7 +263,8 @@ exports[`Voucher renders 1`] = `
               class="flex items-center font-medium text-blue-600 dark:text-blue-500 dark:hover:text-blue-600 hover:text-blue-700"
               href="#"
             >
-              Read more 
+              Read more
+               
               <svg
                 aria-hidden="true"
                 class="w-4 h-4 ml-1"

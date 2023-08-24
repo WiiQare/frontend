@@ -1,16 +1,16 @@
-import React, { useContext, useEffect } from "react";
-import { useSession } from "next-auth/react";
-import { TabPanel } from "../../organisms/Wallet/History";
-import ItemHistory from "./ItemHistory";
-import Fetcher from "../../../lib/Fetcher";
-import { TransactionContext } from "../../organisms/Transaction";
+import React, { useContext, useEffect } from 'react';
+import { useSession } from 'next-auth/react';
+import { TabPanel } from '../../organisms/Wallet/History';
+import ItemHistory from './ItemHistory';
+import Fetcher from '../../../lib/Fetcher';
+import { TransactionContext } from '../../organisms/Transaction';
 
 const PanelContent = ({ value, index }) => {
   const { transaction, setTransaction } = useContext(TransactionContext);
   const { data: session } = useSession();
   const { data, isLoading, isError } = Fetcher(
-    `/payment?type=${value == 0 ? "monthly" : value == 1 ? "weekly" : "day"}`,
-    session.user.data.access_token
+    `/payment?type=${value == 0 ? 'monthly' : value == 1 ? 'weekly' : 'day'}`,
+    session.user.data.access_token,
   );
 
   useEffect(() => {

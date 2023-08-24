@@ -1,19 +1,19 @@
-import React, { useContext, useEffect } from "react";
-import { FormContext } from "../../../pages/voucher/buy";
+import React, { useContext, useEffect } from 'react';
+import { FormContext } from '../../../pages/voucher/buy';
 
 function Stepper() {
   const { activeStepIndex } = useContext(FormContext);
 
   useEffect(() => {
-    const stepperItems = document.querySelectorAll(".stepper-item");
+    const stepperItems = document.querySelectorAll('.stepper-item');
     stepperItems.forEach((step, i) => {
       if (i <= activeStepIndex) {
-        step.classList.add("bg-primary", "text-white");
+        step.classList.add('bg-primary', 'text-white');
 
         if (i < activeStepIndex)
-          step.nextSibling.classList.add("border-primary");
+          step.nextSibling.classList.add('border-primary');
       } else {
-        step.classList.remove("bg-primary", "text-white");
+        step.classList.remove('bg-primary', 'text-white');
       }
     });
   }, [activeStepIndex]);
@@ -25,7 +25,7 @@ function Stepper() {
           1
         </div>
         <span className="absolute -bottom-6 text-xs w-max md:-left-8">
-          Identité <span className="hidden md:inline">du beneficiare</span>{" "}
+          Identité <span className="hidden md:inline">du beneficiare</span>{' '}
         </span>
       </div>
 
@@ -36,7 +36,7 @@ function Stepper() {
           2
         </div>
         <span className="absolute -bottom-6 text-xs w-max md:-left-8">
-          Résumé <span className="hidden md:inline">de paiement</span>{" "}
+          Résumé <span className="hidden md:inline">de paiement</span>{' '}
         </span>
       </div>
       <div className="flex-auto border-t-2"></div>
@@ -45,7 +45,7 @@ function Stepper() {
           3
         </div>
         <span className="absolute -bottom-6 text-xs w-max md:-left-8">
-          Généré un <span className="hidden md:inline">Pass Santé </span>{" "}
+          Généré un <span className="hidden md:inline">Pass Santé </span>{' '}
         </span>
       </div>
     </div>

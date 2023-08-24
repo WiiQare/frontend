@@ -1,15 +1,15 @@
-import Page from "@/pages/hospitals";
-import { render } from "@testing-library/react";
-import { DrawContext } from "@/pages/_app";
-import { SessionProvider } from "next-auth/react";
-require("jest-fetch-mock").enableMocks();
+import Page from '@/pages/hospitals';
+import { render } from '@testing-library/react';
+import { DrawContext } from '@/pages/_app';
+import { SessionProvider } from 'next-auth/react';
+require('jest-fetch-mock').enableMocks();
 
-fetch.mockResponse("[]");
+fetch.mockResponse('[]');
 
-describe("Hospitals", () => {
-  it("should render the page", () => {
+describe('Hospitals', () => {
+  it('should render the page', () => {
     const { container } = render(
-      <SessionProvider session={{ user: { data: { userId: "random123" } } }}>
+      <SessionProvider session={{ user: { data: { userId: 'random123' } } }}>
         <DrawContext.Provider
           value={{
             draw: false,
@@ -20,7 +20,7 @@ describe("Hospitals", () => {
         >
           <Page />
         </DrawContext.Provider>
-      </SessionProvider>
+      </SessionProvider>,
     );
     expect(container).toMatchSnapshot();
   });

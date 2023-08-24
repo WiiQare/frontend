@@ -1,13 +1,13 @@
-import Logo from "../../components/atoms/LogoHeader";
-import WelcomeSlider from "../../components/molecules/WelcomeSlider";
-import { LOGIN_SLIDES } from "../../utils/constants";
-import { useMediaQuery, CssBaseline } from "@mui/material";
-import Head from "next/head";
-import React from "react";
-import ForgotForm from "../../components/organisms/Auth/ForgotForm";
+import Logo from '../../components/atoms/LogoHeader';
+import WelcomeSlider from '../../components/molecules/WelcomeSlider';
+import { LOGIN_SLIDES } from '../../utils/constants';
+import { useMediaQuery, CssBaseline } from '@mui/material';
+import Head from 'next/head';
+import React from 'react';
+import ForgotForm from '../../components/organisms/Auth/ForgotForm';
 
 function Forgot() {
-  const matches = useMediaQuery("(max-width: 992px)");
+  const matches = useMediaQuery('(max-width: 992px)');
   return (
     <>
       <Head>

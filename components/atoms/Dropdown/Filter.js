@@ -1,5 +1,5 @@
-import { HiChevronDown } from "react-icons/hi";
-import RangeSlider from "../Input/RangeSlider";
+import { HiChevronDown } from 'react-icons/hi';
+import RangeSlider from '../Input/RangeSlider';
 
 const DropdownFilter = ({
   label,
@@ -18,7 +18,7 @@ const DropdownFilter = ({
         className={` bg-white border rounded-xl w-full py-2 px-4 flex justify-between items-center ${labelClassName}`}
       >
         <span className="flex mr-2 gap-4 items-center">
-          {typeof icon == "function" ? icon() : icon}
+          {typeof icon == 'function' ? icon() : icon}
           <span className="font-light">{label}</span>
         </span>
         {chevronDown ? <HiChevronDown size={20} /> : <></>}

@@ -1,16 +1,16 @@
-import "@testing-library/jest-dom";
-import Index from "@/pages/index";
-import { render } from "@testing-library/react";
-import { DrawContext } from "@/pages/_app";
-import { SessionProvider } from "next-auth/react";
-require("jest-fetch-mock").enableMocks();
+import '@testing-library/jest-dom';
+import Index from '@/pages/index';
+import { render } from '@testing-library/react';
+import { DrawContext } from '@/pages/_app';
+import { SessionProvider } from 'next-auth/react';
+require('jest-fetch-mock').enableMocks();
 
-fetch.mockResponse("[]");
+fetch.mockResponse('[]');
 
-describe("Index page", () => {
-  it("should render the index page", () => {
+describe('Index page', () => {
+  it('should render the index page', () => {
     const { container } = render(
-      <SessionProvider session={{ user: { data: { userId: "random123" } } }}>
+      <SessionProvider session={{ user: { data: { userId: 'random123' } } }}>
         <DrawContext.Provider
           value={{
             draw: false,
@@ -21,7 +21,7 @@ describe("Index page", () => {
         >
           <Index />
         </DrawContext.Provider>
-      </SessionProvider>
+      </SessionProvider>,
     );
     expect(container).toMatchSnapshot();
   });

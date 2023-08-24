@@ -1,18 +1,18 @@
-import React, { useState, createContext, useEffect } from "react";
-import Head from "next/head";
-import NextNProgress from "nextjs-progressbar";
-import { SessionProvider } from "next-auth/react";
-import { ThemeProvider } from "@mui/material/styles";
-import { store } from "../redux/store";
-import { Provider } from "react-redux";
-import { QueryClientProvider, QueryClient } from 'react-query'
-import { theme } from "../theme";
+import React, { useState, createContext, useEffect } from 'react';
+import Head from 'next/head';
+import NextNProgress from 'nextjs-progressbar';
+import { SessionProvider } from 'next-auth/react';
+import { ThemeProvider } from '@mui/material/styles';
+import { store } from '../redux/store';
+import { Provider } from 'react-redux';
+import { QueryClientProvider, QueryClient } from 'react-query';
+import { theme } from '../theme';
 import '../i18n';
 
-import "../styles/globals.css";
-import "../styles/main.css";
-import "formik-stepper/dist/style.css";
-import Drawer from "../components/molecules/Navbar/Drawer";
+import '../styles/globals.css';
+import '../styles/main.css';
+import 'formik-stepper/dist/style.css';
+import Drawer from '../components/molecules/Navbar/Drawer';
 
 const queryClient = new QueryClient();
 export const DrawContext = createContext();
@@ -24,8 +24,8 @@ const App = ({ Component, pageProps }) => {
   const getLayout = Component.getLayout ?? ((page) => page);
 
   useEffect(() => {
-    import('preline')
-  }, [])
+    import('preline');
+  }, []);
   return (
     <>
       <Head>
@@ -42,7 +42,16 @@ const App = ({ Component, pageProps }) => {
           <Provider store={store}>
             <NextNProgress height={3} color="#FE8023" />
             <ThemeProvider theme={theme}>
-              <DrawContext.Provider value={{draw, setDraw, hideSide, setHideSide, saving, setSaving}}>
+              <DrawContext.Provider
+                value={{
+                  draw,
+                  setDraw,
+                  hideSide,
+                  setHideSide,
+                  saving,
+                  setSaving,
+                }}
+              >
                 {draw ? <Drawer /> : <></>}
                 {getLayout(<Component {...pageProps} />)}
               </DrawContext.Provider>
@@ -52,6 +61,6 @@ const App = ({ Component, pageProps }) => {
       </SessionProvider>
     </>
   );
-}
+};
 
 export default App;

@@ -1,8 +1,8 @@
-import React, { useState, createContext, useContext } from "react";
-import ListChat from "./List";
-import { BiArrowBack } from "react-icons/bi";
-import { DrawContext } from "../../../../pages/_app";
-import Image from "next/image";
+import React, { useState, createContext, useContext } from 'react';
+import ListChat from './List';
+import { BiArrowBack } from 'react-icons/bi';
+import { DrawContext } from '../../../../pages/_app';
+import Image from 'next/image';
 
 export const ChatContext = createContext();
 
@@ -11,7 +11,7 @@ export default function Drawer() {
   const { draw, setDraw } = useContext(DrawContext);
 
   return (
-    <div className={` drawer-end fixed z-50 ${!draw ? "hidden" : "drawer"}`}>
+    <div className={` drawer-end fixed z-50 ${!draw ? 'hidden' : 'drawer'}`}>
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content"></div>
       <div className="drawer-side">

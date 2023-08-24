@@ -1,6 +1,6 @@
-import Head from "next/head";
-import DashboardLayout from "../../layouts/Dashboard";
-import NewSaving from "../../components/organisms/Wallet/New";
+import Head from 'next/head';
+import DashboardLayout from '../../layouts/Dashboard';
+import NewSaving from '../../components/organisms/Wallet/New';
 
 const Page = () => {
   return (

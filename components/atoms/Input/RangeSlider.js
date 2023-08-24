@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from 'react';
 
 const RangeSlider = ({ initialMin, initialMax, min, max, step, priceCap }) => {
   const progressRef = useRef(null);
@@ -32,8 +32,8 @@ const RangeSlider = ({ initialMin, initialMax, min, max, step, priceCap }) => {
   };
 
   useEffect(() => {
-    progressRef.current.style.left = (minValue / max) * step + "%";
-    progressRef.current.style.right = step - (maxValue / max) * step + "%";
+    progressRef.current.style.left = (minValue / max) * step + '%';
+    progressRef.current.style.right = step - (maxValue / max) * step + '%';
   }, [minValue, maxValue, max, step]);
 
   return (
@@ -45,7 +45,7 @@ const RangeSlider = ({ initialMin, initialMax, min, max, step, priceCap }) => {
             htmlFor=""
             className="text-sky font-bold text-2xl flex items-start"
           >
-            {minValue}{" "}
+            {minValue}{' '}
             <span className="text-gray-500 font-light text-xs">$/mo</span>
           </label>
         </div>

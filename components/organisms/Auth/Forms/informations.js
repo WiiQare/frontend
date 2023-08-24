@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { FormContextRegister } from "../RegisterForm";
+import React, { useContext, useState } from 'react';
+import { FormContextRegister } from '../RegisterForm';
 import {
   Box,
   Button,
@@ -11,18 +11,18 @@ import {
   Stack,
   TextField,
   Typography,
-} from "@mui/material";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import MuiPhoneNumber from "material-ui-phone-number";
-import { useSelector, useDispatch } from "react-redux";
-import { useMutation } from "react-query";
-import { useFormik } from "formik";
-import { register } from "../../../../lib/helper";
-import Toast from "../../../atoms/Toast";
-import { useRouter } from "next/router";
-import { setRegister } from "../../../../redux/reducer";
-import LoadingButton from "../../../atoms/Loader/LoadingButton";
-import * as yup from "yup";
+} from '@mui/material';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
+import MuiPhoneNumber from 'material-ui-phone-number';
+import { useSelector, useDispatch } from 'react-redux';
+import { useMutation } from 'react-query';
+import { useFormik } from 'formik';
+import { register } from '../../../../lib/helper';
+import Toast from '../../../atoms/Toast';
+import { useRouter } from 'next/router';
+import { setRegister } from '../../../../redux/reducer';
+import LoadingButton from '../../../atoms/Loader/LoadingButton';
+import * as yup from 'yup';
 
 function Information() {
   const { activeStep, setActiveStep, formData, setFormData, handleComplete } =
@@ -30,7 +30,7 @@ function Information() {
   const [showPassword, setShowPassword] = useState(false);
   const [showcPassword, setShowcPassword] = useState(false);
   const [term, setTerm] = useState(false);
-  const [state, setState] = useState({ type: 0, message: "" });
+  const [state, setState] = useState({ type: 0, message: '' });
   const client = useSelector((state) => state.app.client);
   const router = useRouter();
   const dispatch = useDispatch();
@@ -43,21 +43,21 @@ function Information() {
       if (res.code) {
         setState({ type: 2, message: res.message ?? res.description });
         setTimeout(() => {
-          setState({ type: 0, message: "" });
+          setState({ type: 0, message: '' });
         }, 3000);
       } else {
-        setState({ type: 1, message: "Successfully registered" });
+        setState({ type: 1, message: 'Successfully registered' });
         dispatch(setRegister({}));
 
         setTimeout(() => {
-          router.push("/login");
+          router.push('/login');
         }, 2500);
       }
     },
   });
 
   const onSubmit = async (values) => {
-    if (Object.keys(values).length == 0) return console.log("Pas de données");
+    if (Object.keys(values).length == 0) return console.log('Pas de données');
     //dispatch(setRegsiter({...values}))
 
     let { confirm_password, ...info } = values;
@@ -65,31 +65,31 @@ function Information() {
   };
 
   const closeToast = () => {
-    setState({ type: 0, message: "" });
+    setState({ type: 0, message: '' });
   };
 
   const ValidationSchema = yup.object().shape({
-    firstName: yup.string().required("Le nom est un champ obligatoire"),
-    lastName: yup.string().required("Le prénom est un champ obligatoire"),
+    firstName: yup.string().required('Le nom est un champ obligatoire'),
+    lastName: yup.string().required('Le prénom est un champ obligatoire'),
     phoneNumber: yup
       .string()
-      .required("Le numéro de téléphone est un champ obligatoire"),
+      .required('Le numéro de téléphone est un champ obligatoire'),
     country: yup.string().required(),
-    password: yup.string().required("Mot de passe est un champ obligatoire"),
+    password: yup.string().required('Mot de passe est un champ obligatoire'),
     confirm_password: yup
       .string()
-      .required("Veuillez confirmer votre mot de passe")
-      .oneOf([yup.ref("password"), null], "Passwords must match"),
+      .required('Veuillez confirmer votre mot de passe')
+      .oneOf([yup.ref('password'), null], 'Passwords must match'),
   });
 
   const formik = useFormik({
     initialValues: {
-      firstName: "",
-      lastName: "",
-      password: "",
-      phoneNumber: "",
-      country: "",
-      confirm_password: "",
+      firstName: '',
+      lastName: '',
+      password: '',
+      phoneNumber: '',
+      country: '',
+      confirm_password: '',
     },
     validationSchema: ValidationSchema,
     onSubmit,
@@ -105,9 +105,9 @@ function Information() {
     <>
       {state.type > 0 ? (
         state.type == 2 ? (
-          <Toast type={"danger"} message={state.message} close={closeToast} />
+          <Toast type={'danger'} message={state.message} close={closeToast} />
         ) : state.type == 1 ? (
-          <Toast type={"success"} message={state.message} close={closeToast} />
+          <Toast type={'success'} message={state.message} close={closeToast} />
         ) : (
           <></>
         )
@@ -115,14 +115,14 @@ function Information() {
         <></>
       )}
 
-      <Box sx={{ mb: 2, mt: 2, textAlign: "left" }}>
+      <Box sx={{ mb: 2, mt: 2, textAlign: 'left' }}>
         <Typography color="primary" variant="body1">
           Information personnel
         </Typography>
       </Box>
       <form id="signupform" onSubmit={formik.handleSubmit}>
         <Stack spacing={1.5}>
-          <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5}>
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5}>
             <div className="flex flex-col gap-1">
               <TextField
                 id="outlined-basic"
@@ -130,7 +130,7 @@ function Information() {
                 label="Entrez votre nom"
                 variant="outlined"
                 name="firstName"
-                {...formik.getFieldProps("firstName")}
+                {...formik.getFieldProps('firstName')}
               />
 
               {formik.errors.firstName ? (
@@ -147,7 +147,7 @@ function Information() {
                 label="Entrez votre après nom"
                 variant="outlined"
                 name="lastName"
-                {...formik.getFieldProps("lastName")}
+                {...formik.getFieldProps('lastName')}
               />
               {formik.errors.lastName ? (
                 renderError(formik.errors.lastName)
@@ -163,10 +163,10 @@ function Information() {
               label="Numéro de téléphone"
               variant="outlined"
               onChange={(value, country) => {
-                formik.setFieldValue("phoneNumber", value);
-                formik.setFieldValue("country", country.countryCode);
+                formik.setFieldValue('phoneNumber', value);
+                formik.setFieldValue('country', country.countryCode);
               }}
-              defaultCountry={"fr"}
+              defaultCountry={'fr'}
               name="phoneNumber"
             />
             {formik.errors.phoneNumber ? (
@@ -182,9 +182,9 @@ function Information() {
               <OutlinedInput
                 id="outlined-basic1"
                 label="Mot de passe"
-                type={showPassword ? "text" : "password"}
+                type={showPassword ? 'text' : 'password'}
                 name="password"
-                {...formik.getFieldProps("password")}
+                {...formik.getFieldProps('password')}
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
@@ -214,8 +214,8 @@ function Information() {
                 id="outlined-basic2"
                 label="Confirmez le mot de passe"
                 name="confirm_password"
-                type={showcPassword ? "text" : "password"}
-                {...formik.getFieldProps("confirm_password")}
+                type={showcPassword ? 'text' : 'password'}
+                {...formik.getFieldProps('confirm_password')}
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
@@ -248,13 +248,13 @@ function Information() {
               for="link-checkbox"
               className="h-4 ml-2 text-sm font-normal text-gray-600 dark:text-gray-300"
             >
-              j&apos;accepte les{" "}
+              j&apos;accepte les{' '}
               <a
                 href="https://wiiqare.com/privacy/"
                 className="text-primary hover:underline"
               >
                 termes et conditions
-              </a>{" "}
+              </a>{' '}
               d&apos;utilisation.
             </label>
           </div>
@@ -270,7 +270,7 @@ function Information() {
               {newAccountMutation.isLoading ? (
                 <LoadingButton />
               ) : (
-                "CRÉER UN COMPTE"
+                'CRÉER UN COMPTE'
               )}
             </Button>
           </Box>

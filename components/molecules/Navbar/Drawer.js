@@ -1,15 +1,15 @@
-import React, { useState, createContext, useContext, useEffect } from "react";
-import { DrawContext } from "../../../pages/_app";
-import { BiArrowBack } from "react-icons/bi";
+import React, { useState, createContext, useContext, useEffect } from 'react';
+import { DrawContext } from '../../../pages/_app';
+import { BiArrowBack } from 'react-icons/bi';
 export const ChatContext = createContext();
-import { useSession } from "next-auth/react";
-import Fetcher from "../../../lib/Fetcher";
-import { useFormik } from "formik";
-import * as yup from "yup";
-import { useMutation } from "react-query";
-import { sendMessage } from "../../../lib/helper";
-import LoadingButton from "../../atoms/Loader/LoadingButton";
-import Image from "next/image";
+import { useSession } from 'next-auth/react';
+import Fetcher from '../../../lib/Fetcher';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import { useMutation } from 'react-query';
+import { sendMessage } from '../../../lib/helper';
+import LoadingButton from '../../atoms/Loader/LoadingButton';
+import Image from 'next/image';
 
 export default function Drawer() {
   const [personalChat, setPersonalChat] = useState({ state: true });
@@ -19,7 +19,7 @@ export default function Drawer() {
 
   const { data, isLoading, isError } = Fetcher(
     `/messaging?senderId=${session.user.data.userId}`,
-    session.user.data.access_token
+    session.user.data.access_token,
   );
 
   useEffect(() => {
@@ -93,7 +93,7 @@ function Conversation({
   senderId,
   token,
 }) {
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
   const [isFromAdmin, setIsFromAdmin] = useState(false);
   const sendMessageMutation = useMutation(sendMessage, {
     onSuccess: (res) => {
@@ -102,7 +102,7 @@ function Conversation({
         //set error
       } else {
         // Set success
-        setText("");
+        setText('');
         messages.push(res);
         setMessages(messages);
       }
@@ -114,13 +114,13 @@ function Conversation({
   };
 
   const ValidationSchema = yup.object().shape({
-    message: yup.string().required("Message ne doit pas être vide"),
+    message: yup.string().required('Message ne doit pas être vide'),
   });
 
   // Formik hook
   const formik = useFormik({
     initialValues: {
-      message: "",
+      message: '',
     },
     onSubmit,
   });
@@ -138,11 +138,11 @@ function Conversation({
             className="rounded-xl w-10 h-10"
           />
           <h3 className="font-semibold text-gray-700 flex flex-col">
-            Odette de WiiQare{" "}
+            Odette de WiiQare{' '}
             <span className="text-xs text-gray-500 font-light flex gap-1 items-center">
               <span className="h-2 w-2 rounded-full bg-green-400 flex">
                 &nbsp;
-              </span>{" "}
+              </span>{' '}
               En ligne
             </span>
           </h3>
@@ -181,16 +181,16 @@ function Conversation({
                                 </div>
                                 <div className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl flex flex-col gap-2">
                                   <div>
-                                    Bonjour Mr./ Mme{" "}
+                                    Bonjour Mr./ Mme{' '}
                                     <span className="uppercase">{user}</span>,
                                     merci de nous avoir laisser votre message,
                                     nous vous répondrons dans pas longtemps...
                                   </div>
                                   <span className="text-xs text-gray-400 capitalize">
-                                    WiiQare -{" "}
-                                    {new Intl.DateTimeFormat("fr-FR", {
-                                      dateStyle: "medium",
-                                      timeStyle: "short",
+                                    WiiQare -{' '}
+                                    {new Intl.DateTimeFormat('fr-FR', {
+                                      dateStyle: 'medium',
+                                      timeStyle: 'short',
                                     }).format(new Date())}
                                   </span>
                                 </div>
@@ -219,10 +219,10 @@ function Conversation({
                                   <div className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
                                     <div>{message.message}</div>
                                     <span className="text-xs text-gray-400 capitalize">
-                                      WiiQare -{" "}
-                                      {new Intl.DateTimeFormat("fr-FR", {
-                                        dateStyle: "medium",
-                                        timeStyle: "short",
+                                      WiiQare -{' '}
+                                      {new Intl.DateTimeFormat('fr-FR', {
+                                        dateStyle: 'medium',
+                                        timeStyle: 'short',
                                       }).format(new Date())}
                                     </span>
                                   </div>
@@ -239,7 +239,7 @@ function Conversation({
                     <div className="flex flex-col gap-3 items-center">
                       <img
                         alt="Default message"
-                        src={"https://i.goopics.net/26opd3.png"}
+                        src={'https://i.goopics.net/26opd3.png'}
                         width={80}
                         height={80}
                         className="w-14 opacity-80"
@@ -396,22 +396,22 @@ function ListItemChat({ handleChange }) {
         </div>
         <div className="flex flex-col space-y-1 mt-4 -mx-2 h-48 overflow-y-auto">
           <ItemMessage
-            name={"Bienvenu Z."}
+            name={'Bienvenu Z.'}
             message={2}
             onClick={() => handleChange()}
           />
           <ItemMessage
-            name={"Brice K."}
+            name={'Brice K.'}
             message={0}
             onClick={() => handleChange()}
           />
           <ItemMessage
-            name={"Fred Muyco"}
+            name={'Fred Muyco'}
             message={0}
             onClick={() => handleChange()}
           />
           <ItemMessage
-            name={"Aleks R."}
+            name={'Aleks R.'}
             message={1}
             onClick={() => handleChange()}
           />

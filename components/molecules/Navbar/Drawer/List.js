@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { ChatContext } from "./";
-import { BiX } from "react-icons/bi";
-import { DrawContext } from "../../../../pages/_app";
-import Image from "next/image";
+import React, { useContext } from 'react';
+import { ChatContext } from './';
+import { BiX } from 'react-icons/bi';
+import { DrawContext } from '../../../../pages/_app';
+import Image from 'next/image';
 
 const ListChat = () => {
   const { setPersonalChat } = useContext(ChatContext);
@@ -69,27 +69,27 @@ const ListChat = () => {
         </div>
         <div className="flex flex-col space-y-1 mt-4 -mx-2 h-48 overflow-y-auto">
           <ItemMessage
-            name={"Bienvenu Z."}
+            name={'Bienvenu Z.'}
             message={2}
             onClick={() => handleChange(1)}
           />
           <ItemMessage
-            name={"Brice A."}
+            name={'Brice A.'}
             message={0}
             onClick={() => handleChange(2)}
           />
           <ItemMessage
-            name={"Fred Muyco"}
+            name={'Fred Muyco'}
             message={0}
             onClick={() => handleChange(3)}
           />
           <ItemMessage
-            name={"Aleks M"}
+            name={'Aleks M'}
             message={1}
             onClick={() => handleChange(4)}
           />
           <ItemMessage
-            name={"John Doe"}
+            name={'John Doe'}
             message={1}
             onClick={() => handleChange(5)}
           />
@@ -102,7 +102,7 @@ const ListChat = () => {
         </div>
         <div className="flex flex-col space-y-1 mt-4 -mx-2">
           <ItemMessage
-            name={"Jane Doe"}
+            name={'Jane Doe'}
             message={7}
             onClick={() => handleChange(6)}
           />

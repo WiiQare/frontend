@@ -1,18 +1,18 @@
-import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
-import Step from "./step";
-import { FormContext } from "../../../pages/voucher/buy";
-import { SessionProvider } from "next-auth/react";
-import { Provider } from "react-redux";
-import { store } from "../../../redux/store";
-import { QueryClient, QueryClientProvider } from "react-query";
+import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+import Step from './step';
+import { FormContext } from '../../../pages/voucher/buy';
+import { SessionProvider } from 'next-auth/react';
+import { Provider } from 'react-redux';
+import { store } from '../../../redux/store';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
-describe("Stepper/Step", () => {
+describe('Stepper/Step', () => {
   beforeEach(() => {
     console.log = jest.fn();
   });
 
-  it("renders identity", () => {
+  it('renders identity', () => {
     const { container } = render(
       <FormContext.Provider
         value={{
@@ -34,14 +34,14 @@ describe("Stepper/Step", () => {
             </QueryClientProvider>
           </Provider>
         </SessionProvider>
-      </FormContext.Provider>
+      </FormContext.Provider>,
     );
-    expect(container).toMatchSnapshot("identity step");
+    expect(container).toMatchSnapshot('identity step');
   });
 
-  it.todo("renders payment");
+  it.todo('renders payment');
 
-  it("renders send", () => {
+  it('renders send', () => {
     const { container } = render(
       <FormContext.Provider
         value={{
@@ -63,8 +63,8 @@ describe("Stepper/Step", () => {
             </QueryClientProvider>
           </Provider>
         </SessionProvider>
-      </FormContext.Provider>
+      </FormContext.Provider>,
     );
-    expect(container).toMatchSnapshot("send step");
+    expect(container).toMatchSnapshot('send step');
   });
 });

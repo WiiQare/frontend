@@ -1,0 +1,298 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Saving should render 1`] = `
+<div>
+  <div
+    class="p-2 space-y-6 md:py-8 md:px-6 mb-20 md:mb-10"
+  >
+    <div
+      class="border w-full rounded-lg py-8 px-6 flex flex-col flex-wrap md:flex-row justify-between gap-4 bg-white cursor-pointer"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <h1
+          class="md:text-2xl text-gray-700 font-bold flex-wrap flex items-center gap-2 text-lg"
+        >
+          Nouvelle épargne
+        </h1>
+        <ul
+          class="flex gap-2"
+        >
+          <li>
+            <span
+              class="flex gap-2 font-semibold text-sky"
+            >
+              Épargne de santé
+              <span>
+                /
+              </span>
+            </span>
+          </li>
+          <li>
+            <span
+              class="flex gap-2 font-light text-gray-500"
+            >
+              Séléctionner le type d'épargne
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="flex flex-row flex-wrap  gap-2 center justify-end space-x-2"
+      />
+    </div>
+    <div
+      class="my-10 md:my-20 grid md:grid-cols-4 grid-cols-2 gap-5 md:gap-10 items-center justify-center self-center"
+    >
+      <div
+        class="order-2 md:order-1 bg-white p-5 md:p-10 flex flex-col justify-center items-center rounded-lg shadow-sm hover:shadow-md duration-200 transition-all cursor-pointer gap-4"
+      >
+        <div
+          class="p-3 rounded-md border border-blue-200 w-fit"
+        >
+          <img
+            alt="Myself"
+            class="w-20"
+            src="https://i.goopics.net/yojhn7.png"
+          />
+        </div>
+        <div
+          class="flex flex-col justify-center items-center"
+        >
+          <h3
+            class="uppercase text-xs md:text-sm font-bold"
+          >
+            Pour moi
+          </h3>
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            height="25"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="25"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M16.72 7.72a.75.75 0 011.06 0l3.75 3.75a.75.75 0 010 1.06l-3.75 3.75a.75.75 0 11-1.06-1.06l2.47-2.47H3a.75.75 0 010-1.5h16.19l-2.47-2.47a.75.75 0 010-1.06z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="order-2 md:order-1 bg-white p-5 md:p-10 flex flex-col justify-center items-center rounded-lg shadow-sm hover:shadow-md duration-200 transition-all cursor-pointer gap-4"
+      >
+        <div
+          class="p-3 rounded-md border border-blue-200 w-fit"
+        >
+          <img
+            alt="Myself"
+            class="w-20"
+            src="https://i.goopics.net/cub5b2.png"
+          />
+        </div>
+        <div
+          class="flex flex-col justify-center items-center"
+        >
+          <h3
+            class="uppercase text-xs md:text-sm font-bold"
+          >
+            Famille
+          </h3>
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            height="25"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="25"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M16.72 7.72a.75.75 0 011.06 0l3.75 3.75a.75.75 0 010 1.06l-3.75 3.75a.75.75 0 11-1.06-1.06l2.47-2.47H3a.75.75 0 010-1.5h16.19l-2.47-2.47a.75.75 0 010-1.06z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="order-2 md:order-1 bg-white p-5 md:p-10 flex flex-col justify-center items-center rounded-lg shadow-sm hover:shadow-md duration-200 transition-all cursor-pointer gap-4"
+      >
+        <div
+          class="p-3 rounded-md border border-blue-200 w-fit"
+        >
+          <img
+            alt="Myself"
+            class="w-20"
+            src="https://i.goopics.net/dtrv5p.png"
+          />
+        </div>
+        <div
+          class="flex flex-col justify-center items-center"
+        >
+          <h3
+            class="uppercase text-xs md:text-sm font-bold"
+          >
+            Enfant
+          </h3>
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            height="25"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="25"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M16.72 7.72a.75.75 0 011.06 0l3.75 3.75a.75.75 0 010 1.06l-3.75 3.75a.75.75 0 11-1.06-1.06l2.47-2.47H3a.75.75 0 010-1.5h16.19l-2.47-2.47a.75.75 0 010-1.06z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="order-2 md:order-1 bg-white p-5 md:p-10 flex flex-col justify-center items-center rounded-lg shadow-sm hover:shadow-md duration-200 transition-all cursor-pointer gap-4"
+      >
+        <div
+          class="p-3 rounded-md border border-blue-200 w-fit"
+        >
+          <img
+            alt="Myself"
+            class="w-20"
+            src="https://i.goopics.net/gl9c62.png"
+          />
+        </div>
+        <div
+          class="flex flex-col justify-center items-center"
+        >
+          <h3
+            class="uppercase text-xs md:text-sm font-bold"
+          >
+            Femme enceinte
+          </h3>
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            height="25"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="25"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M16.72 7.72a.75.75 0 011.06 0l3.75 3.75a.75.75 0 010 1.06l-3.75 3.75a.75.75 0 11-1.06-1.06l2.47-2.47H3a.75.75 0 010-1.5h16.19l-2.47-2.47a.75.75 0 010-1.06z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="order-2 md:order-1 bg-white p-5 md:p-10 flex flex-col justify-center items-center rounded-lg shadow-sm hover:shadow-md duration-200 transition-all cursor-pointer gap-4"
+      >
+        <div
+          class="p-3 rounded-md border border-blue-200 w-fit"
+        >
+          <img
+            alt="Myself"
+            class="w-20"
+            src="https://i.goopics.net/3w4x3m.png"
+          />
+        </div>
+        <div
+          class="flex flex-col justify-center items-center"
+        >
+          <h3
+            class="uppercase text-xs md:text-sm font-bold"
+          >
+            Diabétique
+          </h3>
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            height="25"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="25"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M16.72 7.72a.75.75 0 011.06 0l3.75 3.75a.75.75 0 010 1.06l-3.75 3.75a.75.75 0 11-1.06-1.06l2.47-2.47H3a.75.75 0 010-1.5h16.19l-2.47-2.47a.75.75 0 010-1.06z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="order-2 md:order-1 bg-white p-5 md:p-10 flex flex-col justify-center items-center rounded-lg shadow-sm hover:shadow-md duration-200 transition-all cursor-pointer gap-4"
+      >
+        <div
+          class="p-3 rounded-md border border-blue-200 w-fit"
+        >
+          <img
+            alt="Myself"
+            class="w-20"
+            src="https://i.goopics.net/hhbm6i.png"
+          />
+        </div>
+        <div
+          class="flex flex-col justify-center items-center"
+        >
+          <h3
+            class="uppercase text-xs md:text-sm font-bold"
+          >
+            Hyper tendu
+          </h3>
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            height="25"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="25"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M16.72 7.72a.75.75 0 011.06 0l3.75 3.75a.75.75 0 010 1.06l-3.75 3.75a.75.75 0 11-1.06-1.06l2.47-2.47H3a.75.75 0 010-1.5h16.19l-2.47-2.47a.75.75 0 010-1.06z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="flex flex-col w-full h-full p-6 bg-white rounded-lg shadow-sm col-span-2 order-1 md:order-2"
+      >
+        <h5
+          class="mb-2 text-xl font-bold tracking-tight text-gray-900 "
+        >
+          Vous éparnez pour qui, mieux pour quoi ?
+        </h5>
+        <p
+          class="font-normal text-gray-700 text-sm"
+        >
+          Sélectionner un type d'épargne par ceux présenter ici, les calculs des prix d'épargne sont fait suivant le type d'épargne choisi.
+        </p>
+        <p
+          class="font-normal text-gray-700 text-sm mt-2"
+        >
+          Epargner c'est vivre le futur, c'est condamner le futur à être meilleur pour vous et surtout ceux qui vous sont cher...
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

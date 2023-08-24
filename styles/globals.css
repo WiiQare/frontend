@@ -119,7 +119,7 @@ body {
   }
    */
 /* Price Range */
-input[type="range"]::-webkit-slider-thumb {
+input[type='range']::-webkit-slider-thumb {
   pointer-events: auto;
   width: 24px;
   height: 24px;
@@ -135,18 +135,15 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .PhoneInputInput {
-  @apply border-none placeholder:text-gray-400 focus:outline-none focus:ring-0
+  @apply border-none placeholder:text-gray-400 focus:outline-none focus:ring-0;
 }
 
-
 #payment-element {
-
 }
 
 .form-text.code input {
-  @apply !border-0 !border-b !border-gray-400 !rounded-none font-bold focus:!border-orange focus:!border-b-2
+  @apply !border-0 !border-b !border-gray-400 !rounded-none font-bold focus:!border-orange focus:!border-b-2;
 }
 
 .drawer {
-
 }

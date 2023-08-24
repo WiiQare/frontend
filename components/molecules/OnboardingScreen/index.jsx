@@ -1,7 +1,7 @@
-import { ONBOARDING_SLIDES } from "../../../utils/constants";
-import React from "react";
+import { ONBOARDING_SLIDES } from '../../../utils/constants';
+import React from 'react';
 
-import WelcomeSlider from "../WelcomeSlider";
+import WelcomeSlider from '../WelcomeSlider';
 
 const settings = {
   dots: true,
@@ -16,11 +16,11 @@ const OnboardingScreen = ({ onStartClick }) => (
     slides={[
       ...ONBOARDING_SLIDES,
       {
-        img: "/images/Easy-payment-scan-QR-code.png",
-        title: "Making a payment is ABC <span>simple</span>",
-        subtitle: "To make a payment, simply scan a QR code.",
+        img: '/images/Easy-payment-scan-QR-code.png',
+        title: 'Making a payment is ABC <span>simple</span>',
+        subtitle: 'To make a payment, simply scan a QR code.',
         button: {
-          label: "Get Started",
+          label: 'Get Started',
           onClick: onStartClick,
         },
       },

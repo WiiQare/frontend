@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
 const Toast = ({ type, message, close = null }) => {
   return (
     <div id="dismiss-toast" className="absolute top-28 right-2">
       <div
         className={`min-w-xs bg-${
-          type == "success" ? "green" : "red"
+          type == 'success' ? 'green' : 'red'
         }-100 text-sm text-${
-          type == "success" ? "green" : "red"
+          type == 'success' ? 'green' : 'red'
         }-500 rounded-xl drop-shadow-sm`}
         role="alert"
       >
@@ -18,11 +18,11 @@ const Toast = ({ type, message, close = null }) => {
             <button
               type="button"
               className={`inline-flex flex-shrink-0 justify-center items-center h-4 w-4 rounded-md text-${
-                type == "success" ? "green" : "red"
+                type == 'success' ? 'green' : 'red'
               }-400 hover:text-${
-                type == "success" ? "green" : "red"
+                type == 'success' ? 'green' : 'red'
               }-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-green-100 focus:ring-${
-                type == "success" ? "green" : "red"
+                type == 'success' ? 'green' : 'red'
               }-400 transition-all text-sm`}
               data-hs-remove-element="#dismiss-toast"
               onClick={close}

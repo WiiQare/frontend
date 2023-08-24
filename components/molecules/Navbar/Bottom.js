@@ -1,30 +1,30 @@
-import Link from "next/link";
-import React, { useContext } from "react";
-import { SlHome, SlGlobe, SlSettings, SlSpeech } from "react-icons/sl";
-import ItemBottom from "./ItemBottom";
-import IconBadge from "../../atoms/Icons/Badge";
-import { DrawContext } from "../../../pages/_app";
-import { LiaHandHoldingUsdSolid, LiaHospital } from "react-icons/lia";
+import Link from 'next/link';
+import React, { useContext } from 'react';
+import { SlHome, SlGlobe, SlSettings, SlSpeech } from 'react-icons/sl';
+import ItemBottom from './ItemBottom';
+import IconBadge from '../../atoms/Icons/Badge';
+import { DrawContext } from '../../../pages/_app';
+import { LiaHandHoldingUsdSolid, LiaHospital } from 'react-icons/lia';
 
 const MenuBottom = ({ activePath }) => {
   const { draw, setDraw } = useContext(DrawContext);
 
   const Items = [
     {
-      title: "Accueil",
+      title: 'Accueil',
       icon: ({ size, className }) => (
         <SlHome size={size} className={className} />
       ),
-      link: "/",
-      active: ["/"],
+      link: '/',
+      active: ['/'],
     },
     {
-      title: "Transactions",
+      title: 'Transactions',
       icon: ({ size, className }) => (
         <SlGlobe size={size} className={className} />
       ),
-      link: "/transactions",
-      active: ["/transactions", "/transactions/[id]"],
+      link: '/transactions',
+      active: ['/transactions', '/transactions/[id]'],
     },
 
     // {
@@ -40,30 +40,30 @@ const MenuBottom = ({ activePath }) => {
     // },
 
     {
-      title: "Épargne",
+      title: 'Épargne',
       icon: ({ size, className }) => (
         <LiaHandHoldingUsdSolid size={size + 5} className={className} />
       ),
-      link: "/saving",
-      active: ["/saving", "/saving/[id]", "/saving/new", "/saving/summary"],
+      link: '/saving',
+      active: ['/saving', '/saving/[id]', '/saving/new', '/saving/summary'],
     },
 
     {
-      title: "Hôpital",
+      title: 'Hôpital',
       icon: ({ size, className }) => (
         <LiaHospital size={size + 5} className={className} />
       ),
-      link: "/hospitals",
-      active: ["/hospitals", "/hospitals/[id]"],
+      link: '/hospitals',
+      active: ['/hospitals', '/hospitals/[id]'],
     },
 
     {
-      title: "Paramètres",
+      title: 'Paramètres',
       icon: ({ size, className }) => (
         <SlSettings size={size} className={className} />
       ),
-      link: "/profile",
-      active: ["/profile"],
+      link: '/profile',
+      active: ['/profile'],
     },
   ];
 

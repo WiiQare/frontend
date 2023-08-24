@@ -1,9 +1,9 @@
-import React, { createContext, useState } from "react";
-import CardHeader from "../../atoms/Card/Header";
-import HistoryWallet from "../Wallet/History";
-import { CiCircleList } from "react-icons/ci";
+import React, { createContext, useState } from 'react';
+import CardHeader from '../../atoms/Card/Header';
+import HistoryWallet from '../Wallet/History';
+import { CiCircleList } from 'react-icons/ci';
 
-import Quickly from "./quickly";
+import Quickly from './quickly';
 export const TransactionContext = createContext();
 
 const Transaction = () => {
@@ -15,19 +15,19 @@ const Transaction = () => {
   return (
     <div className="p-2 space-y-6 md:py-8 md:px-6 mb-20 md:mb-6">
       <CardHeader
-        title={"Historique des transactions"}
+        title={'Historique des transactions'}
         sort={{
           icon: () => <span className="h-[15px] w-[15px] rounded bg-primary" />,
-          items: ["Détail", "Annuler"],
+          items: ['Détail', 'Annuler'],
         }}
         filter={{
           label: {
-            title: "Trier par",
-            className: "py-1 w-[auto]",
+            title: 'Trier par',
+            className: 'py-1 w-[auto]',
           },
-          className: "w-[auto]",
+          className: 'w-[auto]',
           icon: () => <CiCircleList />,
-          items: ["Detail", "Annuler"],
+          items: ['Detail', 'Annuler'],
         }}
       />
 

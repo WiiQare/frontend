@@ -1,57 +1,57 @@
-import React, { useState } from "react";
-import TextField from "@mui/material/TextField";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useMutation } from "react-query";
-import Image from "next/image";
-import OnboardingScreen from "../../molecules/OnboardingScreen";
-import MenuHolder from "../../atoms/MenuHolder";
-import { emailValidate } from "../../../lib/validate";
-import { sendEmailReset } from "../../../lib/helper";
-import Toast from "../../atoms/Toast";
-import { useFormik } from "formik";
-import LoadingButton from "../../atoms/Loader/LoadingButton";
-import { HiOutlineInformationCircle } from "react-icons/hi";
+import React, { useState } from 'react';
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useMutation } from 'react-query';
+import Image from 'next/image';
+import OnboardingScreen from '../../molecules/OnboardingScreen';
+import MenuHolder from '../../atoms/MenuHolder';
+import { emailValidate } from '../../../lib/validate';
+import { sendEmailReset } from '../../../lib/helper';
+import Toast from '../../atoms/Toast';
+import { useFormik } from 'formik';
+import LoadingButton from '../../atoms/Loader/LoadingButton';
+import { HiOutlineInformationCircle } from 'react-icons/hi';
 
 function ForgotForm() {
-  const matches = useMediaQuery("(max-width: 992px)");
-  const [onboardingIsEnd, setOnboardingIsEnd] = React.useState("");
-  const [state, setState] = useState({ type: 0, message: "" });
+  const matches = useMediaQuery('(max-width: 992px)');
+  const [onboardingIsEnd, setOnboardingIsEnd] = React.useState('');
+  const [state, setState] = useState({ type: 0, message: '' });
   const [complete, setComplete] = useState(false);
 
   React.useEffect(() => {
-    setOnboardingIsEnd(localStorage.getItem("onboardingIsEnd") || "");
+    setOnboardingIsEnd(localStorage.getItem('onboardingIsEnd') || '');
   }, []);
 
   const sendEmailMutation = useMutation(sendEmailReset, {
     onSuccess: (res) => {
       if (!res.code) {
-        setState({ type: 1, message: "Mail envoyé avec succès" });
+        setState({ type: 1, message: 'Mail envoyé avec succès' });
         setComplete(true);
       } else {
         setState({ type: 2, message: res.message ?? res.description });
         setTimeout(() => {
-          setState({ type: 0, message: "" });
+          setState({ type: 0, message: '' });
         }, 3000);
       }
     },
   });
 
   const onSubmit = async (values) => {
-    if (Object.keys(values).length == 0) return console.log("Pas de données");
+    if (Object.keys(values).length == 0) return console.log('Pas de données');
     sendEmailMutation.mutate(values);
   };
 
   const closeToast = () => {
-    setState({ type: 0, message: "" });
+    setState({ type: 0, message: '' });
   };
 
   // Formik hook
   const formik = useFormik({
     initialValues: {
-      email: "",
+      email: '',
     },
     validate: emailValidate,
     onSubmit,
@@ -67,13 +67,13 @@ function ForgotForm() {
               {state.type > 0 ? (
                 state.type == 2 ? (
                   <Toast
-                    type={"danger"}
+                    type={'danger'}
                     message={state.message}
                     close={closeToast}
                   />
                 ) : state.type == 1 ? (
                   <Toast
-                    type={"success"}
+                    type={'success'}
                     message={state.message}
                     close={closeToast}
                   />
@@ -102,7 +102,7 @@ function ForgotForm() {
                             label="Adresse email"
                             variant="outlined"
                             name="email"
-                            {...formik.getFieldProps("email")}
+                            {...formik.getFieldProps('email')}
                           />
                           {formik.errors.email && formik.touched.email ? (
                             <span className="flex items-center gap-1 text-rose-500 text-left text-xs px-1">
@@ -124,7 +124,7 @@ function ForgotForm() {
                             {sendEmailMutation.isLoading ? (
                               <LoadingButton />
                             ) : (
-                              "Envoyer"
+                              'Envoyer'
                             )}
                           </Button>
                         </Box>
@@ -135,7 +135,7 @@ function ForgotForm() {
                   <div className="flex flex-col gap-3 items-center">
                     <Image
                       alt=""
-                      src={"https://i.goopics.net/fuiyr8.png"}
+                      src={'https://i.goopics.net/fuiyr8.png'}
                       width={80}
                       height={80}
                       className="w-28"
@@ -158,10 +158,10 @@ function ForgotForm() {
       {matches && !onboardingIsEnd ? (
         <OnboardingScreen
           onStartClick={() => {
-            if (typeof window !== "undefined") {
-              localStorage.setItem("onboardingIsEnd", "onboardingIsEnd");
+            if (typeof window !== 'undefined') {
+              localStorage.setItem('onboardingIsEnd', 'onboardingIsEnd');
             }
-            setOnboardingIsEnd("onboardingIsEnd");
+            setOnboardingIsEnd('onboardingIsEnd');
           }}
         />
       ) : (
