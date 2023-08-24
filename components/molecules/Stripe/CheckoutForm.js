@@ -68,7 +68,7 @@ export default function CheckoutForm({ amount, senderId, email }) {
       },
     });
 
-    //Clear all item on localstorage
+    //Clear all item on localstorage 
     if (!error) localStorage.clear();
 
     // This point will only be reached if there is an immediate error when
