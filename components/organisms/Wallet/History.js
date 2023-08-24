@@ -1,21 +1,21 @@
-import { useState } from "react";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Box from "@mui/material/Box";
-import PropTypes from "prop-types";
-import Typography from "@mui/material/Typography";
+import { useState } from 'react';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
+import PropTypes from 'prop-types';
+import Typography from '@mui/material/Typography';
 
-import SimpleHeader from "../../atoms/Card/Header/simple";
-import TabPanelContent from "../../atoms/Tab/PanelContent";
+import SimpleHeader from '../../atoms/Card/Header/simple';
+import TabPanelContent from '../../atoms/Tab/PanelContent';
 
 const TabHistories = [
   {
-    name: "Mensuel",
+    name: 'Mensuel',
     transactions: [],
   },
 
   {
-    name: "Hebdomadaire",
+    name: 'Hebdomadaire',
     transactions: [],
   },
 
@@ -34,12 +34,12 @@ const HistoryWallet = () => {
 
   return (
     <div className="space-y-4 bg-white py-8 md:px-6 px-3 drop-shadow-sm rounded-lg">
-      <Box sx={{ width: "100%" }}>
+      <Box sx={{ width: '100%' }}>
         <SimpleHeader
-          title={"Historique des transactions"}
-          describe={"Liste de toutes les transactions effectuées"}
+          title={'Historique des transactions'}
+          describe={'Liste de toutes les transactions effectuées'}
         >
-          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
             <Tabs
               value={value}
               onChange={handleChange}
@@ -102,7 +102,7 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
   };
 }
 

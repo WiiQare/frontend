@@ -1,16 +1,15 @@
-import Head from "next/head";
-import DashboardLayout from "../../layouts/Dashboard";
+import Head from 'next/head';
+import DashboardLayout from '../../layouts/Dashboard';
 
-import Transaction from "../../components/organisms/Transaction";
-import { useContext, useEffect } from "react";
-import { DrawContext } from "../_app";
+import Transaction from '../../components/organisms/Transaction';
+import { useContext, useEffect } from 'react';
+import { DrawContext } from '../_app';
 
 const Page = () => {
-
   const { draw, setDraw } = useContext(DrawContext);
 
   useEffect(() => {
-   setDraw(false)
+    setDraw(false);
   }, [setDraw]);
 
   return (

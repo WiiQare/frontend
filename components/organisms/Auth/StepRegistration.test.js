@@ -1,19 +1,19 @@
-import React from "react";
-import { render } from "@testing-library/react";
-import StepRegistration from "./StepRegistration";
-import { FormContextRegister } from "./RegisterForm";
-import { Provider } from "react-redux";
-import { store } from "../../../redux/store";
-import { QueryClientProvider, QueryClient } from "react-query";
+import React from 'react';
+import { render } from '@testing-library/react';
+import StepRegistration from './StepRegistration';
+import { FormContextRegister } from './RegisterForm';
+import { Provider } from 'react-redux';
+import { store } from '../../../redux/store';
+import { QueryClientProvider, QueryClient } from 'react-query';
 
-jest.mock("next/router", () => ({
+jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({
     router: [],
   }),
 }));
 
-describe("StepRegistration", () => {
-  it("should render email if activeStep=0", () => {
+describe('StepRegistration', () => {
+  it('should render email if activeStep=0', () => {
     const queryClient = new QueryClient();
     const { container } = render(
       <QueryClientProvider client={queryClient}>
@@ -30,12 +30,12 @@ describe("StepRegistration", () => {
             <StepRegistration />
           </FormContextRegister.Provider>
         </Provider>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
-    expect(container).toMatchSnapshot("email");
+    expect(container).toMatchSnapshot('email');
   });
 
-  it("should render otp if activeStep=1", () => {
+  it('should render otp if activeStep=1', () => {
     const queryClient = new QueryClient();
     const { container } = render(
       <QueryClientProvider client={queryClient}>
@@ -52,12 +52,12 @@ describe("StepRegistration", () => {
             <StepRegistration />
           </FormContextRegister.Provider>
         </Provider>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
-    expect(container).toMatchSnapshot("otp");
+    expect(container).toMatchSnapshot('otp');
   });
 
-  it("should render information if activeStep=2", () => {
+  it('should render information if activeStep=2', () => {
     const queryClient = new QueryClient();
     const { container } = render(
       <QueryClientProvider client={queryClient}>
@@ -74,8 +74,8 @@ describe("StepRegistration", () => {
             <StepRegistration />
           </FormContextRegister.Provider>
         </Provider>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
-    expect(container).toMatchSnapshot("information");
+    expect(container).toMatchSnapshot('information');
   });
 });

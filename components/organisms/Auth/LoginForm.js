@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import Link from "next/link";
-import TextField from "@mui/material/TextField";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { signIn } from "next-auth/react";
+import React, { useState } from 'react';
+import Link from 'next/link';
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { signIn } from 'next-auth/react';
 
-import OnboardingScreen from "../../molecules/OnboardingScreen";
+import OnboardingScreen from '../../molecules/OnboardingScreen';
 import {
   FormControl,
   IconButton,
@@ -17,50 +17,50 @@ import {
   InputLabel,
   OutlinedInput,
   Typography,
-} from "@mui/material";
-import MenuHolder from "../../atoms/MenuHolder";
-import { useTranslation, Trans } from "react-i18next";
-import { useFormik } from "formik";
-import { useRouter } from "next/router";
-import Toast from "../../atoms/Toast";
-import LoadingButton from "../../atoms/Loader/LoadingButton";
-import { loginValidate } from "../../../lib/validate";
+} from '@mui/material';
+import MenuHolder from '../../atoms/MenuHolder';
+import { useTranslation, Trans } from 'react-i18next';
+import { useFormik } from 'formik';
+import { useRouter } from 'next/router';
+import Toast from '../../atoms/Toast';
+import LoadingButton from '../../atoms/Loader/LoadingButton';
+import { loginValidate } from '../../../lib/validate';
 
 function LoginForm() {
   const { t } = useTranslation();
-  const matches = useMediaQuery("(max-width: 992px)");
-  const [onboardingIsEnd, setOnboardingIsEnd] = React.useState("");
+  const matches = useMediaQuery('(max-width: 992px)');
+  const [onboardingIsEnd, setOnboardingIsEnd] = React.useState('');
   const [showPassword, setShowPassword] = React.useState(false);
-  const [state, setState] = useState({ type: 0, message: "" });
+  const [state, setState] = useState({ type: 0, message: '' });
   const [btnClick, setBtnClick] = useState(false);
   const router = useRouter();
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   React.useEffect(() => {
-    setOnboardingIsEnd(localStorage.getItem("onboardingIsEnd") || "");
+    setOnboardingIsEnd(localStorage.getItem('onboardingIsEnd') || '');
   }, []);
 
   //Handle Google Login
   const handleGoogleSignIn = async () => {
     //signIn('google', {callbackUrl: "http://localhost:3000"})
-    signIn("google", { callbackUrl: "https://wiiqare-app.com" });
+    signIn('google', { callbackUrl: 'https://wiiqare-app.com' });
   };
 
   const handleLinkedInSignIn = async () => {
     //signIn('linkedin', {callbackUrl: "http://localhost:3000"})
-    signIn("linkedin", { callbackUrl: "https://wiiqare-app.com" });
+    signIn('linkedin', { callbackUrl: 'https://wiiqare-app.com' });
   };
 
   //Sign In for other methods with NextAuth
   const onSubmit = async (values) => {
-    if (Object.keys(values).length == 0) return console.log("Pas de données");
+    if (Object.keys(values).length == 0) return console.log('Pas de données');
     setBtnClick(true);
-    let status = await signIn("credentials", {
+    let status = await signIn('credentials', {
       redirect: false,
       email: values.email,
       password: values.password,
-      callbackUrl: "/",
+      callbackUrl: '/',
     });
 
     console.log(status);
@@ -72,20 +72,20 @@ function LoginForm() {
       setState({ type: 2, message: status.error });
 
       setTimeout(() => {
-        setState({ type: 0, message: "" });
+        setState({ type: 0, message: '' });
       }, 3000);
     }
   };
 
   const closeToast = () => {
-    setState({ type: 0, message: "" });
+    setState({ type: 0, message: '' });
   };
 
   // Formik hook
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     },
     validate: loginValidate,
     onSubmit,
@@ -98,10 +98,10 @@ function LoginForm() {
 
         {state.type > 0 ? (
           state.type == 2 ? (
-            <Toast type={"danger"} message={state.message} close={closeToast} />
+            <Toast type={'danger'} message={state.message} close={closeToast} />
           ) : state.type == 1 ? (
             <Toast
-              type={"success"}
+              type={'success'}
               message={state.message}
               close={closeToast}
             />
@@ -128,10 +128,10 @@ function LoginForm() {
                         variant="outlined"
                         name="email"
                         InputProps={{
-                          className: "input-email",
+                          className: 'input-email',
                         }}
                         className="lowercase"
-                        {...formik.getFieldProps("email")}
+                        {...formik.getFieldProps('email')}
                       />
                       {formik.errors.email && formik.touched.email ? (
                         <span className="text-rose-500 text-left text-xs px-1">
@@ -149,9 +149,9 @@ function LoginForm() {
                         <OutlinedInput
                           id="outlined-basic1"
                           label={t('signIn.field.password')}
-                          type={showPassword ? "text" : "password"}
+                          type={showPassword ? 'text' : 'password'}
                           name="password"
-                          {...formik.getFieldProps("password")}
+                          {...formik.getFieldProps('password')}
                           endAdornment={
                             <InputAdornment position="end">
                               <IconButton
@@ -177,9 +177,9 @@ function LoginForm() {
                         <></>
                       )}
                     </div>
-                    <Box sx={{ textAlign: "right", mb: 2 }}>
+                    <Box sx={{ textAlign: 'right', mb: 2 }}>
                       <Typography color="text.secondary" variant="caption">
-                        <Link href={"/forgot/password"} legacyBehavior>
+                        <Link href={'/forgot/password'} legacyBehavior>
                           <a>{t('signIn.forgot')}</a>
                         </Link>
                       </Typography>
@@ -191,7 +191,11 @@ function LoginForm() {
                         type="submit"
                         className="bg-yellow text-uppercase login"
                       >
-                        {btnClick ? <LoadingButton /> : t('signIn.buttons.submit')}
+                        {btnClick ? (
+                          <LoadingButton />
+                        ) : (
+                          t('signIn.buttons.submit')
+                        )}
                       </Button>
                     </Box>
                   </Stack>
@@ -215,10 +219,10 @@ function LoginForm() {
       {matches && !onboardingIsEnd ? (
         <OnboardingScreen
           onStartClick={() => {
-            if (typeof window !== "undefined") {
-              localStorage.setItem("onboardingIsEnd", "onboardingIsEnd");
+            if (typeof window !== 'undefined') {
+              localStorage.setItem('onboardingIsEnd', 'onboardingIsEnd');
             }
-            setOnboardingIsEnd("onboardingIsEnd");
+            setOnboardingIsEnd('onboardingIsEnd');
           }}
         />
       ) : (

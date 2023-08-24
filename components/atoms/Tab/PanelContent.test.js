@@ -1,10 +1,10 @@
-import "@testing-library/jest-dom";
-import { render } from "@testing-library/react";
-import PanelContent from "./PanelContent";
-import { TransactionContext } from "../../organisms/Transaction";
-import { SessionProvider } from "next-auth/react";
+import '@testing-library/jest-dom';
+import { render } from '@testing-library/react';
+import PanelContent from './PanelContent';
+import { TransactionContext } from '../../organisms/Transaction';
+import { SessionProvider } from 'next-auth/react';
 
-describe("PanelContent", () => {
+describe('PanelContent', () => {
   let component;
   beforeEach(() => {
     console.log = jest.fn();
@@ -15,12 +15,12 @@ describe("PanelContent", () => {
         >
           <PanelContent value={0} index={1} />
         </TransactionContext.Provider>
-      </SessionProvider>
+      </SessionProvider>,
     );
     component = res.container;
   });
 
-  it("should render the component", () => {
+  it('should render the component', () => {
     expect(component).toMatchSnapshot();
   });
 });

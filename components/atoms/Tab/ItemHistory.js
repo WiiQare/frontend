@@ -1,20 +1,20 @@
-import { Fragment, useState } from "react";
-import Image from "next/image";
-import { CiCircleInfo } from "react-icons/ci";
-import CurrencyFlag from "react-currency-flags";
-import ButtonNoAction from "../Button/NoAction";
-import { HiOutlineEye } from "react-icons/hi";
-import { Dialog, Transition } from "@headlessui/react";
-import { useQRCode } from "next-qrcode";
-import { CopyToClipboard } from "react-copy-to-clipboard";
-import Link from "next/link";
-import { BiTransferAlt } from "react-icons/bi";
-import { MdCheck, MdSecurity } from "react-icons/md";
-import { useFormik } from "formik";
-import { useMutation } from "react-query";
-import { sendSMSHash } from "../../../lib/helper";
-import LoadingButton from "../Loader/LoadingButton";
-import Toast from "../Toast";
+import { Fragment, useState } from 'react';
+import Image from 'next/image';
+import { CiCircleInfo } from 'react-icons/ci';
+import CurrencyFlag from 'react-currency-flags';
+import ButtonNoAction from '../Button/NoAction';
+import { HiOutlineEye } from 'react-icons/hi';
+import { Dialog, Transition } from '@headlessui/react';
+import { useQRCode } from 'next-qrcode';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import Link from 'next/link';
+import { BiTransferAlt } from 'react-icons/bi';
+import { MdCheck, MdSecurity } from 'react-icons/md';
+import { useFormik } from 'formik';
+import { useMutation } from 'react-query';
+import { sendSMSHash } from '../../../lib/helper';
+import LoadingButton from '../Loader/LoadingButton';
+import Toast from '../Toast';
 
 const ItemHistory = ({
   shortenHash,
@@ -39,7 +39,7 @@ const ItemHistory = ({
   const { Canvas } = useQRCode();
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenTracking, setIsOpenTracking] = useState(false);
-  const [state, setState] = useState({ type: 0, message: "" });
+  const [state, setState] = useState({ type: 0, message: '' });
   const [copy, setCopy] = useState(false);
   const [copyLink, setCopyLink] = useState(false);
 
@@ -71,14 +71,14 @@ const ItemHistory = ({
     onSuccess: (res) => {
       console.log(res);
       if (!res.code) {
-        setState({ type: 1, message: "SMS envoyé avec succès" });
+        setState({ type: 1, message: 'SMS envoyé avec succès' });
         setTimeout(() => {
-          setState({ type: 0, message: "" });
+          setState({ type: 0, message: '' });
         }, 3000);
       } else {
         setState({ type: 2, message: res.message ?? res.description });
         setTimeout(() => {
-          setState({ type: 0, message: "" });
+          setState({ type: 0, message: '' });
         }, 3000);
       }
     },
@@ -89,7 +89,7 @@ const ItemHistory = ({
   };
 
   const closeToast = () => {
-    setState({ type: 0, message: "" });
+    setState({ type: 0, message: '' });
   };
 
   // Formik hook
@@ -102,7 +102,7 @@ const ItemHistory = ({
     <div
       tabIndex={index}
       className={`${
-        total > index + 1 ? "border-b py-3" : ""
+        total > index + 1 ? 'border-b py-3' : ''
       } collapse collapse-arrow  text-gray-700 overflow-scroll md:overflow-hidden`}
     >
       <div className="collapse-title flex gap-7 justify-between items-center ">
@@ -110,7 +110,7 @@ const ItemHistory = ({
           <div className="w-16 h-16">
             <Image
               src={`https://ui-avatars.com/api/?uppercase=true&background=CCC&name=${
-                patient?.firstName ?? ""
+                patient?.firstName ?? ''
               }&bold=true&color=FFF`}
               width={200}
               height={200}
@@ -121,34 +121,34 @@ const ItemHistory = ({
           <div>
             {/* text-xl */}
             <h1 className="font-bold text-sm">
-              {patient?.firstName ?? ""} {patient?.lastName ?? ""}
+              {patient?.firstName ?? ''} {patient?.lastName ?? ''}
             </h1>
             <span className="text-xs text-sky font-semibold">
-              {patient?.phoneNumber ?? ""}
+              {patient?.phoneNumber ?? ''}
             </span>
           </div>
         </div>
 
         <div className="flex flex-col text-sm font-medium capitalize">
           <span>
-            {new Intl.DateTimeFormat("fr", { dateStyle: "full" }).format(
-              new Date(createdAt)
+            {new Intl.DateTimeFormat('fr', { dateStyle: 'full' }).format(
+              new Date(createdAt),
             )}
           </span>
           <span>
-            {new Intl.DateTimeFormat("fr", { timeStyle: "short" }).format(
-              new Date(createdAt)
+            {new Intl.DateTimeFormat('fr', { timeStyle: 'short' }).format(
+              new Date(createdAt),
             )}
           </span>
         </div>
 
         <h1 className="font-medium text-md">
-          {new Intl.NumberFormat("en-US", {
-            style: "currency",
+          {new Intl.NumberFormat('en-US', {
+            style: 'currency',
             currency: senderCurrency,
           }).format(senderAmount)}
         </h1>
-        <h1 className="font-medium text-md">{paymentMethod ?? "Carte"}</h1>
+        <h1 className="font-medium text-md">{paymentMethod ?? 'Carte'}</h1>
 
         {/* <ButtonNoAction
           color={
@@ -167,7 +167,7 @@ const ItemHistory = ({
           onClick={openModal}
           className="font-normal uppercase text-sm p-2 rounded-lg hover:bg-gray-200 transition-all duration-200 flex gap-1 items-center"
         >
-          <HiOutlineEye size={20} />{" "}
+          <HiOutlineEye size={20} />{' '}
           <span className="hidden md:flex">Pass santé</span>
         </button>
 
@@ -188,13 +188,13 @@ const ItemHistory = ({
               {state.type > 0 ? (
                 state.type == 2 ? (
                   <Toast
-                    type={"danger"}
+                    type={'danger'}
                     message={state.message}
                     close={closeToast}
                   />
                 ) : state.type == 1 ? (
                   <Toast
-                    type={"success"}
+                    type={'success'}
                     message={state.message}
                     close={closeToast}
                   />
@@ -220,7 +220,7 @@ const ItemHistory = ({
                       className="flex justify-between items-center"
                     >
                       <h3 className="text-md font-semibold leading-6 text-gray-900">
-                        Pass Santé{" "}
+                        Pass Santé{' '}
                         <span className="text-orange">#000{voucher.id}</span>
                       </h3>
                     </Dialog.Title>
@@ -228,7 +228,7 @@ const ItemHistory = ({
                     <div className="flex flex-col gap-6 justify-center items-center">
                       <div className="flex flex-col items-center text-center space-y-2">
                         <span className="text-xs flex items-center gap-1">
-                          {" "}
+                          {' '}
                           Pass santé ID:
                           <CopyToClipboard
                             text={transactionHash}
@@ -245,8 +245,8 @@ const ItemHistory = ({
                                 className="tooltip"
                                 data-tip={
                                   !copy
-                                    ? "Copier sur le presse papier"
-                                    : "✓ Copié"
+                                    ? 'Copier sur le presse papier'
+                                    : '✓ Copié'
                                 }
                               >
                                 <span className="text-orange cursor-pointer">
@@ -265,13 +265,13 @@ const ItemHistory = ({
                             className="w-full"
                             text={`${transactionHash}`}
                             options={{
-                              level: "M",
+                              level: 'M',
                               margin: 1,
                               scale: 5,
                               quality: 100,
                               color: {
-                                dark: "#000",
-                                light: "#FFF",
+                                dark: '#000',
+                                light: '#FFF',
                               },
                             }}
                           />
@@ -301,21 +301,21 @@ const ItemHistory = ({
                                 <CurrencyFlag
                                   currency={currency}
                                   className="rounded-full !h-4 !w-4 object-cover"
-                                />{" "}
-                                {new Intl.NumberFormat("en-US", {
-                                  style: "currency",
+                                />{' '}
+                                {new Intl.NumberFormat('en-US', {
+                                  style: 'currency',
                                   currency,
                                 }).format(amount)}
                               </span>
                               Pass santé WiiQare
                             </span>
-                            de{" "}
+                            de{' '}
                             <span className="text-orange font-semibold">
                               {sender.firstName}
-                            </span>{" "}
-                            à{" "}
+                            </span>{' '}
+                            à{' '}
                             <span className="text-orange font-semibold">
-                              {patient?.firstName ?? ""}
+                              {patient?.firstName ?? ''}
                             </span>
                           </h4>
                         </div>
@@ -329,7 +329,7 @@ const ItemHistory = ({
                           <Link
                             href={`whatsapp://send?text=https://wiiqare-app.com/voucher/pass/${stripePaymentId}`}
                             legacyBehavior
-                            target={"_blank"}
+                            target={'_blank'}
                           >
                             <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
                               <img
@@ -344,7 +344,7 @@ const ItemHistory = ({
                           <Link
                             href={`https://www.facebook.com/share.php?u=https://wiiqare-app.com/voucher/pass/${stripePaymentId}`}
                             legacyBehavior
-                            target={"_blank"}
+                            target={'_blank'}
                           >
                             <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
                               <img
@@ -360,11 +360,7 @@ const ItemHistory = ({
                             className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
                             onClick={formik.handleSubmit}
                           >
-                            <img
-                              src="/images/sms.png"
-                              alt=""
-                              className="w-6"
-                            />
+                            <img src="/images/sms.png" alt="" className="w-6" />
                             {sendSMSMutation.isLoading ? (
                               <LoadingButton />
                             ) : (
@@ -392,8 +388,8 @@ const ItemHistory = ({
                               />
                               <span className="hidden md:flex">
                                 {!copyLink
-                                  ? "Copier le lien"
-                                  : "Copié avec succès"}
+                                  ? 'Copier le lien'
+                                  : 'Copié avec succès'}
                               </span>
                             </button>
                           </CopyToClipboard>
@@ -424,17 +420,17 @@ const ItemHistory = ({
                 <th>#000{voucher.id}</th>
                 <td>Carte Bancaire</td>
                 <td>
-                  {new Intl.DateTimeFormat("fr", { dateStyle: "full" }).format(
-                    new Date(createdAt)
+                  {new Intl.DateTimeFormat('fr', { dateStyle: 'full' }).format(
+                    new Date(createdAt),
                   )}
                 </td>
                 <td className="flex gap-1 items-center">
                   <CurrencyFlag
                     currency={currency}
                     className="rounded-full !h-4 !w-4 object-cover"
-                  />{" "}
-                  {new Intl.NumberFormat("en-US", {
-                    style: "currency",
+                  />{' '}
+                  {new Intl.NumberFormat('en-US', {
+                    style: 'currency',
                     currency,
                   }).format(amount)}
                 </td>
@@ -449,8 +445,8 @@ const ItemHistory = ({
                       <MdSecurity
                         className="!text-white"
                         color="#fff"
-                        style={{ color: "#fff" }}
-                      />{" "}
+                        style={{ color: '#fff' }}
+                      />{' '}
                       Pass Santé Généré
                     </span>
                   </div>
@@ -493,7 +489,7 @@ const ItemHistory = ({
                                   className="text-gray-600"
                                 />
                                 <h3 className="text-md font-semibold leading-6 text-gray-900">
-                                  Sécurité &{" "}
+                                  Sécurité &{' '}
                                   <span className="text-orange"> Suivi</span>
                                 </h3>
                               </Dialog.Title>
@@ -534,14 +530,14 @@ const ItemHistory = ({
                                           className="tooltip"
                                           data-tip={
                                             !copy
-                                              ? "Copy to clipboard"
-                                              : "✓ Copy"
+                                              ? 'Copy to clipboard'
+                                              : '✓ Copy'
                                           }
                                         >
                                           <span className="text-orange cursor-pointer">
                                             <SliceText
                                               text={
-                                                "0xf59b12eccfc5faedbc4657bd593d6d6a0c679623"
+                                                '0xf59b12eccfc5faedbc4657bd593d6d6a0c679623'
                                               }
                                             />
                                           </span>
@@ -557,21 +553,21 @@ const ItemHistory = ({
                                         <CurrencyFlag
                                           currency={currency}
                                           className="rounded-full !h-4 !w-4 object-cover"
-                                        />{" "}
-                                        {new Intl.NumberFormat("en-US", {
-                                          style: "currency",
+                                        />{' '}
+                                        {new Intl.NumberFormat('en-US', {
+                                          style: 'currency',
                                           currency,
                                         }).format(amount)}
                                       </span>
                                       Pass santé WiiQare
                                     </span>
-                                    de{" "}
+                                    de{' '}
                                     <span className="text-orange font-semibold">
                                       {sender.firstName}
-                                    </span>{" "}
-                                    à{" "}
+                                    </span>{' '}
+                                    à{' '}
                                     <span className="text-orange font-semibold">
-                                      {patient?.firstName ?? ""}
+                                      {patient?.firstName ?? ''}
                                     </span>
                                   </h4>
                                 </div>
@@ -582,18 +578,18 @@ const ItemHistory = ({
                                       <MdCheck
                                         className="!text-white"
                                         color="#fff"
-                                        style={{ color: "#fff" }}
+                                        style={{ color: '#fff' }}
                                       />
                                     </span>
                                     <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900">
-                                      Transfert Créer{" "}
+                                      Transfert Créer{' '}
                                       <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">
                                         Début
                                       </span>
                                     </h3>
                                     <time className="block mb-2 text-sm font-normal leading-none text-gray-400">
-                                      {new Intl.DateTimeFormat("fr", {
-                                        dateStyle: "long",
+                                      {new Intl.DateTimeFormat('fr', {
+                                        dateStyle: 'long',
                                       }).format(new Date(createdAt))}
                                     </time>
                                   </li>
@@ -602,15 +598,15 @@ const ItemHistory = ({
                                       <MdCheck
                                         className="!text-white"
                                         color="#fff"
-                                        style={{ color: "#fff" }}
+                                        style={{ color: '#fff' }}
                                       />
                                     </span>
                                     <h3 className="mb-1 text-lg font-semibold text-gray-900">
                                       Traitement WiiQare
                                     </h3>
                                     <time className="block mb-2 text-sm font-normal leading-none text-gray-400">
-                                      {new Intl.DateTimeFormat("fr", {
-                                        dateStyle: "long",
+                                      {new Intl.DateTimeFormat('fr', {
+                                        dateStyle: 'long',
                                       }).format(new Date(createdAt))}
                                     </time>
                                   </li>
@@ -619,36 +615,56 @@ const ItemHistory = ({
                                       <MdCheck
                                         className="!text-white"
                                         color="#fff"
-                                        style={{ color: "#fff" }}
+                                        style={{ color: '#fff' }}
                                       />
                                     </span>
                                     <h3 className="mb-1 text-lg font-semibold text-gray-900">
                                       Pass Santé Généré
                                     </h3>
                                     <time className="block mb-2 text-sm font-normal leading-none text-gray-400">
-                                      {new Intl.DateTimeFormat("fr", {
-                                        dateStyle: "long",
+                                      {new Intl.DateTimeFormat('fr', {
+                                        dateStyle: 'long',
                                       }).format(new Date(createdAt))}
                                     </time>
                                   </li>
 
                                   <li className="ml-6">
-                                    <span className={`absolute flex items-center justify-center w-6 h-6 ${ownerType == 'PROVIDER' ? 'bg-green-400' : 'bg-gray-200'} rounded-full -left-3 ring-8 ring-white`}>
-                                      {
-                                        ownerType == 'PROVIDER' && <MdCheck
-                                        className="!text-white"
-                                        color="#fff"
-                                        style={{ color: "#fff" }}
-                                      />
-                                      }
+                                    <span
+                                      className={`absolute flex items-center justify-center w-6 h-6 ${
+                                        ownerType == 'PROVIDER'
+                                          ? 'bg-green-400'
+                                          : 'bg-gray-200'
+                                      } rounded-full -left-3 ring-8 ring-white`}
+                                    >
+                                      {ownerType == 'PROVIDER' && (
+                                        <MdCheck
+                                          className="!text-white"
+                                          color="#fff"
+                                          style={{ color: '#fff' }}
+                                        />
+                                      )}
                                     </span>
-                                    <h3 className={`mb-1 text-lg font-semibold ${ownerType == 'PROVIDER' ? 'text-gray-900': 'text-gray-400'}`}>
+                                    <h3
+                                      className={`mb-1 text-lg font-semibold ${
+                                        ownerType == 'PROVIDER'
+                                          ? 'text-gray-900'
+                                          : 'text-gray-400'
+                                      }`}
+                                    >
                                       Utilisation du Pass santé
                                     </h3>
-                                    <time className={`block mb-2 text-sm font-normal leading-none ${ownerType == 'PROVIDER' ? 'text-gray-400' : 'text-gray-200'} `}>
-                                      { ownerType == 'PROVIDER' ? new Intl.DateTimeFormat("fr", {
-                                        dateStyle: "long",
-                                      }).format(new Date(updatedAt)) : 'En cours ...'}
+                                    <time
+                                      className={`block mb-2 text-sm font-normal leading-none ${
+                                        ownerType == 'PROVIDER'
+                                          ? 'text-gray-400'
+                                          : 'text-gray-200'
+                                      } `}
+                                    >
+                                      {ownerType == 'PROVIDER'
+                                        ? new Intl.DateTimeFormat('fr', {
+                                            dateStyle: 'long',
+                                          }).format(new Date(updatedAt))
+                                        : 'En cours ...'}
                                     </time>
                                   </li>
                                 </ol>
@@ -670,7 +686,7 @@ const ItemHistory = ({
             data-tip="Le pass santé peut être déclarer avant d'être présenté à un fournisseur de soins de santé partenaire de WiiQare"
           >
             <CiCircleInfo size={23} className="text-gray-400" />
-          </span>{" "}
+          </span>{' '}
           {voucher.status}
         </span>
       </div>

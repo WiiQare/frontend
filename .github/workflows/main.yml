@@ -19,13 +19,13 @@ jobs:
           path: ~/.cache/yarn
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-  
+            ${{ runner.os }}-yarn-
 
       - name: Install Node.js and yarn
         uses: actions/setup-node@v2
         with:
           node-version: '14.x'
-          
+
       - name: Install dependencies and build app
         run: |
           yarn install --frozen-lockfile
@@ -47,7 +47,6 @@ jobs:
           key: ${{ secrets.LIGHTSAIL_PRIVATE_KEY }}
           source: '.next/*'
           target: '/home/bitnami/apps/WiiQare-FE'
-            
 
       - name: SSH into remote server and restart the application
         uses: appleboy/ssh-action@v0.1.9

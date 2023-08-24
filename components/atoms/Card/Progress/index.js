@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 const CardProgress = ({ color, value, title, amount, className, link }) => {
   return (
@@ -9,7 +9,7 @@ const CardProgress = ({ color, value, title, amount, className, link }) => {
       >
         <div
           className={`radial-progress ${color}`}
-          style={{ "--value": value, "--size": "4rem" }}
+          style={{ '--value': value, '--size': '4rem' }}
         >
           {value}%
         </div>

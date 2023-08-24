@@ -1,49 +1,49 @@
-import React, { Fragment, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Box from "@mui/material/Box";
-import PropTypes from "prop-types";
-import Typography from "@mui/material/Typography";
-import { HiXMark } from "react-icons/hi2";
-import MuiPhoneNumber from "material-ui-phone-number";
-import { TextField } from "@mui/material";
-import { useFormik } from "formik";
-import { useMutation } from "react-query";
-import { invitationFriend } from "../../../lib/helper";
-import { useSession } from "next-auth/react";
-import LoadingButton from "../Loader/LoadingButton";
-import Toast from "../Toast";
+import React, { Fragment, useState } from 'react';
+import { Dialog, Transition } from '@headlessui/react';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
+import PropTypes from 'prop-types';
+import Typography from '@mui/material/Typography';
+import { HiXMark } from 'react-icons/hi2';
+import MuiPhoneNumber from 'material-ui-phone-number';
+import { TextField } from '@mui/material';
+import { useFormik } from 'formik';
+import { useMutation } from 'react-query';
+import { invitationFriend } from '../../../lib/helper';
+import { useSession } from 'next-auth/react';
+import LoadingButton from '../Loader/LoadingButton';
+import Toast from '../Toast';
 
 const TabHistories = [
   {
-    name: "email",
+    name: 'email',
   },
   {
-    name: "Phone",
+    name: 'Phone',
   },
 ];
 
 const ContentModal = ({ title, tabs, children, closeModal }) => {
   const [value, setValue] = useState(0);
   const { status, data: session } = useSession();
-  const [state, setState] = useState({ type: 0, message: "" });
+  const [state, setState] = useState({ type: 0, message: '' });
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   const closeToast = () => {
-    setState({ type: 0, message: "" });
+    setState({ type: 0, message: '' });
   };
 
   return (
     <div className="fixed inset-0 overflow-y-auto">
       {state.type > 0 ? (
         state.type == 2 ? (
-          <Toast type={"danger"} message={state.message} close={closeToast} />
+          <Toast type={'danger'} message={state.message} close={closeToast} />
         ) : state.type == 1 ? (
-          <Toast type={"success"} message={state.message} close={closeToast} />
+          <Toast type={'success'} message={state.message} close={closeToast} />
         ) : (
           <></>
         )
@@ -97,15 +97,15 @@ export default ContentModal;
 
 function TabItems({ value, accessToken, closeModal, setState }) {
   // For Email
-  const [allFriends, setAllFriends] = useState([{ email: "" }]);
+  const [allFriends, setAllFriends] = useState([{ email: '' }]);
 
-  const [allFriendsPhone, setAllFriendsPhone] = useState([{ phone: "" }]);
+  const [allFriendsPhone, setAllFriendsPhone] = useState([{ phone: '' }]);
 
   const handleAddFriend = (phone = false) => {
     if (phone) {
       const values = [...allFriendsPhone];
       values.push({
-        phone: "",
+        phone: '',
       });
       setAllFriendsPhone(values);
 
@@ -113,7 +113,7 @@ function TabItems({ value, accessToken, closeModal, setState }) {
     } else {
       const values = [...allFriends];
       values.push({
-        email: "",
+        email: '',
       });
       setAllFriends(values);
     }
@@ -137,7 +137,7 @@ function TabItems({ value, accessToken, closeModal, setState }) {
 
   const handleInputChangePhone = (index, event) => {
     const values = [...allFriendsPhone];
-    values[index]["phone"] = event;
+    values[index]['phone'] = event;
 
     setAllFriendsPhone(values);
   };
@@ -163,10 +163,10 @@ function TabItems({ value, accessToken, closeModal, setState }) {
       if (res.code) {
         setState({ type: 2, message: res.message ?? res.description });
         setTimeout(() => {
-          setState({ type: 0, message: "" });
+          setState({ type: 0, message: '' });
         }, 3000);
       } else {
-        setState({ type: 1, message: "Les invitations ont été envoyé" });
+        setState({ type: 1, message: 'Les invitations ont été envoyé' });
 
         //Close Modal
         setTimeout(() => {
@@ -181,21 +181,21 @@ function TabItems({ value, accessToken, closeModal, setState }) {
       phones = [];
 
     allFriends.map((friend) => {
-      friend.email.trim(" ") != "" && mails.push(friend.email);
+      friend.email.trim(' ') != '' && mails.push(friend.email);
     });
     allFriendsPhone.map((friend) => {
-      friend.phone.trim(" ") != "" && phones.push(friend.phone);
+      friend.phone.trim(' ') != '' && phones.push(friend.phone);
     });
 
     if (value == 0) {
       newInviteMutation.mutate({
-        inviteType: "EMAIL",
+        inviteType: 'EMAIL',
         emails: mails,
         accessToken,
       });
     } else {
       newInviteMutation.mutate({
-        inviteType: "SMS",
+        inviteType: 'SMS',
         phoneNumbers: phones,
         accessToken,
       });
@@ -226,7 +226,7 @@ function TabItems({ value, accessToken, closeModal, setState }) {
                   >
                     <TextField
                       fullWidth
-                      type={"email"}
+                      type={'email'}
                       className="w-9/12 placeholder:text-gray-400 hover:outline-none focus:ring-0 border border-gray-300 rounded-lg focus:ring-sky"
                       label="Adresse e-mail d'un ami"
                       name="email"
@@ -255,7 +255,7 @@ function TabItems({ value, accessToken, closeModal, setState }) {
                   type="submit"
                   form="invite-email"
                 >
-                  {newInviteMutation.isLoading ? <LoadingButton /> : "Envoyer"}
+                  {newInviteMutation.isLoading ? <LoadingButton /> : 'Envoyer'}
                 </button>
                 <button
                   className="border border-orange text-sm py-2 px-4 rounded-lg text-orange effect-up"
@@ -288,7 +288,7 @@ function TabItems({ value, accessToken, closeModal, setState }) {
                       label="Numéro de téléphone d'un ami"
                       onChange={(event) => handleInputChangePhone(index, event)}
                       variant="outlined"
-                      defaultCountry={"fr"}
+                      defaultCountry={'fr'}
                       value={field.phone}
                       placeholder={"Entrez le numéro de téléphone d'un ami"}
                       className="w-9/12 py-3 placeholder:text-gray-400 hover:outline-none focus:ring-0 border border-gray-300 rounded-lg focus:ring-sky"
@@ -314,7 +314,7 @@ function TabItems({ value, accessToken, closeModal, setState }) {
                   type="submit"
                   form="invite-sms"
                 >
-                  {newInviteMutation.isLoading ? <LoadingButton /> : "Envoyer"}
+                  {newInviteMutation.isLoading ? <LoadingButton /> : 'Envoyer'}
                 </button>
                 <button
                   className="border border-orange text-sm py-2 px-4 rounded-lg text-orange effect-up"
@@ -335,7 +335,7 @@ function TabItems({ value, accessToken, closeModal, setState }) {
 function TabsModal({ value, handleChange }) {
   return (
     <div>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -379,6 +379,6 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
   };
 }

@@ -1,33 +1,33 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
-import { ErrorMessage, Field, FormikProvider, useFormik } from "formik";
-import { FormContext } from "../../../../pages/voucher/buy";
-import * as yup from "yup";
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { ErrorMessage, Field, FormikProvider, useFormik } from 'formik';
+import { FormContext } from '../../../../pages/voucher/buy';
+import * as yup from 'yup';
 import {
   HiArrowSmLeft,
   HiArrowSmRight,
   HiOutlineInformationCircle,
-} from "react-icons/hi";
-import { useSession } from "next-auth/react";
-import { FiChevronRight, FiUserPlus } from "react-icons/fi";
+} from 'react-icons/hi';
+import { useSession } from 'next-auth/react';
+import { FiChevronRight, FiUserPlus } from 'react-icons/fi';
 
-import "react-phone-number-input/style.css";
-import PhoneInput from "react-phone-number-input";
-import Fetcher from "../../../../lib/Fetcher";
-import { autocomplete, savePatient } from "../../../../lib/helper";
-import { useMutation } from "react-query";
-import LoadingButton from "../../Loader/LoadingButton";
-import { useDispatch, useSelector } from "react-redux";
-import { setPatientDispatch } from "../../../../redux/reducer";
-import Toast from "../../Toast";
-import MuiPhoneNumber from "material-ui-phone-number";
-import { Stack, TextField } from "@mui/material";
-import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css";
-import avatar from "../../../../public/images/femme.png";
-import Image from "next/image";
-import { CiCircleCheck, CiCircleInfo } from "react-icons/ci";
-import { BiCaretRight } from "react-icons/bi";
-import CountrySelect from "../../Input/Country";
+import 'react-phone-number-input/style.css';
+import PhoneInput from 'react-phone-number-input';
+import Fetcher from '../../../../lib/Fetcher';
+import { autocomplete, savePatient } from '../../../../lib/helper';
+import { useMutation } from 'react-query';
+import LoadingButton from '../../Loader/LoadingButton';
+import { useDispatch, useSelector } from 'react-redux';
+import { setPatientDispatch } from '../../../../redux/reducer';
+import Toast from '../../Toast';
+import MuiPhoneNumber from 'material-ui-phone-number';
+import { Stack, TextField } from '@mui/material';
+import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
+import avatar from '../../../../public/images/femme.png';
+import Image from 'next/image';
+import { CiCircleCheck, CiCircleInfo } from 'react-icons/ci';
+import { BiCaretRight } from 'react-icons/bi';
+import CountrySelect from '../../Input/Country';
 export const CountryContext = createContext();
 
 function Identity2() {
@@ -39,15 +39,15 @@ function Identity2() {
   const [requestComplete, setRequestComplete] = useState(false);
   const { data: session } = useSession();
   const dispatch = useDispatch();
-  const [state, setState] = useState({ type: 0, message: "" });
+  const [state, setState] = useState({ type: 0, message: '' });
   const client = useSelector((state) => state.app.client);
   const [newBenecifiare, setNewBenecifiare] = useState(false);
   const [activeIndexSlide, setActiveIndexSlide] = useState(null);
-  const [country, setCountry] = useState("cd");
-  const [countryLabel, setCountryLabel] = useState("RD Congo");
+  const [country, setCountry] = useState('cd');
+  const [countryLabel, setCountryLabel] = useState('RD Congo');
   const [allBeneficiare, setAllBeneficiare] = useState([]);
   const [tempBeneficiare, setTempBeneficiare] = useState([]);
-  const [dial, setDial] = useState("243");
+  const [dial, setDial] = useState('243');
 
   const renderError = (message) => (
     <p className="text-xs text-red-600 font-light flex items-center gap-1">
@@ -57,14 +57,14 @@ function Identity2() {
   );
 
   const ValidationSchema = yup.object().shape({
-    firstName: yup.string().required("Le nom est un champ obligatoire"),
-    lastName: yup.string().required("Le prénom est un champ obligatoire"),
+    firstName: yup.string().required('Le nom est un champ obligatoire'),
+    lastName: yup.string().required('Le prénom est un champ obligatoire'),
     email: yup.string().email(),
     homeAddress: yup
       .string()
       .required("L'adresse du domicile est un champ obligatoire"),
-    city: yup.string().required("La ville est un champ obligatoire"),
-    phoneNumber: yup.string().required("Téléphone est requis"),
+    city: yup.string().required('La ville est un champ obligatoire'),
+    phoneNumber: yup.string().required('Téléphone est requis'),
     country: yup.string(),
   });
 
@@ -73,10 +73,10 @@ function Identity2() {
       if (res.code) {
         setState({ type: 2, message: res.message ?? res.description });
         setTimeout(() => {
-          setState({ type: 0, message: "" });
+          setState({ type: 0, message: '' });
         }, 3000);
       } else {
-        setState({ type: 1, message: "Enregistré avec succès" });
+        setState({ type: 1, message: 'Enregistré avec succès' });
         dispatch(setPatientDispatch({ ...res, countryLabel }));
 
         setActiveStepIndex(activeStepIndex + 1);
@@ -85,7 +85,7 @@ function Identity2() {
   });
 
   const onSubmit = (values) => {
-    if (Object.keys(values).length == 0) return console.log("Pas de données");
+    if (Object.keys(values).length == 0) return console.log('Pas de données');
 
     !values.email ? delete values.email : null;
 
@@ -93,7 +93,7 @@ function Identity2() {
 
     if (patientExist) {
       dispatch(
-        setPatientDispatch({ ...client.patient, ...data, countryLabel })
+        setPatientDispatch({ ...client.patient, ...data, countryLabel }),
       );
       setActiveStepIndex(activeStepIndex + 1);
     } else {
@@ -102,18 +102,18 @@ function Identity2() {
   };
 
   const closeToast = () => {
-    setState({ type: 0, message: "" });
+    setState({ type: 0, message: '' });
   };
 
   const formik = useFormik({
     initialValues: {
-      firstName: localStorage.getItem("firstName") ?? "",
-      lastName: localStorage.getItem("lastName") ?? "",
-      email: localStorage.getItem("email") ?? "",
-      homeAddress: localStorage.getItem("homeAddress") ?? "",
-      city: localStorage.getItem("city") ?? "",
-      phoneNumber: localStorage.getItem("phoneNumber") ?? "",
-      country: localStorage.getItem("country") ?? "",
+      firstName: localStorage.getItem('firstName') ?? '',
+      lastName: localStorage.getItem('lastName') ?? '',
+      email: localStorage.getItem('email') ?? '',
+      homeAddress: localStorage.getItem('homeAddress') ?? '',
+      city: localStorage.getItem('city') ?? '',
+      phoneNumber: localStorage.getItem('phoneNumber') ?? '',
+      country: localStorage.getItem('country') ?? '',
     },
     validationSchema: ValidationSchema,
     onSubmit,
@@ -134,10 +134,10 @@ function Identity2() {
       console.log(res);
 
       //Set Value
-      formik.setFieldValue("phoneNumber", res.phoneNumber);
-      formik.setFieldValue("firstName", res.firstName);
-      formik.setFieldValue("lastName", res.lastName);
-      formik.setFieldValue("email", res.email);
+      formik.setFieldValue('phoneNumber', res.phoneNumber);
+      formik.setFieldValue('firstName', res.firstName);
+      formik.setFieldValue('lastName', res.lastName);
+      formik.setFieldValue('email', res.email);
 
       dispatch(setPatientDispatch({ ...res }));
     } else {
@@ -159,14 +159,14 @@ function Identity2() {
         phoneNumber: item.phoneNumber,
         city: item.city,
         homeAddress: item.homeAddress,
-      })
+      }),
     );
     setActiveStepIndex(activeStepIndex + 1);
   };
 
   const { data, isLoading, isError } = Fetcher(
     `/payer/patient?payerId=${session.user.data.userId}`,
-    session.user.data.access_token
+    session.user.data.access_token,
   );
 
   useEffect(() => {
@@ -176,29 +176,29 @@ function Identity2() {
 
   const handleKey = (e) => {
     let value =
-      e.target.value.length > 0 && e.target.value[0] == "+"
-        ? e.target.value.split("+")[1]
+      e.target.value.length > 0 && e.target.value[0] == '+'
+        ? e.target.value.split('+')[1]
         : e.target.value;
     let filter = tempBeneficiare.filter(function (beneficiare) {
       return (
-        new RegExp(value, "i").test(
-          beneficiare.firstName + " " + beneficiare.lastName
+        new RegExp(value, 'i').test(
+          beneficiare.firstName + ' ' + beneficiare.lastName,
         ) ||
-        new RegExp(value, "i").test(beneficiare.phoneNumber) ||
-        new RegExp(value, "i").test(beneficiare.email)
+        new RegExp(value, 'i').test(beneficiare.phoneNumber) ||
+        new RegExp(value, 'i').test(beneficiare.email)
       );
     });
 
-    setTempBeneficiare(value.trim() != "" ? filter : allBeneficiare);
+    setTempBeneficiare(value.trim() != '' ? filter : allBeneficiare);
   };
 
   return (
     <>
       {state.type > 0 ? (
         state.type == 2 ? (
-          <Toast type={"danger"} message={state.message} close={closeToast} />
+          <Toast type={'danger'} message={state.message} close={closeToast} />
         ) : state.type == 1 ? (
-          <Toast type={"success"} message={state.message} close={closeToast} />
+          <Toast type={'success'} message={state.message} close={closeToast} />
         ) : (
           <></>
         )
@@ -249,9 +249,9 @@ function Identity2() {
                             hasTrack={false}
                             aria-label="Attribution"
                             options={{
-                              type: "slide",
+                              type: 'slide',
                               perPage: 2,
-                              mediaQuery: "min",
+                              mediaQuery: 'min',
                               gap: 10,
                               breakpoints: {
                                 1024: {
@@ -260,7 +260,7 @@ function Identity2() {
                                 },
                               },
                               pagination: false,
-                              focus: "center",
+                              focus: 'center',
                             }}
                             onActive={(splide, slide) => {
                               if (slide.slideIndex == -1) {
@@ -279,7 +279,7 @@ function Identity2() {
                                   <div className="w-20 h-2O relative">
                                     <Image
                                       src={
-                                        index % 2 ? avatar : "/images/homme.png"
+                                        index % 2 ? avatar : '/images/homme.png'
                                       }
                                       className="object-cover rounded-xl"
                                       width={80}
@@ -289,8 +289,8 @@ function Identity2() {
                                     <span
                                       className={`${
                                         activeIndexSlide === index
-                                          ? ""
-                                          : "hidden"
+                                          ? ''
+                                          : 'hidden'
                                       } p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}
                                     >
                                       <CiCircleCheck size={18} />
@@ -381,23 +381,23 @@ function Identity2() {
                         variant="outlined"
                         countryCodeEditable={false}
                         select={false}
-                        value={localStorage.getItem("phoneNumber") ?? ""}
-                        defaultValue={localStorage.getItem("phoneNumber") ?? ""}
+                        value={localStorage.getItem('phoneNumber') ?? ''}
+                        defaultValue={localStorage.getItem('phoneNumber') ?? ''}
                         onChange={(value, country) => {
-                          formik.setFieldValue("phoneNumber", value);
-                          formik.setFieldValue("country", country.countryCode);
+                          formik.setFieldValue('phoneNumber', value);
+                          formik.setFieldValue('country', country.countryCode);
                           setDial(country.dialCode);
-                          localStorage.setItem("phoneNumber", value);
-                          localStorage.setItem("country", country.countryCode);
+                          localStorage.setItem('phoneNumber', value);
+                          localStorage.setItem('country', country.countryCode);
                         }}
                         defaultCountry={country}
                         name="phoneNumber"
                       />
-                      {formik.values.phoneNumber.trim(" ") == "" ||
+                      {formik.values.phoneNumber.trim(' ') == '' ||
                       formik.values.phoneNumber
-                        .replace("+" + dial, " ")
-                        .trim(" ") == "" ? (
-                        renderError("Entrez le numéro de téléphone")
+                        .replace('+' + dial, ' ')
+                        .trim(' ') == '' ? (
+                        renderError('Entrez le numéro de téléphone')
                       ) : (
                         <></>
                       )}
@@ -406,9 +406,9 @@ function Identity2() {
                       <span
                         className="tooltip tooltip-bottom text-xs"
                         data-tip={`${
-                          formik.values.phoneNumber.trim(" ") != ""
+                          formik.values.phoneNumber.trim(' ') != ''
                             ? formik.values.phoneNumber
-                            : "Ce numéro de téléphone"
+                            : 'Ce numéro de téléphone'
                         } devra être le numéro disponible, pour être utilisé à l'hôpital `}
                       >
                         <CiCircleInfo size={23} className="text-red-400" />
@@ -427,12 +427,12 @@ function Identity2() {
                       label="Nom de famille"
                       variant="outlined"
                       name="firstName"
-                      defaultValue={localStorage.getItem("firstName") ?? ""}
+                      defaultValue={localStorage.getItem('firstName') ?? ''}
                       onKeyUp={(e) => {
-                        localStorage.setItem("firstName", e.target.value);
+                        localStorage.setItem('firstName', e.target.value);
                       }}
                       autoComplete="off"
-                      {...formik.getFieldProps("firstName")}
+                      {...formik.getFieldProps('firstName')}
                     />
 
                     {formik.errors.firstName && formik.touched.firstName ? (
@@ -449,11 +449,11 @@ function Identity2() {
                       label="Prénom"
                       variant="outlined"
                       name="lastName"
-                      defaultValue={localStorage.getItem("lastName") ?? ""}
+                      defaultValue={localStorage.getItem('lastName') ?? ''}
                       onKeyUp={(e) => {
-                        localStorage.setItem("lastName", e.target.value);
+                        localStorage.setItem('lastName', e.target.value);
                       }}
-                      {...formik.getFieldProps("lastName")}
+                      {...formik.getFieldProps('lastName')}
                     />
                     {formik.errors.lastName && formik.touched.lastName ? (
                       renderError(formik.errors.lastName)
@@ -470,11 +470,11 @@ function Identity2() {
                     label="Adresse e-mail (optional)"
                     variant="outlined"
                     name="email"
-                    defaultValue={localStorage.getItem("email") ?? ""}
+                    defaultValue={localStorage.getItem('email') ?? ''}
                     onKeyUp={(e) => {
-                      localStorage.setItem("email", e.target.value);
+                      localStorage.setItem('email', e.target.value);
                     }}
-                    {...formik.getFieldProps("email")}
+                    {...formik.getFieldProps('email')}
                   />
                   {formik.errors.email && formik.touched.email ? (
                     <span className="flex items-center gap-1 text-rose-500 text-left text-xs px-1">
@@ -494,11 +494,11 @@ function Identity2() {
                       label="Adresse du domicile"
                       variant="outlined"
                       name="homeAddress"
-                      defaultValue={localStorage.getItem("homeAddress") ?? ""}
+                      defaultValue={localStorage.getItem('homeAddress') ?? ''}
                       onKeyUp={(e) => {
-                        localStorage.setItem("homeAddress", e.target.value);
+                        localStorage.setItem('homeAddress', e.target.value);
                       }}
-                      {...formik.getFieldProps("homeAddress")}
+                      {...formik.getFieldProps('homeAddress')}
                     />
 
                     {formik.errors.homeAddress && formik.touched.homeAddress ? (
@@ -515,11 +515,11 @@ function Identity2() {
                       label="Ville"
                       variant="outlined"
                       name="city"
-                      defaultValue={localStorage.getItem("city") ?? ""}
+                      defaultValue={localStorage.getItem('city') ?? ''}
                       onKeyUp={(e) => {
-                        localStorage.setItem("city", e.target.value);
+                        localStorage.setItem('city', e.target.value);
                       }}
-                      {...formik.getFieldProps("city")}
+                      {...formik.getFieldProps('city')}
                     />
                     {formik.errors.city && formik.touched.city ? (
                       renderError(formik.errors.city)
@@ -539,7 +539,7 @@ function Identity2() {
                     <LoadingButton />
                   ) : (
                     <>
-                      {patientExist ? "Continuer avec ce patient" : "Suivant"}{" "}
+                      {patientExist ? 'Continuer avec ce patient' : 'Suivant'}{' '}
                       <HiArrowSmRight />
                     </>
                   )}

@@ -1,14 +1,14 @@
-import Logo from "../components/atoms/LogoHeader";
-import WelcomeSlider from "../components/molecules/WelcomeSlider";
-import RegisterForm from "../components/organisms/Auth/RegisterForm";
-import { REGISTER_SLIDES } from "../utils/constants";
-import { useMediaQuery, CssBaseline } from "@mui/material";
-import Head from "next/head";
-import React from "react";
-import {useSelector} from 'react-redux';
+import Logo from '../components/atoms/LogoHeader';
+import WelcomeSlider from '../components/molecules/WelcomeSlider';
+import RegisterForm from '../components/organisms/Auth/RegisterForm';
+import { REGISTER_SLIDES } from '../utils/constants';
+import { useMediaQuery, CssBaseline } from '@mui/material';
+import Head from 'next/head';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 function Register() {
-  const matches = useMediaQuery("(max-width: 992px)");
+  const matches = useMediaQuery('(max-width: 992px)');
   const state = useSelector((state) => state);
 
   return (
@@ -22,7 +22,7 @@ function Register() {
           crossOrigin="anonymous"
         />
       </Head>
-   <CssBaseline />
+      <CssBaseline />
       <div id="form-section" className="container-fluid signup">
         <Logo />
         <div className="row">

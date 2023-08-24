@@ -1,30 +1,30 @@
-import React from "react";
-import { createContext, useState } from "react";
+import React from 'react';
+import { createContext, useState } from 'react';
 
-import { StepLabel, Stack } from "@mui/material";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
+import { StepLabel, Stack } from '@mui/material';
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
 import StepConnector, {
   stepConnectorClasses,
-} from "@mui/material/StepConnector";
-import { styled } from "@mui/material/styles";
+} from '@mui/material/StepConnector';
+import { styled } from '@mui/material/styles';
 
-import MenuHolder from "../../atoms/MenuHolder";
-import StepRegistration from "./StepRegistration";
+import MenuHolder from '../../atoms/MenuHolder';
+import StepRegistration from './StepRegistration';
 
 export const FormContextRegister = createContext();
 
 const steps = [
-  "Votre adresse email",
+  'Votre adresse email',
   "Vérification de l'email",
-  "Information personnel",
+  'Information personnel',
 ];
 
 const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
     top: 11,
-    left: "calc(-50% + 12px)",
-    right: "calc(50% + 12px)",
+    left: 'calc(-50% + 12px)',
+    right: 'calc(50% + 12px)',
   },
   [`&.${stepConnectorClasses.active}`]: {
     [`& .${stepConnectorClasses.line}`]: {
@@ -40,7 +40,7 @@ const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
     height: 4,
     border: 0,
     backgroundColor:
-      theme.palette.mode === "dark" ? theme.palette.grey[800] : "#f0f4fd",
+      theme.palette.mode === 'dark' ? theme.palette.grey[800] : '#f0f4fd',
     borderRadius: 1,
   },
 }));
@@ -97,12 +97,12 @@ const RegisterForm = () => {
         <MenuHolder href="/login" label="S'IDENTIFIER" />
         <div className="signin-signup-form">
           <Stack
-            sx={{ mb: 2, mt: 2, width: "100%" }}
+            sx={{ mb: 2, mt: 2, width: '100%' }}
             justifyContent="center"
             alignItems="center"
           >
             <Stepper
-              sx={{ maxWidth: 450, width: "100%" }}
+              sx={{ maxWidth: 450, width: '100%' }}
               alternativeLabel
               activeStep={activeStep}
               connector={<ColorlibConnector />}

@@ -1,5 +1,5 @@
-import Link from "next/link";
-import React from "react";
+import Link from 'next/link';
+import React from 'react';
 
 const Breadcrumb = ({ items }) => {
   return (
@@ -10,8 +10,8 @@ const Breadcrumb = ({ items }) => {
             <span
               className={`flex gap-2 ${
                 index < items.length - 1
-                  ? "font-semibold text-sky"
-                  : "font-light text-gray-500"
+                  ? 'font-semibold text-sky'
+                  : 'font-light text-gray-500'
               }`}
             >
               {item.item}

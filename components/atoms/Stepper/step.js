@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { FormContext } from "../../../pages/voucher/buy";
-import Send from "./Forms/send";
-import Identity2 from "./Forms/identity2";
-import Payment2 from "./Forms/payment2";
+import React, { useContext } from 'react';
+import { FormContext } from '../../../pages/voucher/buy';
+import Send from './Forms/send';
+import Identity2 from './Forms/identity2';
+import Payment2 from './Forms/payment2';
 
 function Step({ data }) {
   const { activeStepIndex } = useContext(FormContext);

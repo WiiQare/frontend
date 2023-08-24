@@ -1,6 +1,6 @@
-import { Dropdown } from "flowbite-react";
-import Image from "next/image";
-import React from "react";
+import { Dropdown } from 'flowbite-react';
+import Image from 'next/image';
+import React from 'react';
 
 const NotificationBadge = ({ avatar, title, time }) => {
   return (

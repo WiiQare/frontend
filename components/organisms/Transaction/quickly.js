@@ -1,16 +1,16 @@
-import React, { useContext, useState } from "react";
-import { CiCircleCheck } from "react-icons/ci";
-import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
-import { AiOutlineUpload } from "react-icons/ai";
-import { TbReceipt } from "react-icons/tb";
-import { BiCaretRight } from "react-icons/bi";
-import Image from "next/image";
-import { useSession } from "next-auth/react";
+import React, { useContext, useState } from 'react';
+import { CiCircleCheck } from 'react-icons/ci';
+import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
+import { AiOutlineUpload } from 'react-icons/ai';
+import { TbReceipt } from 'react-icons/tb';
+import { BiCaretRight } from 'react-icons/bi';
+import Image from 'next/image';
+import { useSession } from 'next-auth/react';
 
-import avatar from "../../../public/images/femme.png";
-import Fetcher from "../../../lib/Fetcher";
-import { TransactionContext } from ".";
-import "@splidejs/react-splide/css";
+import avatar from '../../../public/images/femme.png';
+import Fetcher from '../../../lib/Fetcher';
+import { TransactionContext } from '.';
+import '@splidejs/react-splide/css';
 
 const Quickly = () => {
   const { transaction } = useContext(TransactionContext);
@@ -19,10 +19,10 @@ const Quickly = () => {
 
   const { data, isLoading, isError } = Fetcher(
     `/payer/patient?payerId=${session.user.data.userId}`,
-    session.user.data.access_token
+    session.user.data.access_token,
   );
 
-  console.log("quickly", data);
+  console.log('quickly', data);
   return (
     <>
       <div className="grid md:grid-cols-2 gap-3 md:gap-8">
@@ -78,9 +78,9 @@ const Quickly = () => {
                 hasTrack={false}
                 aria-label="Attribution"
                 options={{
-                  type: "slide",
+                  type: 'slide',
                   perPage: 2,
-                  mediaQuery: "min",
+                  mediaQuery: 'min',
                   breakpoints: {
                     1024: {
                       perPage: 3,
@@ -88,7 +88,7 @@ const Quickly = () => {
                     },
                   },
                   pagination: false,
-                  focus: "center",
+                  focus: 'center',
                 }}
                 onActive={(splide, slide) => {
                   if (slide.slideIndex == -1) {
@@ -106,7 +106,7 @@ const Quickly = () => {
                     >
                       <div className="w-20 h-2O relative">
                         <Image
-                          src={index % 2 ? avatar : "/images/homme.png"}
+                          src={index % 2 ? avatar : '/images/homme.png'}
                           className="object-cover rounded-xl"
                           width={80}
                           height={80}
@@ -114,7 +114,7 @@ const Quickly = () => {
                         />
                         <span
                           className={`${
-                            activeIndexSlide === index ? "" : "hidden"
+                            activeIndexSlide === index ? '' : 'hidden'
                           } p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}
                         >
                           <CiCircleCheck size={18} />
@@ -229,14 +229,14 @@ const Quickly = () => {
                           <div>
                             <h3 className="font-semibold">
                               {item.patient?.firstName ??
-                                "" + " " + item.patient?.lastName ??
-                                ""}
+                                '' + ' ' + item.patient?.lastName ??
+                                ''}
                             </h3>
                             <span className="text-gray-400 text-xs capitalize">
                               <span>
-                                {new Intl.DateTimeFormat("fr", {
-                                  dateStyle: "full",
-                                  timeStyle: "short",
+                                {new Intl.DateTimeFormat('fr', {
+                                  dateStyle: 'full',
+                                  timeStyle: 'short',
                                 }).format(new Date(item.createdAt))}
                               </span>
                             </span>
@@ -244,8 +244,8 @@ const Quickly = () => {
                         </div>
 
                         <span className="font-bold">
-                          {new Intl.NumberFormat("en-US", {
-                            style: "currency",
+                          {new Intl.NumberFormat('en-US', {
+                            style: 'currency',
                             currency: item.senderCurrency,
                           }).format(item.senderAmount)}
                         </span>

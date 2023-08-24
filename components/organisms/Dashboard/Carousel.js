@@ -1,13 +1,13 @@
-import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
-import { BiCaretRight } from "react-icons/bi";
-import "@splidejs/react-splide/css";
-import "../../../styles/Carousel.module.css";
-import Image from "next/image";
+import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
+import { BiCaretRight } from 'react-icons/bi';
+import '@splidejs/react-splide/css';
+import '../../../styles/Carousel.module.css';
+import Image from 'next/image';
 
-import startup from "../../../public/images/hospital-bed--1024x994.png";
-import phone from "../../../public/images/Phone-design3.png";
-import wallet from "../../../public/images/smart wallet.png";
-import Link from "next/link";
+import startup from '../../../public/images/hospital-bed--1024x994.png';
+import phone from '../../../public/images/Phone-design3.png';
+import wallet from '../../../public/images/smart wallet.png';
+import Link from 'next/link';
 
 const Carousel = () => {
   return (
@@ -16,10 +16,10 @@ const Carousel = () => {
         hasTrack={false}
         aria-label="Attribution"
         options={{
-          type: "loop",
+          type: 'loop',
           perPage: 1,
           heightRatio: 0.8,
-          mediaQuery: "min",
+          mediaQuery: 'min',
           breakpoints: {
             640: {
               heightRatio: 0.35,
@@ -44,7 +44,7 @@ const Carousel = () => {
                     santé WiiQare.
                   </p>
                 </div>
-                <Link href={"#"} legacyBehavior>
+                <Link href={'#'} legacyBehavior>
                   <a className="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md">
                     comment ça marche
                   </a>
@@ -71,7 +71,7 @@ const Carousel = () => {
                     dolore quidem
                   </p>
                 </div>
-                <Link href={"#"} legacyBehavior>
+                <Link href={'#'} legacyBehavior>
                   <a className="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md">
                     Commencer
                   </a>
@@ -98,7 +98,7 @@ const Carousel = () => {
                     dolore quidem
                   </p>
                 </div>
-                <Link href={"#"} legacyBehavior>
+                <Link href={'#'} legacyBehavior>
                   <a className="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md">
                     Get Started
                   </a>

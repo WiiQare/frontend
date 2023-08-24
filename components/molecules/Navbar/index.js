@@ -1,17 +1,17 @@
-import { Avatar, Dropdown, Navbar } from "flowbite-react";
-import Image from "next/image";
-import Link from "next/link";
-import { HiMenuAlt3 } from "react-icons/hi";
+import { Avatar, Dropdown, Navbar } from 'flowbite-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { HiMenuAlt3 } from 'react-icons/hi';
 import {
   MdOutlinePersonOutline,
   MdMailOutline,
   MdOutlineLogout,
-} from "react-icons/md";
+} from 'react-icons/md';
 import {
   AiOutlineArrowRight,
   AiOutlineBell,
   AiOutlineMessage,
-} from "react-icons/ai";
+} from 'react-icons/ai';
 import {
   Box,
   Tooltip,
@@ -19,26 +19,26 @@ import {
   Avatar as AvatarMui,
   Menu as MenuMui,
   MenuItem,
-} from "@mui/material";
-import { DrawContext } from "../../../pages/_app";
+} from '@mui/material';
+import { DrawContext } from '../../../pages/_app';
 
-import logo from "../../../public/images/favicon.png";
-import logoDark from "../../../public/images/logo_dark_2.png";
-import avatar from "../../../public/images/homme.png";
-import IconBadge from "../../atoms/Icons/Badge";
-import NotificationBadge from "../../atoms/Card/Notifications/Badge";
-import { useContext, useState } from "react";
-import { signOut } from "next-auth/react";
-import { CgMenuLeft } from "react-icons/cg";
+import logo from '../../../public/images/favicon.png';
+import logoDark from '../../../public/images/logo_dark_2.png';
+import avatar from '../../../public/images/homme.png';
+import IconBadge from '../../atoms/Icons/Badge';
+import NotificationBadge from '../../atoms/Card/Notifications/Badge';
+import { useContext, useState } from 'react';
+import { signOut } from 'next-auth/react';
+import { CgMenuLeft } from 'react-icons/cg';
 
 const langFlags = {
-  gb: "https://flagcdn.com/60x45/gb.png",
-  fr: "https://flagcdn.com/60x45/fr.png",
+  gb: 'https://flagcdn.com/60x45/gb.png',
+  fr: 'https://flagcdn.com/60x45/fr.png',
 };
 
 const Menu = ({ session, handleSignOut }) => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [lang, setLang] = useState("fr");
+  const [lang, setLang] = useState('fr');
   const { draw, setDraw, hideSide, setHideSide } = useContext(DrawContext);
 
   const open = Boolean(anchorEl);
@@ -60,14 +60,14 @@ const Menu = ({ session, handleSignOut }) => {
     <div className="flex gap-12 mx-auto items-center justify-between fixed top-0 bg-white py-4 px-4 md:px-14 shadow-sm w-full z-50">
       <div className="flex gap-16 items-center">
         <div className="flex gap-2 items-center">
-          <Link href={"/"} legacyBehavior>
+          <Link href={'/'} legacyBehavior>
             <Image
               src={logo}
               className="h-8 md:h-14 w-min object-left object-contain"
               alt="Logo"
             />
           </Link>
-          <Link href={"/"} legacyBehavior>
+          <Link href={'/'} legacyBehavior>
             <Image
               src={logoDark}
               className="h-6 md:h-9 object-left object-contain w-min"
@@ -77,7 +77,10 @@ const Menu = ({ session, handleSignOut }) => {
         </div>
 
         <div className="gap-4 items-center hidden md:flex">
-          <button className="cursor-pointer" onClick={() => setHideSide(!hideSide)}>
+          <button
+            className="cursor-pointer"
+            onClick={() => setHideSide(!hideSide)}
+          >
             <CgMenuLeft className="text-4xl text-blue-600" />
           </button>
 
@@ -220,7 +223,7 @@ const Menu = ({ session, handleSignOut }) => {
               <div className="p-4 px-7 flex flex-col gap-2 items-center">
                 <img
                   alt=""
-                  src={"https://i.goopics.net/nf1fwc.png"}
+                  src={'https://i.goopics.net/nf1fwc.png'}
                   width={80}
                   height={80}
                   className="w-14 opacity-70"
@@ -270,9 +273,9 @@ const Menu = ({ session, handleSignOut }) => {
         <div className="flex gap-3 items-center">
           <div className="text-right hidden md:block">
             <span>
-              Bonjour 👋 ,{" "}
+              Bonjour 👋 ,{' '}
               <span className="font-bold">
-                {session?.user?.data.names ?? session?.user?.data.name ?? ""}
+                {session?.user?.data.names ?? session?.user?.data.name ?? ''}
               </span>
             </span>
             <h5 className="text-xs font-light">{session?.user?.email ?? ``}</h5>
@@ -295,7 +298,7 @@ const Menu = ({ session, handleSignOut }) => {
             }
           >
             <Dropdown.Item>
-              <Link href={"/profile"}>
+              <Link href={'/profile'}>
                 <span className="flex gap-3 text-lg items-center">
                   <MdOutlinePersonOutline
                     className="text-lg text-sky"
@@ -306,7 +309,7 @@ const Menu = ({ session, handleSignOut }) => {
               </Link>
             </Dropdown.Item>
             <Dropdown.Item>
-              <Link href={"/inbox"}>
+              <Link href={'/inbox'}>
                 <span className="flex gap-3 text-lg items-center">
                   <MdMailOutline className="text-lg text-green-500" size={23} />
                   <font>Message</font>

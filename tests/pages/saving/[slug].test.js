@@ -1,10 +1,10 @@
-import SavingSlug from "@/pages/saving/[slug]";
-import { render } from "@testing-library/react";
-import { TransactionContext } from "@/components/organisms/Transaction";
-import { SessionProvider } from "next-auth/react";
+import SavingSlug from '@/pages/saving/[slug]';
+import { render } from '@testing-library/react';
+import { TransactionContext } from '@/components/organisms/Transaction';
+import { SessionProvider } from 'next-auth/react';
 
-describe("Saving", () => {
-  it("should render", () => {
+describe('Saving', () => {
+  it('should render', () => {
     const { container } = render(
       <SessionProvider session={{ user: { data: { access_token: {} } } }}>
         <TransactionContext.Provider
@@ -12,7 +12,7 @@ describe("Saving", () => {
         >
           <SavingSlug />
         </TransactionContext.Provider>
-      </SessionProvider>
+      </SessionProvider>,
     );
     expect(container).toMatchSnapshot();
   });

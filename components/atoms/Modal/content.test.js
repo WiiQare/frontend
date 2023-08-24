@@ -1,14 +1,14 @@
-import "@testing-library/jest-dom";
-import { render } from "@testing-library/react";
-import ContentModal from "./content";
-import { SessionProvider } from "next-auth/react";
-import { Dialog, Transition } from "@headlessui/react";
+import '@testing-library/jest-dom';
+import { render } from '@testing-library/react';
+import ContentModal from './content';
+import { SessionProvider } from 'next-auth/react';
+import { Dialog, Transition } from '@headlessui/react';
 
-describe("ContentModal", () => {
+describe('ContentModal', () => {
   let component;
   beforeEach(() => {
     const res = render(
-      <SessionProvider session={{ user: { name: "John Doe" } }}>
+      <SessionProvider session={{ user: { name: 'John Doe' } }}>
         <Transition appear show={true}>
           <Dialog onClose={() => {}}>
             <ContentModal>
@@ -16,12 +16,12 @@ describe("ContentModal", () => {
             </ContentModal>
           </Dialog>
         </Transition>
-      </SessionProvider>
+      </SessionProvider>,
     );
     component = res.container;
   });
 
-  test("should render ContentModal component", () => {
+  test('should render ContentModal component', () => {
     expect(component).toMatchSnapshot();
   });
 });

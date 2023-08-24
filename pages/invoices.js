@@ -1,5 +1,5 @@
-import Head from "next/head";
-import DashboardLayout from "../layouts/Dashboard";
+import Head from 'next/head';
+import DashboardLayout from '../layouts/Dashboard';
 
 const Page = () => {
   return (

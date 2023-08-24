@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const IconBadge = ({ children, className, total = 0, onClick = () => {} }) => {
   return (

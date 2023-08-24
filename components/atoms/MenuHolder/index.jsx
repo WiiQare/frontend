@@ -1,8 +1,8 @@
-import { Button, Box } from "@mui/material";
-import Link from "next/link";
-import React from "react";
-import { useTranslation } from "react-i18next";
-import { HiChevronDown, HiOutlineTranslate } from "react-icons/hi";
+import { Button, Box } from '@mui/material';
+import Link from 'next/link';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { HiChevronDown, HiOutlineTranslate } from 'react-icons/hi';
 
 export default function MenuHolder({ href, label }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -21,15 +21,15 @@ export default function MenuHolder({ href, label }) {
         <li>
           <details className="dropdown">
             <summary className="m-1 btn px-2 -py-1 bg-transparent text-gray-800 text-xs border-2 hover:border-gray-300 border-none space-x-1 hover:!bg-gray-100">
-              <HiOutlineTranslate size={23} className="text-gray-600" />{" "}
+              <HiOutlineTranslate size={23} className="text-gray-600" />{' '}
               <HiChevronDown size={20} className="text-gray-400" />
             </summary>
             <ul className="shadow-sm menu dropdown-content z-[1] w-max rounded-xl">
               <li>
-                <button onClick={() => handleLangChange("fr")}>Français</button>
+                <button onClick={() => handleLangChange('fr')}>Français</button>
               </li>
               <li>
-                <button onClick={() => handleLangChange("en")}>
+                <button onClick={() => handleLangChange('en')}>
                   Anglais&nbsp;&nbsp;
                 </button>
               </li>
@@ -39,7 +39,7 @@ export default function MenuHolder({ href, label }) {
         <li>
           <Box sx={{ mx: 2 }}>
             <Link className="normal-link" href={href}>
-              {t("signIn.question")}
+              {t('signIn.question')}
             </Link>
           </Box>
         </li>

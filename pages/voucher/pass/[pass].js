@@ -1,15 +1,15 @@
-import { useState } from "react";
-import { useQRCode } from "next-qrcode";
-import { CopyToClipboard } from "react-copy-to-clipboard";
-import Image from "next/image";
-import logoDark from "../../../public/images/logo_dark.png";
-import Link from "next/link";
-import Fetcher from "../../../lib/Fetcher";
-import { HiExclamation } from "react-icons/hi";
-import { useRouter } from "next/router";
-import CurrencyFlag from "react-currency-flags";
+import { useState } from 'react';
+import { useQRCode } from 'next-qrcode';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import Image from 'next/image';
+import logoDark from '../../../public/images/logo_dark.png';
+import Link from 'next/link';
+import Fetcher from '../../../lib/Fetcher';
+import { HiExclamation } from 'react-icons/hi';
+import { useRouter } from 'next/router';
+import CurrencyFlag from 'react-currency-flags';
 
-import { GrFacebook, GrInstagram, GrLinkedin, GrTwitter } from "react-icons/gr";
+import { GrFacebook, GrInstagram, GrLinkedin, GrTwitter } from 'react-icons/gr';
 
 function Pass() {
   const router = useRouter();
@@ -19,7 +19,7 @@ function Pass() {
   const [copy, setCopy] = useState(false);
 
   const { data, isLoading, isError } = Fetcher(
-    `/payment/voucher?paymentId=${pass}`
+    `/payment/voucher?paymentId=${pass}`,
   );
 
   if (isLoading)
@@ -96,7 +96,7 @@ function Pass() {
                 [
                 <div
                   className="tooltip"
-                  data-tip={!copy ? "Copy to clipboard" : "✓ Copy"}
+                  data-tip={!copy ? 'Copy to clipboard' : '✓ Copy'}
                 >
                   <span className="text-orange cursor-pointer">
                     <SliceText text={data.voucherEntity.voucherHash} />
@@ -114,13 +114,13 @@ function Pass() {
               className="w-full"
               text={`${data.voucherEntity.voucherHash}`}
               options={{
-                level: "M",
+                level: 'M',
                 margin: 1,
                 scale: 5,
                 quality: 100,
                 color: {
-                  dark: "#000",
-                  light: "#FFF",
+                  dark: '#000',
+                  light: '#FFF',
                 },
               }}
             />
@@ -152,19 +152,19 @@ function Pass() {
                   <CurrencyFlag
                     currency={data.currency}
                     className="rounded-full !h-4 !w-4 object-cover"
-                  />{" "}
-                  {new Intl.NumberFormat("en-US", {
-                    style: "currency",
+                  />{' '}
+                  {new Intl.NumberFormat('en-US', {
+                    style: 'currency',
                     currency: data.currency,
                   }).format(data.amount)}
                 </span>
                 Pass santé WiiQare
               </span>
-              de{" "}
+              de{' '}
               <span className="text-orange font-semibold">
                 {data.sender.firstName}
-              </span>{" "}
-              à{" "}
+              </span>{' '}
+              à{' '}
               <span className="text-orange font-semibold">
                 {data.patient.firstName}
               </span>
@@ -178,7 +178,7 @@ function Pass() {
           Suivez-nous sur les réseaux sociaux
         </span>
         <div className="flex gap-5 items-center justify-center">
-          <Link href={"https://twitter.com"} target="_blank" legacyBehavior>
+          <Link href={'https://twitter.com'} target="_blank" legacyBehavior>
             <a
               className="cursor-pointer tooltip border border-gray-200 rounded-lg px-3 py-2"
               data-tip="Twitter"
@@ -186,7 +186,7 @@ function Pass() {
               <GrTwitter className="text-[#00acee]" />
             </a>
           </Link>
-          <Link href={"https://facebook.com"} target="_blank" legacyBehavior>
+          <Link href={'https://facebook.com'} target="_blank" legacyBehavior>
             <a
               className="cursor-pointer tooltip border border-gray-200 rounded-lg px-3 py-2"
               data-tip="Facebook"
@@ -195,7 +195,7 @@ function Pass() {
             </a>
           </Link>
 
-          <Link href={"https://linkedin.com"} target="_blank" legacyBehavior>
+          <Link href={'https://linkedin.com'} target="_blank" legacyBehavior>
             <a
               className="cursor-pointer tooltip border border-gray-200 rounded-lg px-3 py-2"
               data-tip="LinkedIn"
@@ -204,7 +204,7 @@ function Pass() {
             </a>
           </Link>
 
-          <Link href={"https://instagram.com"} target="_blank" legacyBehavior>
+          <Link href={'https://instagram.com'} target="_blank" legacyBehavior>
             <a
               className="cursor-pointer tooltip border border-gray-200 rounded-lg px-3 py-2"
               data-tip="Instagram"
@@ -216,8 +216,8 @@ function Pass() {
       </div>
 
       <span className="text-sm text-gray-400 absolute bottom-6">
-        Contactez-Nous:{" "}
-        <Link href={"tel:+243979544127"} legacyBehavior>
+        Contactez-Nous:{' '}
+        <Link href={'tel:+243979544127'} legacyBehavior>
           +243 979 544 127
         </Link>
       </span>

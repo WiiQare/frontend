@@ -1,5 +1,5 @@
-import "@testing-library/jest-dom";
+import '@testing-library/jest-dom';
 
-describe("Sidebar", () => {
-  it.todo("should render the component");
+describe('Sidebar', () => {
+  it.todo('should render the component');
 });

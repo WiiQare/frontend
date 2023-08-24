@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700");
-@import url("https://fonts.googleapis.com/css?family=Rubik:400,500");
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,500');
 
 * {
-  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
 .slick-track {
@@ -222,7 +222,7 @@ a:hover {
 
 .website-logo .logo {
   display: inline-block;
-  background-image: url("/images/logo.png");
+  background-image: url('/images/logo.png');
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -277,7 +277,7 @@ a:hover {
 
 .info-slider-holder h6 {
   font-size: 16px;
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
   color: #ffffff;
   font-weight: 500;
   margin-bottom: 20px;
@@ -518,16 +518,16 @@ a:hover {
   margin-left: -10px;
 }
 
-.signin-signup-form .row div[class^="col-"] {
+.signin-signup-form .row div[class^='col-'] {
   padding-right: 10px;
   padding-left: 10px;
 }
 
-.signin-signup-form .row div[class^="col-"]:first-child {
+.signin-signup-form .row div[class^='col-']:first-child {
   padding-right: 5px;
 }
 
-.signin-signup-form .row div[class^="col-"]:last-child {
+.signin-signup-form .row div[class^='col-']:last-child {
   padding-left: 5px;
 }
 
@@ -608,23 +608,23 @@ a:hover {
   font-weight: 400;
 }
 
-.signin-signup-form .form-text input[type="checkbox"],
-.signin-signup-form .form-text input[type="radio"] {
+.signin-signup-form .form-text input[type='checkbox'],
+.signin-signup-form .form-text input[type='radio'] {
   width: auto;
 }
 
-.signin-signup-form .form-text input[type="checkbox"]:not(:checked),
-.signin-signup-form .form-text input[type="checkbox"]:checked,
-.signin-signup-form .form-text input[type="radio"]:not(:checked),
-.signin-signup-form .form-text input[type="radio"]:checked {
+.signin-signup-form .form-text input[type='checkbox']:not(:checked),
+.signin-signup-form .form-text input[type='checkbox']:checked,
+.signin-signup-form .form-text input[type='radio']:not(:checked),
+.signin-signup-form .form-text input[type='radio']:checked {
   position: absolute;
   left: -9999px;
 }
 
-.signin-signup-form .form-text input[type="checkbox"]:not(:checked) + label,
-.signin-signup-form .form-text input[type="checkbox"]:checked + label,
-.signin-signup-form .form-text input[type="radio"]:not(:checked) + label,
-.signin-signup-form .form-text input[type="radio"]:checked + label {
+.signin-signup-form .form-text input[type='checkbox']:not(:checked) + label,
+.signin-signup-form .form-text input[type='checkbox']:checked + label,
+.signin-signup-form .form-text input[type='radio']:not(:checked) + label,
+.signin-signup-form .form-text input[type='radio']:checked + label {
   position: relative;
   padding-left: 23px;
   cursor: pointer;
@@ -635,14 +635,14 @@ a:hover {
   margin-left: 10px;
 }
 
-.signin-signup-form .form-text input[type="checkbox"]:checked + label,
-.signin-signup-form .form-text input[type="radio"]:checked + label {
+.signin-signup-form .form-text input[type='checkbox']:checked + label,
+.signin-signup-form .form-text input[type='radio']:checked + label {
   color: #f8892b;
 }
 
-.signin-signup-form .form-text input[type="checkbox"]:checked + label:before,
-.signin-signup-form .form-text input[type="radio"]:checked + label:before {
-  content: "";
+.signin-signup-form .form-text input[type='checkbox']:checked + label:before,
+.signin-signup-form .form-text input[type='radio']:checked + label:before {
+  content: '';
   position: absolute;
   left: 0;
   top: 2px;
@@ -657,13 +657,13 @@ a:hover {
 
 .signin-signup-form
   .form-text
-  input[type="checkbox"]:not(:checked)
+  input[type='checkbox']:not(:checked)
   + label:before,
 .signin-signup-form
   .form-text
-  input[type="radio"]:not(:checked)
+  input[type='radio']:not(:checked)
   + label:before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 2px;
@@ -678,9 +678,9 @@ a:hover {
 
 .signin-signup-form
   .form-text
-  input[type="checkbox"]:not(:checked)
+  input[type='checkbox']:not(:checked)
   + label:after,
-.signin-signup-form .form-text input[type="radio"]:not(:checked) + label:after {
+.signin-signup-form .form-text input[type='radio']:not(:checked) + label:after {
   opacity: 0;
   -webkit-transform: scale(0);
   -moz-transform: scale(0);
@@ -688,13 +688,13 @@ a:hover {
   transform: scale(0);
 }
 
-.signin-signup-form .form-text input[type="checkbox"]:checked + label:after,
+.signin-signup-form .form-text input[type='checkbox']:checked + label:after,
 .signin-signup-form
   .form-text
-  input[type="checkbox"]:not(:checked)
+  input[type='checkbox']:not(:checked)
   + label:after {
-  content: "\f00c";
-  font-family: "Font Awesome 5 Free";
+  content: '\f00c';
+  font-family: 'Font Awesome 5 Free';
   font-style: normal;
   font-weight: 600;
   position: absolute;
@@ -706,20 +706,20 @@ a:hover {
   transition: all 0.2s ease;
 }
 
-.signin-signup-form .form-text input[type="checkbox"]:checked + label:before {
+.signin-signup-form .form-text input[type='checkbox']:checked + label:before {
   border-radius: 4px;
 }
 
 .signin-signup-form
   .form-text
-  input[type="checkbox"]:not(:checked)
+  input[type='checkbox']:not(:checked)
   + label:before {
   border-radius: 4px;
 }
 
-.signin-signup-form .form-text input[type="radio"]:checked + label:after,
-.signin-signup-form .form-text input[type="radio"]:not(:checked) + label:after {
-  content: "";
+.signin-signup-form .form-text input[type='radio']:checked + label:after,
+.signin-signup-form .form-text input[type='radio']:not(:checked) + label:after {
+  content: '';
   position: absolute;
   top: 7px;
   left: 5px;
@@ -799,7 +799,7 @@ a:hover {
   }
 
   .website-logo .logo {
-    background-image: url("/images/logo_dark.png");
+    background-image: url('/images/logo_dark.png');
   }
 
   #form-section svg.logo text {

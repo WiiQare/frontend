@@ -1,11 +1,11 @@
-import React from "react";
-import Slider from "react-slick";
-import Image from "next/image";
-import Button from "@mui/material/Button";
+import React from 'react';
+import Slider from 'react-slick';
+import Image from 'next/image';
+import Button from '@mui/material/Button';
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import InstallPWA from "../../atoms/Button/Download";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import InstallPWA from '../../atoms/Button/Download';
 
 const defaultSettings = {
   dots: true,

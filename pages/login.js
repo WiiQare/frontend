@@ -1,14 +1,14 @@
-import Logo from "../components/atoms/LogoHeader";
-import WelcomeSlider from "../components/molecules/WelcomeSlider";
-import LoginForm from "../components/organisms/Auth/LoginForm";
-import { LOGIN_SLIDES } from "../utils/constants";
-import { useMediaQuery, CssBaseline } from "@mui/material";
-import Head from "next/head";
-import React from "react";
-import { useTranslation, Trans } from "react-i18next";
+import Logo from '../components/atoms/LogoHeader';
+import WelcomeSlider from '../components/molecules/WelcomeSlider';
+import LoginForm from '../components/organisms/Auth/LoginForm';
+import { LOGIN_SLIDES } from '../utils/constants';
+import { useMediaQuery, CssBaseline } from '@mui/material';
+import Head from 'next/head';
+import React from 'react';
+import { useTranslation, Trans } from 'react-i18next';
 
 function Login() {
-  const matches = useMediaQuery("(max-width: 992px)");
+  const matches = useMediaQuery('(max-width: 992px)');
   const { t, i18n } = useTranslation();
   return (
     <>

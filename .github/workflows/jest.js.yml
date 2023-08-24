@@ -5,9 +5,9 @@ name: Tests
 
 on:
   push:
-    branches: ["main"]
+    branches: ['main']
   pull_request:
-    branches: ["main"]
+    branches: ['main']
 
 jobs:
   test:
@@ -24,6 +24,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "npm"
+          cache: 'npm'
       - run: yarn install --frozen-lockfile
       - run: yarn test:ci

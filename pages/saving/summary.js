@@ -1,6 +1,6 @@
-import Head from "next/head";
-import DashboardLayout from "../../layouts/Dashboard";
-import SummarySaving from "../../components/organisms/Wallet/Summary";
+import Head from 'next/head';
+import DashboardLayout from '../../layouts/Dashboard';
+import SummarySaving from '../../components/organisms/Wallet/Summary';
 
 const Page = () => {
   return (
@@ -9,7 +9,6 @@ const Page = () => {
         <title>{"Résumé & Premier paiement de l'épargne"}</title>
       </Head>
       <SummarySaving />
-
     </>
   );
 };
