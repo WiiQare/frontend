@@ -1,5 +1,5 @@
 // This is your test secret API key.
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
   try {
@@ -14,15 +14,14 @@ export default async function handler(req, res) {
       },
       metadata: {
         idSaving,
-        forSaving: true
-      }
+        forSaving: true,
+      },
     });
-  
+
     res.send({
       clientSecret: paymentIntent.client_secret,
     });
   } catch (error) {
-    console.log("api/saving", error);
+    console.log('api/saving', error);
   }
- 
-};
+}
