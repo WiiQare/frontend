@@ -1,10 +1,11 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import DashboardLayout from '../../layouts/Dashboard';
 import CardHeader from '../../components/atoms/Card/Header';
 import Stepper from '../../components/atoms/Stepper';
 import Step from '../../components/atoms/Stepper/step';
+import { authlogic } from '../../lib/helper';
 export const FormContext = createContext();
 
 const Page = () => {
@@ -13,6 +14,14 @@ const Page = () => {
     step == 'end' && redirect_status == 'succeeded' ? 2 : 0,
   );
   const [formData, setFormData] = useState({});
+
+  useEffect(() => {
+    const data = authlogic();
+
+    console.log("AuthLogic", data);
+
+  }, []);
+  
 
   return (
     <>
