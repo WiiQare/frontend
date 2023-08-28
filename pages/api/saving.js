@@ -1,5 +1,5 @@
 // This is your test secret API key.
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const calculateOrderAmount = (amount) => {
   // Replace this constant with a calculation of the order's amount
@@ -26,12 +26,11 @@ export default async function handler(req, res) {
         forSaving: true
       }
     });
-  
+
     res.send({
       clientSecret: paymentIntent.client_secret,
     });
   } catch (error) {
-    //console.log("api/saving", error);
+    console.log('api/saving', error);
   }
- 
-};
+}
