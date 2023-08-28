@@ -1,6 +1,14 @@
 import Link from 'next/link';
 
-const CardProgress = ({ color, value, title, amount, currency, className, link }) => {
+const CardProgress = ({
+  color,
+  value,
+  title,
+  amount,
+  currency,
+  className,
+  link,
+}) => {
   return (
     <Link href={link} legacyBehavior>
       <div
@@ -14,12 +22,14 @@ const CardProgress = ({ color, value, title, amount, currency, className, link }
           {value}%
         </div>
         <div>
-          <h3 className="text-gray-700 font-bold text-sm capitalize">{title}</h3>
+          <h3 className="text-gray-700 font-bold text-sm capitalize">
+            {title}
+          </h3>
           <span className="text-sm">
-          {new Intl.NumberFormat("en-US", {
-              style: "currency",
+            {new Intl.NumberFormat('en-US', {
+              style: 'currency',
               currency: currency.toLowerCase(),
-          }).format(amount)}
+            }).format(amount)}
           </span>
         </div>
       </div>
