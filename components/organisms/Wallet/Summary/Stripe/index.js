@@ -26,7 +26,7 @@ const StripePayment = () => {
         fetch("/api/saving", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(saving),
+            body: JSON.stringify({amount: saving.plan.amount, currency: saving.plan.currency, idSaving: saving.idSaving}),
         })
             .then((res) => res.json())
             .then((data) => setClientSecret(data.clientSecret));
