@@ -43,6 +43,8 @@ const ItemHistory = ({
   const [copy, setCopy] = useState(false);
   const [copyLink, setCopyLink] = useState(false);
 
+  console.log(transactionHash);
+
   const closeModal = () => {
     setIsOpen(false);
   };
@@ -250,7 +252,7 @@ const ItemHistory = ({
                                 }
                               >
                                 <span className="text-orange cursor-pointer">
-                                  <SliceText text={transactionHash} />
+                                  {/* <SliceText text={transactionHash} /> */}
                                 </span>
                               </div>
                               ]
