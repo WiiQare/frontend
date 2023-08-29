@@ -192,7 +192,7 @@ function Send() {
         <></>
       )}
       {
-      !router.query.conversation ? (<>Verification d'identité...</>): (
+      !router.query.conversation ? (<>{"Verification d'identité..."}</>): (
         <>
 
         {
@@ -536,7 +536,7 @@ function Send() {
             )
           }
             </>
-          ) : statusID == "IN_PROGRESS" ? (<>Vérification d'identité en cours</>) : (<>Identity vérification failed</>)
+          ) : statusID == "IN_PROGRESS" ? (<>{"Vérification d'identité en cours"}</>) : (<>{"Identity vérification failed"}</>)
         }
           
         </>
