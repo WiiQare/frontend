@@ -17,9 +17,8 @@ import LoadingButton from "../Loader/LoadingButton";
 import Toast from "../Toast";
 
 const ItemHistory = ({
-  shortenHash,
   stripePaymentId,
-  transactionHash,
+  voucherEntity,
   patient,
   currency,
   sender,
@@ -62,7 +61,7 @@ const ItemHistory = ({
   const SliceText = ({ text }) => {
     return (
       <>
-        {text.slice(0, 8)}...{text.slice(-7)}
+        {text?.slice(0, 8)}...{text?.slice(-7)}
       </>
     );
   };
@@ -85,7 +84,7 @@ const ItemHistory = ({
   });
 
   const onSubmit = async (values) => {
-    sendSMSMutation.mutate({ shortenHash, accessToken });
+    sendSMSMutation.mutate({ shortenHash: voucherEntity.shortenHash, accessToken });
   };
 
   const closeToast = () => {
@@ -231,7 +230,7 @@ const ItemHistory = ({
                           {" "}
                           Pass santé ID:
                           <CopyToClipboard
-                            text={transactionHash}
+                            text={voucherEntity.voucherHash}
                             onCopy={() => {
                               setCopy(true);
                               setTimeout(() => {
@@ -250,7 +249,7 @@ const ItemHistory = ({
                                 }
                               >
                                 <span className="text-orange cursor-pointer">
-                                  <SliceText text={transactionHash} />
+                                  <SliceText text={voucherEntity.voucherHash} />
                                 </span>
                               </div>
                               ]
@@ -263,7 +262,7 @@ const ItemHistory = ({
                         <div className="border relative border-gray-300 rounded-lg overflow-hidden">
                           <Canvas
                             className="w-full"
-                            text={`${transactionHash}`}
+                            text={`${voucherEntity.voucherHash}`}
                             options={{
                               level: "M",
                               margin: 1,
@@ -520,7 +519,7 @@ const ItemHistory = ({
                                   <span className="text-xs flex justify-center items-center gap-1">
                                     Pass Sante ID:
                                     <CopyToClipboard
-                                      text={transactionHash}
+                                      text={voucherEntity.voucherHash}
                                       onCopy={() => {
                                         setCopy(true);
                                         setTimeout(() => {
