@@ -14,13 +14,6 @@ const Page = () => {
     step == 'end' && redirect_status == 'succeeded' ? 2 : 0,
   );
   const [formData, setFormData] = useState({});
-
-  useEffect(() => {
-    const data = authlogic();
-
-    console.log("AuthLogic", data);
-
-  }, []);
   
 
   return (

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useQRCode } from 'next-qrcode';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FormContext } from '../../../../pages/voucher/buy';
@@ -31,10 +31,10 @@ function Send() {
   const [copyLink, setCopyLink] = useState(false);
   const [state, setState] = useState({ type: 0, message: '' });
   const [data, setData] = useState(null);
+  const [statusID, setStatusID] = useState("IN_PROGRESS");
   const { data: session } = useSession();
   const { data: _voucherTest, isLoading, isError } = Fetcher(`/`);
-
-  console.log(session);
+  const router = useRouter();
 
   const handleView = async () => {
     setLoadView(true);
@@ -51,6 +51,53 @@ function Send() {
       setData({ code: 'NOT_FOUND' });
     }
   };
+
+  const checkStatus = async () => {
+    try {
+      const response = fetch("/api/authologic/check", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id: router.query.conversation
+        })
+      })
+
+      const jsonData = (await response).json();
+
+      jsonData.then((data) => {
+        console.log(data);
+        if (data.status != "FINISHED") {setTimeout(checkStatus, 8000)}
+        else {setStatusID(data.status)}
+
+      }).catch(e => setTimeout(checkStatus, 8000))
+
+
+    } catch (error) {
+      console.log(error);
+      setTimeout(checkStatus, 8000);
+    }
+  }
+
+  useEffect(() => {
+
+    if (!router.query.conversation) {
+      
+      fetch("/api/authologic", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          path: router.asPath
+        })
+      }).then(res => res.json())
+      .then(data => {
+        router.push(data.url)
+      })
+      .catch(e => console.log(e))
+    } else {
+      checkStatus()
+    }
+
+  }, []);
 
   const sendSMSMutation = useMutation(sendSMSHash, {
     onSuccess: (res) => {
@@ -144,341 +191,358 @@ function Send() {
       ) : (
         <></>
       )}
-      {view ? (
+      {
+      !router.query.conversation ? (<>Verification d'identité...</>): (
         <>
-          <div className="flex flex-col items-center text-center space-y-2">
-            <div className="flex flex-col items-center select-none">
-              <Image
-                src={logoDark}
-                className="h-6 md:h-9 object-left object-contain w-min"
-              />
-              <h1 className="font-extrabold text-gray-700 text-lg hidden md:flex">
-                Pass Sante
-              </h1>
-            </div>
-            <span className="text-xs flex items-center gap-1">
-              Pass Sante ID:
-              <CopyToClipboard
-                text={data.voucherEntity.voucherHash}
-                onCopy={() => {
-                  setCopy(true);
-                  setTimeout(() => {
-                    setCopy(false);
-                  }, 2000);
-                }}
-              >
-                <div className="flex items-center gap-1">
-                  [
-                  <div
-                    className="tooltip"
-                    data-tip={!copy ? 'Copy to clipboard' : '✓ Copy'}
-                  >
-                    <span className="text-orange cursor-pointer">
-                      <SliceText text={data.voucherEntity.voucherHash} />
-                    </span>
+
+        {
+          statusID == "FINISHED" ? (
+            <>
+              {
+            view ? (
+              <>
+                <div className="flex flex-col items-center text-center space-y-2">
+                  <div className="flex flex-col items-center select-none">
+                    <Image
+                      src={logoDark}
+                      className="h-6 md:h-9 object-left object-contain w-min"
+                    />
+                    <h1 className="font-extrabold text-gray-700 text-lg hidden md:flex">
+                      Pass Sante
+                    </h1>
                   </div>
-                  ]
-                </div>
-              </CopyToClipboard>
-            </span>
-          </div>
-
-          <div className="flex flex-col items-center gap-4">
-            <div className="border relative border-gray-300 rounded-lg overflow-hidden">
-              <Canvas
-                className="w-full"
-                text={`https://wiiqare-app.com/voucher/pass/${data.voucherEntity.voucherHash}`}
-                options={{
-                  level: 'M',
-                  margin: 1,
-                  scale: 6,
-                  quality: 100,
-                  color: {
-                    dark: '#000',
-                    light: '#FFF',
-                  },
-                }}
-              />
-            </div>
-
-            <div className="flex flex-col items-center gap-1">
-              <div className="flex -space-x-2">
-                <img
-                  className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
-                  src="/images/homme.png"
-                  alt="Image Description"
-                />
-                <img
-                  className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
-                  src="/images/femme.png"
-                  alt="Image Description"
-                />
-              </div>
-
-              <h4 className="text-sm text-center">
-                <CurrencyFlag
-                  currency={data.currency}
-                  className="rounded-full !h-4 !w-4 object-cover"
-                />{' '}
-                <span className="font-semibold">
-                  {new Intl.NumberFormat('en-US', {
-                    style: 'currency',
-                    currency: data.currency,
-                  }).format(data.amount)}
-                </span>{' '}
-                Health Pass WiiQare <br /> From{' '}
-                <span className="text-orange font-semibold">
-                  {data.sender.firstName}
-                </span>{' '}
-                To{' '}
-                <span className="text-orange font-semibold">
-                  {data.patient.firstName}
-                </span>
-              </h4>
-            </div>
-          </div>
-
-          <div className="text-center mt-6 flex flex-col gap-2 space-y-3">
-            <h4 className="font-semibold text-gray-700 text-sm">
-              Envoyer le pass santé au bénéficiaire:
-            </h4>
-            <div className="flex justify-between">
-              <Link
-                href={`whatsapp://send?text=https://wiiqare-app.com/voucher/pass/${payment_intent}`}
-                legacyBehavior
-                target={'_blank'}
-              >
-                <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-                  <img src="/images/whatsapp.png" alt="" className="w-6" />
-                  <span className="hidden md:flex">WhatsApp</span>
-                </a>
-              </Link>
-
-              <Link
-                href={`https://www.facebook.com/share.php?u=https://wiiqare-app.com/voucher/pass/${payment_intent}`}
-                legacyBehavior
-                target={'_blank'}
-              >
-                <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-                  <img
-                    src="/images/facebook-share.png"
-                    alt=""
-                    className="w-6"
-                  />
-                  <span className="hidden md:flex">Facebook</span>
-                </a>
-              </Link>
-
-              <button
-                className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
-                onClick={formik.handleSubmit}
-              >
-                <img src="/images/sms.png" alt="" className="w-6" />
-                {sendSMSMutation.isLoading ? (
-                  <LoadingButton />
-                ) : (
-                  <span className="hidden md:flex">Message</span>
-                )}
-              </button>
-
-              <CopyToClipboard
-                text={`https://wiiqare-app.com/voucher/pass/${payment_intent}`}
-                onCopy={() => {
-                  setCopyLink(true);
-                  setTimeout(() => {
-                    setCopyLink(false);
-                  }, 2000);
-                }}
-              >
-                <button
-                  type="button"
-                  className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
-                >
-                  <img src="/images/text.png" alt="" className="w-6" />
-                  <span className="hidden md:flex">
-                    {!copyLink ? 'Copier le lien' : 'Copié avec succès'}
+                  <span className="text-xs flex items-center gap-1">
+                    Pass Sante ID:
+                    <CopyToClipboard
+                      text={data.voucherEntity.voucherHash}
+                      onCopy={() => {
+                        setCopy(true);
+                        setTimeout(() => {
+                          setCopy(false);
+                        }, 2000);
+                      }}
+                    >
+                      <div className="flex items-center gap-1">
+                        [
+                        <div
+                          className="tooltip"
+                          data-tip={!copy ? 'Copy to clipboard' : '✓ Copy'}
+                        >
+                          <span className="text-orange cursor-pointer">
+                            <SliceText text={data.voucherEntity.voucherHash} />
+                          </span>
+                        </div>
+                        ]
+                      </div>
+                    </CopyToClipboard>
                   </span>
-                </button>
-              </CopyToClipboard>
-            </div>
-          </div>
+                </div>
+      
+                <div className="flex flex-col items-center gap-4">
+                  <div className="border relative border-gray-300 rounded-lg overflow-hidden">
+                    <Canvas
+                      className="w-full"
+                      text={`https://wiiqare-app.com/voucher/pass/${data.voucherEntity.voucherHash}`}
+                      options={{
+                        level: 'M',
+                        margin: 1,
+                        scale: 6,
+                        quality: 100,
+                        color: {
+                          dark: '#000',
+                          light: '#FFF',
+                        },
+                      }}
+                    />
+                  </div>
+      
+                  <div className="flex flex-col items-center gap-1">
+                    <div className="flex -space-x-2">
+                      <img
+                        className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
+                        src="/images/homme.png"
+                        alt="Image Description"
+                      />
+                      <img
+                        className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
+                        src="/images/femme.png"
+                        alt="Image Description"
+                      />
+                    </div>
+      
+                    <h4 className="text-sm text-center">
+                      <CurrencyFlag
+                        currency={data.currency}
+                        className="rounded-full !h-4 !w-4 object-cover"
+                      />{' '}
+                      <span className="font-semibold">
+                        {new Intl.NumberFormat('en-US', {
+                          style: 'currency',
+                          currency: data.currency,
+                        }).format(data.amount)}
+                      </span>{' '}
+                      Health Pass WiiQare <br /> From{' '}
+                      <span className="text-orange font-semibold">
+                        {data.sender.firstName}
+                      </span>{' '}
+                      To{' '}
+                      <span className="text-orange font-semibold">
+                        {data.patient.firstName}
+                      </span>
+                    </h4>
+                  </div>
+                </div>
+      
+                <div className="text-center mt-6 flex flex-col gap-2 space-y-3">
+                  <h4 className="font-semibold text-gray-700 text-sm">
+                    Envoyer le pass santé au bénéficiaire:
+                  </h4>
+                  <div className="flex justify-between">
+                    <Link
+                      href={`whatsapp://send?text=https://wiiqare-app.com/voucher/pass/${payment_intent}`}
+                      legacyBehavior
+                      target={'_blank'}
+                    >
+                      <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
+                        <img src="/images/whatsapp.png" alt="" className="w-6" />
+                        <span className="hidden md:flex">WhatsApp</span>
+                      </a>
+                    </Link>
+      
+                    <Link
+                      href={`https://www.facebook.com/share.php?u=https://wiiqare-app.com/voucher/pass/${payment_intent}`}
+                      legacyBehavior
+                      target={'_blank'}
+                    >
+                      <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
+                        <img
+                          src="/images/facebook-share.png"
+                          alt=""
+                          className="w-6"
+                        />
+                        <span className="hidden md:flex">Facebook</span>
+                      </a>
+                    </Link>
+      
+                    <button
+                      className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
+                      onClick={formik.handleSubmit}
+                    >
+                      <img src="/images/sms.png" alt="" className="w-6" />
+                      {sendSMSMutation.isLoading ? (
+                        <LoadingButton />
+                      ) : (
+                        <span className="hidden md:flex">Message</span>
+                      )}
+                    </button>
+      
+                    <CopyToClipboard
+                      text={`https://wiiqare-app.com/voucher/pass/${payment_intent}`}
+                      onCopy={() => {
+                        setCopyLink(true);
+                        setTimeout(() => {
+                          setCopyLink(false);
+                        }, 2000);
+                      }}
+                    >
+                      <button
+                        type="button"
+                        className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
+                      >
+                        <img src="/images/text.png" alt="" className="w-6" />
+                        <span className="hidden md:flex">
+                          {!copyLink ? 'Copier le lien' : 'Copié avec succès'}
+                        </span>
+                      </button>
+                    </CopyToClipboard>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <div className="relative">
+                <div className="flex flex-col items-center text-center space-y-2">
+                  <div className="flex flex-col items-center select-none">
+                    <Image
+                      src={logoDark}
+                      className="h-6 md:h-9 object-left object-contain w-min"
+                    />
+                    <h1 className="font-extrabold text-gray-700 text-lg hidden md:flex">
+                      Pass Sante
+                    </h1>
+                  </div>
+                  <span className="text-xs flex items-center gap-1">
+                    Pass Sante ID:
+                    <CopyToClipboard
+                      text={'0xcda1470a8117daaccf368eb4'}
+                      onCopy={() => {
+                        setCopy(true);
+                        setTimeout(() => {
+                          setCopy(false);
+                        }, 2000);
+                      }}
+                    >
+                      <div className="flex items-center gap-1">
+                        [
+                        <div
+                          className="tooltip"
+                          data-tip={!copy ? 'Copy to clipboard' : '✓ Copy'}
+                        >
+                          <span className="text-orange cursor-pointer">
+                            <SliceText text={'0xcda1470a8117daaccf368eb4'} />
+                          </span>
+                        </div>
+                        ]
+                      </div>
+                    </CopyToClipboard>
+                  </span>
+                </div>
+      
+                <div className="flex flex-col items-center gap-4">
+                  <div className="border relative border-gray-300 rounded-lg overflow-hidden">
+                    <Canvas
+                      className="w-full"
+                      text={`https://wiiqare-app.com/voucher/pass/0xcda1470a8117daaccf368eb4`}
+                      options={{
+                        level: 'M',
+                        margin: 1,
+                        scale: 6,
+                        quality: 100,
+                        color: {
+                          dark: '#000',
+                          light: '#FFF',
+                        },
+                      }}
+                    />
+                    {/* <div className="absolute w-full h-full z-20 top-1/3 left-1.5/3 mx-auto">
+            <Image
+              src={logo}
+              className="h-6 md:h-9 object-left object-contain w-min"
+            />
+          </div> */}
+                  </div>
+      
+                  <div className="flex flex-col items-center gap-1">
+                    <div className="flex -space-x-2">
+                      <img
+                        className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
+                        src="/images/homme.png"
+                        alt="Image Description"
+                      />
+                      <img
+                        className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
+                        src="/images/femme.png"
+                        alt="Image Description"
+                      />
+                    </div>
+      
+                    <h4 className="text-sm text-center">
+                      <span className="font-semibold">$ 0.00</span> Health Pass
+                      WiiQare <br /> From{' '}
+                      <span className="text-orange font-semibold">
+                        <SliceText text={'0xcda1470a8117daaccf368eb4'} />
+                      </span>{' '}
+                      To{' '}
+                      <span className="text-orange font-semibold">
+                        <SliceText text={'0xcda1470a8117daaccf368eb4'} />
+                      </span>
+                    </h4>
+                  </div>
+                </div>
+      
+                <div className="text-center mt-6 flex flex-col gap-2 space-y-3">
+                  <h4 className="font-semibold text-gray-700 text-sm">
+                    Envoyer le pass santé au bénéficiaire:
+                  </h4>
+                  <div className="flex justify-between">
+                    <Link
+                      href={`whatsapp://send?text=https://wiiqare-app.com/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
+                      legacyBehavior
+                      target={'_blank'}
+                    >
+                      <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
+                        <img src="/images/whatsapp.png" alt="" className="w-6" />
+                        <span className="hidden md:flex">WhatsApp</span>
+                      </a>
+                    </Link>
+      
+                    <Link
+                      href={`https://www.facebook.com/share.php?u=https://wiiqare-app.com/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
+                      legacyBehavior
+                      target={'_blank'}
+                    >
+                      <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
+                        <img
+                          src="/images/facebook-share.png"
+                          alt=""
+                          className="w-6"
+                        />
+                        <span className="hidden md:flex">Facebook</span>
+                      </a>
+                    </Link>
+      
+                    <Link
+                      href={`sms://+243814978651&?body=https://wiiqare-app.com/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
+                      legacyBehavior
+                      target={'_blank'}
+                    >
+                      <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
+                        <img src="/images/sms.png" alt="" className="w-6" />
+                        <span className="hidden md:flex">Message</span>
+                      </a>
+                    </Link>
+      
+                    <CopyToClipboard
+                      text={`https://wiiqare-app.com/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
+                      onCopy={() => {
+                        setCopyLink(true);
+                        setTimeout(() => {
+                          setCopyLink(false);
+                        }, 2000);
+                      }}
+                    >
+                      <button
+                        type="button"
+                        className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
+                      >
+                        <img src="/images/text.png" alt="" className="w-6" />
+                        <span className="hidden md:flex">
+                          {!copyLink ? 'Copy Link' : 'Successfully Copied'}
+                        </span>
+                      </button>
+                    </CopyToClipboard>
+                  </div>
+                </div>
+      
+                <div class="flex-shrink-0 border-none backdrop-filter backdrop-blur-[6px] w-full h-full bg-white/30 absolute top-0 p-6"></div>
+      
+                <div className="flex flex-shrink-0 absolute top-0 justify-center items-center w-full h-full">
+                  <div className="flex flex-col gap-8 justify-center items-center">
+                    <HiLockClosed size={150} />
+                    <button
+                      onClick={handleView}
+                      className="bg-orange flex gap-2 effect-up justify-center items-center text-gray-100 font-normal h-fit  py-2 px-3 rounded-lg text-sm transition duration-300"
+                    >
+                      {loadView ? (
+                        <LoadingButton />
+                      ) : (
+                        <>
+                          <HiOutlineEye /> Voir Pass Santé
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )
+          }
+            </>
+          ) : statusID == "IN_PROGRESS" ? (<>Vérification d'identité en cours</>) : (<>Identity vérification failed</>)
+        }
+          
         </>
-      ) : (
-        <div className="relative">
-          <div className="flex flex-col items-center text-center space-y-2">
-            <div className="flex flex-col items-center select-none">
-              <Image
-                src={logoDark}
-                className="h-6 md:h-9 object-left object-contain w-min"
-              />
-              <h1 className="font-extrabold text-gray-700 text-lg hidden md:flex">
-                Pass Sante
-              </h1>
-            </div>
-            <span className="text-xs flex items-center gap-1">
-              Pass Sante ID:
-              <CopyToClipboard
-                text={'0xcda1470a8117daaccf368eb4'}
-                onCopy={() => {
-                  setCopy(true);
-                  setTimeout(() => {
-                    setCopy(false);
-                  }, 2000);
-                }}
-              >
-                <div className="flex items-center gap-1">
-                  [
-                  <div
-                    className="tooltip"
-                    data-tip={!copy ? 'Copy to clipboard' : '✓ Copy'}
-                  >
-                    <span className="text-orange cursor-pointer">
-                      <SliceText text={'0xcda1470a8117daaccf368eb4'} />
-                    </span>
-                  </div>
-                  ]
-                </div>
-              </CopyToClipboard>
-            </span>
-          </div>
-
-          <div className="flex flex-col items-center gap-4">
-            <div className="border relative border-gray-300 rounded-lg overflow-hidden">
-              <Canvas
-                className="w-full"
-                text={`https://wiiqare-app.com/voucher/pass/0xcda1470a8117daaccf368eb4`}
-                options={{
-                  level: 'M',
-                  margin: 1,
-                  scale: 6,
-                  quality: 100,
-                  color: {
-                    dark: '#000',
-                    light: '#FFF',
-                  },
-                }}
-              />
-              {/* <div className="absolute w-full h-full z-20 top-1/3 left-1.5/3 mx-auto">
-			<Image
-				src={logo}
-				className="h-6 md:h-9 object-left object-contain w-min"
-			/>
-		</div> */}
-            </div>
-
-            <div className="flex flex-col items-center gap-1">
-              <div className="flex -space-x-2">
-                <img
-                  className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
-                  src="/images/homme.png"
-                  alt="Image Description"
-                />
-                <img
-                  className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
-                  src="/images/femme.png"
-                  alt="Image Description"
-                />
-              </div>
-
-              <h4 className="text-sm text-center">
-                <span className="font-semibold">$ 0.00</span> Health Pass
-                WiiQare <br /> From{' '}
-                <span className="text-orange font-semibold">
-                  <SliceText text={'0xcda1470a8117daaccf368eb4'} />
-                </span>{' '}
-                To{' '}
-                <span className="text-orange font-semibold">
-                  <SliceText text={'0xcda1470a8117daaccf368eb4'} />
-                </span>
-              </h4>
-            </div>
-          </div>
-
-          <div className="text-center mt-6 flex flex-col gap-2 space-y-3">
-            <h4 className="font-semibold text-gray-700 text-sm">
-              Envoyer le pass santé au bénéficiaire:
-            </h4>
-            <div className="flex justify-between">
-              <Link
-                href={`whatsapp://send?text=https://wiiqare-app.com/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
-                legacyBehavior
-                target={'_blank'}
-              >
-                <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-                  <img src="/images/whatsapp.png" alt="" className="w-6" />
-                  <span className="hidden md:flex">WhatsApp</span>
-                </a>
-              </Link>
-
-              <Link
-                href={`https://www.facebook.com/share.php?u=https://wiiqare-app.com/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
-                legacyBehavior
-                target={'_blank'}
-              >
-                <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-                  <img
-                    src="/images/facebook-share.png"
-                    alt=""
-                    className="w-6"
-                  />
-                  <span className="hidden md:flex">Facebook</span>
-                </a>
-              </Link>
-
-              <Link
-                href={`sms://+243814978651&?body=https://wiiqare-app.com/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
-                legacyBehavior
-                target={'_blank'}
-              >
-                <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-                  <img src="/images/sms.png" alt="" className="w-6" />
-                  <span className="hidden md:flex">Message</span>
-                </a>
-              </Link>
-
-              <CopyToClipboard
-                text={`https://wiiqare-app.com/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
-                onCopy={() => {
-                  setCopyLink(true);
-                  setTimeout(() => {
-                    setCopyLink(false);
-                  }, 2000);
-                }}
-              >
-                <button
-                  type="button"
-                  className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
-                >
-                  <img src="/images/text.png" alt="" className="w-6" />
-                  <span className="hidden md:flex">
-                    {!copyLink ? 'Copy Link' : 'Successfully Copied'}
-                  </span>
-                </button>
-              </CopyToClipboard>
-            </div>
-          </div>
-
-          <div class="flex-shrink-0 border-none backdrop-filter backdrop-blur-[6px] w-full h-full bg-white/30 absolute top-0 p-6"></div>
-
-          <div className="flex flex-shrink-0 absolute top-0 justify-center items-center w-full h-full">
-            <div className="flex flex-col gap-8 justify-center items-center">
-              <HiLockClosed size={150} />
-              <button
-                onClick={handleView}
-                className="bg-orange flex gap-2 effect-up justify-center items-center text-gray-100 font-normal h-fit  py-2 px-3 rounded-lg text-sm transition duration-300"
-              >
-                {loadView ? (
-                  <LoadingButton />
-                ) : (
-                  <>
-                    <HiOutlineEye /> Voir Pass Santé
-                  </>
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      )
+      
+     }
     </div>
   );
 }
