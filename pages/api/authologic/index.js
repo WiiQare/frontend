@@ -10,7 +10,7 @@ export default async function handler(req, res) {
         body: JSON.stringify(
           {
               "userKey": "qW8uMEUFv4Vb4XyN4RSREbzI",
-              "returnUrl": `http://localhost:3000${req.body.path}&conversation={conversationId}`,
+              "returnUrl": `https://wiiqare-app.com${req.body.path}&conversation={conversationId}`,
               "strategy": "public:default",
               "query": {
                 "identity": {
