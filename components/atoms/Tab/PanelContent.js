@@ -15,7 +15,7 @@ const PanelContent = ({ value, index }) => {
 
   useEffect(() => {
     setTransaction({ state: true, transaction: data });
-    console.log(data)
+    console.log(data);
   }, [data]);
 
   return (

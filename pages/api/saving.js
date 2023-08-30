@@ -12,19 +12,19 @@ export default async function handler(req, res) {
   try {
     const { idSaving, amount, currency } = req.body;
 
-    console.log("idSaving", idSaving);
-    console.log("amount", amount);
-    console.log("currency", currency);
+    console.log('idSaving', idSaving);
+    console.log('amount', amount);
+    console.log('currency', currency);
 
     // Create a PaymentIntent with the order amount and currency
     const paymentIntent = await stripe.paymentIntents.create({
       amount: 100,
-      currency: currency.toLowerCase() ?? "usd",
-      automatic_payment_methods: {enabled: true},
+      currency: currency.toLowerCase() ?? 'usd',
+      automatic_payment_methods: { enabled: true },
       metadata: {
         idSaving: idSaving,
-        forSaving: true
-      }
+        forSaving: true,
+      },
     });
 
     res.send({

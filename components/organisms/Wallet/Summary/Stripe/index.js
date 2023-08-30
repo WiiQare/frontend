@@ -21,16 +21,20 @@ const StripePayment = () => {
 
   console.log(saving);
 
-    useEffect(() => {
-        // Create PaymentIntent as soon as the page loads
-        fetch("/api/saving", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({amount: saving.plan.amount, currency: saving.plan.currency, idSaving: saving.idSaving}),
-        })
-            .then((res) => res.json())
-            .then((data) => setClientSecret(data.clientSecret));
-    }, []);
+  useEffect(() => {
+    // Create PaymentIntent as soon as the page loads
+    fetch('/api/saving', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        amount: saving.plan.amount,
+        currency: saving.plan.currency,
+        idSaving: saving.idSaving,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => setClientSecret(data.clientSecret));
+  }, []);
 
   const appearance = {
     theme: 'flat',
