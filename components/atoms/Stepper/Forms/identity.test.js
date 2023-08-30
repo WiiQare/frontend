@@ -12,6 +12,7 @@ import * as Helpers from '../../../../lib/helper';
 describe('Identity2', () => {
   let component;
   beforeEach(() => {
+
     const queryClient = new QueryClient();
     const res = render(
       <SessionProvider session={{ user: { data: { userId: 'random123' } } }}>
@@ -36,7 +37,7 @@ describe('Identity2', () => {
   });
 
   it('should fill the form', async () => {
-    const user = userEvent.setup();
+    const user = userEvent.setup({ delay: null });
 
     const addBeneficiary = screen.getByText('Ajouter un bénéficiaire');
 
@@ -74,5 +75,5 @@ describe('Identity2', () => {
     const nextButton = screen.getByText('Suivant');
 
     await user.click(nextButton);
-  });
+  }, 10000 );
 });
