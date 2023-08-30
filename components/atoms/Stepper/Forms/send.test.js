@@ -6,6 +6,7 @@ import { SessionProvider } from 'next-auth/react';
 import { Provider } from 'react-redux';
 import { store } from '../../../../redux/store';
 import { QueryClientProvider, QueryClient } from 'react-query';
+require('jest-fetch-mock').enableMocks();
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({
