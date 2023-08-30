@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardProvider should render CardProvider component 1`] = `undefined`;
