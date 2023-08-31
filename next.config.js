@@ -21,6 +21,11 @@ const nextConfig = withPWA({
   experimental: {
     forceSwcTransforms: true,
   },
+  env: {
+    NEXT_PUBLIC_API_URL: 'https://api.wiiqare-app.com',
+    NEXT_PUBLIC_BASE_URL: 'http://localhost:3001',
+    NEXTAUTH_URL: 'http://localhost:3001'
+  }
 });
 
 module.exports = nextConfig;
