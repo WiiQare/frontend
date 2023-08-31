@@ -230,7 +230,7 @@ const ItemHistory = ({
                           {' '}
                           Pass santé ID:
                           <CopyToClipboard
-                            text={voucherEntity.voucherHash}
+                            text={voucherEntity?.voucherHash}
                             onCopy={() => {
                               setCopy(true);
                               setTimeout(() => {
@@ -249,7 +249,7 @@ const ItemHistory = ({
                                 }
                               >
                                 <span className="text-orange cursor-pointer">
-                                  <SliceText text={voucherEntity.voucherHash} />
+                                  <SliceText text={voucherEntity?.voucherHash} />
                                 </span>
                               </div>
                               ]
@@ -262,7 +262,7 @@ const ItemHistory = ({
                         <div className="border relative border-gray-300 rounded-lg overflow-hidden">
                           <Canvas
                             className="w-full"
-                            text={`${voucherEntity.voucherHash}`}
+                            text={`${voucherEntity?.voucherHash}`}
                             options={{
                               level: 'M',
                               margin: 1,
@@ -515,7 +515,7 @@ const ItemHistory = ({
                                   <span className="text-xs flex justify-center items-center gap-1">
                                     Pass Sante ID:
                                     <CopyToClipboard
-                                      text={voucherEntity.voucherHash}
+                                      text={voucherEntity?.voucherHash}
                                       onCopy={() => {
                                         setCopy(true);
                                         setTimeout(() => {
