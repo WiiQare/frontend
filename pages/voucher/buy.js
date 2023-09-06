@@ -16,7 +16,6 @@ const Page = () => {
   const [formData, setFormData] = useState({});
   const [kycTest, setKycTest] = useState(true);
 
-
   return (
     <>
       <Head>
