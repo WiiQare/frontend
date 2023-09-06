@@ -16,9 +16,16 @@ import Image from 'next/image';
 import KYC from './kyc';
 
 function Payment2() {
-  const { activeStepIndex, setActiveStepIndex, formData, setFormData, kycTest } =
-    useContext(FormContext);
-  const [amount, setAmount] = useState(JSON.parse(localStorage.getItem("dispatchBuyVoucher")).amount ?? 0);
+  const {
+    activeStepIndex,
+    setActiveStepIndex,
+    formData,
+    setFormData,
+    kycTest,
+  } = useContext(FormContext);
+  const [amount, setAmount] = useState(
+    JSON.parse(localStorage.getItem('dispatchBuyVoucher')).amount ?? 0,
+  );
   const [symbols, setSymbols] = useState([]);
   const client = useSelector((state) => state.app.client);
   const { data } = useSession();
@@ -210,8 +217,9 @@ function Payment2() {
     setSymbols(symbol);
   }, []);
 
-  const patient = localStorage.getItem("dispatchBuyVoucher") ? JSON.parse(localStorage.getItem("dispatchBuyVoucher")) : patientRedux;
-
+  const patient = localStorage.getItem('dispatchBuyVoucher')
+    ? JSON.parse(localStorage.getItem('dispatchBuyVoucher'))
+    : patientRedux;
 
   return (
     <>
@@ -225,17 +233,16 @@ function Payment2() {
           setActiveStepIndex={setActiveStepIndex}
           activeStepIndex={activeStepIndex}
         />
+      ) : !kycTest ? (
+        <StripePayment
+          amount={amount}
+          senderId={data.user.data.userId}
+          patientId={patient.id}
+          email={data.user.data.email}
+          setAmount={setAmount}
+        />
       ) : (
-        !kycTest ? (
-          
-          <StripePayment
-            amount={amount}
-            senderId={data.user.data.userId}
-            patientId={patient.id}
-            email={data.user.data.email}
-            setAmount={setAmount}
-          />
-        ) : <KYC />
+        <KYC />
       )}
     </>
   );
@@ -253,7 +260,9 @@ function Amount({
     amount: yup.number().required('Please enter valid amount').min(2),
   });
 
-  const patient = localStorage.getItem("dispatchBuyVoucher") ? JSON.parse(localStorage.getItem("dispatchBuyVoucher")) : patientRedux;
+  const patient = localStorage.getItem('dispatchBuyVoucher')
+    ? JSON.parse(localStorage.getItem('dispatchBuyVoucher'))
+    : patientRedux;
 
   const [currencyPatient, setCurrencyPatient] = useState(
     countries[patient?.country?.toUpperCase() ?? 'CD'].currencies[0],
@@ -316,8 +325,10 @@ function Amount({
           }),
         );
 
-        localStorage.setItem("dispatchBuyVoucher", JSON.stringify({
-          ...patient,
+        localStorage.setItem(
+          'dispatchBuyVoucher',
+          JSON.stringify({
+            ...patient,
             currency: {
               patient: currencyPatient,
               patientName: currencyPatientName,
@@ -325,8 +336,9 @@ function Amount({
               rate: convertResult.info.rate,
               sender: currencySender,
             },
-            amount: amountTemp
-        }))
+            amount: amountTemp,
+          }),
+        );
         setAmount(amountTemp);
       }}
     >

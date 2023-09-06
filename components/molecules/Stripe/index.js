@@ -14,13 +14,13 @@ const stripePromise = loadStripe(
 );
 
 const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
-
   const [clientSecret, setClientSecret] = useState('');
   const [methodPayment, setMethodPayment] = useState('card');
   const clientSelect = useSelector((state) => state.app.client);
 
-  const client = localStorage.getItem("dispatchBuyVoucher") ? JSON.parse(localStorage.getItem("dispatchBuyVoucher")) : clientSelect.patient;
-
+  const client = localStorage.getItem('dispatchBuyVoucher')
+    ? JSON.parse(localStorage.getItem('dispatchBuyVoucher'))
+    : clientSelect.patient;
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
@@ -31,7 +31,9 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
         amount,
         senderId,
         patientId,
-        patient: localStorage.getItem("dispatchBuyVoucher") ? JSON.parse(localStorage.getItem("dispatchBuyVoucher")) : client,
+        patient: localStorage.getItem('dispatchBuyVoucher')
+          ? JSON.parse(localStorage.getItem('dispatchBuyVoucher'))
+          : client,
       }),
     })
       .then((res) => res.json())
@@ -80,20 +82,15 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                 <div className="py-5 w-full">
                   <h3 className="text-xl font-bold tracking-tight text-gray-900 ">
                     <a href="#">
-                      {client.firstName}{' '}
-                      {client.lastName.toUpperCase()}
+                      {client.firstName} {client.lastName.toUpperCase()}
                     </a>
                   </h3>
-                  <span className="text-gray-500 ">
-                    {client?.email ?? ''}
-                  </span>
+                  <span className="text-gray-500 ">{client?.email ?? ''}</span>
                   <p className="mt-3 mb-4 font-light text-gray-500 w-full">
                     <ul className="flex flex-col gap-1 w-full text-sm">
                       <li className="flex justify-between w-full">
                         Numéro de téléphone:{' '}
-                        <b className="text-orange">
-                          {client.phoneNumber}
-                        </b>
+                        <b className="text-orange">{client.phoneNumber}</b>
                       </li>
                       <li className="flex justify-between w-full">
                         Pays:{' '}
@@ -109,14 +106,11 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                         </b>
                       </li>
                       <li className="flex justify-between w-full">
-                        Ville:{' '}
-                        <b className="text-gray-700">{client.city}</b>
+                        Ville: <b className="text-gray-700">{client.city}</b>
                       </li>
                       <li className="flex justify-between w-full">
                         Adresse du domicile:{' '}
-                        <b className="text-gray-700">
-                          {client.homeAddress}
-                        </b>
+                        <b className="text-gray-700">{client.homeAddress}</b>
                       </li>
                     </ul>
                   </p>

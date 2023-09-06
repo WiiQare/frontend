@@ -17,73 +17,83 @@ import Toast from '../../Toast';
 import { CurrencyFlag } from 'react-currency-flags/dist/components';
 
 function KYC() {
-  
-  const [statusID, setStatusID] = useState("IN_PROGRESS");
-  const { activeStepIndex, setActiveStepIndex, formData, setFormData, kycTest, setKycTest } =
-    useContext(FormContext);
+  const [statusID, setStatusID] = useState('IN_PROGRESS');
+  const {
+    activeStepIndex,
+    setActiveStepIndex,
+    formData,
+    setFormData,
+    kycTest,
+    setKycTest,
+  } = useContext(FormContext);
   const router = useRouter();
 
   const checkStatus = async () => {
     try {
-      const response = fetch("/api/authologic/check", {
-        method: "POST",
+      const response = fetch('/api/authologic/check', {
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          id: router.query.conversation
-        })
-      })
+          id: router.query.conversation,
+        }),
+      });
 
       const jsonData = (await response).json();
 
-      jsonData.then((data) => {
-        console.log(data);
-        if (data.status != "FINISHED") {setTimeout(checkStatus, 8000)}
-        else {setKycTest(false)}
-
-      }).catch(e => setTimeout(checkStatus, 8000))
-
-
+      jsonData
+        .then((data) => {
+          console.log(data);
+          if (data.status != 'FINISHED') {
+            setTimeout(checkStatus, 8000);
+          } else {
+            setKycTest(false);
+          }
+        })
+        .catch((e) => setTimeout(checkStatus, 8000));
     } catch (error) {
       console.log(error);
       setTimeout(checkStatus, 8000);
     }
-  }
+  };
 
   useEffect(() => {
-
     if (!router.query.conversation) {
-      
-      fetch("/api/authologic", {
-        method: "POST",
+      fetch('/api/authologic', {
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          path: router.asPath + "?step=1"
-        })
-      }).then(res => res.json())
-      .then(data => {
-        router.push(data.url)
+          path: router.asPath + '?step=1',
+        }),
       })
-      .catch(e => console.log(e))
+        .then((res) => res.json())
+        .then((data) => {
+          router.push(data.url);
+        })
+        .catch((e) => console.log(e));
     } else {
       checkStatus();
     }
-
   }, []);
 
   return (
     <div className="flex flex-col gap-6 justify-center items-center">
-      {
-      !router.query.conversation ? (<>{"Verification d'identité..."}</>): (
+      {!router.query.conversation ? (
+        <>{"Verification d'identité..."}</>
+      ) : (
         <>
-
-        {
-          statusID == "IN_PROGRESS" ? <>{"Vérification d'identité en cours"}</> : <>{statusID != "FINISHED" ?  <>{"Identity vérification failed"}</> : ""}</>
-        }
-          
+          {statusID == 'IN_PROGRESS' ? (
+            <>{"Vérification d'identité en cours"}</>
+          ) : (
+            <>
+              {statusID != 'FINISHED' ? (
+                <>{'Identity vérification failed'}</>
+              ) : (
+                ''
+              )}
+            </>
+          )}
         </>
-      )
-      
-     }
+      )}
     </div>
   );
 }
