@@ -10,7 +10,7 @@ import Fetcher from '../../../lib/Fetcher';
 const Wallet = () => {
   const { data: session } = useSession();
   const { data, isLoading, isError } = Fetcher(
-    `/savings/cf2eb389-cda1-470a-8117-daaccf368eb4`,
+    `/savings/${session.user.data.userId}`,
     session.user.data.access_token,
   );
 
