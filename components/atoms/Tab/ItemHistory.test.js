@@ -18,9 +18,7 @@ describe('ItemHistory', () => {
           })}
           senderCurrency="USD"
           voucher={{ id: 1, amount: 100, currency: 'USD' }}
-
           voucherEntity={{ voucherHash: '', shortenHash: '' }}
-
           currency={'USD'}
           sender={{ firstName: 'John' }}
         />

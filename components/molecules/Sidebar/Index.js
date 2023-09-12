@@ -43,8 +43,9 @@ const Sidebar = ({ activePath }) => {
   const { hideSide } = useContext(DrawContext);
   return (
     <div
-      className={`h-screen fixed bg-white px-6 py-12 ${hideSide ? 'hidden' : ''
-        } hidden md:flex flex-col gap-8`}
+      className={`h-screen fixed bg-white px-6 py-12 ${
+        hideSide ? 'hidden' : ''
+      } hidden md:flex flex-col gap-8`}
     >
       {Items.map((item, index) => (
         <ItemSidebar
@@ -55,8 +56,9 @@ const Sidebar = ({ activePath }) => {
       ))}
 
       <span
-        className={`text-xs text-gray-400 absolute bottom-24 ${hideSide ? 'hidden' : ''
-          }`}
+        className={`text-xs text-gray-400 absolute bottom-24 ${
+          hideSide ? 'hidden' : ''
+        }`}
       >
         &copy; Copyright <span className="text-red-600">❤️</span> WiiQare{' '}
         {new Date().getFullYear()}

@@ -25,9 +25,7 @@ const Wallet = () => {
         </Link>
       </CardHeader>
 
-      <WalletBalance
-        data={{ data, isLoading }}
-      />
+      <WalletBalance data={{ data, isLoading }} />
 
       {/* <HistoryWallet /> */}
     </div>

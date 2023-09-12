@@ -10,7 +10,7 @@ const Page = () => {
   const { query } = useRouter();
   const { data, isLoading, isError } = Fetcher(
     `/savings/details/${query.slug}`,
-    session.user.data.access_token
+    session.user.data.access_token,
   );
 
   return (
@@ -26,7 +26,6 @@ const Page = () => {
         fullname={session.user.data.names}
         email={session.user.data.email}
         phone={session.user.data.phoneNumber}
-
       />
     </>
   );
