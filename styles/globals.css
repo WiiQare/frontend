@@ -9,6 +9,11 @@ body {
 .effect-up {
   @apply relative transition duration-200 hover:-top-1;
 }
+
+.effect-right {
+  @apply relative transition duration-300 hover:-right-1;
+}
+
 /* 
 .cardWrap {
     width: 27em;

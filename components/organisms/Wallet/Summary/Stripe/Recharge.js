@@ -15,33 +15,51 @@ import { addPlan, saveOperation } from '../../../../../lib/helper';
 import { useMutation } from 'react-query';
 import LoadingButton from '../../../../atoms/Loader/LoadingButton';
 import { useRouter } from 'next/router';
+import Fetcher from '../../../../../lib/Fetcher';
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
 );
 
-const StripePayment = () => {
-  const { setSaving, saving } = useContext(DrawContext);
+const StripePaymentRecharge = () => {
   const [clientSecret, setClientSecret] = useState('');
   const [state, setState] = useState({ type: 0, message: '' });
+  const [count, setCount] = useState({ price: 0 });
   const [methodPayment, setMethodPayment] = useState('card');
   const { data: session } = useSession();
   const router = useRouter();
+  const { data, isLoading, isError } = Fetcher(
+    `/savings/details/${router.query.saving}`,
+    session.user.data.access_token,
+  );
 
-  // useEffect(() => {
-  //   // Create PaymentIntent as soon as the page loads
-  //   fetch('/api/saving', {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify({
-  //       amount: saving.plan.amount,
-  //       currency: saving.plan.currency,
-  //       idSaving: saving.idSaving,
-  //     }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => setClientSecret(data.clientSecret));
-  // }, []);
+  useEffect(() => {
+    //   // Create PaymentIntent as soon as the page loads
+    //   fetch('/api/saving', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify({
+    //       amount: saving.plan.amount,
+    //       currency: saving.plan.currency,
+    //       idSaving: saving.idSaving,
+    //     }),
+    //   })
+    //     .then((res) => res.json())
+    //     .then((data) => setClientSecret(data.clientSecret));
+
+    if (data && !data.code) {
+      const month = data?.type == 'FEMME ENCEINTE' ? 9 : 12;
+      const price =
+        data?.amount /
+        (data?.frequency == 'MONTH'
+          ? month
+          : data?.week == 'WEEK'
+          ? month * 4
+          : month * 31);
+
+      setCount({ price });
+    }
+  }, [data]);
 
   // const appearance = {
   //   theme: 'flat',
@@ -76,15 +94,15 @@ const StripePayment = () => {
 
   const summaryPage = () => {
     newPlan.mutate({
-      amount: saving.plan.amount.toFixed(2),
-      currency: saving.plan.currency,
-      saving: saving.idSaving,
+      amount: count.price.toFixed(2),
+      currency: data.currency,
+      saving: router.query.saving,
       type: 'CREDIT',
       accessToken: session.accessToken,
     });
   };
 
-  if (!saving.plan)
+  if (!router.query.saving)
     return (
       <div className="flex flex-col items-center justify-center py-20 gap-6">
         <img
@@ -102,7 +120,7 @@ const StripePayment = () => {
 
   return (
     <>
-      {!clientSecret ? (
+      {!clientSecret && !isLoading ? (
         <div className="flex justify-center w-full  py-10 items-end bg-white rounded-lg border">
           <div className="grid lg:grid-cols-2 gap-6">
             <div className="px-4 pt-8">
@@ -128,13 +146,14 @@ const StripePayment = () => {
                   <h3 className="text-xl font-semibold tracking-tight text-gray-900 ">
                     <a href="#">
                       Épargne -{' '}
-                      <span className="text-orange font-bold">
-                        {saving.title}
+                      <span className="text-orange font-bold capitalize">
+                        {data.type}
                       </span>
                     </a>
                   </h3>
                   <span className="text-gray-500 ">
-                    Sur un total de {saving.month} Mois
+                    Sur un total de {data.type == 'FEMME ENCEINTE' ? 9 : 12}{' '}
+                    Mois
                   </span>
                   <p className="mt-3 mb-4 font-light text-gray-500 w-full">
                     <ul className="flex flex-col gap-1 w-full text-sm">
@@ -143,8 +162,8 @@ const StripePayment = () => {
                         <b className="text-orange">
                           {new Intl.NumberFormat('en-US', {
                             style: 'currency',
-                            currency: saving.target.currency,
-                          }).format(saving.target.amount)}
+                            currency: data.currency,
+                          }).format(data.amount)}
                         </b>
                       </li>
                     </ul>
@@ -158,7 +177,7 @@ const StripePayment = () => {
                     Devise d&apos;épargne
                   </p>
                   <p className="font-normal text-sm text-gray-600">
-                    {saving.target.currency}
+                    {data.currency}
                   </p>
                 </div>
 
@@ -167,11 +186,11 @@ const StripePayment = () => {
                     Fréquence de paiement
                   </p>
                   <p className="font-normal text-sm text-gray-600">
-                    {saving.plan.type == 'DAY'
+                    {data.frequency == 'DAY'
                       ? 'Journalier'
-                      : saving.plan.type == 'WEEK'
+                      : data.frequency == 'WEEK'
                       ? 'Hebdomadaire'
-                      : saving.plan.type == 'MONTH'
+                      : data.frequency == 'MONTH'
                       ? 'Mensuel'
                       : '---'}
                   </p>
@@ -185,14 +204,12 @@ const StripePayment = () => {
                 </div>
               </div>
               <div className="mt-6 flex items-center justify-between border-b pb-6">
-                <p className="text-sm font-medium text-gray-900">
-                  Premier paiement
-                </p>
+                <p className="text-sm font-medium text-gray-900">Paiement</p>
                 <p className="text-2xl font-semibold text-gray-900">
                   {new Intl.NumberFormat('en-US', {
                     style: 'currency',
-                    currency: saving.plan.currency,
-                  }).format(saving.plan.amount)}
+                    currency: data.currency,
+                  }).format(count.price)}
                 </p>
               </div>
 
@@ -259,7 +276,7 @@ const StripePayment = () => {
                   </label>
                 </div>
 
-                {saving.target.currency != 'EUR' ? (
+                {data.currency != 'EUR' ? (
                   <div
                     className="relative"
                     onClick={() => setMethodPayment('mobile')}
@@ -353,7 +370,7 @@ const StripePayment = () => {
   );
 };
 
-export default StripePayment;
+export default StripePaymentRecharge;
 
 function LoaderStripe() {
   return (

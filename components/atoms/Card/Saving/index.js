@@ -42,6 +42,8 @@ const SavingCard = ({ title, img, month = 12 }) => {
 
     setPlan(prices[0]);
     setPricing(prices);
+
+    console.log(saving);
   };
 
   const onSubmit = (values) => {

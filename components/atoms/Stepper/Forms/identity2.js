@@ -77,6 +77,11 @@ function Identity2() {
         }, 3000);
       } else {
         setState({ type: 1, message: 'Enregistré avec succès' });
+
+        localStorage.setItem(
+          'dispatchBuyVoucher',
+          JSON.stringify({ ...res, countryLabel }),
+        );
         dispatch(setPatientDispatch({ ...res, countryLabel }));
 
         setActiveStepIndex(activeStepIndex + 1);

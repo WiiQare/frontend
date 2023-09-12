@@ -12,7 +12,6 @@ import * as Helpers from '../../../../lib/helper';
 describe('Identity2', () => {
   let component;
   beforeEach(() => {
-
     const queryClient = new QueryClient();
     const res = render(
       <SessionProvider session={{ user: { data: { userId: 'random123' } } }}>
@@ -75,5 +74,5 @@ describe('Identity2', () => {
     const nextButton = screen.getByText('Suivant');
 
     await user.click(nextButton);
-  }, 10000 );
+  }, 10000);
 });

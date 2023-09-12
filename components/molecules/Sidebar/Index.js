@@ -35,7 +35,7 @@ const Items = [
       <LiaHandHoldingUsdSolid size={size + 5} className={className} />
     ),
     link: '/saving',
-    active: ['/saving', '/saving/[id]', '/saving/new', '/saving/summary'],
+    active: ['/saving', '/saving/[slug]', '/saving/new', '/saving/summary'],
   },
 ];
 

@@ -84,7 +84,10 @@ const ItemHistory = ({
   });
 
   const onSubmit = async (values) => {
-    sendSMSMutation.mutate({ shortenHash: voucherEntity.shortenHash, accessToken });
+    sendSMSMutation.mutate({
+      shortenHash: voucherEntity.shortenHash,
+      accessToken,
+    });
   };
 
   const closeToast = () => {

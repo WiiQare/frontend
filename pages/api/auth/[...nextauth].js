@@ -30,14 +30,17 @@ const authOptions = {
       credentials: {},
       async authorize(credentials, req) {
         const Options = {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email: credentials.email, password: credentials.password })
-        }
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: credentials.email,
+            password: credentials.password,
+          }),
+        };
         const url = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/session`;
-        const response = await fetch( url, Options);
+        const response = await fetch(url, Options);
         const json = await response.json();
 
         if (json.code) throw new Error(json.description);

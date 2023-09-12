@@ -11,9 +11,10 @@ export const FormContext = createContext();
 const Page = () => {
   const { step, redirect_status, payment_intent } = useRouter().query;
   const [activeStepIndex, setActiveStepIndex] = useState(
-    step == 'end' && redirect_status == 'succeeded' ? 2 : 0,
+    step == 'end' && redirect_status == 'succeeded' ? 2 : step == '1' ? 1 : 0,
   );
   const [formData, setFormData] = useState({});
+  const [kycTest, setKycTest] = useState(true);
 
   return (
     <>
@@ -52,6 +53,8 @@ const Page = () => {
                     setActiveStepIndex,
                     formData,
                     setFormData,
+                    kycTest,
+                    setKycTest,
                     payment_intent,
                   }}
                 >

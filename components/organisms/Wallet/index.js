@@ -10,7 +10,7 @@ import Fetcher from '../../../lib/Fetcher';
 const Wallet = () => {
   const { data: session } = useSession();
   const { data, isLoading, isError } = Fetcher(
-    `/savings/cf2eb389-cda1-470a-8117-daaccf368eb4`,
+    `/savings/${session.user.data.userId}`,
     session.user.data.access_token,
   );
 
@@ -25,30 +25,7 @@ const Wallet = () => {
         </Link>
       </CardHeader>
 
-      <WalletBalance
-        wallet={{
-          amount: '0.00',
-          valid: '08/21',
-          holder: 'Peter NDENGO',
-          number: '**** **** **** 1234',
-          progress: 45,
-        }}
-        progresses={{
-          installment: {
-            percent: 62,
-            amount: '5,412',
-          },
-          investment: {
-            percent: 89,
-            amount: '10,619',
-          },
-          property: {
-            percent: 41,
-            amount: '1,282',
-          },
-        }}
-        data={{ data, isLoading }}
-      />
+      <WalletBalance data={{ data, isLoading }} />
 
       {/* <HistoryWallet /> */}
     </div>

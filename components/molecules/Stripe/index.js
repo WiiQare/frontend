@@ -16,7 +16,11 @@ const stripePromise = loadStripe(
 const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
   const [clientSecret, setClientSecret] = useState('');
   const [methodPayment, setMethodPayment] = useState('card');
-  const client = useSelector((state) => state.app.client);
+  const clientSelect = useSelector((state) => state.app.client);
+
+  const client = localStorage.getItem('dispatchBuyVoucher')
+    ? JSON.parse(localStorage.getItem('dispatchBuyVoucher'))
+    : clientSelect.patient;
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
@@ -27,7 +31,9 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
         amount,
         senderId,
         patientId,
-        patient: client.patient,
+        patient: localStorage.getItem('dispatchBuyVoucher')
+          ? JSON.parse(localStorage.getItem('dispatchBuyVoucher'))
+          : client,
       }),
     })
       .then((res) => res.json())
@@ -76,43 +82,35 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                 <div className="py-5 w-full">
                   <h3 className="text-xl font-bold tracking-tight text-gray-900 ">
                     <a href="#">
-                      {client.patient.firstName}{' '}
-                      {client.patient.lastName.toUpperCase()}
+                      {client.firstName} {client.lastName.toUpperCase()}
                     </a>
                   </h3>
-                  <span className="text-gray-500 ">
-                    {client.patient?.email ?? ''}
-                  </span>
+                  <span className="text-gray-500 ">{client?.email ?? ''}</span>
                   <p className="mt-3 mb-4 font-light text-gray-500 w-full">
                     <ul className="flex flex-col gap-1 w-full text-sm">
                       <li className="flex justify-between w-full">
                         Numéro de téléphone:{' '}
-                        <b className="text-orange">
-                          {client.patient.phoneNumber}
-                        </b>
+                        <b className="text-orange">{client.phoneNumber}</b>
                       </li>
                       <li className="flex justify-between w-full">
                         Pays:{' '}
                         <b className="text-gray-700 flex gap-1 items-center">
                           <Image
-                            src={`https://flagcdn.com/w20/${client.patient.country}.png`}
+                            src={`https://flagcdn.com/w20/${client.country}.png`}
                             alt="cd"
                             width={20}
                             height={20}
                             className="rounded-full h-4 w-4 object-cover"
                           />{' '}
-                          {countries[client.patient.country.toUpperCase()].name}
+                          {countries[client.country.toUpperCase()].name}
                         </b>
                       </li>
                       <li className="flex justify-between w-full">
-                        Ville:{' '}
-                        <b className="text-gray-700">{client.patient.city}</b>
+                        Ville: <b className="text-gray-700">{client.city}</b>
                       </li>
                       <li className="flex justify-between w-full">
                         Adresse du domicile:{' '}
-                        <b className="text-gray-700">
-                          {client.patient.homeAddress}
-                        </b>
+                        <b className="text-gray-700">{client.homeAddress}</b>
                       </li>
                     </ul>
                   </p>
@@ -125,7 +123,7 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                     Devise d&apos;envoie
                   </p>
                   <p className="font-normal text-sm text-gray-600">
-                    {client.patient.currency.sender}
+                    {client.currency.sender}
                   </p>
                 </div>
                 <div className="flex items-center justify-between">
@@ -133,7 +131,7 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                     Devise de réception
                   </p>
                   <p className="font-normal text-sm text-gray-600">
-                    {client.patient.currency.patient}
+                    {client.currency.patient}
                   </p>
                 </div>
 
@@ -141,10 +139,10 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                   <p className="text-sm font-medium text-gray-900">Monnaie</p>
                   <p className="font-normal text-sm text-gray-600 flex items-center gap-2">
                     <CurrencyFlag
-                      currency={client.patient.currency.patient}
+                      currency={client.currency.patient}
                       className="rounded-full !h-4 !w-4 object-cover"
                     />
-                    {client.patient.currency.patientName}
+                    {client.currency.patientName}
                   </p>
                 </div>
 
@@ -153,15 +151,15 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                     Taux d&apos;échange
                   </p>
                   <p className="font-normal text-sm text-gray-600">
-                    {client.patient.currency.sender == 'USD'
+                    {client.currency.sender == 'USD'
                       ? '$'
-                      : client.patient.currency.sender == 'EUR'
+                      : client.currency.sender == 'EUR'
                       ? '€'
-                      : client.patient.currency.sender ?? '€'}{' '}
+                      : client.currency.sender ?? '€'}{' '}
                     1.00 ={' '}
                     <span className="text-orange">
-                      {client.patient.currency.rate.toFixed(2) ?? ''}{' '}
-                      {client.patient.currency.patient}
+                      {client.currency.rate.toFixed(2) ?? ''}{' '}
+                      {client.currency.patient}
                     </span>
                   </p>
                 </div>
@@ -171,12 +169,12 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                     Il recevra
                   </p>
                   <p className="font-normal text-sm text-gray-600">
-                    {client?.patient?.currency?.patientAmount.toFixed(2) ?? 0}{' '}
-                    {client.patient.currency.patient == 'USD'
+                    {client?.currency?.patientAmount.toFixed(2) ?? 0}{' '}
+                    {client.currency.patient == 'USD'
                       ? '$'
-                      : client.patient.currency.patient == 'EUR'
+                      : client.currency.patient == 'EUR'
                       ? '€'
-                      : client.patient.currency.patient ?? '€'}
+                      : client.currency.patient ?? '€'}
                   </p>
                 </div>
 
@@ -192,11 +190,11 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                   Montant à payer
                 </p>
                 <p className="text-2xl font-semibold text-gray-900">
-                  {client.patient.currency.sender == 'USD'
+                  {client.currency.sender == 'USD'
                     ? '$'
-                    : client.patient.currency.sender == 'EUR'
+                    : client.currency.sender == 'EUR'
                     ? '€'
-                    : client.patient.currency.sender ?? '€'}{' '}
+                    : client.currency.sender ?? '€'}{' '}
                   {amount}
                 </p>
               </div>
