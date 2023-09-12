@@ -9,6 +9,12 @@ import { HiArrowSmLeft } from 'react-icons/hi';
 import Image from 'next/image';
 import { DrawContext } from '../../../../../pages/_app';
 import Link from 'next/link';
+import { useFormik } from 'formik';
+import { useSession } from 'next-auth/react';
+import { addPlan, saveOperation } from '../../../../../lib/helper';
+import { useMutation } from 'react-query';
+import LoadingButton from '../../../../atoms/Loader/LoadingButton';
+import { useRouter } from 'next/router';
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
@@ -17,41 +23,65 @@ const stripePromise = loadStripe(
 const StripePayment = () => {
   const { setSaving, saving } = useContext(DrawContext);
   const [clientSecret, setClientSecret] = useState('');
+  const [state, setState] = useState({ type: 0, message: '' });
   const [methodPayment, setMethodPayment] = useState('card');
+  const { data: session } = useSession();
+  const router = useRouter();
 
-  console.log(saving);
+  // useEffect(() => {
+  //   // Create PaymentIntent as soon as the page loads
+  //   fetch('/api/saving', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify({
+  //       amount: saving.plan.amount,
+  //       currency: saving.plan.currency,
+  //       idSaving: saving.idSaving,
+  //     }),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => setClientSecret(data.clientSecret));
+  // }, []);
 
-  useEffect(() => {
-    // Create PaymentIntent as soon as the page loads
-    fetch('/api/saving', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        amount: saving.plan.amount,
-        currency: saving.plan.currency,
-        idSaving: saving.idSaving,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
-  }, []);
+  // const appearance = {
+  //   theme: 'flat',
+  //   labels: 'floating',
+  //   rules: {
+  //     '.Error': {
+  //       fontSize: '10px',
+  //     },
+  //     '.Label': {
+  //       fontSize: '10px',
+  //     },
+  //   },
+  // };
 
-  const appearance = {
-    theme: 'flat',
-    labels: 'floating',
-    rules: {
-      '.Error': {
-        fontSize: '10px',
-      },
-      '.Label': {
-        fontSize: '10px',
-      },
+  // const options = {
+  //   clientSecret,
+  //   appearance,
+  // };
+
+  const newPlan = useMutation(saveOperation, {
+    onSuccess: (res) => {
+      if (res.code) {
+        setState({ type: 2, message: res.message ?? res.description });
+        setTimeout(() => {
+          setState({ type: 0, message: '' });
+        }, 3000);
+      } else {
+        router.push('/saving/done?redirect_status=succeeded');
+      }
     },
-  };
+  });
 
-  const options = {
-    clientSecret,
-    appearance,
+  const summaryPage = () => {
+    newPlan.mutate({
+      amount: saving.plan.amount.toFixed(2),
+      currency: saving.plan.currency,
+      saving: saving.idSaving,
+      type: 'CREDIT',
+      accessToken: session.accessToken,
+    });
   };
 
   if (!saving.plan)
@@ -72,7 +102,7 @@ const StripePayment = () => {
 
   return (
     <>
-      {clientSecret ? (
+      {!clientSecret ? (
         <div className="flex justify-center w-full  py-10 items-end bg-white rounded-lg border">
           <div className="grid lg:grid-cols-2 gap-6">
             <div className="px-4 pt-8">
@@ -140,10 +170,10 @@ const StripePayment = () => {
                     {saving.plan.type == 'DAY'
                       ? 'Journalier'
                       : saving.plan.type == 'WEEK'
-                      ? 'Hebdomadaire'
-                      : saving.plan.type == 'MONTH'
-                      ? 'Mensuel'
-                      : '---'}
+                        ? 'Hebdomadaire'
+                        : saving.plan.type == 'MONTH'
+                          ? 'Mensuel'
+                          : '---'}
                   </p>
                 </div>
 
@@ -173,16 +203,14 @@ const StripePayment = () => {
                   onClick={() => setMethodPayment('card')}
                 >
                   <span
-                    className={`${
-                      methodPayment == 'card' ? 'border-orange' : ''
-                    } absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white`}
+                    className={`${methodPayment == 'card' ? 'border-orange' : ''
+                      } absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white`}
                   ></span>
                   <label
-                    className={`${
-                      methodPayment == 'card'
-                        ? 'border-2 border-orange peer-checked:bg-gray-50'
-                        : ''
-                    } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
+                    className={`${methodPayment == 'card'
+                      ? 'border-2 border-orange peer-checked:bg-gray-50'
+                      : ''
+                      } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
                     for="radio_1"
                   >
                     <img
@@ -203,16 +231,14 @@ const StripePayment = () => {
                   onClick={() => setMethodPayment('crypto')}
                 >
                   <span
-                    className={`${
-                      methodPayment == 'crypto' ? 'border-orange' : ''
-                    } absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white`}
+                    className={`${methodPayment == 'crypto' ? 'border-orange' : ''
+                      } absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white`}
                   ></span>
                   <label
-                    className={`${
-                      methodPayment == 'crypto'
-                        ? 'border-2 border-orange peer-checked:bg-gray-50'
-                        : ''
-                    } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
+                    className={`${methodPayment == 'crypto'
+                      ? 'border-2 border-orange peer-checked:bg-gray-50'
+                      : ''
+                      } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
                     for="radio_2"
                   >
                     <img
@@ -235,16 +261,14 @@ const StripePayment = () => {
                     onClick={() => setMethodPayment('mobile')}
                   >
                     <span
-                      className={`${
-                        methodPayment == 'mobile' ? 'border-orange' : ''
-                      } absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white`}
+                      className={`${methodPayment == 'mobile' ? 'border-orange' : ''
+                        } absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white`}
                     ></span>
                     <label
-                      className={`${
-                        methodPayment == 'mobile'
-                          ? 'border-2 border-orange peer-checked:bg-gray-50'
-                          : ''
-                      } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
+                      className={`${methodPayment == 'mobile'
+                        ? 'border-2 border-orange peer-checked:bg-gray-50'
+                        : ''
+                        } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
                       for="radio_3"
                     >
                       <img
@@ -275,9 +299,21 @@ const StripePayment = () => {
                   </p>
 
                   <div>
-                    <Elements options={options} stripe={stripePromise}>
+                    {/* <Elements options={options} stripe={stripePromise}>
                       <CheckoutForm amount={400} email={''} />
-                    </Elements>
+                    </Elements> */}
+
+                    <button
+                      type="submit"
+                      onClick={() => summaryPage()}
+                      className="mb-8 w-full rounded-md bg-orange effect-up px-6 py-4 font-medium text-white"
+                    >
+                      {newPlan.isLoading ? (
+                        <LoadingButton />
+                      ) : (
+                        'Procéder au paiement'
+                      )}
+                    </button>
                   </div>
                 </>
               ) : methodPayment == 'crypto' ? (

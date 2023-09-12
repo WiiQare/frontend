@@ -15,7 +15,7 @@ const CardHeader = ({
   print = false,
 }) => {
   return (
-    <div className="border w-full rounded-lg py-8 px-6 flex flex-col flex-wrap md:flex-row justify-between gap-4 bg-white cursor-pointer">
+    <div className="border w-full rounded-lg py-8 px-6 flex flex-col flex-wrap md:flex-row justify-between items-center gap-4 bg-white cursor-pointer">
       <div className="flex flex-col">
         <h1 className="md:text-2xl text-gray-700 font-bold flex-wrap flex items-center gap-2 text-lg">
           {title}

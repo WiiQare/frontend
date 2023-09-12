@@ -26,27 +26,6 @@ const Wallet = () => {
       </CardHeader>
 
       <WalletBalance
-        wallet={{
-          amount: '0.00',
-          valid: '08/21',
-          holder: 'Peter NDENGO',
-          number: '**** **** **** 1234',
-          progress: 45,
-        }}
-        progresses={{
-          installment: {
-            percent: 62,
-            amount: '5,412',
-          },
-          investment: {
-            percent: 89,
-            amount: '10,619',
-          },
-          property: {
-            percent: 41,
-            amount: '1,282',
-          },
-        }}
         data={{ data, isLoading }}
       />
 

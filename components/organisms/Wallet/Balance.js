@@ -1,11 +1,21 @@
+import { createContext, useContext, useState } from 'react';
 import Link from 'next/link';
 import { CiWallet } from 'react-icons/ci';
 import { HiDotsVertical } from 'react-icons/hi';
 import CardProgress from '../../atoms/Card/Progress';
 import DropdownFilter from '../../atoms/Dropdown/Filter';
+import { useSession } from 'next-auth/react';
 
-const WalletBalance = ({ wallet, progresses, data }) => {
-  console.log(data);
+const WalletBalance = ({ data }) => {
+  const { data: session } = useSession();
+
+  const SliceText = ({ text }) => {
+    return (
+      <>
+        {text?.slice(0, 8)}...{text?.slice(-7)}
+      </>
+    );
+  };
 
   if (data.isLoading) return <>Loading...</>;
   return (
@@ -30,22 +40,25 @@ const WalletBalance = ({ wallet, progresses, data }) => {
           <div className="flex gap-2 items-center">
             <CiWallet size={80} className="text-sky" />
             <div className="text-gray-700">
-              <h1 className="font-semibold text-xl">{"Total d'épargne"}</h1>
-              <h3 className="font-bold text-3xl">${wallet.amount}</h3>
+              <h1 className="font-semibold text-xl">{'Portefeuille ID'}</h1>
+              <h3 className="font-light uppercase text-md">
+                #
+                <SliceText text={session.user.data.userId} />
+              </h3>
             </div>
           </div>
 
-          <div className="text-sm hidden md:block">
+          {/* <div className="text-sm hidden md:block">
             <span className="uppercase">DERNIER DÉPÔT</span>
             <h6 className="text-gray-700"></h6>
-          </div>
+          </div> */}
 
-          <div className="text-sm hidden md:block">
+          {/* <div className="text-sm hidden md:block">
             <span className="uppercase">Numéro de portefeuille</span>
             <h1 className=" text-gray-900 font-semibold hidden md:block">
               {wallet.number}
             </h1>
-          </div>
+          </div> */}
 
           <span className="w-12 hidden md:block"></span>
         </div>
@@ -53,19 +66,6 @@ const WalletBalance = ({ wallet, progresses, data }) => {
         <div className="px-6 mt-8 space-y-7">
           {data.data && data.data.length > 0 ? (
             <>
-              {data.data.length == 1 ? (
-                <div className="w-full bg-gray-200 rounded-full md:h-7">
-                  <div
-                    className={`bg-sky text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full w-[${wallet.progress}%] h-full flex items-center justify-center`}
-                  >
-                    {' '}
-                    {wallet.progress}%
-                  </div>
-                </div>
-              ) : (
-                <></>
-              )}
-
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 {data.data.map((saving, index) => (
                   <CardProgress
@@ -74,20 +74,21 @@ const WalletBalance = ({ wallet, progresses, data }) => {
                         ? 'text-purple'
                         : saving.operations.length * 10 > 50 &&
                           saving.operations.length * 10 <= 75
-                        ? 'text-[#2ABB52]'
-                        : 'text-[#441DE1]'
+                          ? 'text-[#2ABB52]'
+                          : 'text-[#441DE1]'
                     }
                     value={saving.operations.length * 10}
                     title={saving.type == 'MOI' ? 'POUR MOI' : saving.type}
                     amount={saving.amount}
                     currency={saving.currency}
+                    operations={saving.operations}
                     className={
                       saving.operations.length * 10 <= 50
                         ? 'bg-[#F9F1FC]'
                         : saving.operations.length * 10 > 50 &&
                           saving.operations.length * 10 <= 75
-                        ? 'bg-[#E3F9E9]'
-                        : 'bg-[#F4F2FE]'
+                          ? 'bg-[#E3F9E9]'
+                          : 'bg-[#F4F2FE]'
                     }
                     link={`/saving/${saving.id}`}
                     key={index}
