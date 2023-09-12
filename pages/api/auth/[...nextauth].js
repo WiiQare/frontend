@@ -30,15 +30,12 @@ const authOptions = {
       credentials: {},
       async authorize(credentials, req) {
         const Options = {
-          method: 'POST',
+          method: "POST",
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({
-            email: credentials.email,
-            password: credentials.password,
-          }),
-        };
+          body: JSON.stringify({ email: credentials.email, password: credentials.password })
+        }
         const url = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/session`;
         const response = await fetch(url, Options);
         const json = await response.json();

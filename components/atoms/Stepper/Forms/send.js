@@ -1,83 +1,76 @@
-import React, { useContext, useState } from 'react';
-import { useQRCode } from 'next-qrcode';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { FormContext } from '../../../../pages/voucher/buy';
-import Image from 'next/image';
-import logoDark from '../../../../public/images/logo_dark_2.png';
-import Link from 'next/link';
-import Fetcher from '../../../../lib/Fetcher';
-import { HiExclamation, HiLockClosed, HiOutlineEye } from 'react-icons/hi';
-import { useRouter } from 'next/router';
-import LoadingButton from '../../Loader/LoadingButton';
-import { useMutation } from 'react-query';
-import { sendSMSHash } from '../../../../lib/helper';
-import { useFormik } from 'formik';
-import { useSession } from 'next-auth/react';
-import Toast from '../../Toast';
-import { CurrencyFlag } from 'react-currency-flags/dist/components';
+import React, { useContext, useState } from "react";
+import { useQRCode } from "next-qrcode";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { FormContext } from "../../../../pages/voucher/buy";
+import Image from "next/image";
+import logoDark from "../../../../public/images/logo_dark_2.png";
+import Link from "next/link";
+import Fetcher from "../../../../lib/Fetcher";
+import { HiExclamation, HiLockClosed, HiOutlineEye } from "react-icons/hi";
+import { useRouter } from "next/router";
+import LoadingButton from "../../Loader/LoadingButton";
+import { useMutation } from "react-query";
+import { sendSMSHash } from "../../../../lib/helper";
+import { useFormik } from "formik";
+import { useSession } from "next-auth/react";
+import Toast from "../../Toast";
+import { CurrencyFlag } from "react-currency-flags/dist/components";
 
 function Send() {
   const { Canvas } = useQRCode();
-  const {
-    activeStepIndex,
-    setActiveStepIndex,
-    formData,
-    setFormData,
-    payment_intent,
-  } = useContext(FormContext);
+  const { activeStepIndex, setActiveStepIndex, formData, setFormData, payment_intent } =
+    useContext(FormContext);
   const [copy, setCopy] = useState(false);
   const [view, setView] = useState(false);
   const [loadView, setLoadView] = useState(false);
   const [copyLink, setCopyLink] = useState(false);
-  const [state, setState] = useState({ type: 0, message: '' });
+  const [state, setState] = useState({ type: 0, message: "" });
   const [data, setData] = useState(null);
   const { data: session } = useSession();
-  const { data: _voucherTest, isLoading, isError } = Fetcher(`/`);
+  const { data: _voucherTest, isLoading, isError } = Fetcher(
+    `/`
+  );
 
   console.log(session);
 
   const handleView = async () => {
     setLoadView(true);
-    let response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/v1/payment/voucher?paymentId=${payment_intent}`,
-    );
+    let response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/payment/voucher?paymentId=${payment_intent}`)
 
     setLoadView(false);
 
     if (response.status == 200) {
-      setData(await response.json());
-      setView(true);
+      setData(await response.json())
+      setView(true)
     } else {
-      setData({ code: 'NOT_FOUND' });
+      setData({ code: "NOT_FOUND" })
     }
-  };
+
+  }
 
   const sendSMSMutation = useMutation(sendSMSHash, {
     onSuccess: (res) => {
       console.log(res);
       if (!res.code) {
-        setState({ type: 1, message: 'SMS envoyé avec succès' });
+        setState({ type: 1, message: "SMS envoyé avec succès" });
         setTimeout(() => {
-          setState({ type: 0, message: '' });
+          setState({ type: 0, message: "" });
         }, 3000);
       } else {
         setState({ type: 2, message: res.message ?? res.description });
         setTimeout(() => {
-          setState({ type: 0, message: '' });
+          setState({ type: 0, message: "" });
         }, 3000);
       }
     },
   });
 
   const onSubmit = async () => {
-    sendSMSMutation.mutate({
-      shortenHash: data?.voucherEntity?.shortenHash,
-      accessToken: session.accessToken,
-    });
+    sendSMSMutation.mutate({ shortenHash: data?.voucherEntity?.shortenHash, accessToken: session.accessToken });
   };
 
   const closeToast = () => {
-    setState({ type: 0, message: '' });
+    setState({ type: 0, message: "" });
   };
 
   // Formik hook
@@ -126,359 +119,357 @@ function Send() {
       <>
         {text.slice(0, 8)}...{text.slice(-7)}
       </>
-    ) : (
-      ''
-    );
+    ) : '';
   };
+
 
   return (
     <div className="flex flex-col gap-6 justify-center items-center">
       {state.type > 0 ? (
         state.type == 2 ? (
-          <Toast type={'danger'} message={state.message} close={closeToast} />
+          <Toast
+            type={"danger"}
+            message={state.message}
+            close={closeToast}
+          />
         ) : state.type == 1 ? (
-          <Toast type={'success'} message={state.message} close={closeToast} />
+          <Toast
+            type={"success"}
+            message={state.message}
+            close={closeToast}
+          />
         ) : (
           <></>
         )
       ) : (
         <></>
       )}
-      {view ? (
-        <>
-          <div className="flex flex-col items-center text-center space-y-2">
-            <div className="flex flex-col items-center select-none">
-              <Image
-                src={logoDark}
-                className="h-6 md:h-9 object-left object-contain w-min"
-              />
-              <h1 className="font-extrabold text-gray-700 text-lg hidden md:flex">
-                Pass Sante
-              </h1>
-            </div>
-            <span className="text-xs flex items-center gap-1">
-              Pass Sante ID:
-              <CopyToClipboard
-                text={data.voucherEntity.voucherHash}
-                onCopy={() => {
-                  setCopy(true);
-                  setTimeout(() => {
-                    setCopy(false);
-                  }, 2000);
-                }}
-              >
-                <div className="flex items-center gap-1">
-                  [
-                  <div
-                    className="tooltip"
-                    data-tip={!copy ? 'Copy to clipboard' : '✓ Copy'}
-                  >
-                    <span className="text-orange cursor-pointer">
-                      <SliceText text={data.voucherEntity.voucherHash} />
-                    </span>
+      {
+        view ? (
+          <>
+            <div className="flex flex-col items-center text-center space-y-2">
+
+              <div className="flex flex-col items-center select-none">
+                <Image
+                  src={logoDark}
+                  className="h-6 md:h-9 object-left object-contain w-min"
+                />
+                <h1 className="font-extrabold text-gray-700 text-lg hidden md:flex">
+                  Pass Sante
+                </h1>
+              </div>
+              <span className="text-xs flex items-center gap-1">
+                Pass Sante ID:
+                <CopyToClipboard
+                  text={data.voucherEntity.voucherHash}
+                  onCopy={() => {
+                    setCopy(true);
+                    setTimeout(() => {
+                      setCopy(false);
+                    }, 2000);
+                  }}
+                >
+                  <div className="flex items-center gap-1">
+                    [
+                    <div
+                      className="tooltip"
+                      data-tip={!copy ? "Copy to clipboard" : "✓ Copy"}
+                    >
+                      <span className="text-orange cursor-pointer">
+                        <SliceText text={data.voucherEntity.voucherHash} />
+                      </span>
+                    </div>
+                    ]
                   </div>
-                  ]
-                </div>
-              </CopyToClipboard>
-            </span>
-          </div>
-
-          <div className="flex flex-col items-center gap-4">
-            <div className="border relative border-gray-300 rounded-lg overflow-hidden">
-              <Canvas
-                className="w-full"
-                text={`${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/${data.voucherEntity.voucherHash}`}
-                options={{
-                  level: 'M',
-                  margin: 1,
-                  scale: 6,
-                  quality: 100,
-                  color: {
-                    dark: '#000',
-                    light: '#FFF',
-                  },
-                }}
-              />
+                </CopyToClipboard>
+              </span>
             </div>
 
-            <div className="flex flex-col items-center gap-1">
-              <div className="flex -space-x-2">
-                <img
-                  className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
-                  src="/images/homme.png"
-                  alt="Image Description"
+            <div className="flex flex-col items-center gap-4">
+              <div className="border relative border-gray-300 rounded-lg overflow-hidden">
+                <Canvas
+                  className="w-full"
+                  text={`${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/${data.voucherEntity.voucherHash}`}
+                  options={{
+                    level: "M",
+                    margin: 1,
+                    scale: 6,
+                    quality: 100,
+                    color: {
+                      dark: "#000",
+                      light: "#FFF",
+                    },
+                  }}
                 />
-                <img
-                  className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
-                  src="/images/femme.png"
-                  alt="Image Description"
-                />
+
               </div>
 
-              <h4 className="text-sm text-center">
-                <CurrencyFlag
-                  currency={data.currency}
-                  className="rounded-full !h-4 !w-4 object-cover"
-                />{' '}
-                <span className="font-semibold">
-                  {new Intl.NumberFormat('en-US', {
-                    style: 'currency',
-                    currency: data.currency,
-                  }).format(data.amount)}
-                </span>{' '}
-                Health Pass WiiQare <br /> From{' '}
-                <span className="text-orange font-semibold">
-                  {data.sender.firstName}
-                </span>{' '}
-                To{' '}
-                <span className="text-orange font-semibold">
-                  {data.patient.firstName}
-                </span>
-              </h4>
-            </div>
-          </div>
-
-          <div className="text-center mt-6 flex flex-col gap-2 space-y-3">
-            <h4 className="font-semibold text-gray-700 text-sm">
-              Envoyer le pass santé au bénéficiaire:
-            </h4>
-            <div className="flex justify-between">
-              <Link
-                href={`whatsapp://send?text=${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/${payment_intent}`}
-                legacyBehavior
-                target={'_blank'}
-              >
-                <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-                  <img src="/images/whatsapp.png" alt="" className="w-6" />
-                  <span className="hidden md:flex">WhatsApp</span>
-                </a>
-              </Link>
-
-              <Link
-                href={`https://www.facebook.com/share.php?u=${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/${payment_intent}`}
-                legacyBehavior
-                target={'_blank'}
-              >
-                <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
+              <div className="flex flex-col items-center gap-1">
+                <div className="flex -space-x-2">
                   <img
-                    src="/images/facebook-share.png"
-                    alt=""
-                    className="w-6"
+                    className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
+                    src="/images/homme.png"
+                    alt="Image Description"
                   />
-                  <span className="hidden md:flex">Facebook</span>
-                </a>
-              </Link>
-
-              <button
-                className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
-                onClick={formik.handleSubmit}
-              >
-                <img src="/images/sms.png" alt="" className="w-6" />
-                {sendSMSMutation.isLoading ? (
-                  <LoadingButton />
-                ) : (
-                  <span className="hidden md:flex">Message</span>
-                )}
-              </button>
-
-              <CopyToClipboard
-                text={`${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/${payment_intent}`}
-                onCopy={() => {
-                  setCopyLink(true);
-                  setTimeout(() => {
-                    setCopyLink(false);
-                  }, 2000);
-                }}
-              >
-                <button
-                  type="button"
-                  className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
-                >
-                  <img src="/images/text.png" alt="" className="w-6" />
-                  <span className="hidden md:flex">
-                    {!copyLink ? 'Copier le lien' : 'Copié avec succès'}
-                  </span>
-                </button>
-              </CopyToClipboard>
-            </div>
-          </div>
-        </>
-      ) : (
-        <div className="relative">
-          <div className="flex flex-col items-center text-center space-y-2">
-            <div className="flex flex-col items-center select-none">
-              <Image
-                src={logoDark}
-                className="h-6 md:h-9 object-left object-contain w-min"
-              />
-              <h1 className="font-extrabold text-gray-700 text-lg hidden md:flex">
-                Pass Sante
-              </h1>
-            </div>
-            <span className="text-xs flex items-center gap-1">
-              Pass Sante ID:
-              <CopyToClipboard
-                text={'0xcda1470a8117daaccf368eb4'}
-                onCopy={() => {
-                  setCopy(true);
-                  setTimeout(() => {
-                    setCopy(false);
-                  }, 2000);
-                }}
-              >
-                <div className="flex items-center gap-1">
-                  [
-                  <div
-                    className="tooltip"
-                    data-tip={!copy ? 'Copy to clipboard' : '✓ Copy'}
-                  >
-                    <span className="text-orange cursor-pointer">
-                      <SliceText text={'0xcda1470a8117daaccf368eb4'} />
-                    </span>
-                  </div>
-                  ]
+                  <img
+                    className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
+                    src="/images/femme.png"
+                    alt="Image Description"
+                  />
                 </div>
-              </CopyToClipboard>
-            </span>
-          </div>
 
-          <div className="flex flex-col items-center gap-4">
-            <div className="border relative border-gray-300 rounded-lg overflow-hidden">
-              <Canvas
-                className="w-full"
-                text={`https://wiiqare-app.com/voucher/pass/0xcda1470a8117daaccf368eb4`}
-                options={{
-                  level: 'M',
-                  margin: 1,
-                  scale: 6,
-                  quality: 100,
-                  color: {
-                    dark: '#000',
-                    light: '#FFF',
-                  },
-                }}
-              />
-              {/* <div className="absolute w-full h-full z-20 top-1/3 left-1.5/3 mx-auto">
+                <h4 className="text-sm text-center">
+                  <CurrencyFlag
+                    currency={data.currency}
+                    className="rounded-full !h-4 !w-4 object-cover"
+                  />{" "}
+                  <span className="font-semibold">
+                    {new Intl.NumberFormat("en-US", {
+                      style: "currency",
+                      currency: data.currency,
+                    }).format(data.amount)}
+                  </span>{" "}
+                  Health Pass WiiQare <br /> From{" "}
+                  <span className="text-orange font-semibold">
+                    {data.sender.firstName}
+                  </span>{" "}
+                  To{" "}
+                  <span className="text-orange font-semibold">
+                    {data.patient.firstName}
+                  </span>
+                </h4>
+              </div>
+            </div>
+
+            <div className="text-center mt-6 flex flex-col gap-2 space-y-3">
+              <h4 className="font-semibold text-gray-700 text-sm">
+                Envoyer le pass santé au bénéficiaire:
+              </h4>
+              <div className="flex justify-between">
+                <Link
+                  href={`whatsapp://send?text=${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/${payment_intent}`}
+                  legacyBehavior
+                  target={"_blank"}
+                >
+                  <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
+                    <img src="/images/whatsapp.png" alt="" className="w-6" />
+                    <span className="hidden md:flex">WhatsApp</span>
+                  </a>
+                </Link>
+
+                <Link
+                  href={`https://www.facebook.com/share.php?u=${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/${payment_intent}`}
+                  legacyBehavior
+                  target={"_blank"}
+                >
+                  <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
+                    <img src="/images/facebook-share.png" alt="" className="w-6" />
+                    <span className="hidden md:flex">Facebook</span>
+                  </a>
+                </Link>
+
+                <button
+                  className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
+                  onClick={formik.handleSubmit}
+                >
+                  <img src="/images/sms.png" alt="" className="w-6" />
+                  {sendSMSMutation.isLoading ? (
+                    <LoadingButton />
+                  ) : (
+                    <span className="hidden md:flex">Message</span>
+                  )}
+                </button>
+
+                <CopyToClipboard
+                  text={`${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/${payment_intent}`}
+                  onCopy={() => {
+                    setCopyLink(true);
+                    setTimeout(() => {
+                      setCopyLink(false);
+                    }, 2000);
+                  }}
+                >
+                  <button
+                    type="button"
+                    className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
+                  >
+                    <img src="/images/text.png" alt="" className="w-6" />
+                    <span className="hidden md:flex">
+                      {!copyLink ? "Copier le lien" : "Copié avec succès"}
+                    </span>
+                  </button>
+                </CopyToClipboard>
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className="relative">
+            <div className="flex flex-col items-center text-center space-y-2">
+
+              <div className="flex flex-col items-center select-none">
+                <Image
+                  src={logoDark}
+                  className="h-6 md:h-9 object-left object-contain w-min"
+                />
+                <h1 className="font-extrabold text-gray-700 text-lg hidden md:flex">
+                  Pass Sante
+                </h1>
+              </div>
+              <span className="text-xs flex items-center gap-1">
+                Pass Sante ID:
+                <CopyToClipboard
+                  text={"0xcda1470a8117daaccf368eb4"}
+                  onCopy={() => {
+                    setCopy(true);
+                    setTimeout(() => {
+                      setCopy(false);
+                    }, 2000);
+                  }}
+                >
+                  <div className="flex items-center gap-1">
+                    [
+                    <div
+                      className="tooltip"
+                      data-tip={!copy ? "Copy to clipboard" : "✓ Copy"}
+                    >
+                      <span className="text-orange cursor-pointer">
+                        <SliceText text={"0xcda1470a8117daaccf368eb4"} />
+                      </span>
+                    </div>
+                    ]
+                  </div>
+                </CopyToClipboard>
+              </span>
+            </div>
+
+            <div className="flex flex-col items-center gap-4">
+              <div className="border relative border-gray-300 rounded-lg overflow-hidden">
+                <Canvas
+                  className="w-full"
+                  text={`https://wiiqare-app.com/voucher/pass/0xcda1470a8117daaccf368eb4`}
+                  options={{
+                    level: "M",
+                    margin: 1,
+                    scale: 6,
+                    quality: 100,
+                    color: {
+                      dark: "#000",
+                      light: "#FFF",
+                    },
+                  }}
+                />
+                {/* <div className="absolute w-full h-full z-20 top-1/3 left-1.5/3 mx-auto">
 			<Image
 				src={logo}
 				className="h-6 md:h-9 object-left object-contain w-min"
 			/>
 		</div> */}
-            </div>
-
-            <div className="flex flex-col items-center gap-1">
-              <div className="flex -space-x-2">
-                <img
-                  className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
-                  src="/images/homme.png"
-                  alt="Image Description"
-                />
-                <img
-                  className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
-                  src="/images/femme.png"
-                  alt="Image Description"
-                />
               </div>
 
-              <h4 className="text-sm text-center">
-                <span className="font-semibold">$ 0.00</span> Health Pass
-                WiiQare <br /> From{' '}
-                <span className="text-orange font-semibold">
-                  <SliceText text={'0xcda1470a8117daaccf368eb4'} />
-                </span>{' '}
-                To{' '}
-                <span className="text-orange font-semibold">
-                  <SliceText text={'0xcda1470a8117daaccf368eb4'} />
-                </span>
-              </h4>
-            </div>
-          </div>
-
-          <div className="text-center mt-6 flex flex-col gap-2 space-y-3">
-            <h4 className="font-semibold text-gray-700 text-sm">
-              Envoyer le pass santé au bénéficiaire:
-            </h4>
-            <div className="flex justify-between">
-              <Link
-                href={`whatsapp://send?text=https://wiiqare-app.com/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
-                legacyBehavior
-                target={'_blank'}
-              >
-                <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-                  <img src="/images/whatsapp.png" alt="" className="w-6" />
-                  <span className="hidden md:flex">WhatsApp</span>
-                </a>
-              </Link>
-
-              <Link
-                href={`https://www.facebook.com/share.php?u=https://wiiqare-app.com/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
-                legacyBehavior
-                target={'_blank'}
-              >
-                <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
+              <div className="flex flex-col items-center gap-1">
+                <div className="flex -space-x-2">
                   <img
-                    src="/images/facebook-share.png"
-                    alt=""
-                    className="w-6"
+                    className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
+                    src="/images/homme.png"
+                    alt="Image Description"
                   />
-                  <span className="hidden md:flex">Facebook</span>
-                </a>
-              </Link>
+                  <img
+                    className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
+                    src="/images/femme.png"
+                    alt="Image Description"
+                  />
+                </div>
 
-              <Link
-                href={`sms://+243814978651&?body=https://wiiqare-app.com/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
-                legacyBehavior
-                target={'_blank'}
-              >
-                <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-                  <img src="/images/sms.png" alt="" className="w-6" />
-                  <span className="hidden md:flex">Message</span>
-                </a>
-              </Link>
-
-              <CopyToClipboard
-                text={`https://wiiqare-app.com/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
-                onCopy={() => {
-                  setCopyLink(true);
-                  setTimeout(() => {
-                    setCopyLink(false);
-                  }, 2000);
-                }}
-              >
-                <button
-                  type="button"
-                  className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
-                >
-                  <img src="/images/text.png" alt="" className="w-6" />
-                  <span className="hidden md:flex">
-                    {!copyLink ? 'Copy Link' : 'Successfully Copied'}
+                <h4 className="text-sm text-center">
+                  <span className="font-semibold">
+                    $ 0.00
+                  </span>{" "}
+                  Health Pass WiiQare <br /> From{" "}
+                  <span className="text-orange font-semibold">
+                    <SliceText text={"0xcda1470a8117daaccf368eb4"} />
+                  </span>{" "}
+                  To{" "}
+                  <span className="text-orange font-semibold">
+                    <SliceText text={"0xcda1470a8117daaccf368eb4"} />
                   </span>
+                </h4>
+              </div>
+            </div>
+
+            <div className="text-center mt-6 flex flex-col gap-2 space-y-3">
+              <h4 className="font-semibold text-gray-700 text-sm">
+                Envoyer le pass santé au bénéficiaire:
+              </h4>
+              <div className="flex justify-between">
+                <Link
+                  href={`whatsapp://send?text=https://wiiqare-app.com/voucher/pass/${"0xcda1470a8117daaccf368eb4"}`}
+                  legacyBehavior
+                  target={"_blank"}
+                >
+                  <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
+                    <img src="/images/whatsapp.png" alt="" className="w-6" />
+                    <span className="hidden md:flex">WhatsApp</span>
+                  </a>
+                </Link>
+
+                <Link
+                  href={`https://www.facebook.com/share.php?u=https://wiiqare-app.com/voucher/pass/${"0xcda1470a8117daaccf368eb4"}`}
+                  legacyBehavior
+                  target={"_blank"}
+                >
+                  <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
+                    <img src="/images/facebook-share.png" alt="" className="w-6" />
+                    <span className="hidden md:flex">Facebook</span>
+                  </a>
+                </Link>
+
+                <Link
+                  href={`sms://+243814978651&?body=https://wiiqare-app.com/voucher/pass/${"0xcda1470a8117daaccf368eb4"}`}
+                  legacyBehavior
+                  target={"_blank"}
+                >
+                  <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
+                    <img src="/images/sms.png" alt="" className="w-6" />
+                    <span className="hidden md:flex">Message</span>
+                  </a>
+                </Link>
+
+                <CopyToClipboard
+                  text={`https://wiiqare-app.com/voucher/pass/${"0xcda1470a8117daaccf368eb4"}`}
+                  onCopy={() => {
+                    setCopyLink(true);
+                    setTimeout(() => {
+                      setCopyLink(false);
+                    }, 2000);
+                  }}
+                >
+                  <button
+                    type="button"
+                    className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
+                  >
+                    <img src="/images/text.png" alt="" className="w-6" />
+                    <span className="hidden md:flex">
+                      {!copyLink ? "Copy Link" : "Successfully Copied"}
+                    </span>
+                  </button>
+                </CopyToClipboard>
+              </div>
+            </div>
+
+            <div class="flex-shrink-0 border-none backdrop-filter backdrop-blur-[6px] w-full h-full bg-white/30 absolute top-0 p-6"></div>
+
+            <div className="flex flex-shrink-0 absolute top-0 justify-center items-center w-full h-full">
+              <div className="flex flex-col gap-8 justify-center items-center">
+                <HiLockClosed size={150} />
+                <button onClick={handleView} className='bg-orange flex gap-2 effect-up justify-center items-center text-gray-100 font-normal h-fit  py-2 px-3 rounded-lg text-sm transition duration-300'>
+                  {loadView ? <LoadingButton /> : (<><HiOutlineEye /> Voir Pass Santé</>)}
                 </button>
-              </CopyToClipboard>
+              </div>
             </div>
           </div>
+        )
+      }
 
-          <div class="flex-shrink-0 border-none backdrop-filter backdrop-blur-[6px] w-full h-full bg-white/30 absolute top-0 p-6"></div>
-
-          <div className="flex flex-shrink-0 absolute top-0 justify-center items-center w-full h-full">
-            <div className="flex flex-col gap-8 justify-center items-center">
-              <HiLockClosed size={150} />
-              <button
-                onClick={handleView}
-                className="bg-orange flex gap-2 effect-up justify-center items-center text-gray-100 font-normal h-fit  py-2 px-3 rounded-lg text-sm transition duration-300"
-              >
-                {loadView ? (
-                  <LoadingButton />
-                ) : (
-                  <>
-                    <HiOutlineEye /> Voir Pass Santé
-                  </>
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

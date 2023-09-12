@@ -12,6 +12,7 @@ import * as Helpers from '../../../../lib/helper';
 describe('Identity2', () => {
   let component;
   beforeEach(() => {
+
     const queryClient = new QueryClient();
     const res = render(
       <SessionProvider session={{ user: { data: { userId: 'random123' } } }}>
