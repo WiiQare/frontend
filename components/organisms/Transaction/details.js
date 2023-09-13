@@ -37,8 +37,8 @@ const DetailsTransaction = ({
         (data?.frequency == 'MONTH'
           ? month
           : data?.week == 'WEEK'
-          ? month * 4
-          : month * 31);
+            ? month * 4
+            : month * 31);
 
       setCount({ somme, percent, price });
     }
@@ -112,8 +112,8 @@ const DetailsTransaction = ({
                       </tr>
                     </thead>
                     {!data ||
-                    !data?.operations ||
-                    data?.operations?.length == 0 ? (
+                      !data?.operations ||
+                      data?.operations?.length == 0 ? (
                       //<img src="https://i.goopics.net/z4ix58.png" alt="" className='opacity-60 w-20' />
                       <p className="text-center w-full py-2 text-gray-400 text-md">
                         Aucun versement...
@@ -126,9 +126,9 @@ const DetailsTransaction = ({
                               #
                               {operation.id
                                 .split('-')
-                                [
-                                  operation.id.split('-').length - 1
-                                ].toUpperCase()}
+                              [
+                                operation.id.split('-').length - 1
+                              ].toUpperCase()}
                             </th>
                             <td>Carte bancaire</td>
                             <td>
@@ -165,10 +165,10 @@ const DetailsTransaction = ({
                     </li>
 
                     <li className="flex justify-between w-full">
-                      Cause d'épargne: <span className="">{data.type}</span>
+                      {"Cause d'épargne"}: <span className="">{data.type}</span>
                     </li>
                     <li className="flex justify-between w-full">
-                      Frequence de paiement:{' '}
+                      {"Frequence de paiement"}:{' '}
                       <span className="">
                         {new Intl.NumberFormat('en-US', {
                           style: 'currency',
@@ -178,15 +178,15 @@ const DetailsTransaction = ({
                         {data.frequency == 'MONTH'
                           ? 'mois'
                           : data.frequency == 'WEEK'
-                          ? 'semaine'
-                          : 'jour'}
+                            ? 'semaine'
+                            : 'jour'}
                       </span>
                     </li>
 
                     <hr />
 
                     <li className="flex justify-between w-full">
-                      Rester à atteindre:{' '}
+                      {"Rester à atteindre"}:{' '}
                       <span className="font-bold">
                         {new Intl.NumberFormat('en-US', {
                           style: 'currency',
@@ -319,13 +319,12 @@ const DetailsTransaction = ({
 
               <div className="self-center">
                 <div
-                  className={`radial-progress ${
-                    count.percent <= 50
+                  className={`radial-progress ${count.percent <= 50
                       ? 'text-purple'
                       : count.percent > 50 && count.percent <= 75
-                      ? 'text-[#2ABB52]'
-                      : 'text-[#441DE1]'
-                  }`}
+                        ? 'text-[#2ABB52]'
+                        : 'text-[#441DE1]'
+                    }`}
                   style={{ '--value': count.percent, '--size': '10rem' }}
                 >
                   <span className="text-2xl">{count.percent.toFixed(0)}%</span>
