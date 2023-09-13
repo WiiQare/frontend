@@ -165,10 +165,10 @@ const DetailsTransaction = ({
                     </li>
 
                     <li className="flex justify-between w-full">
-                      Cause d'épargne: <span className="">{data.type}</span>
+                      {"Cause d'épargne"}: <span className="">{data.type}</span>
                     </li>
                     <li className="flex justify-between w-full">
-                      Frequence de paiement:{' '}
+                      {'Frequence de paiement'}:{' '}
                       <span className="">
                         {new Intl.NumberFormat('en-US', {
                           style: 'currency',
@@ -186,7 +186,7 @@ const DetailsTransaction = ({
                     <hr />
 
                     <li className="flex justify-between w-full">
-                      Rester à atteindre:{' '}
+                      {'Rester à atteindre'}:{' '}
                       <span className="font-bold">
                         {new Intl.NumberFormat('en-US', {
                           style: 'currency',
