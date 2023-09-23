@@ -1,6 +1,5 @@
 # Documentation of the WiiQare Project
 
-[![Deploy to AWS](https://github.com/WiiQare/frontend/actions/workflows/main.yml/badge.svg)](https://github.com/WiiQare/frontend/actions/workflows/main.yml)
 [![codecov](https://codecov.io/gh/WiiQare/frontend/branch/main/graph/badge.svg?token=72SLV6EFSP)](https://codecov.io/gh/WiiQare/frontend)
 [![Tests](https://github.com/WiiQare/frontend/actions/workflows/jest.js.yml/badge.svg)](https://github.com/WiiQare/frontend/actions/workflows/jest.js.yml)
 
@@ -25,35 +24,28 @@ To install and run this Next.js project locally, follow the steps below:
 1. Clone the GitHub repository to your local machine using the following command:
 
    ```shell
-   git clone https://github.com/WiiQare/frontend.git "frontend-wiiQare"
+   git clone https://github.com/WiiQare/frontend.git
    ```
 
 2. Navigate to the project directory :
 
    ```shell
-   cd frontend-wiiQare
+   cd frontend
    ```
 
-3. Install dependencies using npm or yarn:
+3. Build Docker image
 
-   ```shell
-   npm install
-
-   or
-
-
-   yarn install
+   ```sh
+   docker build -t frontend .
    ```
 
-4. Configure necessary environment variables, such as API keys, base URLs, etc., in a `.env` file in the root of the project.
+4. Run Docker image
 
-5. Launch the application in development mode:
-
-   ```shell
-   npm run dev
+   ```sh
+   docker run -p 3000:3000 frontend
    ```
 
-   The application will be accessible at the following address : `http://localhost:3000`.
+5. Open `http://localhost:3000` in your favorite browser
 
 ## Project structure
 
