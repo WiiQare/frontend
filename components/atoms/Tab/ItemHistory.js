@@ -252,7 +252,9 @@ const ItemHistory = ({
                                 }
                               >
                                 <span className="text-orange cursor-pointer">
-                                  <SliceText text={voucherEntity?.voucherHash} />
+                                  <SliceText
+                                    text={voucherEntity?.voucherHash}
+                                  />
                                 </span>
                               </div>
                               ]
