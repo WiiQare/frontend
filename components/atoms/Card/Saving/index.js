@@ -192,12 +192,16 @@ const SavingCard = ({ title, img, month = 12 }) => {
                             className="inline-block w-16"
                             src={img}
                             alt="Image Description"
+                            width={512}
+                            height={512}
                           />
                           <BiTransferAlt size={30} className="text-gray-400" />
                           <Image
                             className="inline-block w-14"
                             src="https://i.goopics.net/nkg0du.png"
                             alt="Image Description"
+                            width={512}
+                            height={512}
                           />
                         </div>
 

@@ -15,7 +15,8 @@ exports[`Saving should render Saving component 1`] = `
         decoding="async"
         height="512"
         loading="lazy"
-        src=""
+        src="/_next/image?url=%2Fimages%2Ftest.png&w=1080&q=75"
+        srcset="/_next/image?url=%2Fimages%2Ftest.png&w=640&q=75 1x, /_next/image?url=%2Fimages%2Ftest.png&w=1080&q=75 2x"
         style="color: transparent;"
         width="512"
       />
@@ -25,7 +26,9 @@ exports[`Saving should render Saving component 1`] = `
     >
       <h3
         class="uppercase text-xs md:text-sm font-bold"
-      />
+      >
+        TestTitle
+      </h3>
       <svg
         aria-hidden="true"
         fill="currentColor"
