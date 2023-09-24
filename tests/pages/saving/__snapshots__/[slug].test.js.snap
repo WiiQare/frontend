@@ -6,7 +6,7 @@ exports[`Saving should render 1`] = `
     class="p-2 space-y-6 md:py-8 md:px-6"
   >
     <div
-      class="border w-full rounded-lg py-8 px-6 flex flex-col flex-wrap md:flex-row justify-between gap-4 bg-white cursor-pointer"
+      class="border w-full rounded-lg py-8 px-6 flex flex-col flex-wrap md:flex-row justify-between items-center gap-4 bg-white cursor-pointer"
     >
       <div
         class="flex flex-col"
@@ -14,7 +14,7 @@ exports[`Saving should render 1`] = `
         <h1
           class="md:text-2xl text-gray-700 font-bold flex-wrap flex items-center gap-2 text-lg"
         >
-          Transactions Détails
+          Détails Épargne
         </h1>
         <ul
           class="flex gap-2"
@@ -23,7 +23,7 @@ exports[`Saving should render 1`] = `
             <span
               class="flex gap-2 font-semibold text-sky"
             >
-              Transactions
+              Épargne
               <span>
                 /
               </span>
@@ -33,7 +33,7 @@ exports[`Saving should render 1`] = `
             <span
               class="flex gap-2 font-light text-gray-500"
             >
-              #12345
+              #TEST
             </span>
           </li>
         </ul>
@@ -41,408 +41,43 @@ exports[`Saving should render 1`] = `
       <div
         class="flex flex-row flex-wrap  gap-2 center justify-end space-x-2"
       >
-        <button
-          class="text-white bg-blue-700 border border-transparent hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 disabled:hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 dark:disabled:hover:bg-blue-600 focus:!ring-2 group flex h-min items-center justify-center p-0.5 text-center font-medium focus:z-10 rounded-lg border-2 border-sky text-primary hover:text-white hover:bg-primary"
-          type="button"
-        >
-          <span
-            class="flex items-center rounded-md text-sm px-4 py-2"
-          >
-            <svg
-              aria-hidden="true"
-              class="mr-2 h-5 w-5"
-              fill="none"
-              height="1em"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            Print
-          </span>
-        </button>
-        <button
-          class="text-white bg-blue-700 border border-transparent hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 disabled:hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 dark:disabled:hover:bg-blue-600 focus:!ring-2 group flex h-min items-center justify-center p-0.5 text-center font-medium focus:z-10 rounded-lg bg-primary"
-          type="button"
-        >
-          <span
-            class="flex items-center rounded-md text-sm px-4 py-2"
-          >
-            <svg
-              class="mr-2 h-5 w-5"
-              fill="currentColor"
-              height="1em"
-              stroke="currentColor"
-              stroke-width="0"
-              viewBox="0 0 24 24"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g
-                id="Save_Down_2"
-              >
-                <g>
-                  <path
-                    d="M18.437,20.948H5.563a2.372,2.372,0,0,1-2.5-2.21v-11a2.372,2.372,0,0,1,2.5-2.211h.462a.5.5,0,0,1,0,1H5.563a1.38,1.38,0,0,0-1.5,1.211v11a1.38,1.38,0,0,0,1.5,1.21H18.437a1.38,1.38,0,0,0,1.5-1.21v-11a1.38,1.38,0,0,0-1.5-1.211h-.462a.5.5,0,0,1,0-1h.462a2.372,2.372,0,0,1,2.5,2.211v11A2.372,2.372,0,0,1,18.437,20.948Z"
-                  />
-                  <path
-                    d="M15.355,10.592l-3,3a.5.5,0,0,1-.35.15.508.508,0,0,1-.36-.15l-3-3a.5.5,0,0,1,.71-.71l2.14,2.139V3.552a.508.508,0,0,1,.5-.5.5.5,0,0,1,.5.5v8.49l2.15-2.16a.5.5,0,0,1,.71.71Z"
-                  />
-                </g>
-              </g>
-            </svg>
-            Télécharger le rapport
-          </span>
-        </button>
-      </div>
-    </div>
-    <section
-      class="w-full grid md:grid-cols-3 gap-8 items-start pb-20 md:pb-0"
-    >
-      <div
-        class="w-full overflow-hidden md:col-span-2 rounded-lg py-8 flex flex-col gap-6 bg-white drop-shadow-sm"
-      >
         <div
-          class="px-8 space-y-8"
+          class="flex flex-row-reverse gap-4"
         >
-          <div>
-            <span
-              class="text-gray-400 text-sm font-normal"
-            >
-              ID Payment
-            </span>
-            <h2
-              class="font-semibold text-3xl"
-            >
-              #00123521
-            </h2>
-          </div>
-          <div
-            class="flex flex-col gap-4"
+          <a
+            class="flex items-center gap-2 justify-between rounded-lg bg-orange py-3 text-white px-3 effect-up shadow h-fit"
+            href="/saving/operation/test-slug"
           >
-            <div
-              class="overflow-x-auto"
-            >
-              <table
-                class="table table-zebra text-xs w-full"
-              >
-                <thead>
-                  <tr>
-                    <th>
-                      ID Payment
-                    </th>
-                    <th>
-                      Payment Method
-                    </th>
-                    <th>
-                      Invoice Date
-                    </th>
-                    <th>
-                      Due Date
-                    </th>
-                    <th>
-                      Date Paid
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th>
-                      #00123521
-                    </th>
-                    <td>
-                      MasterCard
-                    </td>
-                    <td>
-                      April 29, 2020
-                    </td>
-                    <td>
-                      June 5, 2020
-                    </td>
-                    <td>
-                      June 4, 2020
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
             <span
-              class="w-full bg-gray-100 text-gray-500 h-fit p-2 rounded-lg flex gap-2 items-start text-sm"
-            >
-              <div>
-                <svg
-                  class="text-gray-400"
-                  fill="currentColor"
-                  height="23"
-                  stroke="currentColor"
-                  stroke-width="0"
-                  viewBox="0 0 24 24"
-                  width="23"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g
-                    id="Circle_Info"
-                  >
-                    <g>
-                      <g>
-                        <path
-                          d="M11.5,15a.5.5,0,0,0,1,0h0V10.981a.5.5,0,0,0-1,0Z"
-                        />
-                        <circle
-                          cx="12"
-                          cy="8.999"
-                          r="0.5"
-                        />
-                      </g>
-                      <path
-                        d="M12,2.065A9.934,9.934,0,1,1,2.066,12,9.945,9.945,0,0,1,12,2.065Zm0,18.867A8.934,8.934,0,1,0,3.066,12,8.944,8.944,0,0,0,12,20.932Z"
-                      />
-                    </g>
-                  </g>
-                </svg>
-              </div>
-              <span
-                class="leading-6 font-light"
-              >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui veritatis aliquam, sunt odio, voluptate aspernatur molestias illum a, ratione totam sint amet nisi exercitationem culpa dolorem quo enim harum esse!
-              </span>
-            </span>
-          </div>
-        </div>
-        <hr />
-        <div
-          class="px-8 space-y-6"
-        >
-          <div>
-            <h3
-              class="font-semibold text-xl"
-            >
-              Recipients
-            </h3>
-          </div>
-          <div
-            class="flex flex-col md:flex-row justify-between gap-6 md:items-center"
-          >
-            <div
-              class="flex gap-3 items-center"
-            >
-              <div
-                class="w-16 md:w-20"
-              >
-                <img
-                  alt="Avatar"
-                  class="object-cover w-full h-full rounded-full"
-                  data-nimg="1"
-                  decoding="async"
-                  height="50"
-                  loading="lazy"
-                  src="/_next/image?url=https%3A%2F%2Fxsgames.co%2Frandomusers%2Favatar.php%3Fg%3Dmale&w=128&q=75"
-                  srcset="/_next/image?url=https%3A%2F%2Fxsgames.co%2Frandomusers%2Favatar.php%3Fg%3Dmale&w=64&q=75 1x, /_next/image?url=https%3A%2F%2Fxsgames.co%2Frandomusers%2Favatar.php%3Fg%3Dmale&w=128&q=75 2x"
-                  style="color: transparent;"
-                  width="50"
-                />
-              </div>
-              <div>
-                <h1
-                  class="font-semibold text-lg md:text-2xl text-gray-900"
-                >
-                  Samuel Bro
-                </h1>
-                <span
-                  class="text-xs md:text-sm text-gray-500"
-                >
-                  frdrcpeter@gmail.com
-                </span>
-              </div>
-            </div>
-            <button
-              class="flex gap-4 items-center border border-sky rounded-lg px-4 py-3 text-sky"
+              class="bg-white text-orange p-1 rounded-md"
             >
               <svg
-                fill="currentColor"
-                height="40"
+                aria-hidden="true"
+                fill="none"
+                height="1em"
                 stroke="currentColor"
-                stroke-width="0"
-                viewBox="0 0 512 512"
-                width="40"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="1em"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M436.9 364.8c-14.7-14.7-50-36.8-67.4-45.1-20.2-9.7-27.6-9.5-41.9.8-11.9 8.6-19.6 16.6-33.3 13.6-13.7-2.9-40.7-23.4-66.9-49.5-26.2-26.2-46.6-53.2-49.5-66.9-2.9-13.8 5.1-21.4 13.6-33.3 10.3-14.3 10.6-21.7.8-41.9C184 125 162 89.8 147.2 75.1c-14.7-14.7-18-11.5-26.1-8.6 0 0-12 4.8-23.9 12.7-14.7 9.8-22.9 18-28.7 30.3-5.7 12.3-12.3 35.2 21.3 95 27.1 48.3 53.7 84.9 93.2 124.3l.1.1.1.1c39.5 39.5 76 66.1 124.3 93.2 59.8 33.6 82.7 27 95 21.3 12.3-5.7 20.5-13.9 30.3-28.7 7.9-11.9 12.7-23.9 12.7-23.9 2.9-8.1 6.2-11.4-8.6-26.1z"
+                  d="M12 4v16m8-8H4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 />
               </svg>
-              <div
-                class="flex flex-col gap-1 text-sm"
-              >
-                <span
-                  class="font-light"
-                >
-                  Phone Number
-                </span>
-                <span
-                  class="font-bold"
-                >
-                  +243 814 978 651
-                </span>
-              </div>
-            </button>
-          </div>
+            </span>
+            <span
+              class="text-sm font-medium"
+            >
+              Récharger le compte
+            </span>
+          </a>
         </div>
       </div>
-      <div
-        class="flex flex-col gap-6"
-      >
-        <div
-          class="w-full h-60 m-auto bg-red-100 rounded-xl relative text-white drop-shadow-sm "
-        >
-          <img
-            alt=""
-            class="relative object-cover w-full h-full rounded-xl"
-            src="https://i.imgur.com/kGkSg1v.png"
-          />
-          <div
-            class="w-full px-8 absolute top-6 flex flex-col gap-5"
-          >
-            <div
-              class="flex justify-between"
-            >
-              <div
-                class="space-y-1"
-              >
-                <p
-                  class="font-extralight"
-                >
-                  Peter NDENGO M.
-                </p>
-                <h1
-                  class="md:text-3xl font-bold"
-                >
-                  $4950.00
-                </h1>
-              </div>
-              <div>
-                <img
-                  alt="logo"
-                  class="w-20 h-16 object-contain"
-                  data-nimg="1"
-                  decoding="async"
-                  height="100"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimages%2Flogo.png&w=256&q=75"
-                  srcset="/_next/image?url=%2Fimages%2Flogo.png&w=128&q=75 1x, /_next/image?url=%2Fimages%2Flogo.png&w=256&q=75 2x"
-                  style="color: transparent;"
-                  width="100"
-                />
-              </div>
-            </div>
-            <div
-              class="space-y-2"
-            >
-              <div
-                class="pt-1"
-              >
-                <p
-                  class="font-medium tracking-more-wider text-center"
-                >
-                  **** **** **** 7632
-                </p>
-              </div>
-              <div
-                class="pt-5"
-              >
-                <div
-                  class="flex justify-around"
-                >
-                  <div
-                    class=""
-                  >
-                    <p
-                      class="font-extralight text-xs"
-                    >
-                      Date
-                    </p>
-                    <p
-                      class="font-medium tracking-wider text-sm"
-                    >
-                      22/02/15
-                    </p>
-                  </div>
-                  <div
-                    class=""
-                  >
-                    <p
-                      class="font-extralight text-xs"
-                    >
-                      Time
-                    </p>
-                    <p
-                      class="font-medium tracking-wider text-sm"
-                    >
-                      03:25
-                    </p>
-                  </div>
-                  <div
-                    class=""
-                  >
-                    <a
-                      class="flex items-center gap-2 justify-between rounded-lg bg-orange py-2 px-3 effect-up shadow undefined"
-                      href="#"
-                    >
-                      <span
-                        class="text-sm font-light"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="rounded-lg py-4 px-4 flex flex-col gap-6 bg-white drop-shadow-sm"
-        >
-          <div
-            class="flex flex-col md:flex-row gap-6 md:gap-0 md:items-center justify-between"
-          >
-            <div
-              class="space-y-2"
-            >
-              <h2
-                class="font-bold text-xl text-gray-700"
-              >
-                Statistic
-              </h2>
-              <span
-                class="text-xs text-gray-500"
-              >
-                Lorem ipsum dolor sit amet, consectetur
-              </span>
-            </div>
-          </div>
-          <div
-            class="self-center"
-          >
-            <div
-              class="radial-progress text-purple"
-              style="--value: 85; --size: 10rem;"
-            >
-              <span
-                class="text-2xl"
-              >
-                85%
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
+    Chargement...
   </div>
 </div>
 `;
