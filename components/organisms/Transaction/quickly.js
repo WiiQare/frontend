@@ -62,11 +62,13 @@ const Quickly = () => {
             </div>
           ) : data.length == 0 ? (
             <div className="w-full flex flex-col items-center gap-3">
-              <img
+              <Image
                 src="/images/box.png"
                 alt="Box image"
                 loading="lazy"
                 className="h-44 opacity-50"
+                width={512}
+                height={512}
               />
               <span className="text-gray-400 text-xs font-normal">
                 Aucune bénéficiaire actuellement...
@@ -199,11 +201,13 @@ const Quickly = () => {
               </div>
             ) : transaction?.transaction?.length == 0 ? (
               <div className="w-full flex flex-col items-center gap-3">
-                <img
+                <Image
                   src="/images/box.png"
                   alt="Box image"
                   loading="lazy"
                   className="h-44 opacity-50"
+                  width={512}
+                  height={512}
                 />
                 <span className="text-gray-400 text-xs font-normal">
                   Aucune transaction réalisé actuellement...

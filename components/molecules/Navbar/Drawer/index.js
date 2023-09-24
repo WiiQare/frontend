@@ -35,7 +35,7 @@ function Conversation() {
           <BiArrowBack size={23} />
         </button>
         <div className="flex gap-2 items-center">
-          <img
+          <Image
             src={`https://ui-avatars.com/api/?uppercase=true&background=random&name=Aleks Bricks&bold=false&color=#FFF`}
             alt=""
             className="rounded-full w-10 h-10"

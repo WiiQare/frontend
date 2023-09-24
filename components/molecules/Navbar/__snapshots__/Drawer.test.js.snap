@@ -1,0 +1,211 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Drawer should render the component 1`] = `
+<div>
+  <div
+    class="drawer drawer-end fixed z-50"
+  >
+    <input
+      class="drawer-toggle"
+      id="my-drawer-4"
+      type="checkbox"
+    />
+    <div
+      class="drawer-content"
+    />
+    <div
+      class="drawer-side"
+    >
+      <label
+        class="drawer-overlay"
+        for="my-drawer-4"
+      />
+      <div
+        class="flex flex-col bg-gray-100 flex-auto md:w-96 w-full h-full relative"
+      >
+        <div
+          class="p-5 shadow-sm flex gap-4 items-center bg-white fixed top-0 z-50 w-full"
+        >
+          <button>
+            <svg
+              fill="currentColor"
+              height="23"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              width="23"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"
+              />
+            </svg>
+          </button>
+          <div
+            class="flex gap-2 items-center"
+          >
+            <img
+              alt=""
+              class="rounded-xl w-10 h-10"
+              data-nimg="1"
+              decoding="async"
+              height="64"
+              loading="lazy"
+              src="/_next/image?url=%2Fimages%2Ffavicon.png&w=128&q=75"
+              srcset="/_next/image?url=%2Fimages%2Ffavicon.png&w=64&q=75 1x, /_next/image?url=%2Fimages%2Ffavicon.png&w=128&q=75 2x"
+              style="color: transparent;"
+              width="64"
+            />
+            <h3
+              class="font-semibold text-gray-700 flex flex-col"
+            >
+              Odette de WiiQare
+               
+              <span
+                class="text-xs text-gray-500 font-light flex gap-1 items-center"
+              >
+                <span
+                  class="h-2 w-2 rounded-full bg-green-400 flex"
+                >
+                   
+                </span>
+                 
+                En ligne
+              </span>
+            </h3>
+          </div>
+        </div>
+        <div
+          class="flex flex-col flex-auto flex-shrink-0 bg-gray-100 min-h-full pt-20 relative"
+        >
+          <div
+            class="flex flex-col overflow-x-auto mb-4"
+          >
+            <div
+              class="flex flex-col h-full"
+            >
+              <div
+                class="grid grid-cols-12 gap-y-2 overflow-y-scroll"
+              >
+                <div
+                  class="col-span-full h-96 px-10 justify-center flex items-center"
+                >
+                  <div
+                    class="flex flex-col gap-3 items-center"
+                  >
+                    <img
+                      alt="Default message"
+                      class="w-14 opacity-80"
+                      data-nimg="1"
+                      decoding="async"
+                      height="80"
+                      loading="lazy"
+                      src="/_next/image?url=https%3A%2F%2Fi.goopics.net%2F26opd3.png&w=256&q=75"
+                      srcset="/_next/image?url=https%3A%2F%2Fi.goopics.net%2F26opd3.png&w=96&q=75 1x, /_next/image?url=https%3A%2F%2Fi.goopics.net%2F26opd3.png&w=256&q=75 2x"
+                      style="color: transparent;"
+                      width="80"
+                    />
+                    <span
+                      class="text-xs text-gray-400 text-center w-full"
+                    >
+                      Démarrer une conversation avec notre équipe...
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <form
+            id="sendMessageform"
+          >
+            <div
+              class="flex flex-row items-center h-16 bg-white w-full px-4 absolute bottom-40 md:bottom-20"
+            >
+              <div>
+                <button
+                  class="flex items-center justify-center text-gray-400 hover:text-gray-600"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div
+                class="flex-grow ml-4"
+              >
+                <div
+                  class="relative w-full"
+                >
+                  <input
+                    class="flex w-full border rounded-xl focus:outline-none focus:border-indigo-300 pl-2 pr-9 h-10"
+                    name="message"
+                    type="text"
+                    value=""
+                  />
+                  <button
+                    class="absolute flex items-center justify-center h-full w-12 right-0 top-0 text-gray-400 hover:text-gray-600"
+                  >
+                    <svg
+                      class="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="ml-4"
+              >
+                <button
+                  class="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-3 h-fit flex-shrink-0 disabled:bg-gray-400"
+                  disabled=""
+                  type="submit"
+                >
+                  <span
+                    class="ml-1"
+                  >
+                    <svg
+                      class="w-4 h-4 transform rotate-45 -mt-px"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

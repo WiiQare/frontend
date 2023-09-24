@@ -242,7 +242,7 @@ const DetailsTransaction = ({
 
           <div className="flex flex-col gap-6">
             <div className="w-full h-60 m-auto bg-red-100 rounded-xl relative text-white drop-shadow-sm ">
-              <img
+              <Image
                 className="relative object-cover w-full h-full rounded-xl"
                 src="https://i.imgur.com/kGkSg1v.png"
                 alt=""

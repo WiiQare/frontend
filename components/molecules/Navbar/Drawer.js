@@ -132,10 +132,12 @@ function Conversation({
           <BiArrowBack size={23} />
         </button>
         <div className="flex gap-2 items-center">
-          <img
+          <Image
             src={`/images/favicon.png`}
             alt=""
             className="rounded-xl w-10 h-10"
+            width={64}
+            height={64}
           />
           <h3 className="font-semibold text-gray-700 flex flex-col">
             Odette de WiiQare{' '}
@@ -237,7 +239,7 @@ function Conversation({
                 ) : (
                   <div className="col-span-full h-96 px-10 justify-center flex items-center">
                     <div className="flex flex-col gap-3 items-center">
-                      <img
+                      <Image
                         alt="Default message"
                         src={'https://i.goopics.net/26opd3.png'}
                         width={80}

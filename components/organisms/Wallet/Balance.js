@@ -5,6 +5,7 @@ import { HiDotsVertical } from 'react-icons/hi';
 import CardProgress from '../../atoms/Card/Progress';
 import DropdownFilter from '../../atoms/Dropdown/Filter';
 import { useSession } from 'next-auth/react';
+import Image from 'next/image';
 
 const WalletBalance = ({ data }) => {
   const { data: session } = useSession();
@@ -104,10 +105,12 @@ const WalletBalance = ({ data }) => {
             </>
           ) : (
             <div className="flex flex-col justify-center items-center my-10 md:my-20 gap-6">
-              <img
+              <Image
                 src="https://i.goopics.net/ozsga7.png"
                 alt=""
                 className="md:w-44 w-28 opacity-80"
+                width={512}
+                height={512}
               />
               <span className="text-gray-400 text-sm">
                 Aucun épargne actuellement en cours...

@@ -59,7 +59,14 @@ exports[`register page should render empty page when fetch fails 1`] = `
                           <img
                             alt=""
                             class="photo"
-                            src="/images/set-your-savings- .png"
+                            data-nimg="1"
+                            decoding="async"
+                            height="1024"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimages%2Fset-your-savings-%20.png&w=3840&q=75"
+                            srcset="/_next/image?url=%2Fimages%2Fset-your-savings-%20.png&w=1200&q=75 1x, /_next/image?url=%2Fimages%2Fset-your-savings-%20.png&w=3840&q=75 2x"
+                            style="color: transparent;"
+                            width="1096"
                           />
                           <div
                             class="bold-title"
@@ -94,7 +101,14 @@ exports[`register page should render empty page when fetch fails 1`] = `
                           <img
                             alt=""
                             class="photo"
-                            src="/images/Easy-payment-scan-QR-code.png"
+                            data-nimg="1"
+                            decoding="async"
+                            height="1024"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimages%2FEasy-payment-scan-QR-code.png&w=3840&q=75"
+                            srcset="/_next/image?url=%2Fimages%2FEasy-payment-scan-QR-code.png&w=1200&q=75 1x, /_next/image?url=%2Fimages%2FEasy-payment-scan-QR-code.png&w=3840&q=75 2x"
+                            style="color: transparent;"
+                            width="1096"
                           />
                           <div
                             class="bold-title"

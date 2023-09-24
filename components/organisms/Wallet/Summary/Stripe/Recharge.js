@@ -105,10 +105,12 @@ const StripePaymentRecharge = () => {
   if (!router.query.saving)
     return (
       <div className="flex flex-col items-center justify-center py-20 gap-6">
-        <img
+        <Image
           src="https://i.goopics.net/s7t0br.png"
           className="w-40 opacity-80"
           alt="empty"
+          width={512}
+          height={512}
         />
         <span className="text-xs text-gray-600">
           {
@@ -232,10 +234,12 @@ const StripePaymentRecharge = () => {
                     } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
                     for="radio_1"
                   >
-                    <img
+                    <Image
                       className="w-14 object-contain"
                       src="/images/carte-bancaire.png"
                       alt=""
+                      width={512}
+                      height={512}
                     />
                     <div className="ml-5">
                       <span className="mt-2 font-semibold">Carte Bancaire</span>
@@ -262,10 +266,12 @@ const StripePaymentRecharge = () => {
                     } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
                     for="radio_2"
                   >
-                    <img
+                    <Image
                       className="w-14 object-contain"
                       src="/images/crypto-monnaie.png"
                       alt=""
+                      width={512}
+                      height={512}
                     />
                     <div className="ml-5">
                       <span className="mt-2 font-semibold">Crypto Monnaie</span>
@@ -294,10 +300,12 @@ const StripePaymentRecharge = () => {
                       } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
                       for="radio_3"
                     >
-                      <img
+                      <Image
                         className="w-14 object-contain"
                         src="https://i.goopics.net/com9rd.png"
                         alt=""
+                        width={512}
+                        height={512}
                       />
                       <div className="ml-5">
                         <span className="mt-2 font-semibold">Mobile Money</span>
@@ -341,7 +349,7 @@ const StripePaymentRecharge = () => {
                 </>
               ) : methodPayment == 'crypto' ? (
                 <div className="h-full w-full flex flex-col justify-center items-center gap-4">
-                  <img
+                  <Image
                     src="/images/maintenance.png"
                     alt="Maintenace"
                     className="w-40 opacity-60"

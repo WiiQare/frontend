@@ -32,7 +32,13 @@ function WelcomeSlider({ slides, settings = defaultSettings }) {
             {slides?.map((slide, idx) => (
               <div key={idx.toString()}>
                 <div className="details-holder">
-                  <img className="photo" src={slide.img} alt="" />
+                  <Image
+                    className="photo"
+                    src={slide.img}
+                    alt=""
+                    width={1096}
+                    height={1024}
+                  />
                   <div
                     className="bold-title"
                     dangerouslySetInnerHTML={{ __html: slide.title }}

@@ -336,7 +336,7 @@ const ItemHistory = ({
                             target={'_blank'}
                           >
                             <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-                              <img
+                              <Image
                                 src="/images/whatsapp.png"
                                 alt=""
                                 className="w-6"
@@ -351,7 +351,7 @@ const ItemHistory = ({
                             target={'_blank'}
                           >
                             <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-                              <img
+                              <Image
                                 src="/images/facebook-share.png"
                                 alt=""
                                 className="w-6"
@@ -364,7 +364,11 @@ const ItemHistory = ({
                             className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
                             onClick={formik.handleSubmit}
                           >
-                            <img src="/images/sms.png" alt="" className="w-6" />
+                            <Image
+                              src="/images/sms.png"
+                              alt=""
+                              className="w-6"
+                            />
                             {sendSMSMutation.isLoading ? (
                               <LoadingButton />
                             ) : (
@@ -385,7 +389,7 @@ const ItemHistory = ({
                               type="button"
                               className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
                             >
-                              <img
+                              <Image
                                 src="/images/text.png"
                                 alt=""
                                 className="w-6"
@@ -501,7 +505,7 @@ const ItemHistory = ({
                               <div className="px-8 space-y-8">
                                 <div className="space-y-4">
                                   <div className="flex gap-4 items-center px-5 justify-center">
-                                    <img
+                                    <Image
                                       className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
                                       src="/images/homme.png"
                                       alt="Image Description"
@@ -510,7 +514,7 @@ const ItemHistory = ({
                                       size={30}
                                       className="text-gray-400"
                                     />
-                                    <img
+                                    <Image
                                       className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
                                       src="/images/femme.png"
                                       alt="Image Description"
