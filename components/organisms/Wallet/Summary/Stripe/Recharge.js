@@ -236,6 +236,8 @@ const StripePaymentRecharge = () => {
                       className="w-14 object-contain"
                       src="/images/carte-bancaire.png"
                       alt=""
+                      width={512}
+                      height={512}
                     />
                     <div className="ml-5">
                       <span className="mt-2 font-semibold">Carte Bancaire</span>
@@ -266,6 +268,8 @@ const StripePaymentRecharge = () => {
                       className="w-14 object-contain"
                       src="/images/crypto-monnaie.png"
                       alt=""
+                      width={512}
+                      height={512}
                     />
                     <div className="ml-5">
                       <span className="mt-2 font-semibold">Crypto Monnaie</span>
@@ -298,6 +302,8 @@ const StripePaymentRecharge = () => {
                         className="w-14 object-contain"
                         src="https://i.goopics.net/com9rd.png"
                         alt=""
+                        width={512}
+                        height={512}
                       />
                       <div className="ml-5">
                         <span className="mt-2 font-semibold">Mobile Money</span>

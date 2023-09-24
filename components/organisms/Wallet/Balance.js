@@ -109,6 +109,8 @@ const WalletBalance = ({ data }) => {
                 src="https://i.goopics.net/ozsga7.png"
                 alt=""
                 className="md:w-44 w-28 opacity-80"
+                width={512}
+                height={512}
               />
               <span className="text-gray-400 text-sm">
                 Aucun épargne actuellement en cours...

@@ -67,6 +67,8 @@ const Quickly = () => {
                 alt="Box image"
                 loading="lazy"
                 className="h-44 opacity-50"
+                width={512}
+                height={512}
               />
               <span className="text-gray-400 text-xs font-normal">
                 Aucune bénéficiaire actuellement...
@@ -204,6 +206,8 @@ const Quickly = () => {
                   alt="Box image"
                   loading="lazy"
                   className="h-44 opacity-50"
+                  width={512}
+                  height={512}
                 />
                 <span className="text-gray-400 text-xs font-normal">
                   Aucune transaction réalisé actuellement...

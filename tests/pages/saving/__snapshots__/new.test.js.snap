@@ -54,7 +54,14 @@ exports[`Saving should render 1`] = `
           <img
             alt="Myself"
             class="w-20"
-            src="https://i.goopics.net/yojhn7.png"
+            data-nimg="1"
+            decoding="async"
+            height="512"
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fi.goopics.net%2Fyojhn7.png&w=1080&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fi.goopics.net%2Fyojhn7.png&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fi.goopics.net%2Fyojhn7.png&w=1080&q=75 2x"
+            style="color: transparent;"
+            width="512"
           />
         </div>
         <div
@@ -92,7 +99,14 @@ exports[`Saving should render 1`] = `
           <img
             alt="Myself"
             class="w-20"
-            src="https://i.goopics.net/cub5b2.png"
+            data-nimg="1"
+            decoding="async"
+            height="512"
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fi.goopics.net%2Fcub5b2.png&w=1080&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fi.goopics.net%2Fcub5b2.png&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fi.goopics.net%2Fcub5b2.png&w=1080&q=75 2x"
+            style="color: transparent;"
+            width="512"
           />
         </div>
         <div
@@ -130,7 +144,14 @@ exports[`Saving should render 1`] = `
           <img
             alt="Myself"
             class="w-20"
-            src="https://i.goopics.net/dtrv5p.png"
+            data-nimg="1"
+            decoding="async"
+            height="512"
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fi.goopics.net%2Fdtrv5p.png&w=1080&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fi.goopics.net%2Fdtrv5p.png&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fi.goopics.net%2Fdtrv5p.png&w=1080&q=75 2x"
+            style="color: transparent;"
+            width="512"
           />
         </div>
         <div
@@ -168,7 +189,14 @@ exports[`Saving should render 1`] = `
           <img
             alt="Myself"
             class="w-20"
-            src="https://i.goopics.net/gl9c62.png"
+            data-nimg="1"
+            decoding="async"
+            height="512"
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fi.goopics.net%2Fgl9c62.png&w=1080&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fi.goopics.net%2Fgl9c62.png&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fi.goopics.net%2Fgl9c62.png&w=1080&q=75 2x"
+            style="color: transparent;"
+            width="512"
           />
         </div>
         <div
@@ -206,7 +234,14 @@ exports[`Saving should render 1`] = `
           <img
             alt="Myself"
             class="w-20"
-            src="https://i.goopics.net/3w4x3m.png"
+            data-nimg="1"
+            decoding="async"
+            height="512"
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fi.goopics.net%2F3w4x3m.png&w=1080&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fi.goopics.net%2F3w4x3m.png&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fi.goopics.net%2F3w4x3m.png&w=1080&q=75 2x"
+            style="color: transparent;"
+            width="512"
           />
         </div>
         <div
@@ -244,7 +279,14 @@ exports[`Saving should render 1`] = `
           <img
             alt="Myself"
             class="w-20"
-            src="https://i.goopics.net/hhbm6i.png"
+            data-nimg="1"
+            decoding="async"
+            height="512"
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fi.goopics.net%2Fhhbm6i.png&w=1080&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fi.goopics.net%2Fhhbm6i.png&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fi.goopics.net%2Fhhbm6i.png&w=1080&q=75 2x"
+            style="color: transparent;"
+            width="512"
           />
         </div>
         <div

@@ -135,7 +135,13 @@ const SavingCard = ({ title, img, month = 12 }) => {
         className="order-2 md:order-1 bg-white p-5 md:p-10 flex flex-col justify-center items-center rounded-lg shadow-sm hover:shadow-md duration-200 transition-all cursor-pointer gap-4"
       >
         <div className="p-3 rounded-md border border-blue-200 w-fit">
-          <Image src={img} alt="Myself" className="w-20" />
+          <Image
+            src={img}
+            alt="Myself"
+            className="w-20"
+            width={512}
+            height={512}
+          />
         </div>
 
         <div className="flex flex-col justify-center items-center">

@@ -219,6 +219,8 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                       className="w-14 object-contain"
                       src="/images/carte-bancaire.png"
                       alt=""
+                      width={512}
+                      height={512}
                     />
                     <div className="ml-5">
                       <span className="mt-2 font-semibold">Carte Bancaire</span>
@@ -246,6 +248,8 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                       className="w-14 object-contain"
                       src="/images/crypto-monnaie.png"
                       alt=""
+                      height={512}
+                      width={512}
                     />
                     <div className="ml-5">
                       <span className="mt-2 font-semibold">Crypto Monnaie</span>
