@@ -154,8 +154,8 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                     {client.currency.sender == 'USD'
                       ? '$'
                       : client.currency.sender == 'EUR'
-                        ? '€'
-                        : client.currency.sender ?? '€'}{' '}
+                      ? '€'
+                      : client.currency.sender ?? '€'}{' '}
                     1.00 ={' '}
                     <span className="text-orange">
                       {client.currency.rate.toFixed(2) ?? ''}{' '}
@@ -173,8 +173,8 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                     {client.currency.patient == 'USD'
                       ? '$'
                       : client.currency.patient == 'EUR'
-                        ? '€'
-                        : client.currency.patient ?? '€'}
+                      ? '€'
+                      : client.currency.patient ?? '€'}
                   </p>
                 </div>
 
@@ -193,8 +193,8 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                   {client.currency.sender == 'USD'
                     ? '$'
                     : client.currency.sender == 'EUR'
-                      ? '€'
-                      : client.currency.sender ?? '€'}{' '}
+                    ? '€'
+                    : client.currency.sender ?? '€'}{' '}
                   {amount}
                 </p>
               </div>

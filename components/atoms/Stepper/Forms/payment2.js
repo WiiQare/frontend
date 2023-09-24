@@ -269,9 +269,9 @@ function Amount({
   );
   const [currencyPatientName, setCurrencyPatientName] = useState(
     patient.countryLabel ??
-    new Intl.DisplayNames(['en'], { type: 'region' }).of(
-      patient?.country?.toUpperCase(),
-    ),
+      new Intl.DisplayNames(['en'], { type: 'region' }).of(
+        patient?.country?.toUpperCase(),
+      ),
   );
 
   const [currencySender, setCurrencySender] = useState('EUR');
@@ -380,8 +380,9 @@ function Amount({
                       Pays:{' '}
                       <b className="text-gray-700 flex gap-1 items-center">
                         <Image
-                          src={`https://flagcdn.com/w20/${patient.country ?? 'cd'
-                            }.png`}
+                          src={`https://flagcdn.com/w20/${
+                            patient.country ?? 'cd'
+                          }.png`}
                           alt="cd"
                           width={20}
                           height={20}

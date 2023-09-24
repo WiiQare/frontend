@@ -75,8 +75,8 @@ const WalletBalance = ({ data }) => {
                         ? 'text-purple'
                         : saving.operations.length * 10 > 50 &&
                           saving.operations.length * 10 <= 75
-                          ? 'text-[#2ABB52]'
-                          : 'text-[#441DE1]'
+                        ? 'text-[#2ABB52]'
+                        : 'text-[#441DE1]'
                     }
                     value={saving.operations.length * 10}
                     title={saving.type == 'MOI' ? 'POUR MOI' : saving.type}
@@ -88,8 +88,8 @@ const WalletBalance = ({ data }) => {
                         ? 'bg-[#F9F1FC]'
                         : saving.operations.length * 10 > 50 &&
                           saving.operations.length * 10 <= 75
-                          ? 'bg-[#E3F9E9]'
-                          : 'bg-[#F4F2FE]'
+                        ? 'bg-[#E3F9E9]'
+                        : 'bg-[#F4F2FE]'
                     }
                     link={`/saving/${saving.id}`}
                     key={index}

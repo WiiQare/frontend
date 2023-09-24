@@ -113,8 +113,9 @@ const Quickly = () => {
                           alt="Home"
                         />
                         <span
-                          className={`${activeIndexSlide === index ? '' : 'hidden'
-                            } p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}
+                          className={`${
+                            activeIndexSlide === index ? '' : 'hidden'
+                          } p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}
                         >
                           <CiCircleCheck size={18} />
                         </span>

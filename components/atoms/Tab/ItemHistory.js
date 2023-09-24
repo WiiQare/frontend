@@ -103,15 +103,17 @@ const ItemHistory = ({
   return (
     <div
       tabIndex={index}
-      className={`${total > index + 1 ? 'border-b py-3' : ''
-        } collapse collapse-arrow  text-gray-700 overflow-scroll md:overflow-hidden`}
+      className={`${
+        total > index + 1 ? 'border-b py-3' : ''
+      } collapse collapse-arrow  text-gray-700 overflow-scroll md:overflow-hidden`}
     >
       <div className="collapse-title flex gap-7 justify-between items-center ">
         <div className="flex gap-3 items-center">
           <div className="w-16 h-16">
             <Image
-              src={`https://ui-avatars.com/api/?uppercase=true&background=CCC&name=${patient?.firstName ?? ''
-                }&bold=true&color=FFF`}
+              src={`https://ui-avatars.com/api/?uppercase=true&background=CCC&name=${
+                patient?.firstName ?? ''
+              }&bold=true&color=FFF`}
               width={200}
               height={200}
               className="object-cover rounded-full w-full h-full"
@@ -362,7 +364,11 @@ const ItemHistory = ({
                             className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
                             onClick={formik.handleSubmit}
                           >
-                            <Image src="/images/sms.png" alt="" className="w-6" />
+                            <Image
+                              src="/images/sms.png"
+                              alt=""
+                              className="w-6"
+                            />
                             {sendSMSMutation.isLoading ? (
                               <LoadingButton />
                             ) : (
@@ -632,10 +638,11 @@ const ItemHistory = ({
 
                                   <li className="ml-6">
                                     <span
-                                      className={`absolute flex items-center justify-center w-6 h-6 ${ownerType == 'PROVIDER'
+                                      className={`absolute flex items-center justify-center w-6 h-6 ${
+                                        ownerType == 'PROVIDER'
                                           ? 'bg-green-400'
                                           : 'bg-gray-200'
-                                        } rounded-full -left-3 ring-8 ring-white`}
+                                      } rounded-full -left-3 ring-8 ring-white`}
                                     >
                                       {ownerType == 'PROVIDER' && (
                                         <MdCheck
@@ -646,23 +653,25 @@ const ItemHistory = ({
                                       )}
                                     </span>
                                     <h3
-                                      className={`mb-1 text-lg font-semibold ${ownerType == 'PROVIDER'
+                                      className={`mb-1 text-lg font-semibold ${
+                                        ownerType == 'PROVIDER'
                                           ? 'text-gray-900'
                                           : 'text-gray-400'
-                                        }`}
+                                      }`}
                                     >
                                       Utilisation du Pass santé
                                     </h3>
                                     <time
-                                      className={`block mb-2 text-sm font-normal leading-none ${ownerType == 'PROVIDER'
+                                      className={`block mb-2 text-sm font-normal leading-none ${
+                                        ownerType == 'PROVIDER'
                                           ? 'text-gray-400'
                                           : 'text-gray-200'
-                                        } `}
+                                      } `}
                                     >
                                       {ownerType == 'PROVIDER'
                                         ? new Intl.DateTimeFormat('fr', {
-                                          dateStyle: 'long',
-                                        }).format(new Date(updatedAt))
+                                            dateStyle: 'long',
+                                          }).format(new Date(updatedAt))
                                         : 'En cours ...'}
                                     </time>
                                   </li>
