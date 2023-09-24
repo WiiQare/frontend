@@ -6,7 +6,7 @@ exports[`Hospitals should render the page 1`] = `
     class="p-2 space-y-6 md:py-8 md:px-6 mb-20 md:mb-6"
   >
     <div
-      class="border w-full rounded-lg py-8 px-6 flex flex-col flex-wrap md:flex-row justify-between gap-4 bg-white cursor-pointer"
+      class="border w-full rounded-lg py-8 px-6 flex flex-col flex-wrap md:flex-row justify-between items-center gap-4 bg-white cursor-pointer"
     >
       <div
         class="flex flex-col"
