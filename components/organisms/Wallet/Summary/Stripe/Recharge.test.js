@@ -17,10 +17,15 @@ describe('Recharge', () => {
     const queryClient = new QueryClient();
     const { container } = render(
       <QueryClientProvider client={queryClient}>
-        <SessionProvider session={{ user: { name: 'John Doe', data: { access_token: "at123" } } }}>
+        <SessionProvider
+          session={{
+            user: { name: 'John Doe', data: { access_token: 'at123' } },
+          }}
+        >
           <Recharge />
         </SessionProvider>
-      </QueryClientProvider>);
+      </QueryClientProvider>,
+    );
     expect(container).toMatchSnapshot();
   });
 });

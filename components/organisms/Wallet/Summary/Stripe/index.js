@@ -172,10 +172,10 @@ const StripePayment = () => {
                     {saving.plan.type == 'DAY'
                       ? 'Journalier'
                       : saving.plan.type == 'WEEK'
-                        ? 'Hebdomadaire'
-                        : saving.plan.type == 'MONTH'
-                          ? 'Mensuel'
-                          : '---'}
+                      ? 'Hebdomadaire'
+                      : saving.plan.type == 'MONTH'
+                      ? 'Mensuel'
+                      : '---'}
                   </p>
                 </div>
 
@@ -205,14 +205,16 @@ const StripePayment = () => {
                   onClick={() => setMethodPayment('card')}
                 >
                   <span
-                    className={`${methodPayment == 'card' ? 'border-orange' : ''
-                      } absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white`}
+                    className={`${
+                      methodPayment == 'card' ? 'border-orange' : ''
+                    } absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white`}
                   ></span>
                   <label
-                    className={`${methodPayment == 'card'
+                    className={`${
+                      methodPayment == 'card'
                         ? 'border-2 border-orange peer-checked:bg-gray-50'
                         : ''
-                      } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
+                    } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
                     for="radio_1"
                   >
                     <Image
@@ -235,14 +237,16 @@ const StripePayment = () => {
                   onClick={() => setMethodPayment('crypto')}
                 >
                   <span
-                    className={`${methodPayment == 'crypto' ? 'border-orange' : ''
-                      } absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white`}
+                    className={`${
+                      methodPayment == 'crypto' ? 'border-orange' : ''
+                    } absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white`}
                   ></span>
                   <label
-                    className={`${methodPayment == 'crypto'
+                    className={`${
+                      methodPayment == 'crypto'
                         ? 'border-2 border-orange peer-checked:bg-gray-50'
                         : ''
-                      } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
+                    } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
                     for="radio_2"
                   >
                     <Image
@@ -267,14 +271,16 @@ const StripePayment = () => {
                     onClick={() => setMethodPayment('mobile')}
                   >
                     <span
-                      className={`${methodPayment == 'mobile' ? 'border-orange' : ''
-                        } absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white`}
+                      className={`${
+                        methodPayment == 'mobile' ? 'border-orange' : ''
+                      } absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white`}
                     ></span>
                     <label
-                      className={`${methodPayment == 'mobile'
+                      className={`${
+                        methodPayment == 'mobile'
                           ? 'border-2 border-orange peer-checked:bg-gray-50'
                           : ''
-                        } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
+                      } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
                       for="radio_3"
                     >
                       <Image
