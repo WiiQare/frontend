@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckoutForm renders without crashing 1`] = `
+<div>
+  <form
+    class="flex flex-col gap-6"
+    id="payment-form"
+  >
+    <div
+      id="link-authentication-element"
+    />
+    <div
+      id="payment-element"
+    />
+    <div
+      class="w-full flex flex-row-reverse"
+    >
+      <button
+        class="mb-8 w-full rounded-md bg-orange effect-up px-6 py-4 font-medium text-white"
+        disabled=""
+        type="submit"
+      >
+        Procéder au paiement
+      </button>
+    </div>
+  </form>
+</div>
+`;
