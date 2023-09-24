@@ -331,7 +331,7 @@ const ItemHistory = ({
                         </h4>
                         <div className="flex justify-between">
                           <Link
-                            href={`whatsapp://send?text=https://wiiqare-app.com/voucher/pass/${stripePaymentId}`}
+                            href={`whatsapp://send?text=${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/${stripePaymentId}`}
                             legacyBehavior
                             target={'_blank'}
                           >
@@ -346,7 +346,7 @@ const ItemHistory = ({
                           </Link>
 
                           <Link
-                            href={`https://www.facebook.com/share.php?u=https://wiiqare-app.com/voucher/pass/${stripePaymentId}`}
+                            href={`https://www.facebook.com/share.php?u=${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/${stripePaymentId}`}
                             legacyBehavior
                             target={'_blank'}
                           >
@@ -377,7 +377,7 @@ const ItemHistory = ({
                           </button>
 
                           <CopyToClipboard
-                            text={`https://wiiqare-app.com/voucher/pass/${stripePaymentId}`}
+                            text={`${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/${stripePaymentId}`}
                             onCopy={() => {
                               setCopyLink(true);
                               setTimeout(() => {

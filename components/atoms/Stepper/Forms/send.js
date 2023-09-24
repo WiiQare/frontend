@@ -39,7 +39,7 @@ function Send() {
   const handleView = async () => {
     setLoadView(true);
     let response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/v1/payment/voucher?paymentId=${payment_intent}`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/payment/voucher?paymentId=${payment_intent}`,
     );
 
     setLoadView(false);
@@ -348,7 +348,7 @@ function Send() {
             <div className="border relative border-gray-300 rounded-lg overflow-hidden">
               <Canvas
                 className="w-full"
-                text={`https://wiiqare-app.com/voucher/pass/0xcda1470a8117daaccf368eb4`}
+                text={`${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/0xcda1470a8117daaccf368eb4`}
                 options={{
                   level: 'M',
                   margin: 1,
@@ -402,7 +402,9 @@ function Send() {
             </h4>
             <div className="flex justify-between">
               <Link
-                href={`whatsapp://send?text=https://wiiqare-app.com/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
+                href={`whatsapp://send?text=${
+                  process.env.NEXT_PUBLIC_BASE_URL
+                }/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
                 legacyBehavior
                 target={'_blank'}
               >
@@ -413,7 +415,9 @@ function Send() {
               </Link>
 
               <Link
-                href={`https://www.facebook.com/share.php?u=https://wiiqare-app.com/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
+                href={`https://www.facebook.com/share.php?u=${
+                  process.env.NEXT_PUBLIC_BASE_URL
+                }/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
                 legacyBehavior
                 target={'_blank'}
               >
@@ -428,7 +432,9 @@ function Send() {
               </Link>
 
               <Link
-                href={`sms://+243814978651&?body=https://wiiqare-app.com/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
+                href={`sms://+243814978651&?body=${
+                  process.env.NEXT_PUBLIC_BASE_URL
+                }/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
                 legacyBehavior
                 target={'_blank'}
               >
@@ -439,7 +445,9 @@ function Send() {
               </Link>
 
               <CopyToClipboard
-                text={`https://wiiqare-app.com/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
+                text={`${
+                  process.env.NEXT_PUBLIC_BASE_URL
+                }/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
                 onCopy={() => {
                   setCopyLink(true);
                   setTimeout(() => {

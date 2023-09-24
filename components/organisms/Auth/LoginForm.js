@@ -44,12 +44,12 @@ function LoginForm() {
   //Handle Google Login
   const handleGoogleSignIn = async () => {
     //signIn('google', {callbackUrl: "http://localhost:3000"})
-    signIn('google', { callbackUrl: 'https://wiiqare-app.com' });
+    signIn('google', { callbackUrl: `${process.env.NEXT_PUBLIC_BASE_URL}` });
   };
 
   const handleLinkedInSignIn = async () => {
     //signIn('linkedin', {callbackUrl: "http://localhost:3000"})
-    signIn('linkedin', { callbackUrl: 'https://wiiqare-app.com' });
+    signIn('linkedin', { callbackUrl: `${process.env.NEXT_PUBLIC_BASE_URL}` });
   };
 
   //Sign In for other methods with NextAuth
