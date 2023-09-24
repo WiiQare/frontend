@@ -54,8 +54,8 @@ const StripePaymentRecharge = () => {
         (data?.frequency == 'MONTH'
           ? month
           : data?.week == 'WEEK'
-          ? month * 4
-          : month * 31);
+            ? month * 4
+            : month * 31);
 
       setCount({ price });
     }
@@ -109,6 +109,8 @@ const StripePaymentRecharge = () => {
           src="https://i.goopics.net/s7t0br.png"
           className="w-40 opacity-80"
           alt="empty"
+          width={512}
+          height={512}
         />
         <span className="text-xs text-gray-600">
           {
@@ -189,10 +191,10 @@ const StripePaymentRecharge = () => {
                     {data.frequency == 'DAY'
                       ? 'Journalier'
                       : data.frequency == 'WEEK'
-                      ? 'Hebdomadaire'
-                      : data.frequency == 'MONTH'
-                      ? 'Mensuel'
-                      : '---'}
+                        ? 'Hebdomadaire'
+                        : data.frequency == 'MONTH'
+                          ? 'Mensuel'
+                          : '---'}
                   </p>
                 </div>
 
@@ -220,16 +222,14 @@ const StripePaymentRecharge = () => {
                   onClick={() => setMethodPayment('card')}
                 >
                   <span
-                    className={`${
-                      methodPayment == 'card' ? 'border-orange' : ''
-                    } absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white`}
+                    className={`${methodPayment == 'card' ? 'border-orange' : ''
+                      } absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white`}
                   ></span>
                   <label
-                    className={`${
-                      methodPayment == 'card'
+                    className={`${methodPayment == 'card'
                         ? 'border-2 border-orange peer-checked:bg-gray-50'
                         : ''
-                    } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
+                      } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
                     for="radio_1"
                   >
                     <Image
@@ -252,16 +252,14 @@ const StripePaymentRecharge = () => {
                   onClick={() => setMethodPayment('crypto')}
                 >
                   <span
-                    className={`${
-                      methodPayment == 'crypto' ? 'border-orange' : ''
-                    } absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white`}
+                    className={`${methodPayment == 'crypto' ? 'border-orange' : ''
+                      } absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white`}
                   ></span>
                   <label
-                    className={`${
-                      methodPayment == 'crypto'
+                    className={`${methodPayment == 'crypto'
                         ? 'border-2 border-orange peer-checked:bg-gray-50'
                         : ''
-                    } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
+                      } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
                     for="radio_2"
                   >
                     <Image
@@ -286,16 +284,14 @@ const StripePaymentRecharge = () => {
                     onClick={() => setMethodPayment('mobile')}
                   >
                     <span
-                      className={`${
-                        methodPayment == 'mobile' ? 'border-orange' : ''
-                      } absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white`}
+                      className={`${methodPayment == 'mobile' ? 'border-orange' : ''
+                        } absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white`}
                     ></span>
                     <label
-                      className={`${
-                        methodPayment == 'mobile'
+                      className={`${methodPayment == 'mobile'
                           ? 'border-2 border-orange peer-checked:bg-gray-50'
                           : ''
-                      } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
+                        } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
                       for="radio_3"
                     >
                       <Image
