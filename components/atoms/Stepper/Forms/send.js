@@ -187,7 +187,7 @@ function Send() {
             <div className="border relative border-gray-300 rounded-lg overflow-hidden">
               <Canvas
                 className="w-full"
-                text={`${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/${data.voucherEntity.voucherHash}`}
+                text={`${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/${data.stripePaymentId}`}
                 options={{
                   level: 'M',
                   margin: 1,
