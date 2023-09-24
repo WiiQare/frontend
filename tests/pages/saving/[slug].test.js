@@ -7,7 +7,7 @@ jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({
     query: {
       'payment-intent': 'pi_1J4JrjGswQjYFZwX0Z1Z1Z1Z',
-      'slug': 'test-slug',
+      slug: 'test-slug',
     },
   }),
 }));
@@ -17,7 +17,7 @@ describe('Saving', () => {
     const { container } = render(
       <SessionProvider session={{ user: { data: { access_token: {} } } }}>
         <TransactionContext.Provider
-          value={{ transaction: {}, setTransaction: () => { } }}
+          value={{ transaction: {}, setTransaction: () => {} }}
         >
           <SavingSlug />
         </TransactionContext.Provider>
