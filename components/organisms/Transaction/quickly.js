@@ -62,7 +62,7 @@ const Quickly = () => {
             </div>
           ) : data.length == 0 ? (
             <div className="w-full flex flex-col items-center gap-3">
-              <img
+              <Image
                 src="/images/box.png"
                 alt="Box image"
                 loading="lazy"
@@ -113,9 +113,8 @@ const Quickly = () => {
                           alt="Home"
                         />
                         <span
-                          className={`${
-                            activeIndexSlide === index ? '' : 'hidden'
-                          } p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}
+                          className={`${activeIndexSlide === index ? '' : 'hidden'
+                            } p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}
                         >
                           <CiCircleCheck size={18} />
                         </span>
@@ -199,7 +198,7 @@ const Quickly = () => {
               </div>
             ) : transaction?.transaction?.length == 0 ? (
               <div className="w-full flex flex-col items-center gap-3">
-                <img
+                <Image
                   src="/images/box.png"
                   alt="Box image"
                   loading="lazy"

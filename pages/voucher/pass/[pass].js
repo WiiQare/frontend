@@ -134,12 +134,12 @@ function Pass() {
 
           <div className="flex flex-col items-center gap-1">
             <div className="flex -space-x-2">
-              <img
+              <Image
                 className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
                 src="/images/homme.png"
                 alt="Image Description"
               />
-              <img
+              <Image
                 className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
                 src="/images/femme.png"
                 alt="Image Description"

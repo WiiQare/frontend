@@ -12,6 +12,7 @@ import LoadingButton from '../../Loader/LoadingButton';
 import { addPlan } from '../../../../lib/helper';
 import { useSession } from 'next-auth/react';
 import Toast from '../../Toast';
+import Image from 'next/image';
 
 const SavingCard = ({ title, img, month = 12 }) => {
   const { data: session } = useSession();
@@ -134,7 +135,7 @@ const SavingCard = ({ title, img, month = 12 }) => {
         className="order-2 md:order-1 bg-white p-5 md:p-10 flex flex-col justify-center items-center rounded-lg shadow-sm hover:shadow-md duration-200 transition-all cursor-pointer gap-4"
       >
         <div className="p-3 rounded-md border border-blue-200 w-fit">
-          <img src={img} alt="Myself" className="w-20" />
+          <Image src={img} alt="Myself" className="w-20" />
         </div>
 
         <div className="flex flex-col justify-center items-center">
@@ -181,13 +182,13 @@ const SavingCard = ({ title, img, month = 12 }) => {
 
                       <div className="space-y-10">
                         <div className="flex gap-4 items-center px-5 justify-center">
-                          <img
+                          <Image
                             className="inline-block w-16"
                             src={img}
                             alt="Image Description"
                           />
                           <BiTransferAlt size={30} className="text-gray-400" />
-                          <img
+                          <Image
                             className="inline-block w-14"
                             src="https://i.goopics.net/nkg0du.png"
                             alt="Image Description"
@@ -211,31 +212,28 @@ const SavingCard = ({ title, img, month = 12 }) => {
                               >
                                 <span
                                   onClick={(e) => setCurrency('CDF')}
-                                  className={`px-4 py-2  ${
-                                    currency == 'CDF'
-                                      ? 'bg-primary text-white'
-                                      : 'bg-transparent text-primary'
-                                  } font-semibold select-none text-sm`}
+                                  className={`px-4 py-2  ${currency == 'CDF'
+                                    ? 'bg-primary text-white'
+                                    : 'bg-transparent text-primary'
+                                    } font-semibold select-none text-sm`}
                                 >
                                   CDF
                                 </span>
                                 <span
                                   onClick={(e) => setCurrency('EUR')}
-                                  className={`px-4 py-2  ${
-                                    currency == 'EUR'
-                                      ? 'bg-primary text-white'
-                                      : 'bg-transparent text-primary'
-                                  } font-semibold select-none text-sm`}
+                                  className={`px-4 py-2  ${currency == 'EUR'
+                                    ? 'bg-primary text-white'
+                                    : 'bg-transparent text-primary'
+                                    } font-semibold select-none text-sm`}
                                 >
                                   EUR
                                 </span>
                                 <span
                                   onClick={(e) => setCurrency('USD')}
-                                  className={`px-4 py-2  font-semibold ${
-                                    currency == 'USD'
-                                      ? 'bg-primary text-white'
-                                      : 'bg-transparent text-primary'
-                                  } select-none text-sm`}
+                                  className={`px-4 py-2  font-semibold ${currency == 'USD'
+                                    ? 'bg-primary text-white'
+                                    : 'bg-transparent text-primary'
+                                    } select-none text-sm`}
                                 >
                                   USD
                                 </span>
@@ -253,11 +251,10 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                   type="number"
                                   id="hs-inline-leading-pricing-select-label"
                                   name="amount"
-                                  className={`py-3 px-4 ${
-                                    currency == 'USD' || currency == 'EUR'
-                                      ? 'pl-9'
-                                      : 'pl-16'
-                                  } pr-5 block w-full border-gray-200 shadow-sm rounded-md text-lg focus:z-10 focus:border-blue-500 focus:ring-blue-500 focus:ring-1 outline-none`}
+                                  className={`py-3 px-4 ${currency == 'USD' || currency == 'EUR'
+                                    ? 'pl-9'
+                                    : 'pl-16'
+                                    } pr-5 block w-full border-gray-200 shadow-sm rounded-md text-lg focus:z-10 focus:border-blue-500 focus:ring-blue-500 focus:ring-1 outline-none`}
                                   placeholder="0.00"
                                   {...formik.getFieldProps('amount')}
                                 />
@@ -266,8 +263,8 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                     {currency == 'USD'
                                       ? '$'
                                       : currency == 'EUR'
-                                      ? '€'
-                                      : 'CDF'}
+                                        ? '€'
+                                        : 'CDF'}
                                   </span>
                                 </div>
                                 <div className="absolute inset-y-0 right-0 flex items-center text-gray-500 pr-px">
@@ -314,18 +311,16 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                     setPlan(pricing[0]);
                                     setSaving({ ...saving, plan: pricing[0] });
                                   }}
-                                  class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${
-                                    plan.type == 'DAY' ? 'border-blue-500' : ''
-                                  }`}
+                                  class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${plan.type == 'DAY' ? 'border-blue-500' : ''
+                                    }`}
                                 >
                                   <div class="flex items-center">
                                     <svg
                                       xmlns="http://www.w3.org/2000/svg"
-                                      class={`w-5 h-5 sm:h-9 sm:w-9 ${
-                                        plan.type == 'DAY'
-                                          ? 'text-blue-600'
-                                          : 'text-gray-400'
-                                      }`}
+                                      class={`w-5 h-5 sm:h-9 sm:w-9 ${plan.type == 'DAY'
+                                        ? 'text-blue-600'
+                                        : 'text-gray-400'
+                                        }`}
                                       viewBox="0 0 20 20"
                                       fill="currentColor"
                                     >
@@ -348,11 +343,10 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                   </div>
 
                                   <h2
-                                    class={`text-2xl font-semibold sm:text-3xl ${
-                                      plan.type == 'DAY'
-                                        ? 'text-blue-600'
-                                        : 'text-gray-500'
-                                    }`}
+                                    class={`text-2xl font-semibold sm:text-3xl ${plan.type == 'DAY'
+                                      ? 'text-blue-600'
+                                      : 'text-gray-500'
+                                      }`}
                                   >
                                     {new Intl.NumberFormat('en-US', {
                                       style: 'currency',
@@ -370,18 +364,16 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                     setPlan(pricing[1]);
                                     setSaving({ ...saving, plan: pricing[1] });
                                   }}
-                                  class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${
-                                    plan.type == 'WEEK' ? 'border-blue-500' : ''
-                                  }`}
+                                  class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${plan.type == 'WEEK' ? 'border-blue-500' : ''
+                                    }`}
                                 >
                                   <div class="flex items-center">
                                     <svg
                                       xmlns="http://www.w3.org/2000/svg"
-                                      class={`w-5 h-5 sm:h-9 sm:w-9 ${
-                                        plan.type == 'WEEK'
-                                          ? 'text-blue-600'
-                                          : 'text-gray-400'
-                                      }`}
+                                      class={`w-5 h-5 sm:h-9 sm:w-9 ${plan.type == 'WEEK'
+                                        ? 'text-blue-600'
+                                        : 'text-gray-400'
+                                        }`}
                                       viewBox="0 0 20 20"
                                       fill="currentColor"
                                     >
@@ -404,11 +396,10 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                   </div>
 
                                   <h2
-                                    class={`text-2xl font-semibold sm:text-3xl ${
-                                      plan.type == 'WEEK'
-                                        ? 'text-blue-600'
-                                        : 'text-gray-500'
-                                    }`}
+                                    class={`text-2xl font-semibold sm:text-3xl ${plan.type == 'WEEK'
+                                      ? 'text-blue-600'
+                                      : 'text-gray-500'
+                                      }`}
                                   >
                                     {new Intl.NumberFormat('en-US', {
                                       style: 'currency',
@@ -426,20 +417,18 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                     setPlan(pricing[2]);
                                     setSaving({ ...saving, plan: pricing[2] });
                                   }}
-                                  class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${
-                                    plan.type == 'MONTH'
-                                      ? 'border-blue-500'
-                                      : ''
-                                  }`}
+                                  class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${plan.type == 'MONTH'
+                                    ? 'border-blue-500'
+                                    : ''
+                                    }`}
                                 >
                                   <div class="flex items-center">
                                     <svg
                                       xmlns="http://www.w3.org/2000/svg"
-                                      class={`w-5 h-5 sm:h-9 sm:w-9 ${
-                                        plan.type == 'MONTH'
-                                          ? 'text-blue-600'
-                                          : 'text-gray-400'
-                                      }`}
+                                      class={`w-5 h-5 sm:h-9 sm:w-9 ${plan.type == 'MONTH'
+                                        ? 'text-blue-600'
+                                        : 'text-gray-400'
+                                        }`}
                                       viewBox="0 0 20 20"
                                       fill="currentColor"
                                     >
@@ -462,11 +451,10 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                   </div>
 
                                   <h2
-                                    class={`text-2xl font-semibold sm:text-3xl ${
-                                      plan.type == 'MONTH'
-                                        ? 'text-blue-600'
-                                        : 'text-gray-500'
-                                    }`}
+                                    class={`text-2xl font-semibold sm:text-3xl ${plan.type == 'MONTH'
+                                      ? 'text-blue-600'
+                                      : 'text-gray-500'
+                                      }`}
                                   >
                                     {new Intl.NumberFormat('en-US', {
                                       style: 'currency',

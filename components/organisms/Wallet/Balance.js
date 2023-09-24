@@ -5,6 +5,7 @@ import { HiDotsVertical } from 'react-icons/hi';
 import CardProgress from '../../atoms/Card/Progress';
 import DropdownFilter from '../../atoms/Dropdown/Filter';
 import { useSession } from 'next-auth/react';
+import Image from 'next/image';
 
 const WalletBalance = ({ data }) => {
   const { data: session } = useSession();
@@ -74,8 +75,8 @@ const WalletBalance = ({ data }) => {
                         ? 'text-purple'
                         : saving.operations.length * 10 > 50 &&
                           saving.operations.length * 10 <= 75
-                        ? 'text-[#2ABB52]'
-                        : 'text-[#441DE1]'
+                          ? 'text-[#2ABB52]'
+                          : 'text-[#441DE1]'
                     }
                     value={saving.operations.length * 10}
                     title={saving.type == 'MOI' ? 'POUR MOI' : saving.type}
@@ -87,8 +88,8 @@ const WalletBalance = ({ data }) => {
                         ? 'bg-[#F9F1FC]'
                         : saving.operations.length * 10 > 50 &&
                           saving.operations.length * 10 <= 75
-                        ? 'bg-[#E3F9E9]'
-                        : 'bg-[#F4F2FE]'
+                          ? 'bg-[#E3F9E9]'
+                          : 'bg-[#F4F2FE]'
                     }
                     link={`/saving/${saving.id}`}
                     key={index}
@@ -104,7 +105,7 @@ const WalletBalance = ({ data }) => {
             </>
           ) : (
             <div className="flex flex-col justify-center items-center my-10 md:my-20 gap-6">
-              <img
+              <Image
                 src="https://i.goopics.net/ozsga7.png"
                 alt=""
                 className="md:w-44 w-28 opacity-80"

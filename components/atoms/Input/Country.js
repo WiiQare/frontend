@@ -27,7 +27,7 @@ export default function CountrySelect() {
           sx={{ '& > img': { mr: 2, flexShrink: 0 } }}
           {...props}
         >
-          <img
+          <Image
             loading="lazy"
             width={20}
             height={20}

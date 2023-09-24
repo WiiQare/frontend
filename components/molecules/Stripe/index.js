@@ -154,8 +154,8 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                     {client.currency.sender == 'USD'
                       ? '$'
                       : client.currency.sender == 'EUR'
-                      ? '€'
-                      : client.currency.sender ?? '€'}{' '}
+                        ? '€'
+                        : client.currency.sender ?? '€'}{' '}
                     1.00 ={' '}
                     <span className="text-orange">
                       {client.currency.rate.toFixed(2) ?? ''}{' '}
@@ -173,8 +173,8 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                     {client.currency.patient == 'USD'
                       ? '$'
                       : client.currency.patient == 'EUR'
-                      ? '€'
-                      : client.currency.patient ?? '€'}
+                        ? '€'
+                        : client.currency.patient ?? '€'}
                   </p>
                 </div>
 
@@ -193,8 +193,8 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                   {client.currency.sender == 'USD'
                     ? '$'
                     : client.currency.sender == 'EUR'
-                    ? '€'
-                    : client.currency.sender ?? '€'}{' '}
+                      ? '€'
+                      : client.currency.sender ?? '€'}{' '}
                   {amount}
                 </p>
               </div>
@@ -215,7 +215,7 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                     className="peer-checked:border-2 peer-checked:border-orange peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4"
                     for="radio_1"
                   >
-                    <img
+                    <Image
                       className="w-14 object-contain"
                       src="/images/carte-bancaire.png"
                       alt=""
@@ -242,7 +242,7 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                     className="peer-checked:border-2 peer-checked:border-orange peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4"
                     for="radio_2"
                   >
-                    <img
+                    <Image
                       className="w-14 object-contain"
                       src="/images/crypto-monnaie.png"
                       alt=""
