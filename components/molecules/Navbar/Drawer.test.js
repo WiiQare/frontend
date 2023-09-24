@@ -5,17 +5,17 @@ import { SessionProvider } from 'next-auth/react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 describe('Drawer', () => {
-    it('should render the component', () => {
-        const queryClient = new QueryClient();
-        const { container } = render(
-            <SessionProvider session={{ user: { data: { userId: "testUser123" } } }}>
-                <DrawContext.Provider value={{ draw: false, setDraw: jest.fn() }}>
-                    <QueryClientProvider client={new QueryClient()}>
-                        <Drawer />
-                    </QueryClientProvider>
-                </DrawContext.Provider>
-            </SessionProvider>
-        );
-        expect(container).toMatchSnapshot();
-    });
+  it('should render the component', () => {
+    const queryClient = new QueryClient();
+    const { container } = render(
+      <SessionProvider session={{ user: { data: { userId: 'testUser123' } } }}>
+        <DrawContext.Provider value={{ draw: false, setDraw: jest.fn() }}>
+          <QueryClientProvider client={new QueryClient()}>
+            <Drawer />
+          </QueryClientProvider>
+        </DrawContext.Provider>
+      </SessionProvider>,
+    );
+    expect(container).toMatchSnapshot();
+  });
 });
