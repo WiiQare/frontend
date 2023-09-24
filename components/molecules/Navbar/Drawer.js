@@ -136,6 +136,8 @@ function Conversation({
             src={`/images/favicon.png`}
             alt=""
             className="rounded-xl w-10 h-10"
+            width={64}
+            height={64}
           />
           <h3 className="font-semibold text-gray-700 flex flex-col">
             Odette de WiiQare{' '}
