@@ -10,7 +10,9 @@ describe('Progress', () => {
 
   it('should render the value', () => {
     const value = 50;
-    render(<Progress value={value} link={'/'} currency={'USD'} />);
+    render(
+      <Progress value={value} link={'/'} currency={'USD'} operations={[]} />,
+    );
     expect(screen.getByText(`${value}%`)).toBeInTheDocument();
   });
 });
