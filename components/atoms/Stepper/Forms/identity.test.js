@@ -25,6 +25,8 @@ describe('Identity2', () => {
       </SessionProvider>,
     );
     component = res.container;
+
+    jest.spyOn(Helpers, 'savePatient').mockResolvedValueOnce({ code: 200 });
   });
 
   it('should render the component', () => {
@@ -75,4 +77,16 @@ describe('Identity2', () => {
 
     await user.click(nextButton);
   }, 10000);
+
+  it('should have a previous button ', async () => {
+    const user = userEvent.setup({ delay: null });
+    const addBeneficiary = screen.getByText('Ajouter un bénéficiaire');
+    await user.click(addBeneficiary);
+
+    const button = screen.getByText('Précédent');
+
+    expect(button).toBeInTheDocument();
+
+    await user.click(button);
+  });
 });
