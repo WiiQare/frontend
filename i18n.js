@@ -30,7 +30,7 @@ i18n
             buttons: {
               submit: 'SIGN IN',
               page: 'Register Now',
-              waiting: 'Wait a moment...',
+              waiting: 'En cours...',
               or: 'OR',
               google: 'Sign In with Google',
               linkedin: 'Sign In with LinkedIn',

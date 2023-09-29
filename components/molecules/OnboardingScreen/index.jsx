@@ -17,10 +17,10 @@ const OnboardingScreen = ({ onStartClick }) => (
       ...ONBOARDING_SLIDES,
       {
         img: '/images/Easy-payment-scan-QR-code.png',
-        title: 'Making a payment is ABC <span>simple</span>',
-        subtitle: 'To make a payment, simply scan a QR code.',
+        title: 'Faire un paiement est un ABC <span>simple</span>',
+        subtitle: 'Pour effectuer un paiement, Scannez simplement un QR Code',
         button: {
-          label: 'Get Started',
+          label: 'Commencez Maintenant',
           onClick: onStartClick,
         },
       },

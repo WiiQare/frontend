@@ -43,10 +43,10 @@ export default function MenuHolder({ href, label }) {
             </Link>
           </Box>
         </li>
-        <li>
+        <li >
           <Box>
             <Link href={href}>
-              <Button variant="contained" className="bg-yellow">
+              <Button variant="contained" className="bg-yellow !-ml-10 px-2 md:!ml-10 md:!px-5">
                 {label}
               </Button>
             </Link>
