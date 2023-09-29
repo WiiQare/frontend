@@ -25,25 +25,24 @@ const Quickly = () => {
   console.log('quickly', data);
   return (
     <>
-      <div className="grid md:grid-cols-2 gap-3 md:gap-8">
-        <div className="bg-gradient-to-r from-sky to-indigo-500 shadow-md rounded-lg p-6 text-white flex items-center gap-7">
+
+      <div className="md:grid md:grid-cols-2 flex flex-col gap-3 md:gap-8 mt-8 w-full">
+        <div className="bg-gradient-to-r from-sky to-indigo-500 shadow-md rounded-lg p-6 text-white flex items-center gap-7 order-1">
           <div className="p-3 bg-white shadow rounded-full">
             <AiOutlineUpload size={30} className="text-sky" />
           </div>
 
           <h2 className="text-lg font-semibold">Envoyer un pass santé</h2>
         </div>
-        <div className="bg-gradient-to-r from-purple to-pink-500 shadow-md rounded-lg p-6 text-white flex items-center gap-7">
+        <div className="bg-gradient-to-r from-purple to-pink-500 shadow-md rounded-lg p-6 text-white flex items-center gap-7 order-3 md:order-2">
           <div className="p-3 bg-white shadow rounded-full">
             <TbReceipt size={30} className="text-purple" />
           </div>
 
           <h2 className="text-lg font-semibold">Pass santé Envoyer</h2>
         </div>
-      </div>
 
-      <div className="md:grid md:grid-cols-2 flex flex-col gap-3 md:gap-8 mt-8 w-full">
-        <div className="bg-white py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8 w-full md:w-full h-full">
+        <div className="bg-white py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8 w-full md:w-full h-full order-2">
           <div className="flex flex-row gap-6 md:gap-0 md:items-center justify-between px-6">
             <div className="space-y-2">
               <h2 className="font-bold text-xl text-gray-700">
@@ -62,13 +61,11 @@ const Quickly = () => {
             </div>
           ) : data.length == 0 ? (
             <div className="w-full flex flex-col items-center gap-3">
-              <Image
+              <img
                 src="/images/box.png"
                 alt="Box image"
                 loading="lazy"
-                className="h-44 opacity-50"
-                width={512}
-                height={512}
+                className="h-32 opacity-50"
               />
               <span className="text-gray-400 text-xs font-normal">
                 Aucune bénéficiaire actuellement...
@@ -115,9 +112,8 @@ const Quickly = () => {
                           alt="Home"
                         />
                         <span
-                          className={`${
-                            activeIndexSlide === index ? '' : 'hidden'
-                          } p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}
+                          className={`${activeIndexSlide === index ? '' : 'hidden'
+                            } p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}
                         >
                           <CiCircleCheck size={18} />
                         </span>
@@ -180,7 +176,7 @@ const Quickly = () => {
           )}
         </div>
 
-        <div className="bg-white mb-10 py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8 w-full md:w-full h-full">
+        <div className="bg-white mb-10 py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8 w-full md:w-full h-full order-4">
           <div className="flex flex-col md:flex-row gap-6 md:gap-0 md:items-center justify-between px-6">
             <div className="space-y-2">
               <h2 className="font-bold text-xl text-gray-700">
@@ -201,13 +197,11 @@ const Quickly = () => {
               </div>
             ) : transaction?.transaction?.length == 0 ? (
               <div className="w-full flex flex-col items-center gap-3">
-                <Image
+                <img
                   src="/images/box.png"
                   alt="Box image"
                   loading="lazy"
-                  className="h-44 opacity-50"
-                  width={512}
-                  height={512}
+                  className="h-32 opacity-50"
                 />
                 <span className="text-gray-400 text-xs font-normal">
                   Aucune transaction réalisé actuellement...

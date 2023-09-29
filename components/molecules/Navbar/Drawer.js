@@ -10,6 +10,7 @@ import { useMutation } from 'react-query';
 import { sendMessage } from '../../../lib/helper';
 import LoadingButton from '../../atoms/Loader/LoadingButton';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Drawer() {
   const [personalChat, setPersonalChat] = useState({ state: true });
@@ -127,28 +128,34 @@ function Conversation({
 
   return (
     <div className="flex flex-col bg-gray-100 flex-auto md:w-96 w-full h-full relative">
-      <div className="p-5 shadow-sm flex gap-4 items-center bg-white fixed top-0 z-50 w-full">
-        <button onClick={() => close()}>
-          <BiArrowBack size={23} />
-        </button>
-        <div className="flex gap-2 items-center">
-          <Image
-            src={`/images/favicon.png`}
-            alt=""
-            className="rounded-xl w-10 h-10"
-            width={64}
-            height={64}
-          />
-          <h3 className="font-semibold text-gray-700 flex flex-col">
-            Odette de WiiQare{' '}
-            <span className="text-xs text-gray-500 font-light flex gap-1 items-center">
-              <span className="h-2 w-2 rounded-full bg-green-400 flex">
-                &nbsp;
-              </span>{' '}
-              En ligne
-            </span>
-          </h3>
+      <div className="p-5 shadow-sm flex gap-4 items-center justify-between bg-white fixed top-0 z-50 w-full">
+        <div className='flex gap-4 items-center'>
+          <button onClick={() => close()}>
+            <BiArrowBack size={23} />
+          </button>
+          <div className="flex gap-2 items-center">
+            <Image
+              src={`/images/favicon.png`}
+              alt=""
+              className="rounded-xl w-10 h-10"
+              width={64}
+              height={64}
+            />
+            <h3 className="font-semibold text-gray-700 flex flex-col">
+              Odette de WiiQare{' '}
+              <span className="text-xs text-gray-500 font-light flex gap-1 items-center">
+                <span className="h-2 w-2 rounded-full bg-green-400 flex">
+                  &nbsp;
+                </span>{' '}
+                En ligne
+              </span>
+            </h3>
+          </div>
         </div>
+
+        <Link href={"https://wa.me/+243979544127"} target='_blank'>
+          <img src="https://i.goopics.net/7hofif.png" alt="Whatsapp logo" className='w-8 effect-up' />
+        </Link>
       </div>
       <div className="flex flex-col flex-auto flex-shrink-0 bg-gray-100 min-h-full pt-20 relative">
         {isLoading ? (

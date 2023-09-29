@@ -2,27 +2,27 @@ export const LOGIN_SLIDES = [
   {
     img: '/images/hospital-bed-.png',
     title:
-      'Access to healthcare is one of the biggest challenges in <span>Africa.</span>',
-    subtitle: 'WiiQare empowers you to keep aside money in case you’re sick.',
+      'L’accès aux soins de santé est l’un des plus grands défis en <span>Afrique.</span>',
+    subtitle: 'WiiQare vous permet de garder de l\'argent de côté au cas où vous seriez malade.',
   },
   {
     img: '/images/WiiQare-is-secured.png',
-    title: 'Easy to create a secure <span>account</span>',
-    subtitle: 'Creating an account is simple and straightforward.',
+    title: 'Facile à créer un compte <span>sécurisé</span>',
+    subtitle: 'Créer un compte est simple et direct.',
   },
   {
     img: '/images/set-your-savings- .png',
     title:
-      'Define your saving goal and set aside money for your <span> health</span>',
+      'Définissez votre objectif d’épargne et mettez de l’argent de côté pour votre <span> santé</span>',
     subtitle:
-      'Decide how much you want to save for health, and we will help you achieve your goal.',
+      'Décidez combien vous souhaitez épargner pour la santé et nous vous aiderons à atteindre votre objectif.',
   },
   {
     img: '/images/Easy-payment-scan-QR-code.png',
-    title: 'Making a payment is ABC <span>simple</span>',
-    subtitle: 'To make a payment, simply scan a QR code.',
+    title: 'Faire un paiement est un ABC <span>simple</span>',
+    subtitle: 'Pour effectuer un paiement, scannez simplement un code QR.',
     button: {
-      label: 'Get Started',
+      label: 'Commencez Maintenant',
       onClick: () => null,
     },
   },
@@ -32,14 +32,18 @@ export const REGISTER_SLIDES = [
   {
     img: '/images/set-your-savings- .png',
     title:
-      'Define your saving goal and set aside money for your <span> health </span>',
+      'Définissez votre objectif d’épargne et mettez de l’argent de côté pour votre <span> santé</span>',
     subtitle:
-      'Decide how much you want to save for health, and we will help you achieve your goal.',
+      'Décidez combien vous souhaitez épargner pour la santé et nous vous aiderons à atteindre votre objectif.',
   },
   {
     img: '/images/Easy-payment-scan-QR-code.png',
-    title: 'Making a payment is ABC <span>simple</span>',
-    subtitle: 'To make a payment, simply scan a QR code.',
+    title: 'Faire un paiement est un ABC <span>simple</span>',
+    subtitle: 'Pour effectuer un paiement, scannez simplement un code QR.',
+    button: {
+      label: 'Commencez Maintenant',
+      onClick: () => null,
+    },
   },
 ];
 
@@ -47,19 +51,19 @@ export const ONBOARDING_SLIDES = [
   {
     img: '/images/hospital-bed-.png',
     title:
-      'Access to healthcare is one of the biggest challenges in <span>Africa.</span>',
-    subtitle: 'WiiQare empowers you to keep aside money in case you’re sick.',
+      'L’accès aux soins de santé est l’un des plus grands défis en <span>Afrique.</span>',
+    subtitle: 'WiiQare vous permet de garder de l\'argent de côté au cas où vous seriez malade.',
   },
   {
     img: '/images/WiiQare-is-secured.png',
-    title: 'Easy to create a secure <span>account</span>',
-    subtitle: 'Creating an account is simple and straightforward.',
+    title: 'Facile à créer un compte <span>sécurisé</span>',
+    subtitle: 'Créer un compte est simple et direct.',
   },
   {
     img: '/images/set-your-savings- .png',
     title:
-      'Define your saving goal and set aside money for your <span> health</span>',
+      'Définissez votre objectif d’épargne et mettez de l’argent de côté pour votre <span> santé</span>',
     subtitle:
-      'Decide how much you want to save for health, and we will help you achieve your goal.',
+      'Décidez combien vous souhaitez épargner pour la santé et nous vous aiderons à atteindre votre objectif.',
   },
 ];
