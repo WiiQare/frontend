@@ -18,6 +18,7 @@ import { CurrencyFlag } from 'react-currency-flags/dist/components';
 
 function KYC() {
   const [statusID, setStatusID] = useState('IN_PROGRESS');
+  const [resultKYC, setResultKYC] = useState(null);
   const {
     activeStepIndex,
     setActiveStepIndex,
@@ -46,7 +47,13 @@ function KYC() {
           if (data.status != 'FINISHED') {
             setTimeout(checkStatus, 8000);
           } else {
-            setKycTest(false);
+            console.log(data.result.identity.status != "FAILED");
+            setStatusID("FINISHED")
+            if (data.result.identity.status != "FAILED") {
+              setKycTest(false)
+            } else {
+              setResultKYC(data.result)
+            }
           }
         })
         .catch((e) => setTimeout(checkStatus, 8000));
@@ -88,7 +95,16 @@ function KYC() {
               {statusID != 'FINISHED' ? (
                 <>{'Identity vérification failed'}</>
               ) : (
-                ''
+                <>
+                  {
+                    resultKYC?.identity?.status == "FAILED" ? (
+                      <div className='flex flex-col items-center justify-center gap-6 text-center'>
+                        <img src='https://i.goopics.net/2askzc.png' alt='Mismatch' className='w-48 opacity-90' />
+                        <span className='text-gray-400 text-sm'>{resultKYC?.identity?.errors.toString()}</span>
+                      </div>
+                    ) : ''
+                  }
+                </>
               )}
             </>
           )}
