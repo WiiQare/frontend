@@ -104,7 +104,7 @@ const Quickly = () => {
                       onClick={() => null}
                     >
                       <div className="w-20 h-2O relative">
-                        <Image
+                        <img
                           src={index % 2 ? avatar : '/images/homme.png'}
                           className="object-cover rounded-xl"
                           width={80}

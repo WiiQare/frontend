@@ -71,13 +71,13 @@ exports[`register page should render empty page when fetch fails 1`] = `
                           <div
                             class="bold-title"
                           >
-                            Define your saving goal and set aside money for your 
+                            Définissez votre objectif d’épargne et mettez de l’argent de côté pour votre 
                             <span>
-                               health 
+                               santé
                             </span>
                           </div>
                           <h5>
-                            Decide how much you want to save for health, and we will help you achieve your goal.
+                            Décidez combien vous souhaitez épargner pour la santé et nous vous aiderons à atteindre votre objectif.
                           </h5>
                         </div>
                       </div>
@@ -113,14 +113,37 @@ exports[`register page should render empty page when fetch fails 1`] = `
                           <div
                             class="bold-title"
                           >
-                            Making a payment is ABC 
+                            Faire un paiement est un ABC 
                             <span>
                               simple
                             </span>
                           </div>
                           <h5>
-                            To make a payment, simply scan a QR code.
+                            Pour effectuer un paiement, scannez simplement un code QR.
                           </h5>
+                          <div
+                            class="form-button flex flex-col gap-3"
+                          >
+                            <button
+                              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge css-jh47zj-MuiButtonBase-root-MuiButton-root"
+                              id="submit"
+                              tabindex="0"
+                              type="submit"
+                            >
+                              Commencez Maintenant
+                              <span
+                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                              />
+                            </button>
+                            <button
+                              aria-label="Install app"
+                              class="link-button bg-gray-800 py-2.5 text-md font-medium uppercase text-center text-white rounded-lg"
+                              id="setup_button"
+                              title="Install app"
+                            >
+                              Install WiiQare App
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -238,7 +261,7 @@ exports[`register page should render empty page when fetch fails 1`] = `
                   href="/login"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium bg-yellow css-sghohy-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium bg-yellow !-ml-10 px-2 md:!ml-10 md:!px-5 css-sghohy-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >

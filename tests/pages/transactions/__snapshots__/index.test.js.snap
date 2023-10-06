@@ -274,10 +274,10 @@ exports[`Transactions should render the page 1`] = `
       </div>
     </div>
     <div
-      class="grid md:grid-cols-2 gap-3 md:gap-8"
+      class="md:grid md:grid-cols-2 flex flex-col gap-3 md:gap-8 mt-8 w-full"
     >
       <div
-        class="bg-gradient-to-r from-sky to-indigo-500 shadow-md rounded-lg p-6 text-white flex items-center gap-7"
+        class="bg-gradient-to-r from-sky to-indigo-500 shadow-md rounded-lg p-6 text-white flex items-center gap-7 order-1"
       >
         <div
           class="p-3 bg-white shadow rounded-full"
@@ -304,7 +304,7 @@ exports[`Transactions should render the page 1`] = `
         </h2>
       </div>
       <div
-        class="bg-gradient-to-r from-purple to-pink-500 shadow-md rounded-lg p-6 text-white flex items-center gap-7"
+        class="bg-gradient-to-r from-purple to-pink-500 shadow-md rounded-lg p-6 text-white flex items-center gap-7 order-3 md:order-2"
       >
         <div
           class="p-3 bg-white shadow rounded-full"
@@ -337,12 +337,8 @@ exports[`Transactions should render the page 1`] = `
           Pass santé Envoyer
         </h2>
       </div>
-    </div>
-    <div
-      class="md:grid md:grid-cols-2 flex flex-col gap-3 md:gap-8 mt-8 w-full"
-    >
       <div
-        class="bg-white py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8 w-full md:w-full h-full"
+        class="bg-white py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8 w-full md:w-full h-full order-2"
       >
         <div
           class="flex flex-row gap-6 md:gap-0 md:items-center justify-between px-6"
@@ -373,7 +369,7 @@ exports[`Transactions should render the page 1`] = `
         </div>
       </div>
       <div
-        class="bg-white mb-10 py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8 w-full md:w-full h-full"
+        class="bg-white mb-10 py-4 px-2 relative drop-shadow-sm rounded-lg space-y-8 w-full md:w-full h-full order-4"
       >
         <div
           class="flex flex-col md:flex-row gap-6 md:gap-0 md:items-center justify-between px-6"

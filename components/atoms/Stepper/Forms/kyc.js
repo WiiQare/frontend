@@ -10,7 +10,7 @@ import { HiExclamation, HiLockClosed, HiOutlineEye } from 'react-icons/hi';
 import { useRouter } from 'next/router';
 import LoadingButton from '../../Loader/LoadingButton';
 import { useMutation } from 'react-query';
-import { sendSMSHash } from '../../../../lib/helper';
+import { checkKyc, sendSMSHash, setKyc } from '../../../../lib/helper';
 import { useFormik } from 'formik';
 import { useSession } from 'next-auth/react';
 import Toast from '../../Toast';
@@ -27,6 +27,7 @@ function KYC() {
     kycTest,
     setKycTest,
   } = useContext(FormContext);
+  const { data: session } = useSession();
   const router = useRouter();
 
   const checkStatus = async () => {
@@ -47,9 +48,10 @@ function KYC() {
           if (data.status != 'FINISHED') {
             setTimeout(checkStatus, 8000);
           } else {
-            console.log(data.result.identity.status != "FAILED");
+            console.log(data);
             setStatusID("FINISHED")
             if (data.result.identity.status != "FAILED") {
+              setKyc({ accessToken: session.accessToken, expire: "2023/05", cardID: "ABCD", birthday: "1990-01-01", kyc: true })
               setKycTest(false)
             } else {
               setResultKYC(data.result)
@@ -63,7 +65,7 @@ function KYC() {
     }
   };
 
-  useEffect(() => {
+  const conversation = () => {
     if (!router.query.conversation) {
       fetch('/api/authologic', {
         method: 'POST',
@@ -80,6 +82,18 @@ function KYC() {
     } else {
       checkStatus();
     }
+  }
+
+  useEffect(() => {
+    checkKyc({ accessToken: session.accessToken }).then((data) => {
+      if (data) {
+        setKycTest(false)
+      } else {
+        conversation()
+      }
+    }).catch((error) => conversation())
+
+
   }, []);
 
   return (

@@ -24,56 +24,70 @@ exports[`Drawer should render the component 1`] = `
         class="flex flex-col bg-gray-100 flex-auto md:w-96 w-full h-full relative"
       >
         <div
-          class="p-5 shadow-sm flex gap-4 items-center bg-white fixed top-0 z-50 w-full"
+          class="p-5 shadow-sm flex gap-4 items-center justify-between bg-white fixed top-0 z-50 w-full"
         >
-          <button>
-            <svg
-              fill="currentColor"
-              height="23"
-              stroke="currentColor"
-              stroke-width="0"
-              viewBox="0 0 24 24"
-              width="23"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"
-              />
-            </svg>
-          </button>
           <div
-            class="flex gap-2 items-center"
+            class="flex gap-4 items-center"
+          >
+            <button>
+              <svg
+                fill="currentColor"
+                height="23"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 24 24"
+                width="23"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"
+                />
+              </svg>
+            </button>
+            <div
+              class="flex gap-2 items-center"
+            >
+              <img
+                alt=""
+                class="rounded-xl w-10 h-10"
+                data-nimg="1"
+                decoding="async"
+                height="64"
+                loading="lazy"
+                src="/_next/image?url=%2Fimages%2Ffavicon.png&w=128&q=75"
+                srcset="/_next/image?url=%2Fimages%2Ffavicon.png&w=64&q=75 1x, /_next/image?url=%2Fimages%2Ffavicon.png&w=128&q=75 2x"
+                style="color: transparent;"
+                width="64"
+              />
+              <h3
+                class="font-semibold text-gray-700 flex flex-col"
+              >
+                Odette de WiiQare
+                 
+                <span
+                  class="text-xs text-gray-500 font-light flex gap-1 items-center"
+                >
+                  <span
+                    class="h-2 w-2 rounded-full bg-green-400 flex"
+                  >
+                     
+                  </span>
+                   
+                  En ligne
+                </span>
+              </h3>
+            </div>
+          </div>
+          <a
+            href="https://wa.me/+243979544127"
+            target="_blank"
           >
             <img
-              alt=""
-              class="rounded-xl w-10 h-10"
-              data-nimg="1"
-              decoding="async"
-              height="64"
-              loading="lazy"
-              src="/_next/image?url=%2Fimages%2Ffavicon.png&w=128&q=75"
-              srcset="/_next/image?url=%2Fimages%2Ffavicon.png&w=64&q=75 1x, /_next/image?url=%2Fimages%2Ffavicon.png&w=128&q=75 2x"
-              style="color: transparent;"
-              width="64"
+              alt="Whatsapp logo"
+              class="w-8 effect-up"
+              src="https://i.goopics.net/7hofif.png"
             />
-            <h3
-              class="font-semibold text-gray-700 flex flex-col"
-            >
-              Odette de WiiQare
-               
-              <span
-                class="text-xs text-gray-500 font-light flex gap-1 items-center"
-              >
-                <span
-                  class="h-2 w-2 rounded-full bg-green-400 flex"
-                >
-                   
-                </span>
-                 
-                En ligne
-              </span>
-            </h3>
-          </div>
+          </a>
         </div>
         <div
           class="flex flex-col flex-auto flex-shrink-0 bg-gray-100 min-h-full pt-20 relative"
