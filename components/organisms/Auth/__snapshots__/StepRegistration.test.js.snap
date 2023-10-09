@@ -445,9 +445,9 @@ exports[`StepRegistration should render otp if activeStep=1: otp 1`] = `
       Expire dans
        
       <span>
-        02
+        01
         :
-        00
+        59
       </span>
     </span>
   </div>

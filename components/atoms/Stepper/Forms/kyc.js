@@ -1,20 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useQRCode } from 'next-qrcode';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FormContext } from '../../../../pages/voucher/buy';
-import Image from 'next/image';
-import logoDark from '../../../../public/images/logo_dark_2.png';
-import Link from 'next/link';
-import Fetcher from '../../../../lib/Fetcher';
-import { HiExclamation, HiLockClosed, HiOutlineEye } from 'react-icons/hi';
 import { useRouter } from 'next/router';
-import LoadingButton from '../../Loader/LoadingButton';
-import { useMutation } from 'react-query';
-import { checkKyc, sendSMSHash, setKyc } from '../../../../lib/helper';
-import { useFormik } from 'formik';
+import { checkKyc, setKyc } from '../../../../lib/helper';
 import { useSession } from 'next-auth/react';
-import Toast from '../../Toast';
-import { CurrencyFlag } from 'react-currency-flags/dist/components';
 
 function KYC() {
   const [statusID, setStatusID] = useState('IN_PROGRESS');
@@ -44,11 +32,10 @@ function KYC() {
 
       jsonData
         .then((data) => {
-          console.log(data);
+
           if (data.status != 'FINISHED') {
             setTimeout(checkStatus, 8000);
           } else {
-            console.log(data);
             setStatusID("FINISHED")
             if (data.result.identity.status != "FAILED") {
               setKyc({ accessToken: session.accessToken, expire: "2023/05", cardID: "ABCD", birthday: "1990-01-01", kyc: true })
@@ -60,7 +47,6 @@ function KYC() {
         })
         .catch((e) => setTimeout(checkStatus, 8000));
     } catch (error) {
-      console.log(error);
       setTimeout(checkStatus, 8000);
     }
   };
@@ -85,14 +71,55 @@ function KYC() {
   }
 
   useEffect(() => {
-    checkKyc({ accessToken: session.accessToken }).then((data) => {
-      if (data) {
-        setKycTest(false)
-      } else {
-        conversation()
-      }
-    }).catch((error) => conversation())
 
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(async (position) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        try {
+          const response = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=fr`);
+          const data = await response.json();
+
+          if (data.continent != "Afrique") {
+            checkKyc({ accessToken: session.accessToken }).then((data) => {
+              if (data) {
+                setKycTest(false)
+              } else {
+                conversation()
+              }
+            }).catch((error) => conversation())
+          } else {
+            setKycTest(false)
+          }
+        } catch (error) {
+          checkKyc({ accessToken: session.accessToken }).then((data) => {
+            if (data) {
+              setKycTest(false)
+            } else {
+              conversation()
+            }
+          }).catch((error) => conversation())
+        }
+      }, (error) => {
+        checkKyc({ accessToken: session.accessToken }).then((data) => {
+          if (data) {
+            setKycTest(false)
+          } else {
+            conversation()
+          }
+        }).catch((error) => conversation())
+
+      });
+    } else {
+      checkKyc({ accessToken: session.accessToken }).then((data) => {
+        if (data) {
+          setKycTest(false)
+        } else {
+          conversation()
+        }
+      }).catch((error) => conversation())
+    }
 
   }, []);
 
