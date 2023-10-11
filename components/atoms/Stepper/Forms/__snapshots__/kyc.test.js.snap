@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`KYC should render the component 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-6 justify-center items-center"
+  >
+    Verification d'identité...
+  </div>
+</div>
+`;
