@@ -103,17 +103,15 @@ const ItemHistory = ({
   return (
     <div
       tabIndex={index}
-      className={`${
-        total > index + 1 ? 'border-b py-3' : ''
-      } collapse collapse-arrow  text-gray-700 overflow-scroll md:overflow-hidden`}
+      className={`${total > index + 1 ? 'border-b py-3' : ''
+        } collapse collapse-arrow  text-gray-700 overflow-scroll md:overflow-hidden`}
     >
       <div className="collapse-title flex gap-7 justify-between items-center ">
         <div className="flex gap-3 items-center">
           <div className="w-16 h-16">
             <Image
-              src={`https://ui-avatars.com/api/?uppercase=true&background=CCC&name=${
-                patient?.firstName ?? ''
-              }&bold=true&color=FFF`}
+              src={`https://ui-avatars.com/api/?uppercase=true&background=CCC&name=${patient?.firstName ?? ''
+                }&bold=true&color=FFF`}
               width={200}
               height={200}
               className="object-cover rounded-full w-full h-full"
@@ -283,14 +281,14 @@ const ItemHistory = ({
 
                         <div className="flex flex-col items-center gap-2">
                           <div className="flex -space-x-2">
-                            <Image
+                            <img
                               className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white"
                               src="/images/homme.png"
                               alt="Image Description"
                               width={80}
                               height={80}
                             />
-                            <Image
+                            <img
                               className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white"
                               src="/images/femme.png"
                               alt="Image Description"
@@ -336,7 +334,7 @@ const ItemHistory = ({
                             target={'_blank'}
                           >
                             <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-                              <Image
+                              <img
                                 src="/images/whatsapp.png"
                                 alt=""
                                 className="w-6"
@@ -351,7 +349,7 @@ const ItemHistory = ({
                             target={'_blank'}
                           >
                             <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-                              <Image
+                              <img
                                 src="/images/facebook-share.png"
                                 alt=""
                                 className="w-6"
@@ -364,7 +362,7 @@ const ItemHistory = ({
                             className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
                             onClick={formik.handleSubmit}
                           >
-                            <Image
+                            <img
                               src="/images/sms.png"
                               alt=""
                               className="w-6"
@@ -389,7 +387,7 @@ const ItemHistory = ({
                               type="button"
                               className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
                             >
-                              <Image
+                              <img
                                 src="/images/text.png"
                                 alt=""
                                 className="w-6"
@@ -505,7 +503,7 @@ const ItemHistory = ({
                               <div className="px-8 space-y-8">
                                 <div className="space-y-4">
                                   <div className="flex gap-4 items-center px-5 justify-center">
-                                    <Image
+                                    <img
                                       className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
                                       src="/images/homme.png"
                                       alt="Image Description"
@@ -514,7 +512,7 @@ const ItemHistory = ({
                                       size={30}
                                       className="text-gray-400"
                                     />
-                                    <Image
+                                    <img
                                       className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
                                       src="/images/femme.png"
                                       alt="Image Description"
@@ -638,11 +636,10 @@ const ItemHistory = ({
 
                                   <li className="ml-6">
                                     <span
-                                      className={`absolute flex items-center justify-center w-6 h-6 ${
-                                        ownerType == 'PROVIDER'
-                                          ? 'bg-green-400'
-                                          : 'bg-gray-200'
-                                      } rounded-full -left-3 ring-8 ring-white`}
+                                      className={`absolute flex items-center justify-center w-6 h-6 ${ownerType == 'PROVIDER'
+                                        ? 'bg-green-400'
+                                        : 'bg-gray-200'
+                                        } rounded-full -left-3 ring-8 ring-white`}
                                     >
                                       {ownerType == 'PROVIDER' && (
                                         <MdCheck
@@ -653,25 +650,23 @@ const ItemHistory = ({
                                       )}
                                     </span>
                                     <h3
-                                      className={`mb-1 text-lg font-semibold ${
-                                        ownerType == 'PROVIDER'
-                                          ? 'text-gray-900'
-                                          : 'text-gray-400'
-                                      }`}
+                                      className={`mb-1 text-lg font-semibold ${ownerType == 'PROVIDER'
+                                        ? 'text-gray-900'
+                                        : 'text-gray-400'
+                                        }`}
                                     >
                                       Utilisation du Pass santé
                                     </h3>
                                     <time
-                                      className={`block mb-2 text-sm font-normal leading-none ${
-                                        ownerType == 'PROVIDER'
-                                          ? 'text-gray-400'
-                                          : 'text-gray-200'
-                                      } `}
+                                      className={`block mb-2 text-sm font-normal leading-none ${ownerType == 'PROVIDER'
+                                        ? 'text-gray-400'
+                                        : 'text-gray-200'
+                                        } `}
                                     >
                                       {ownerType == 'PROVIDER'
                                         ? new Intl.DateTimeFormat('fr', {
-                                            dateStyle: 'long',
-                                          }).format(new Date(updatedAt))
+                                          dateStyle: 'long',
+                                        }).format(new Date(updatedAt))
                                         : 'En cours ...'}
                                     </time>
                                   </li>

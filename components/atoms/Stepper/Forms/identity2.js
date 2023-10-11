@@ -282,7 +282,7 @@ function Identity2() {
                                   onClick={() => handleSelect(item, index)}
                                 >
                                   <div className="w-20 h-2O relative">
-                                    <Image
+                                    <img
                                       src={
                                         index % 2 ? avatar : '/images/homme.png'
                                       }
@@ -292,11 +292,10 @@ function Identity2() {
                                       alt="Beneficiare image"
                                     />
                                     <span
-                                      className={`${
-                                        activeIndexSlide === index
+                                      className={`${activeIndexSlide === index
                                           ? ''
                                           : 'hidden'
-                                      } p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}
+                                        } p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}
                                     >
                                       <CiCircleCheck size={18} />
                                     </span>
@@ -401,9 +400,9 @@ function Identity2() {
                         name="phoneNumber"
                       />
                       {formik.values.phoneNumber.trim(' ') == '' ||
-                      formik.values.phoneNumber
-                        .replace('+' + dial, ' ')
-                        .trim(' ') == '' ? (
+                        formik.values.phoneNumber
+                          .replace('+' + dial, ' ')
+                          .trim(' ') == '' ? (
                         renderError('Entrez le numéro de téléphone')
                       ) : (
                         <></>
@@ -412,11 +411,10 @@ function Identity2() {
                     <span className="w-fit h-fit p-2 rounded-lg flex items-center gap-2 text-sm text-gray-600">
                       <span
                         className="tooltip tooltip-bottom text-xs"
-                        data-tip={`${
-                          formik.values.phoneNumber.trim(' ') != ''
+                        data-tip={`${formik.values.phoneNumber.trim(' ') != ''
                             ? formik.values.phoneNumber
                             : 'Ce numéro de téléphone'
-                        } devra être le numéro disponible, pour être utilisé à l'hôpital `}
+                          } devra être le numéro disponible, pour être utilisé à l'hôpital `}
                       >
                         <CiCircleInfo size={23} className="text-red-400" />
                       </span>
