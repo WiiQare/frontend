@@ -133,9 +133,9 @@ function KYC() {
               role="status"
               aria-label="loading"
             >
-              <span className="sr-only">Loading...</span>
+              <span className="sr-only">{"Loading..."}</span>
             </div>
-            <span className='text-sm font-light'>Avant de continuer, nous devons vérifier votre identité...</span>
+            <span className='text-sm font-light'>{"Avant de continuer, nous devons vérifier votre identité..."}</span>
           </div>
         </>
       ) : (
@@ -147,9 +147,9 @@ function KYC() {
                 role="status"
                 aria-label="loading"
               >
-                <span className="sr-only">Loading...</span>
+                <span className="sr-only">{"Loading..."}</span>
               </div>
-              <span className='text-sm font-light'>Veuillez patientez pendant que la vérification d'identité est en cours, cela peut prendre un moment...</span>
+              <span className='text-sm font-light'>{"Veuillez patientez pendant que la vérification d'identité est en cours, cela peut prendre un moment..."}</span>
             </div></>
           ) : (
             <>
