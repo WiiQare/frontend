@@ -126,11 +126,31 @@ function KYC() {
   return (
     <div className="flex flex-col gap-6 justify-center items-center">
       {!router.query.conversation ? (
-        <>{"Verification d'identité..."}</>
+        <>
+          <div className="flex flex-col gap-2 items-center justify-center">
+            <div
+              className="animate-spin inline-block w-4 h-4 border-[2px] border-current border-t-transparent text-primary rounded-full"
+              role="status"
+              aria-label="loading"
+            >
+              <span className="sr-only">Loading...</span>
+            </div>
+            <span className='text-sm font-light'>Avant de continuer, nous devons vérifier votre identité...</span>
+          </div>
+        </>
       ) : (
         <>
           {statusID == 'IN_PROGRESS' ? (
-            <>{"Vérification d'identité en cours"}</>
+            <><div className="flex flex-col gap-2 items-center justify-center">
+              <div
+                className="animate-spin inline-block w-4 h-4 border-[2px] border-current border-t-transparent text-white rounded-full"
+                role="status"
+                aria-label="loading"
+              >
+                <span className="sr-only">Loading...</span>
+              </div>
+              <span className='text-sm font-light'>Veuillez patientez pendant que la vérification d'identité est en cours, cela peut prendre un moment...</span>
+            </div></>
           ) : (
             <>
               {statusID != 'FINISHED' ? (
