@@ -37,6 +37,7 @@
     "formik-stepper": "^2.1.4",
     "i18next": "^22.4.13",
     "i18next-browser-languagedetector": "^7.0.1",
+    "ipinfo": "^1.5.1",
     "jest": "^27.4.5",
     "material-ui-phone-number": "^3.0.0",
     "moment": "^2.29.4",

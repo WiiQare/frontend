@@ -39,7 +39,7 @@ function Send() {
   const handleView = async () => {
     setLoadView(true);
     let response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/payment/voucher?paymentId=${payment_intent}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/api/v1/payment/voucher?paymentId=${payment_intent}`,
     );
 
     setLoadView(false);
@@ -188,7 +188,7 @@ function Send() {
             <div className="border relative border-gray-300 rounded-lg overflow-hidden">
               <Canvas
                 className="w-full"
-                text={`${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/${data.voucherEntity.voucherHash}`}
+                text={`${process.env.NEXT_PUBLIC_BASE_URL}/voucher/pass/${data.stripePaymentId}`}
                 options={{
                   level: 'M',
                   margin: 1,
@@ -204,12 +204,12 @@ function Send() {
 
             <div className="flex flex-col items-center gap-1">
               <div className="flex -space-x-2">
-                <Image
+                <img
                   className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
                   src="/images/homme.png"
                   alt="Image Description"
                 />
-                <Image
+                <img
                   className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
                   src="/images/femme.png"
                   alt="Image Description"
@@ -250,7 +250,7 @@ function Send() {
                 target={'_blank'}
               >
                 <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-                  <Image src="/images/whatsapp.png" alt="" className="w-6" />
+                  <img src="/images/whatsapp.png" alt="" className="w-6" />
                   <span className="hidden md:flex">WhatsApp</span>
                 </a>
               </Link>
@@ -261,7 +261,7 @@ function Send() {
                 target={'_blank'}
               >
                 <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-                  <Image
+                  <img
                     src="/images/facebook-share.png"
                     alt=""
                     className="w-6"
@@ -274,7 +274,7 @@ function Send() {
                 className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
                 onClick={formik.handleSubmit}
               >
-                <Image src="/images/sms.png" alt="" className="w-6" />
+                <img src="/images/sms.png" alt="" className="w-6" />
                 {sendSMSMutation.isLoading ? (
                   <LoadingButton />
                 ) : (
@@ -295,7 +295,7 @@ function Send() {
                   type="button"
                   className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
                 >
-                  <Image src="/images/text.png" alt="" className="w-6" />
+                  <img src="/images/text.png" alt="" className="w-6" />
                   <span className="hidden md:flex">
                     {!copyLink ? 'Copier le lien' : 'Copié avec succès'}
                   </span>
@@ -370,12 +370,12 @@ function Send() {
 
             <div className="flex flex-col items-center gap-1">
               <div className="flex -space-x-2">
-                <Image
+                <img
                   className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
                   src="/images/homme.png"
                   alt="Image Description"
                 />
-                <Image
+                <img
                   className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
                   src="/images/femme.png"
                   alt="Image Description"
@@ -402,27 +402,25 @@ function Send() {
             </h4>
             <div className="flex justify-between">
               <Link
-                href={`whatsapp://send?text=${
-                  process.env.NEXT_PUBLIC_BASE_URL
-                }/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
+                href={`whatsapp://send?text=${process.env.NEXT_PUBLIC_BASE_URL
+                  }/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
                 legacyBehavior
                 target={'_blank'}
               >
                 <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-                  <Image src="/images/whatsapp.png" alt="" className="w-6" />
+                  <img src="/images/whatsapp.png" alt="" className="w-6" />
                   <span className="hidden md:flex">WhatsApp</span>
                 </a>
               </Link>
 
               <Link
-                href={`https://www.facebook.com/share.php?u=${
-                  process.env.NEXT_PUBLIC_BASE_URL
-                }/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
+                href={`https://www.facebook.com/share.php?u=${process.env.NEXT_PUBLIC_BASE_URL
+                  }/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
                 legacyBehavior
                 target={'_blank'}
               >
                 <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-                  <Image
+                  <img
                     src="/images/facebook-share.png"
                     alt=""
                     className="w-6"
@@ -432,22 +430,20 @@ function Send() {
               </Link>
 
               <Link
-                href={`sms://+243814978651&?body=${
-                  process.env.NEXT_PUBLIC_BASE_URL
-                }/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
+                href={`sms://+243814978651&?body=${process.env.NEXT_PUBLIC_BASE_URL
+                  }/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
                 legacyBehavior
                 target={'_blank'}
               >
                 <a className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2">
-                  <Image src="/images/sms.png" alt="" className="w-6" />
+                  <img src="/images/sms.png" alt="" className="w-6" />
                   <span className="hidden md:flex">Message</span>
                 </a>
               </Link>
 
               <CopyToClipboard
-                text={`${
-                  process.env.NEXT_PUBLIC_BASE_URL
-                }/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
+                text={`${process.env.NEXT_PUBLIC_BASE_URL
+                  }/voucher/pass/${'0xcda1470a8117daaccf368eb4'}`}
                 onCopy={() => {
                   setCopyLink(true);
                   setTimeout(() => {
@@ -459,7 +455,7 @@ function Send() {
                   type="button"
                   className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 mr-2 mb-2"
                 >
-                  <Image src="/images/text.png" alt="" className="w-6" />
+                  <img src="/images/text.png" alt="" className="w-6" />
                   <span className="hidden md:flex">
                     {!copyLink ? 'Copy Link' : 'Successfully Copied'}
                   </span>
