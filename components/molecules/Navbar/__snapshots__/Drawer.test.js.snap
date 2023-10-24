@@ -62,7 +62,7 @@ exports[`Drawer should render the component 1`] = `
               <h3
                 class="font-semibold text-gray-700 flex flex-col"
               >
-                Odette de WiiQare
+                WiiQare Support
                  
                 <span
                   class="text-xs text-gray-500 font-light flex gap-1 items-center"
