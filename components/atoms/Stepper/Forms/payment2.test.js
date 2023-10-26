@@ -69,4 +69,40 @@ describe('Payment2 component', () => {
     );
     expect(screen).toMatchSnapshot();
   });
+
+  it('converts the currency automatically', () => {
+    fetch.mockResponse('{}');
+
+    jest.spyOn(window.localStorage.__proto__, 'getItem').mockReturnValue(JSON.stringify({
+      firstName: 'John',
+      amount: 0,
+      countryLabel: "United Kingdom",
+      country: "UK",
+    }));
+
+    render(
+      <SessionProvider session={{
+        user: {
+          name: 'John',
+          data: {
+            userId: 1,
+          }
+        }
+      }}>
+        <Provider store={store}>
+          <FormContext.Provider value={{
+            activeStepIndex: 0, // identity step
+          }}>
+            <Payment2 />
+          </FormContext.Provider >
+        </Provider>
+      </SessionProvider>
+    );
+
+    const input = screen.getByLabelText('Devise de départ');
+    fireEvent.change(input, { target: { value: "123.45" } });
+    expect(input.value).toBe("123.45");
+  });
+
+  it.todo('should submit the form with the correct data');
 });
