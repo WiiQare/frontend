@@ -38,4 +38,35 @@ describe('Payment2 component', () => {
     );
     expect(screen).toMatchSnapshot();
   });
+
+  it('renders the component with amount 0', () => {
+    fetch.mockResponse('{}');
+
+    jest.spyOn(window.localStorage.__proto__, 'getItem').mockReturnValue(JSON.stringify({
+      firstName: 'John',
+      amount: 0,
+      countryLabel: "United Kingdom",
+      country: "UK",
+    }));
+
+    render(
+      <SessionProvider session={{
+        user: {
+          name: 'John',
+          data: {
+            userId: 1,
+          }
+        }
+      }}>
+        <Provider store={store}>
+          <FormContext.Provider value={{
+            activeStepIndex: 0, // identity step
+          }}>
+            <Payment2 />
+          </FormContext.Provider >
+        </Provider>
+      </SessionProvider>
+    );
+    expect(screen).toMatchSnapshot();
+  });
 });
