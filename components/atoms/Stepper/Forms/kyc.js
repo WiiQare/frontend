@@ -81,7 +81,12 @@ function KYC() {
           const response = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=fr`);
           const data = await response.json();
 
-          if (data.continent != "Afrique") {
+          console.log(data.continent);
+
+          if (/Afrique/i.test(data.continent)) {
+            setKycTest(false)
+
+          } else {
             checkKyc({ accessToken: session.accessToken }).then((data) => {
               if (data) {
                 setKycTest(false)
@@ -89,8 +94,6 @@ function KYC() {
                 conversation()
               }
             }).catch((error) => conversation())
-          } else {
-            setKycTest(false)
           }
         } catch (error) {
           checkKyc({ accessToken: session.accessToken }).then((data) => {

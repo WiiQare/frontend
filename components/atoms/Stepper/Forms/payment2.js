@@ -269,9 +269,9 @@ function Amount({
   );
   const [currencyPatientName, setCurrencyPatientName] = useState(
     patient.countryLabel ??
-      new Intl.DisplayNames(['en'], { type: 'region' }).of(
-        patient?.country?.toUpperCase(),
-      ),
+    new Intl.DisplayNames(['en'], { type: 'region' }).of(
+      patient?.country?.toUpperCase(),
+    ),
   );
 
   const [currencySender, setCurrencySender] = useState('EUR');
@@ -380,9 +380,8 @@ function Amount({
                       Pays:{' '}
                       <b className="text-gray-700 flex gap-1 items-center">
                         <Image
-                          src={`https://flagcdn.com/w20/${
-                            patient.country ?? 'cd'
-                          }.png`}
+                          src={`https://flagcdn.com/w20/${patient.country ?? 'cd'
+                            }.png`}
                           alt="cd"
                           width={20}
                           height={20}
@@ -593,7 +592,8 @@ function Amount({
             </div>
             <button
               type="submit"
-              className="mt-4 mb-8 w-full rounded-md bg-orange effect-up px-6 py-3 font-medium text-white"
+              disabled={convertRequest}
+              className="mt-4 mb-8 w-full rounded-md bg-orange disabled:bg-gray-300 effect-up px-6 py-3 font-medium text-white"
             >
               Passer au paiement
             </button>

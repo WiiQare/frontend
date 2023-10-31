@@ -16,10 +16,11 @@ const CardProvider = ({
       {/* Provider */}
       <div className="flex gap-3">
         <div className="w-32 h-24 md:w-40 md:h-32 border py-2 rounded-lg overflow-hidden">
-          <Image
+          <img
             src={logoLink}
             className="object-contain w-full h-full"
             alt={name + ' Logo'}
+            loading='lazy'
           />
         </div>
 
