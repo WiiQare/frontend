@@ -592,7 +592,8 @@ function Amount({
             </div>
             <button
               type="submit"
-              className="mt-4 mb-8 w-full rounded-md bg-orange effect-up px-6 py-3 font-medium text-white"
+              disabled={convertRequest}
+              className="mt-4 mb-8 w-full rounded-md bg-orange disabled:bg-gray-300 effect-up px-6 py-3 font-medium text-white"
             >
               Passer au paiement
             </button>
