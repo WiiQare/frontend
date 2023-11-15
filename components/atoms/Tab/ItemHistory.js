@@ -316,7 +316,7 @@ const ItemHistory = ({
                               {sender?.firstName ?? '' + ' ' + sender?.lastName ?? ''}
                             </span>{' '}
                             à{' '}
-                            <span className="text-orange font-semibold">
+                            <span className="text-orange font-semibold ">
                               {patient?.firstName ?? '' + ' ' + patient?.lastName ?? ''}
                             </span>
                           </h4>
