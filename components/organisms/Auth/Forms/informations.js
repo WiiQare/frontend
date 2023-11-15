@@ -23,6 +23,7 @@ import { useRouter } from 'next/router';
 import { setRegister } from '../../../../redux/reducer';
 import LoadingButton from '../../../atoms/Loader/LoadingButton';
 import * as yup from 'yup';
+import zxcvbn from 'zxcvbn';
 
 function Information() {
   const { activeStep, setActiveStep, formData, setFormData, handleComplete } =
@@ -31,6 +32,8 @@ function Information() {
   const [showcPassword, setShowcPassword] = useState(false);
   const [term, setTerm] = useState(false);
   const [state, setState] = useState({ type: 0, message: '' });
+  const [strength, setStrength] = useState(0);
+  const [password, setPassword] = useState('');
   const client = useSelector((state) => state.app.client);
   const router = useRouter();
   const dispatch = useDispatch();
@@ -59,9 +62,19 @@ function Information() {
   const onSubmit = async (values) => {
     if (Object.keys(values).length == 0) return console.log('Pas de données');
     //dispatch(setRegsiter({...values}))
+    // const passwordStrength = zxcvbn(values.password);
 
-    let { confirm_password, ...info } = values;
-    newAccountMutation.mutate({ ...info, ...client.register });
+    // Utilisez les résultats pour fournir des retours à l'utilisateur
+    // console.log('Score de robustesse du mot de passe :', passwordStrength.score);
+    // console.log('Suggestions :', passwordStrength.feedback.suggestions);
+
+    if (strength > 50) {
+
+      let { confirm_password, ...info } = values;
+      newAccountMutation.mutate({ ...info, ...client.register });
+    } else {
+      formik.setErrors({ password: 'Renforcez votre mot de passe' })
+    }
   };
 
   const closeToast = () => {
@@ -95,11 +108,35 @@ function Information() {
     onSubmit,
   });
 
+  const handlePasswordChange = (event) => {
+    const newPassword = event.target.value;
+    setPassword(newPassword);
+    formik.handleChange(event);
+
+    const passwordStrength = zxcvbn(newPassword);
+    // Le score va de 0 (faible) à 4 (fort)
+    const strengthPercentage = (passwordStrength.score + 1) * 25;
+    console.log(strengthPercentage);
+    setStrength(strengthPercentage);
+  };
+
   const renderError = (message) => (
     <p className="text-xs text-red-600 font-light flex items-center gap-1 px-1">
       {message}
     </p>
   );
+
+  const getStrengthColor = (strength) => {
+    if (strength <= 25) {
+      return 'red';
+    } else if (strength <= 50) {
+      return 'orange';
+    } else if (strength <= 75) {
+      return 'green';
+    } else {
+      return 'green';
+    }
+  };
 
   return (
     <>
@@ -185,6 +222,7 @@ function Information() {
                 type={showPassword ? 'text' : 'password'}
                 name="password"
                 {...formik.getFieldProps('password')}
+                onChange={handlePasswordChange}
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
@@ -203,6 +241,15 @@ function Information() {
             ) : (
               <></>
             )}
+            <div className={`${strength == 0 || password.length == 0 ? 'hidden' : 'flex'} h-[4px] w-full gap-10 justify-between items-center mt-2`}>
+              <div className='h-full w-3/6 bg-gray-200 rounded-full'>
+                <div
+                  className="h-full rounded-full"
+                  style={{ width: `${strength}%`, background: getStrengthColor(strength) }}
+                />
+              </div>
+              <span style={{ color: getStrengthColor(strength) }} className='text-xs'>Mot de passe {strength <= 25 ? 'faible' : strength <= 50 ? 'moyen' : 'fort'}</span>
+            </div>
           </div>
 
           <div className="flex flex-col gap-1">
