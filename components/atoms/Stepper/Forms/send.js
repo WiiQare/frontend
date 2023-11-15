@@ -227,13 +227,13 @@ function Send() {
                     currency: data.currency,
                   }).format(data.amount)}
                 </span>{' '}
-                Health Pass WiiQare <br /> From{' '}
+                Pass santé WiiQare <br /> de{' '}
                 <span className="text-orange font-semibold">
-                  {data.sender.firstName}
+                  {data?.sender?.firstName ?? '' + ' ' + data?.sender?.lastName ?? ''}
                 </span>{' '}
-                To{' '}
+                à{' '}
                 <span className="text-orange font-semibold">
-                  {data.patient.firstName}
+                  {data?.patient?.firstName ?? '' + ' ' + data?.patient?.lastName ?? ''}
                 </span>
               </h4>
             </div>

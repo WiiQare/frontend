@@ -313,11 +313,11 @@ const ItemHistory = ({
                             </span>
                             de{' '}
                             <span className="text-orange font-semibold">
-                              {sender.firstName}
+                              {sender?.firstName ?? '' + ' ' + sender?.lastName ?? ''}
                             </span>{' '}
                             à{' '}
                             <span className="text-orange font-semibold">
-                              {patient?.firstName ?? ''}
+                              {patient?.firstName ?? '' + ' ' + patient?.lastName ?? ''}
                             </span>
                           </h4>
                         </div>
