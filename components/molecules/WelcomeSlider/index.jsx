@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import InstallPWA from '../../atoms/Button/Download';
+// import InstallPWA from '../../atoms/Button/Download';
 
 const defaultSettings = {
   dots: true,
@@ -57,7 +57,7 @@ function WelcomeSlider({ slides, settings = defaultSettings }) {
                       >
                         {slide.button?.label}
                       </Button>
-                      <InstallPWA />
+                      {/* <InstallPWA /> */}
                     </div>
                   )}
 

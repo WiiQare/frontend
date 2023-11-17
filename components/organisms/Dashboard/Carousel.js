@@ -2,11 +2,6 @@ import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import { BiCaretRight } from 'react-icons/bi';
 import '@splidejs/react-splide/css';
 import '../../../styles/Carousel.module.css';
-import Image from 'next/image';
-
-import startup from '../../../public/images/hospital-bed--1024x994.png';
-import phone from '../../../public/images/Phone-design3.png';
-import wallet from '../../../public/images/smart wallet.png';
 import Link from 'next/link';
 
 const Carousel = () => {
@@ -36,77 +31,104 @@ const Carousel = () => {
             <div className="bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10">
               <div className="flex flex-col md:gap-7 gap-2">
                 <div className="space-y-3">
-                  <h1 className="text-2xl md:text-5xl font-bold">
-                    5$ pour votre 1èr Pass santé envoyés
+                  <h1 className="text-2xl md:text-4xl font-semibold">
+                    Envoyez de l’argent pour la santé de vos proches sans payer de frais
                   </h1>
-                  <p className="text-xs md:text-sm text-gray-700 w-full flex">
+                  {/* <p className="text-xs md:text-sm text-gray-700 w-full flex">
                     Gagnez une somme de 5$ pour votre première achat de passe
                     santé WiiQare.
-                  </p>
+                  </p> */}
                 </div>
-                <Link href={'#'} legacyBehavior>
+                <Link href={'https://wiiqare.com/how-it-works'} target='_blank' legacyBehavior>
                   <a className="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md">
-                    comment ça marche
+                    Comment ça marche
                   </a>
                 </Link>
               </div>
 
-              <div className="hidden justify-end md:w-3/4 md:flex">
-                <Image src={wallet} className="object-cover" alt="Wallet" />
+              <div className="hidden justify-end md:w-full md:flex">
+                <img src="https://i.goopics.net/otvw2n.png" className="object-cover" alt="Wallet" />
               </div>
             </div>
           </SplideSlide>
 
           <SplideSlide className="w-full">
-            <div className="bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10">
-              <div className="flex flex-col md:gap-7 gap-2">
+            <div className="bg-yellow-300 h-full flex md:justify-center md:pl-12">
+              <div className="flex flex-col justify-center md:gap-7 gap-2">
                 <div className="space-y-3">
-                  <h1 className="text-2xl md:text-5xl font-bold">
-                    Life is Good
+                  <h1 className="text-2xl md:text-4xl font-semibold">
+                    Envoyez de l’argent pour la santé de vos proches sans payer de frais
                   </h1>
-                  <p className="text-xs md:text-sm text-gray-700 w-full flex">
+                  {/* <p className="text-xs md:text-sm text-gray-700 w-full flex">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Adipisci, beatae nam eveniet hic nesciunt explicabo dolore
                     quidem Adipisci, beatae nam eveniet hic nesciunt explicabo
                     dolore quidem
-                  </p>
+                  </p> */}
                 </div>
-                <Link href={'#'} legacyBehavior>
+                <Link href={'https://wiiqare.com/how-it-works'} target='_blank' legacyBehavior>
                   <a className="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md">
-                    Commencer
+                    Comment ça marche
                   </a>
                 </Link>
               </div>
 
-              <div className="hidden md:full md:flex justify-end ">
-                <Image src={startup} className="object-cover" alt="Startup" />
+              <div className="hidden md:w-full md:flex justify-end ">
+                <img src="https://i.goopics.net/4kdqe7.png" className="object-cover" alt="Startup" />
               </div>
             </div>
           </SplideSlide>
 
           <SplideSlide className="w-full">
-            <div className="bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10">
-              <div className="flex flex-col md:gap-7 gap-2">
+            <div className="bg-yellow-300 h-full flex md:justify-center md:pl-12 gap-10">
+              <div className="flex flex-col justify-center md:gap-7 gap-2">
                 <div className="space-y-3">
-                  <h1 className="text-2xl md:text-5xl font-bold">
-                    Your health wallet
+                  <h1 className="text-2xl md:text-4xl font-semibold">
+                    Connecter vos proches aux meilleurs professionnels de santé
                   </h1>
-                  <p className="text-xs md:text-sm text-gray-700 w-full flex">
+                  {/* <p className="text-xs md:text-sm text-gray-700 w-full flex">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Adipisci, beatae nam eveniet hic nesciunt explicabo dolore
                     quidem Adipisci, beatae nam eveniet hic nesciunt explicabo
                     dolore quidem
-                  </p>
+                  </p> */}
                 </div>
-                <Link href={'#'} legacyBehavior>
+                <Link href={'https://wiiqare.com/second-opinion'} legacyBehavior>
                   <a className="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md">
-                    Get Started
+                    Consulter
                   </a>
                 </Link>
               </div>
 
-              <div className="hidden md:w-3/4 md:flex justify-end relative -bottom-4 ">
-                <Image src={phone} className="object-cover" alt="Phone" />
+              <div className="hidden md:w-full md:flex justify-end relative -bottom-4 ">
+                <img src="https://i.goopics.net/dlqbsx.png" className="object-cover" alt="Phone" />
+              </div>
+            </div>
+          </SplideSlide>
+
+          <SplideSlide className="w-full">
+            <div className="bg-yellow-300 h-full flex md:justify-center md:pl-12 gap-10">
+              <div className="flex flex-col justify-center md:gap-7 gap-2">
+                <div className="space-y-3">
+                  <h1 className="text-2xl md:text-4xl font-semibold">
+                    Demander un second opinion aux professionnels de santé
+                  </h1>
+                  {/* <p className="text-xs md:text-sm text-gray-700 w-full flex">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Adipisci, beatae nam eveniet hic nesciunt explicabo dolore
+                    quidem Adipisci, beatae nam eveniet hic nesciunt explicabo
+                    dolore quidem
+                  </p> */}
+                </div>
+                <Link href={'https://wiiqare.com/second-opinion'} legacyBehavior>
+                  <a className="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md">
+                    Consulter
+                  </a>
+                </Link>
+              </div>
+
+              <div className="hidden md:w-full md:flex justify-end relative -bottom-4 ">
+                <img src="https://i.goopics.net/jej08g.png" className="object-cover" alt="Phone" />
               </div>
             </div>
           </SplideSlide>
