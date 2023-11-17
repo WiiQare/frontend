@@ -135,14 +135,6 @@ exports[`register page should render empty page when fetch fails 1`] = `
                                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                               />
                             </button>
-                            <button
-                              aria-label="Install app"
-                              class="link-button bg-gray-800 py-2.5 text-md font-medium uppercase text-center text-white rounded-lg"
-                              id="setup_button"
-                              title="Install app"
-                            >
-                              Install WiiQare App
-                            </button>
                           </div>
                         </div>
                       </div>

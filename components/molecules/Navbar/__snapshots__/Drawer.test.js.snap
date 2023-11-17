@@ -110,13 +110,8 @@ exports[`Drawer should render the component 1`] = `
                     <img
                       alt="Default message"
                       class="w-14 opacity-80"
-                      data-nimg="1"
-                      decoding="async"
                       height="80"
-                      loading="lazy"
-                      src="/_next/image?url=https%3A%2F%2Fi.goopics.net%2F26opd3.png&w=256&q=75"
-                      srcset="/_next/image?url=https%3A%2F%2Fi.goopics.net%2F26opd3.png&w=96&q=75 1x, /_next/image?url=https%3A%2F%2Fi.goopics.net%2F26opd3.png&w=256&q=75 2x"
-                      style="color: transparent;"
+                      src="https://i.goopics.net/26opd3.png"
                       width="80"
                     />
                     <span
