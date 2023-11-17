@@ -31,6 +31,8 @@ import CountrySelect from '../../Input/Country';
 export const CountryContext = createContext();
 
 function Identity2() {
+  const ls = localStorage.getItem('dispatchBuyVoucher');
+
   const { activeStepIndex, setActiveStepIndex, formData, setFormData } =
     useContext(FormContext);
   const [phone, setPhone] = useState();
@@ -41,7 +43,7 @@ function Identity2() {
   const dispatch = useDispatch();
   const [state, setState] = useState({ type: 0, message: '' });
   const client = useSelector((state) => state.app.client);
-  const [newBenecifiare, setNewBenecifiare] = useState(false);
+  const [newBenecifiare, setNewBenecifiare] = useState( ls && JSON.parse(ls).id? true : false );
   const [activeIndexSlide, setActiveIndexSlide] = useState(null);
   const [country, setCountry] = useState('cd');
   const [countryLabel, setCountryLabel] = useState('RD Congo');
@@ -102,6 +104,10 @@ function Identity2() {
       );
       setActiveStepIndex(activeStepIndex + 1);
     } else {
+      const ls = JSON.parse( localStorage.getItem('dispatchBuyVoucher') );
+      if( ls && ls.id ){
+      data.id = ls.id;
+      }
       savePatientMutation.mutate({ ...data, accessToken: session.accessToken });
     }
   };
