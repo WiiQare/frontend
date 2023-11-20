@@ -3,7 +3,7 @@ import CardHeader from '../../atoms/Card/Header';
 import HistoryWallet from '../Wallet/History';
 import { CiCircleList } from 'react-icons/ci';
 
-import Quickly from './quickly';
+// import Quickly from './quickly';
 export const TransactionContext = createContext();
 
 const Transaction = () => {
@@ -33,7 +33,7 @@ const Transaction = () => {
 
       <TransactionContext.Provider value={{ transaction, setTransaction }}>
         <HistoryWallet />
-        <Quickly />
+        {/* <Quickly /> */}
       </TransactionContext.Provider>
     </div>
   );
