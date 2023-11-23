@@ -405,7 +405,7 @@ function Identity2() {
                         fullWidth
                         label="Numéro de Téléphone"
                         variant="outlined"
-                        countryCodeEditable={false}
+                        countryCodeEditable={true}
                         select={false}
                         value={localStorage.getItem('phoneNumber') ?? ''}
                         defaultValue={localStorage.getItem('phoneNumber') ?? ''}
@@ -413,6 +413,10 @@ function Identity2() {
                           formik.setFieldValue('phoneNumber', value);
                           formik.setFieldValue('country', country.countryCode);
                           setDial(country.dialCode);
+                          if( country ){
+                            setCountry( country.countryCode );
+                            setCountryLabel( country.countryLabel );
+                          }
                           localStorage.setItem('phoneNumber', value);
                           localStorage.setItem('country', country.countryCode);
                         }}
