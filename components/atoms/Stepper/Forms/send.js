@@ -135,9 +135,9 @@ function Send() {
     <div className="flex flex-col gap-6 justify-center items-center">
       {state.type > 0 ? (
         state.type == 2 ? (
-          <Toast type={'danger'} message={state.message} close={closeToast} />
+          <Toast type={'danger'} message={state.message} close={closeToast} usePortal={true} extraClass={'fixed z-50 top-20 right-2'} />
         ) : state.type == 1 ? (
-          <Toast type={'success'} message={state.message} close={closeToast} />
+          <Toast type={'success'} message={state.message} close={closeToast} usePortal={true} extraClass={'fixed z-50 top-20 right-2'} />
         ) : (
           <></>
         )
