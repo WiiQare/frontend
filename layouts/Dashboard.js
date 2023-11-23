@@ -24,6 +24,7 @@ const Dashboard = ({ children, className }) => {
   if (status === 'authenticated')
     return (
       <>
+        <div id="portal-modal"></div>
         <Menu session={data} handleSignOut={handleSignOut} />
         <main
           className={`min-h-[90vh] grid ${

@@ -1,8 +1,12 @@
 import React from 'react';
+import { createPortal } from 'react-dom';
 
-const Toast = ({ type, message, close = null }) => {
-  return (
-    <div id="dismiss-toast" className="absolute top-28 right-2">
+const Toast = ({ type, message, close = null, usePortal, extraClass }) => {
+
+  const fn = usePortal? createPortal : ( el ) => el
+  return fn(
+    (
+    <div id="dismiss-toast" className={`${extraClass? extraClass : 'absolute top-28 right-2'}`}>
       <div
         className={`min-w-xs bg-${
           type == 'success' ? 'green' : 'red'
@@ -46,7 +50,7 @@ const Toast = ({ type, message, close = null }) => {
         </div>
       </div>
     </div>
-  );
+  ), document.getElementById('portal-modal') );
 };
 
 export default Toast;
