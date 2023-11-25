@@ -96,7 +96,7 @@ function Identity2() {
 
     !values.email ? delete values.email : null;
 
-    const data = { ...formData, ...values };
+    const data = { ...formData, ...values, addedBy: session.user.data.userId };
 
     if (patientExist) {
       dispatch(
