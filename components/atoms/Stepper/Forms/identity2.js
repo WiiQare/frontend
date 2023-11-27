@@ -185,9 +185,51 @@ function Identity2() {
         city: item.city,
         homeAddress: item.homeAddress,
       }
-    ))
+    ));
+
+    formik.setFieldValue('phoneNumber', item.phoneNumber);
+    formik.setFieldValue('firstName', item.firstName);
+    formik.setFieldValue('lastName', item.lastName);
+    formik.setFieldValue('email', item.email);
+    formik.setFieldValue('homeAddress', item.homeAddress);
+    formik.setFieldValue('city', item.city );
+    formik.setFieldValue('phoneNumber', item.phoneNumber );
+    formik.setFieldValue('country', item.country );
+
+    localStorage.setItem('phoneNumber', item.phoneNumber);
+    localStorage.setItem('firstName', item.firstName);
+    localStorage.setItem('lastName', item.lastName);
+    localStorage.setItem('email', item.email);
+    localStorage.setItem('homeAddress', item.homeAddress);
+    localStorage.setItem('city', item.city );
+    localStorage.setItem('phoneNumber', item.phoneNumber );
+    localStorage.setItem('country', item.country );
+
     setActiveStepIndex(activeStepIndex + 1);
   };
+
+  const createNewBeneficiare = () => {
+    setNewBenecifiare(true)
+    localStorage.removeItem('phoneNumber');
+    localStorage.removeItem('firstName');
+    localStorage.removeItem('lastName');
+    localStorage.removeItem('email');
+    localStorage.removeItem('homeAddress');
+    localStorage.removeItem('city');
+    localStorage.removeItem('phoneNumber');
+    localStorage.removeItem('country');
+    localStorage.removeItem('dispatchBuyVoucher');
+    
+    formik.setFieldValue('phoneNumber', '');
+    formik.setFieldValue('firstName', '');
+    formik.setFieldValue('lastName', '');
+    formik.setFieldValue('email', '');
+    formik.setFieldValue('homeAddress', '');
+    formik.setFieldValue('city', '');
+    formik.setFieldValue('phoneNumber', '');
+    formik.setFieldValue('country', '');
+    
+  }
 
   const { data, isLoading, isError } = Fetcher(
     `/payer/patient?payerId=${session.user.data.userId}`,
@@ -375,7 +417,7 @@ function Identity2() {
             <div className="mt-6">
               <div
                 className="w-full bg-gray-100 py-4 px-6 border-2 border-dashed border-gray-700 rounded-lg cursor-pointer hover:shadow-md hover:bg-gray-200 flex justify-between"
-                onClick={() => setNewBenecifiare(true)}
+                onClick={() => createNewBeneficiare()}
               >
                 <div className="flex gap-5 items-center">
                   <FiUserPlus size={26} />
