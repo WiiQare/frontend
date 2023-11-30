@@ -54,13 +54,8 @@ exports[`Saving should render 1`] = `
           <img
             alt="Myself"
             class="w-20"
-            data-nimg="1"
-            decoding="async"
             height="512"
-            loading="lazy"
-            src="/_next/image?url=https%3A%2F%2Fi.goopics.net%2Fyojhn7.png&w=1080&q=75"
-            srcset="/_next/image?url=https%3A%2F%2Fi.goopics.net%2Fyojhn7.png&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fi.goopics.net%2Fyojhn7.png&w=1080&q=75 2x"
-            style="color: transparent;"
+            src="https://i.goopics.net/yojhn7.png"
             width="512"
           />
         </div>
@@ -99,13 +94,8 @@ exports[`Saving should render 1`] = `
           <img
             alt="Myself"
             class="w-20"
-            data-nimg="1"
-            decoding="async"
             height="512"
-            loading="lazy"
-            src="/_next/image?url=https%3A%2F%2Fi.goopics.net%2Fcub5b2.png&w=1080&q=75"
-            srcset="/_next/image?url=https%3A%2F%2Fi.goopics.net%2Fcub5b2.png&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fi.goopics.net%2Fcub5b2.png&w=1080&q=75 2x"
-            style="color: transparent;"
+            src="https://i.goopics.net/cub5b2.png"
             width="512"
           />
         </div>
@@ -144,13 +134,8 @@ exports[`Saving should render 1`] = `
           <img
             alt="Myself"
             class="w-20"
-            data-nimg="1"
-            decoding="async"
             height="512"
-            loading="lazy"
-            src="/_next/image?url=https%3A%2F%2Fi.goopics.net%2Fdtrv5p.png&w=1080&q=75"
-            srcset="/_next/image?url=https%3A%2F%2Fi.goopics.net%2Fdtrv5p.png&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fi.goopics.net%2Fdtrv5p.png&w=1080&q=75 2x"
-            style="color: transparent;"
+            src="https://i.goopics.net/dtrv5p.png"
             width="512"
           />
         </div>
@@ -189,13 +174,8 @@ exports[`Saving should render 1`] = `
           <img
             alt="Myself"
             class="w-20"
-            data-nimg="1"
-            decoding="async"
             height="512"
-            loading="lazy"
-            src="/_next/image?url=https%3A%2F%2Fi.goopics.net%2Fgl9c62.png&w=1080&q=75"
-            srcset="/_next/image?url=https%3A%2F%2Fi.goopics.net%2Fgl9c62.png&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fi.goopics.net%2Fgl9c62.png&w=1080&q=75 2x"
-            style="color: transparent;"
+            src="https://i.goopics.net/gl9c62.png"
             width="512"
           />
         </div>
@@ -234,13 +214,8 @@ exports[`Saving should render 1`] = `
           <img
             alt="Myself"
             class="w-20"
-            data-nimg="1"
-            decoding="async"
             height="512"
-            loading="lazy"
-            src="/_next/image?url=https%3A%2F%2Fi.goopics.net%2F3w4x3m.png&w=1080&q=75"
-            srcset="/_next/image?url=https%3A%2F%2Fi.goopics.net%2F3w4x3m.png&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fi.goopics.net%2F3w4x3m.png&w=1080&q=75 2x"
-            style="color: transparent;"
+            src="https://i.goopics.net/3w4x3m.png"
             width="512"
           />
         </div>
@@ -279,13 +254,8 @@ exports[`Saving should render 1`] = `
           <img
             alt="Myself"
             class="w-20"
-            data-nimg="1"
-            decoding="async"
             height="512"
-            loading="lazy"
-            src="/_next/image?url=https%3A%2F%2Fi.goopics.net%2Fhhbm6i.png&w=1080&q=75"
-            srcset="/_next/image?url=https%3A%2F%2Fi.goopics.net%2Fhhbm6i.png&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fi.goopics.net%2Fhhbm6i.png&w=1080&q=75 2x"
-            style="color: transparent;"
+            src="https://i.goopics.net/hhbm6i.png"
             width="512"
           />
         </div>

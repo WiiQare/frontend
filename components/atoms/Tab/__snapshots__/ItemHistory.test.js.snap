@@ -17,13 +17,8 @@ exports[`ItemHistory should render the component 1`] = `
           <img
             alt="avatar"
             class="object-cover rounded-full w-full h-full"
-            data-nimg="1"
-            decoding="async"
             height="200"
-            loading="lazy"
-            src="/_next/image?url=https%3A%2F%2Fui-avatars.com%2Fapi%2F%3Fuppercase%3Dtrue%26background%3DCCC%26name%3DJohn%26bold%3Dtrue%26color%3DFFF&w=640&q=75"
-            srcset="/_next/image?url=https%3A%2F%2Fui-avatars.com%2Fapi%2F%3Fuppercase%3Dtrue%26background%3DCCC%26name%3DJohn%26bold%3Dtrue%26color%3DFFF&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Fui-avatars.com%2Fapi%2F%3Fuppercase%3Dtrue%26background%3DCCC%26name%3DJohn%26bold%3Dtrue%26color%3DFFF&w=640&q=75 2x"
-            style="color: transparent;"
+            src="https://ui-avatars.com/api/?uppercase=true&background=CCC&name=John&bold=true&color=FFF"
             width="200"
           />
         </div>
