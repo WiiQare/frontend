@@ -14,7 +14,7 @@ const Page = () => {
     step == 'end' && redirect_status == 'succeeded' ? 2 : step == '1' ? 1 : 0,
   );
   const [formData, setFormData] = useState({});
-  const [kycTest, setKycTest] = useState(true);
+  const [kycTest, setKycTest] = useState(false);
 
   return (
     <>

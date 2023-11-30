@@ -16,6 +16,26 @@ jest.mock('next/router', () => ({
   }),
 }));
 
+jest.mock('../../../../lib/Fetcher', () => {
+  return {
+    __esModule: true,
+    default: jest.fn().mockReturnValue({
+      data: [],
+      isLoading: false,
+      isError: false,
+    }),
+  };
+});
+
+jest.mock('next-qrcode', () => {
+  return {
+    __esModule: true,
+    useQRCode: jest.fn().mockReturnValue({
+      Canvas: () => <div>QRCode</div>,
+    }),
+  };
+});
+
 describe('Send', () => {
   let component;
   beforeEach(() => {
@@ -37,5 +57,14 @@ describe('Send', () => {
 
   it('should render the component', () => {
     expect(component).toMatchSnapshot();
+  });
+
+  it('should handle button click', () => {
+
+    fetch.mockResponse("{}");
+
+    const button = screen.getByText('Voir Pass Santé');
+    button.click();
+
   });
 });
