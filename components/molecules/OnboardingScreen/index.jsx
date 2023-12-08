@@ -14,7 +14,7 @@ const settings = {
 const OnboardingScreen = ({ onStartClick }) => (
   <WelcomeSlider
     slides={[
-      ...ONBOARDING_SLIDES,
+      // ...ONBOARDING_SLIDES,
       {
         img: '/images/Easy-payment-scan-QR-code.png',
         title: 'Faire un paiement est un ABC <span>simple</span>',

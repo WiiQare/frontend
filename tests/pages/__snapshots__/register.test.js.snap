@@ -32,7 +32,6 @@ exports[`register page should render empty page when fetch fails 1`] = `
           >
             <div
               class="slick-slider slick-initialized"
-              dir="ltr"
             >
               <div
                 class="slick-list"
@@ -45,48 +44,6 @@ exports[`register page should render empty page when fetch fails 1`] = `
                     aria-hidden="false"
                     class="slick-slide slick-active slick-current"
                     data-index="0"
-                    style="outline: none; width: 0px;"
-                    tabindex="-1"
-                  >
-                    <div>
-                      <div
-                        style="width: 100%; display: inline-block;"
-                        tabindex="-1"
-                      >
-                        <div
-                          class="details-holder"
-                        >
-                          <img
-                            alt=""
-                            class="photo"
-                            data-nimg="1"
-                            decoding="async"
-                            height="1024"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimages%2Fset-your-savings-%20.png&w=3840&q=75"
-                            srcset="/_next/image?url=%2Fimages%2Fset-your-savings-%20.png&w=1200&q=75 1x, /_next/image?url=%2Fimages%2Fset-your-savings-%20.png&w=3840&q=75 2x"
-                            style="color: transparent;"
-                            width="1096"
-                          />
-                          <div
-                            class="bold-title"
-                          >
-                            Définissez votre objectif d’épargne et mettez de l’argent de côté pour votre 
-                            <span>
-                               santé
-                            </span>
-                          </div>
-                          <h5>
-                            Décidez combien vous souhaitez épargner pour la santé et nous vous aiderons à atteindre votre objectif.
-                          </h5>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    aria-hidden="true"
-                    class="slick-slide"
-                    data-index="1"
                     style="outline: none; width: 0px;"
                     tabindex="-1"
                   >
@@ -142,25 +99,6 @@ exports[`register page should render empty page when fetch fails 1`] = `
                   </div>
                 </div>
               </div>
-              <ul
-                class="slick-dots"
-                style="display: block;"
-              >
-                <li
-                  class="slick-active"
-                >
-                  <button>
-                    1
-                  </button>
-                </li>
-                <li
-                  class=""
-                >
-                  <button>
-                    2
-                  </button>
-                </li>
-              </ul>
             </div>
           </div>
         </div>

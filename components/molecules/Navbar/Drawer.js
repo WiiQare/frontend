@@ -142,7 +142,7 @@ function Conversation({
               height={64}
             />
             <h3 className="font-semibold text-gray-700 flex flex-col">
-              Odette de WiiQare{' '}
+              WiiQare Support{' '}
               <span className="text-xs text-gray-500 font-light flex gap-1 items-center">
                 <span className="h-2 w-2 rounded-full bg-green-400 flex">
                   &nbsp;
