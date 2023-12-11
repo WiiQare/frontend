@@ -393,7 +393,7 @@ function Identity2() {
                       <CountrySelect />
                     </CountryContext.Provider>
                   </div>
-                  <div className="flex items-center gap-1 md:w-2/3">
+                  <div className="flex items-center md:gap-1 md:w-2/3">
                     <div className="flex flex-col w-full gap-1">
                       <MuiPhoneNumber
                         fullWidth
@@ -422,9 +422,9 @@ function Identity2() {
                         <></>
                       )}
                     </div>
-                    <span className="w-fit h-fit p-2 rounded-lg flex items-center gap-2 text-sm text-gray-600">
+                    <span className="w-fit h-fit px-1 md:p-2 rounded-lg flex items-center md:gap-2 text-sm text-gray-600">
                       <span
-                        className="tooltip tooltip-bottom text-xs"
+                        className="tooltip tooltip-left md:tooltip-bottom text-xs"
                         data-tip={`${formik.values.phoneNumber.trim(' ') != ''
                           ? formik.values.phoneNumber
                           : 'Ce numéro de téléphone'

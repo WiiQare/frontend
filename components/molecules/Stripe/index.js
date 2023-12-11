@@ -11,6 +11,9 @@ import Image from 'next/image';
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
+  {
+    locale: 'fr-FR'
+  }
 );
 
 const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
@@ -95,7 +98,7 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                       <li className="flex justify-between w-full">
                         Pays:{' '}
                         <b className="text-gray-700 flex gap-1 items-center">
-                          <Image
+                          <img
                             src={`https://flagcdn.com/w20/${client.country}.png`}
                             alt="cd"
                             width={20}
@@ -282,7 +285,7 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                 </>
               ) : (
                 <div className="h-full w-full flex flex-col justify-center items-center gap-4">
-                  <Image
+                  <img
                     src="/images/maintenance.png"
                     alt="Maintenace"
                     className="w-40 opacity-60"
