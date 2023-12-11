@@ -464,7 +464,7 @@ function Send() {
             </div>
           </div>
 
-          <div class="flex-shrink-0 border-none backdrop-filter backdrop-blur-[6px] w-full h-full bg-white/30 absolute top-0 p-6"></div>
+          <div className="flex-shrink-0 border-none backdrop-filter backdrop-blur-[6px] w-full h-full bg-white/30 absolute top-0 p-6"></div>
 
           <div className="flex flex-shrink-0 absolute top-0 justify-center items-center w-full h-full">
             <div className="flex flex-col gap-8 justify-center items-center">

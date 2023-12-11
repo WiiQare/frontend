@@ -292,7 +292,7 @@ function Information() {
               onChange={(e) => setTerm(e.target.checked)}
             />
             <label
-              for="link-checkbox"
+              htmlFor="link-checkbox"
               className="h-4 ml-2 text-sm font-normal text-gray-600 dark:text-gray-300"
             >
               j&apos;accepte les{' '}

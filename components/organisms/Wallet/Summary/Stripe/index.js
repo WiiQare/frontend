@@ -210,10 +210,10 @@ const StripePayment = () => {
                   ></span>
                   <label
                     className={`${methodPayment == 'card'
-                        ? 'border-2 border-orange peer-checked:bg-gray-50'
-                        : ''
+                      ? 'border-2 border-orange peer-checked:bg-gray-50'
+                      : ''
                       } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
-                    for="radio_1"
+                    htmlFor="radio_1"
                   >
                     <Image
                       className="w-14 object-contain"
@@ -240,10 +240,10 @@ const StripePayment = () => {
                   ></span>
                   <label
                     className={`${methodPayment == 'crypto'
-                        ? 'border-2 border-orange peer-checked:bg-gray-50'
-                        : ''
+                      ? 'border-2 border-orange peer-checked:bg-gray-50'
+                      : ''
                       } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
-                    for="radio_2"
+                    htmlFor="radio_2"
                   >
                     <Image
                       className="w-14 object-contain"
@@ -272,10 +272,10 @@ const StripePayment = () => {
                     ></span>
                     <label
                       className={`${methodPayment == 'mobile'
-                          ? 'border-2 border-orange peer-checked:bg-gray-50'
-                          : ''
+                        ? 'border-2 border-orange peer-checked:bg-gray-50'
+                        : ''
                         } flex cursor-pointer select-none rounded-lg border border-gray-300 p-4`}
-                      for="radio_3"
+                      htmlFor="radio_3"
                     >
                       <Image
                         className="w-14 object-contain"
