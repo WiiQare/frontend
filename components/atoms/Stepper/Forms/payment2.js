@@ -379,7 +379,7 @@ function Amount({
                     <li className="flex justify-between w-full">
                       Pays:{' '}
                       <b className="text-gray-700 flex gap-1 items-center">
-                        <Image
+                        <img
                           src={`https://flagcdn.com/w20/${patient.country ?? 'cd'
                             }.png`}
                           alt="cd"
@@ -416,7 +416,7 @@ function Amount({
               <div className="space-y-6">
                 <div>
                   <label
-                    for="hs-inline-leading-pricing-select-label"
+                    htmlFor="hs-inline-leading-pricing-select-label"
                     className="block text-sm font-medium mb-2 "
                   >
                     Devise de départ
@@ -437,7 +437,7 @@ function Amount({
                     </div>
                     <div className="absolute inset-y-0 right-0 flex items-center text-gray-500 pr-px">
                       <label
-                        for="hs-inline-leading-select-currency"
+                        htmlFor="hs-inline-leading-select-currency"
                         className="sr-only"
                       >
                         Currency
@@ -479,7 +479,7 @@ function Amount({
 
                 <div>
                   <label
-                    for="hs-inline-leading-pricing-select-label"
+                    htmlFor="hs-inline-leading-pricing-select-label"
                     className="block text-sm font-medium mb-2 "
                   >
                     À quel devise voulez-vous l&apos;envoyer{' '}
@@ -499,7 +499,7 @@ function Amount({
                     </div>
                     <div className="absolute inset-y-0 right-0 flex items-center text-gray-500 pr-px">
                       <label
-                        for="hs-inline-leading-select-currency"
+                        htmlFor="hs-inline-leading-select-currency"
                         className="sr-only"
                       >
                         Currency

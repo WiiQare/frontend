@@ -31,8 +31,6 @@ import CountrySelect from '../../Input/Country';
 export const CountryContext = createContext();
 
 function Identity2() {
-  const ls = localStorage.getItem('dispatchBuyVoucher');
-
   const { activeStepIndex, setActiveStepIndex, formData, setFormData } =
     useContext(FormContext);
   const [phone, setPhone] = useState();
@@ -43,7 +41,7 @@ function Identity2() {
   const dispatch = useDispatch();
   const [state, setState] = useState({ type: 0, message: '' });
   const client = useSelector((state) => state.app.client);
-  const [newBenecifiare, setNewBenecifiare] = useState( ls && JSON.parse(ls).id? true : false );
+  const [newBenecifiare, setNewBenecifiare] = useState(false);
   const [activeIndexSlide, setActiveIndexSlide] = useState(null);
   const [country, setCountry] = useState('cd');
   const [countryLabel, setCountryLabel] = useState('RD Congo');
@@ -96,7 +94,7 @@ function Identity2() {
 
     !values.email ? delete values.email : null;
 
-    const data = { ...formData, ...values, addedBy: session.user.data.userId };
+    const data = { ...formData, ...values };
 
     if (patientExist) {
       dispatch(
@@ -104,10 +102,6 @@ function Identity2() {
       );
       setActiveStepIndex(activeStepIndex + 1);
     } else {
-      const ls = JSON.parse( localStorage.getItem('dispatchBuyVoucher') );
-      if( ls && ls.id ){
-      data.id = ls.id;
-      }
       savePatientMutation.mutate({ ...data, accessToken: session.accessToken });
     }
   };
@@ -185,51 +179,9 @@ function Identity2() {
         city: item.city,
         homeAddress: item.homeAddress,
       }
-    ));
-
-    formik.setFieldValue('phoneNumber', item.phoneNumber);
-    formik.setFieldValue('firstName', item.firstName);
-    formik.setFieldValue('lastName', item.lastName);
-    formik.setFieldValue('email', item.email);
-    formik.setFieldValue('homeAddress', item.homeAddress);
-    formik.setFieldValue('city', item.city );
-    formik.setFieldValue('phoneNumber', item.phoneNumber );
-    formik.setFieldValue('country', item.country );
-
-    localStorage.setItem('phoneNumber', item.phoneNumber);
-    localStorage.setItem('firstName', item.firstName);
-    localStorage.setItem('lastName', item.lastName);
-    localStorage.setItem('email', item.email);
-    localStorage.setItem('homeAddress', item.homeAddress);
-    localStorage.setItem('city', item.city );
-    localStorage.setItem('phoneNumber', item.phoneNumber );
-    localStorage.setItem('country', item.country );
-
+    ))
     setActiveStepIndex(activeStepIndex + 1);
   };
-
-  const createNewBeneficiare = () => {
-    setNewBenecifiare(true)
-    localStorage.removeItem('phoneNumber');
-    localStorage.removeItem('firstName');
-    localStorage.removeItem('lastName');
-    localStorage.removeItem('email');
-    localStorage.removeItem('homeAddress');
-    localStorage.removeItem('city');
-    localStorage.removeItem('phoneNumber');
-    localStorage.removeItem('country');
-    localStorage.removeItem('dispatchBuyVoucher');
-    
-    formik.setFieldValue('phoneNumber', '');
-    formik.setFieldValue('firstName', '');
-    formik.setFieldValue('lastName', '');
-    formik.setFieldValue('email', '');
-    formik.setFieldValue('homeAddress', '');
-    formik.setFieldValue('city', '');
-    formik.setFieldValue('phoneNumber', '');
-    formik.setFieldValue('country', '');
-    
-  }
 
   const { data, isLoading, isError } = Fetcher(
     `/payer/patient?payerId=${session.user.data.userId}`,
@@ -417,7 +369,7 @@ function Identity2() {
             <div className="mt-6">
               <div
                 className="w-full bg-gray-100 py-4 px-6 border-2 border-dashed border-gray-700 rounded-lg cursor-pointer hover:shadow-md hover:bg-gray-200 flex justify-between"
-                onClick={() => createNewBeneficiare()}
+                onClick={() => setNewBenecifiare(true)}
               >
                 <div className="flex gap-5 items-center">
                   <FiUserPlus size={26} />
@@ -441,13 +393,13 @@ function Identity2() {
                       <CountrySelect />
                     </CountryContext.Provider>
                   </div>
-                  <div className="flex items-center gap-1 md:w-2/3">
+                  <div className="flex items-center md:gap-1 md:w-2/3">
                     <div className="flex flex-col w-full gap-1">
                       <MuiPhoneNumber
                         fullWidth
                         label="Numéro de Téléphone"
                         variant="outlined"
-                        countryCodeEditable={true}
+                        countryCodeEditable={false}
                         select={false}
                         value={localStorage.getItem('phoneNumber') ?? ''}
                         defaultValue={localStorage.getItem('phoneNumber') ?? ''}
@@ -455,10 +407,6 @@ function Identity2() {
                           formik.setFieldValue('phoneNumber', value);
                           formik.setFieldValue('country', country.countryCode);
                           setDial(country.dialCode);
-                          if( country ){
-                            setCountry( country.countryCode );
-                            setCountryLabel( country.countryLabel );
-                          }
                           localStorage.setItem('phoneNumber', value);
                           localStorage.setItem('country', country.countryCode);
                         }}
@@ -474,9 +422,9 @@ function Identity2() {
                         <></>
                       )}
                     </div>
-                    <span className="w-fit h-fit p-2 rounded-lg flex items-center gap-2 text-sm text-gray-600">
+                    <span className="w-fit h-fit px-1 md:p-2 rounded-lg flex items-center md:gap-2 text-sm text-gray-600">
                       <span
-                        className="tooltip tooltip-bottom text-xs"
+                        className="tooltip tooltip-left md:tooltip-bottom text-xs"
                         data-tip={`${formik.values.phoneNumber.trim(' ') != ''
                           ? formik.values.phoneNumber
                           : 'Ce numéro de téléphone'

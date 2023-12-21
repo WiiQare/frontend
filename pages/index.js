@@ -19,13 +19,13 @@ const Page = () => {
     <>
       <Head>
         <title>
-          WiiQare - A smart and secure way to save and pay for your health
+          WiiQare - Un moyen intelligent et sécurisé d'économiser et de payer pour votre santé
         </title>
         <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
       </Head>
       <Carousel />
       <VoucherHome />
-      <ProviderFilter />
+      {/* <ProviderFilter /> */}
     </>
   );
 };
