@@ -152,3 +152,15 @@ input[type='range']::-webkit-slider-thumb {
 
 .drawer {
 }
+
+.dropzone {
+  border: 2px dashed #cccccc;
+  border-radius: 4px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.dropzone.loading {
+  background-color: #f0f0f0;
+}

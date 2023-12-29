@@ -9,7 +9,7 @@ const withPWA = require('next-pwa')({
 const nextConfig = withPWA({
   reactStrictMode: true,
   images: {
-    domains: [],
+    domains: ['i.goopics.net', 'ui-avatars.com'],
   },
   experimental: {
     forceSwcTransforms: true,
