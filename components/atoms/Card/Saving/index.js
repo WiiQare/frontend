@@ -188,7 +188,7 @@ const SavingCard = ({ title, img, month = 12 }) => {
 
                       <div className="space-y-10">
                         <div className="flex gap-4 items-center px-5 justify-center">
-                          <Image
+                          <img
                             className="inline-block w-16"
                             src={img}
                             alt="Image Description"
