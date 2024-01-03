@@ -1,4 +1,4 @@
-import handler from './index';
+import handler from '../../../../pages/api/authologic/index';
 
 describe('handler', () => {
     it('should make a POST request to the Authologic API', async () => {

@@ -1,4 +1,4 @@
-import handler from "./check";
+import handler from "../../../../pages/api/authologic/check";
 
 describe("handler", () => {
     it("should fetch data and send response", async () => {
