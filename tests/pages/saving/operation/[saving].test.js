@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Page from "./[saving]";
+import Page from "@/pages/saving/operation/[saving]";
 import { SessionProvider } from "next-auth/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 
