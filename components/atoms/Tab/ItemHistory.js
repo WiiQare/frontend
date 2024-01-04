@@ -109,7 +109,7 @@ const ItemHistory = ({
       <div className="collapse-title flex gap-7 justify-between items-center ">
         <div className="flex gap-3 items-center">
           <div className="w-16 h-16">
-            <Image
+            <img
               src={`https://ui-avatars.com/api/?uppercase=true&background=CCC&name=${patient?.firstName ?? ''
                 }&bold=true&color=FFF`}
               width={200}
@@ -313,11 +313,11 @@ const ItemHistory = ({
                             </span>
                             de{' '}
                             <span className="text-orange font-semibold">
-                              {sender.firstName}
+                              {sender?.firstName ?? '' + ' ' + sender?.lastName ?? ''}
                             </span>{' '}
                             à{' '}
-                            <span className="text-orange font-semibold">
-                              {patient?.firstName ?? ''}
+                            <span className="text-orange font-semibold ">
+                              {patient?.firstName ?? '' + ' ' + patient?.lastName ?? ''}
                             </span>
                           </h4>
                         </div>

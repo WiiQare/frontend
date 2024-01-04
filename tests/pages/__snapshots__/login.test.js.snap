@@ -32,7 +32,6 @@ exports[`Login page should render the login page 1`] = `
           >
             <div
               class="slick-slider slick-initialized"
-              dir="ltr"
             >
               <div
                 class="slick-list"
@@ -45,132 +44,6 @@ exports[`Login page should render the login page 1`] = `
                     aria-hidden="false"
                     class="slick-slide slick-active slick-current"
                     data-index="0"
-                    style="outline: none; width: 0px;"
-                    tabindex="-1"
-                  >
-                    <div>
-                      <div
-                        style="width: 100%; display: inline-block;"
-                        tabindex="-1"
-                      >
-                        <div
-                          class="details-holder"
-                        >
-                          <img
-                            alt=""
-                            class="photo"
-                            data-nimg="1"
-                            decoding="async"
-                            height="1024"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimages%2Fhospital-bed-.png&w=3840&q=75"
-                            srcset="/_next/image?url=%2Fimages%2Fhospital-bed-.png&w=1200&q=75 1x, /_next/image?url=%2Fimages%2Fhospital-bed-.png&w=3840&q=75 2x"
-                            style="color: transparent;"
-                            width="1096"
-                          />
-                          <div
-                            class="bold-title"
-                          >
-                            L’accès aux soins de santé est l’un des plus grands défis en 
-                            <span>
-                              Afrique.
-                            </span>
-                          </div>
-                          <h5>
-                            WiiQare vous permet de garder de l'argent de côté au cas où vous seriez malade.
-                          </h5>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    aria-hidden="true"
-                    class="slick-slide"
-                    data-index="1"
-                    style="outline: none; width: 0px;"
-                    tabindex="-1"
-                  >
-                    <div>
-                      <div
-                        style="width: 100%; display: inline-block;"
-                        tabindex="-1"
-                      >
-                        <div
-                          class="details-holder"
-                        >
-                          <img
-                            alt=""
-                            class="photo"
-                            data-nimg="1"
-                            decoding="async"
-                            height="1024"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimages%2FWiiQare-is-secured.png&w=3840&q=75"
-                            srcset="/_next/image?url=%2Fimages%2FWiiQare-is-secured.png&w=1200&q=75 1x, /_next/image?url=%2Fimages%2FWiiQare-is-secured.png&w=3840&q=75 2x"
-                            style="color: transparent;"
-                            width="1096"
-                          />
-                          <div
-                            class="bold-title"
-                          >
-                            Facile à créer un compte 
-                            <span>
-                              sécurisé
-                            </span>
-                          </div>
-                          <h5>
-                            Créer un compte est simple et direct.
-                          </h5>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    aria-hidden="true"
-                    class="slick-slide"
-                    data-index="2"
-                    style="outline: none; width: 0px;"
-                    tabindex="-1"
-                  >
-                    <div>
-                      <div
-                        style="width: 100%; display: inline-block;"
-                        tabindex="-1"
-                      >
-                        <div
-                          class="details-holder"
-                        >
-                          <img
-                            alt=""
-                            class="photo"
-                            data-nimg="1"
-                            decoding="async"
-                            height="1024"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimages%2Fset-your-savings-%20.png&w=3840&q=75"
-                            srcset="/_next/image?url=%2Fimages%2Fset-your-savings-%20.png&w=1200&q=75 1x, /_next/image?url=%2Fimages%2Fset-your-savings-%20.png&w=3840&q=75 2x"
-                            style="color: transparent;"
-                            width="1096"
-                          />
-                          <div
-                            class="bold-title"
-                          >
-                            Définissez votre objectif d’épargne et mettez de l’argent de côté pour votre 
-                            <span>
-                               santé
-                            </span>
-                          </div>
-                          <h5>
-                            Décidez combien vous souhaitez épargner pour la santé et nous vous aiderons à atteindre votre objectif.
-                          </h5>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    aria-hidden="true"
-                    class="slick-slide"
-                    data-index="3"
                     style="outline: none; width: 0px;"
                     tabindex="-1"
                   >
@@ -219,14 +92,6 @@ exports[`Login page should render the login page 1`] = `
                                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                               />
                             </button>
-                            <button
-                              aria-label="Install app"
-                              class="link-button bg-gray-800 py-2.5 text-md font-medium uppercase text-center text-white rounded-lg"
-                              id="setup_button"
-                              title="Install app"
-                            >
-                              Install WiiQare App
-                            </button>
                           </div>
                         </div>
                       </div>
@@ -234,39 +99,6 @@ exports[`Login page should render the login page 1`] = `
                   </div>
                 </div>
               </div>
-              <ul
-                class="slick-dots"
-                style="display: block;"
-              >
-                <li
-                  class="slick-active"
-                >
-                  <button>
-                    1
-                  </button>
-                </li>
-                <li
-                  class=""
-                >
-                  <button>
-                    2
-                  </button>
-                </li>
-                <li
-                  class=""
-                >
-                  <button>
-                    3
-                  </button>
-                </li>
-                <li
-                  class=""
-                >
-                  <button>
-                    4
-                  </button>
-                </li>
-              </ul>
             </div>
           </div>
         </div>

@@ -135,9 +135,9 @@ function Send() {
     <div className="flex flex-col gap-6 justify-center items-center">
       {state.type > 0 ? (
         state.type == 2 ? (
-          <Toast type={'danger'} message={state.message} close={closeToast} />
+          <Toast type={'danger'} message={state.message} close={closeToast} usePortal={true} extraClass={'fixed z-50 top-20 right-2'} />
         ) : state.type == 1 ? (
-          <Toast type={'success'} message={state.message} close={closeToast} />
+          <Toast type={'success'} message={state.message} close={closeToast} usePortal={true} extraClass={'fixed z-50 top-20 right-2'} />
         ) : (
           <></>
         )
@@ -227,13 +227,13 @@ function Send() {
                     currency: data.currency,
                   }).format(data.amount)}
                 </span>{' '}
-                Health Pass WiiQare <br /> From{' '}
+                Pass santé WiiQare <br /> de{' '}
                 <span className="text-orange font-semibold">
-                  {data.sender.firstName}
+                  {data?.sender?.firstName ?? '' + ' ' + data?.sender?.lastName ?? ''}
                 </span>{' '}
-                To{' '}
+                à{' '}
                 <span className="text-orange font-semibold">
-                  {data.patient.firstName}
+                  {data?.patient?.firstName ?? '' + ' ' + data?.patient?.lastName ?? ''}
                 </span>
               </h4>
             </div>
@@ -464,7 +464,7 @@ function Send() {
             </div>
           </div>
 
-          <div class="flex-shrink-0 border-none backdrop-filter backdrop-blur-[6px] w-full h-full bg-white/30 absolute top-0 p-6"></div>
+          <div className="flex-shrink-0 border-none backdrop-filter backdrop-blur-[6px] w-full h-full bg-white/30 absolute top-0 p-6"></div>
 
           <div className="flex flex-shrink-0 absolute top-0 justify-center items-center w-full h-full">
             <div className="flex flex-col gap-8 justify-center items-center">

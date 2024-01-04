@@ -81,7 +81,12 @@ function KYC() {
           const response = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=fr`);
           const data = await response.json();
 
-          if (data.continent != "Afrique") {
+          console.log(data.continent);
+
+          if (/Afrique/i.test(data.continent)) {
+            setKycTest(false)
+
+          } else {
             checkKyc({ accessToken: session.accessToken }).then((data) => {
               if (data) {
                 setKycTest(false)
@@ -89,8 +94,6 @@ function KYC() {
                 conversation()
               }
             }).catch((error) => conversation())
-          } else {
-            setKycTest(false)
           }
         } catch (error) {
           checkKyc({ accessToken: session.accessToken }).then((data) => {
@@ -123,6 +126,21 @@ function KYC() {
 
   }, []);
 
+  const rerunCheck = () => {
+    fetch('/api/authologic', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        path: router.asPath + '?step=1',
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        router.push(data.url);
+      })
+      .catch((e) => console.log(e));
+  }
+
   return (
     <div className="flex flex-col gap-6 justify-center items-center">
       {!router.query.conversation ? (
@@ -142,6 +160,12 @@ function KYC() {
                       <div className='flex flex-col items-center justify-center gap-6 text-center'>
                         <img src='https://i.goopics.net/2askzc.png' alt='Mismatch' className='w-48 opacity-90' />
                         <span className='text-gray-400 text-sm'>{resultKYC?.identity?.errors.toString()}</span>
+                        <button
+                          className="border text-orange border-orange text-sm py-2 px-4 rounded-lg"
+                          onClick={() => rerunCheck()}
+                        >
+                          Rélancer la vérification
+                        </button>
                       </div>
                     ) : ''
                   }

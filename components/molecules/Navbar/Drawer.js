@@ -142,7 +142,7 @@ function Conversation({
               height={64}
             />
             <h3 className="font-semibold text-gray-700 flex flex-col">
-              Odette de WiiQare{' '}
+              WiiQare Support{' '}
               <span className="text-xs text-gray-500 font-light flex gap-1 items-center">
                 <span className="h-2 w-2 rounded-full bg-green-400 flex">
                   &nbsp;
@@ -246,7 +246,7 @@ function Conversation({
                 ) : (
                   <div className="col-span-full h-96 px-10 justify-center flex items-center">
                     <div className="flex flex-col gap-3 items-center">
-                      <Image
+                      <img
                         alt="Default message"
                         src={'https://i.goopics.net/26opd3.png'}
                         width={80}

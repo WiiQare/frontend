@@ -7,7 +7,7 @@ import { CountryContext } from '../Stepper/Forms/identity2';
 import Image from 'next/image';
 
 export default function CountrySelect() {
-  const { setCountry, setCountryLabel } = useContext(CountryContext);
+  const { setCountry, setCountryLabel, country } = useContext(CountryContext);
 
   return (
     <Autocomplete
@@ -15,8 +15,8 @@ export default function CountrySelect() {
       className="w-full"
       contentEditable={false}
       onChange={(e, value) => {
-        setCountryLabel(value.label);
-        setCountry(value.code.toLowerCase());
+        setCountryLabel(value?.label || '');
+        setCountry(value?.code?.toLowerCase() || '');
       }}
       options={countries}
       autoHighlight
@@ -27,7 +27,7 @@ export default function CountrySelect() {
           sx={{ '& > img': { mr: 2, flexShrink: 0 } }}
           {...props}
         >
-          <Image
+          <img
             loading="lazy"
             width={20}
             height={20}

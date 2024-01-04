@@ -11,6 +11,9 @@ import Image from 'next/image';
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
+  {
+    locale: 'fr-FR'
+  }
 );
 
 const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
@@ -95,7 +98,7 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                       <li className="flex justify-between w-full">
                         Pays:{' '}
                         <b className="text-gray-700 flex gap-1 items-center">
-                          <Image
+                          <img
                             src={`https://flagcdn.com/w20/${client.country}.png`}
                             alt="cd"
                             width={20}
@@ -154,8 +157,8 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                     {client.currency.sender == 'USD'
                       ? '$'
                       : client.currency.sender == 'EUR'
-                      ? '€'
-                      : client.currency.sender ?? '€'}{' '}
+                        ? '€'
+                        : client.currency.sender ?? '€'}{' '}
                     1.00 ={' '}
                     <span className="text-orange">
                       {client.currency.rate.toFixed(2) ?? ''}{' '}
@@ -173,8 +176,8 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                     {client.currency.patient == 'USD'
                       ? '$'
                       : client.currency.patient == 'EUR'
-                      ? '€'
-                      : client.currency.patient ?? '€'}
+                        ? '€'
+                        : client.currency.patient ?? '€'}
                   </p>
                 </div>
 
@@ -193,8 +196,8 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                   {client.currency.sender == 'USD'
                     ? '$'
                     : client.currency.sender == 'EUR'
-                    ? '€'
-                    : client.currency.sender ?? '€'}{' '}
+                      ? '€'
+                      : client.currency.sender ?? '€'}{' '}
                   {amount}
                 </p>
               </div>
@@ -213,7 +216,7 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                   <span className="peer-checked:border-orange absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
                   <label
                     className="peer-checked:border-2 peer-checked:border-orange peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4"
-                    for="radio_1"
+                    htmlFor="radio_1"
                   >
                     <Image
                       className="w-14 object-contain"
@@ -242,7 +245,7 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                   <span className="peer-checked:border-orange absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
                   <label
                     className="peer-checked:border-2 peer-checked:border-orange peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4"
-                    for="radio_2"
+                    htmlFor="radio_2"
                   >
                     <Image
                       className="w-14 object-contain"
@@ -282,7 +285,7 @@ const StripePayment = ({ amount, senderId, patientId, email, setAmount }) => {
                 </>
               ) : (
                 <div className="h-full w-full flex flex-col justify-center items-center gap-4">
-                  <Image
+                  <img
                     src="/images/maintenance.png"
                     alt="Maintenace"
                     className="w-40 opacity-60"

@@ -6,7 +6,6 @@ import { useSession } from 'next-auth/react';
 import Fetcher from '../../../lib/Fetcher';
 import { FcAddressBook, FcCellPhone } from 'react-icons/fc';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const businessTypes = {
   MEDICAL_CABINET: { text: 'Cabinet Médical', color: '447698' },
@@ -20,7 +19,7 @@ const columns = [
     selector: (row) => (
       <div className="flex py-4 gap-4 w-fit">
         <div className="min-w-20 w-20 h-fit border p-3 rounded-lg flex justify-center items-center">
-          <Image src={row.logoLink} alt="" />
+          <img src={row.logoLink} alt="" />
         </div>
 
         <div className="flex flex-col gap-1">
@@ -74,7 +73,7 @@ const columns = [
       <div>
         <button
           className="border border-gray-800 hover:bg-gray-800 hover:text-gray-200 font-semibold px-3 py-2 text-gray-800 text-xs rounded-md"
-          onClick={(e) => alert(row.id)}
+          onClick={(e) => console.log(row.id)}
         >
           Packages
         </button>

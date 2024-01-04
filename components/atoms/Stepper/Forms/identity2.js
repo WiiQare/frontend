@@ -166,6 +166,20 @@ function Identity2() {
         homeAddress: item.homeAddress,
       }),
     );
+
+    localStorage.setItem('dispatchBuyVoucher', JSON.stringify(
+      {
+        ...client.patient,
+        id: item.id,
+        country: item.country,
+        firstName: item.firstName,
+        lastName: item.lastName,
+        email: item.email,
+        phoneNumber: item.phoneNumber,
+        city: item.city,
+        homeAddress: item.homeAddress,
+      }
+    ))
     setActiveStepIndex(activeStepIndex + 1);
   };
 
@@ -284,7 +298,7 @@ function Identity2() {
                                   <div className="w-20 h-2O relative">
                                     <img
                                       src={
-                                        index % 2 ? avatar : '/images/homme.png'
+                                        index % 2 ? '/images/femme.png' : '/images/homme.png'
                                       }
                                       className="object-cover rounded-xl"
                                       width={80}
@@ -293,8 +307,8 @@ function Identity2() {
                                     />
                                     <span
                                       className={`${activeIndexSlide === index
-                                          ? ''
-                                          : 'hidden'
+                                        ? ''
+                                        : 'hidden'
                                         } p-1.5 rounded-lg bg-blue-600 text-white absolute right-0 bottom-0`}
                                     >
                                       <CiCircleCheck size={18} />
@@ -379,7 +393,7 @@ function Identity2() {
                       <CountrySelect />
                     </CountryContext.Provider>
                   </div>
-                  <div className="flex items-center gap-1 md:w-2/3">
+                  <div className="flex items-center md:gap-1 md:w-2/3">
                     <div className="flex flex-col w-full gap-1">
                       <MuiPhoneNumber
                         fullWidth
@@ -408,12 +422,12 @@ function Identity2() {
                         <></>
                       )}
                     </div>
-                    <span className="w-fit h-fit p-2 rounded-lg flex items-center gap-2 text-sm text-gray-600">
+                    <span className="w-fit h-fit px-1 md:p-2 rounded-lg flex items-center md:gap-2 text-sm text-gray-600">
                       <span
-                        className="tooltip tooltip-bottom text-xs"
+                        className="tooltip tooltip-left md:tooltip-bottom text-xs"
                         data-tip={`${formik.values.phoneNumber.trim(' ') != ''
-                            ? formik.values.phoneNumber
-                            : 'Ce numéro de téléphone'
+                          ? formik.values.phoneNumber
+                          : 'Ce numéro de téléphone'
                           } devra être le numéro disponible, pour être utilisé à l'hôpital `}
                       >
                         <CiCircleInfo size={23} className="text-red-400" />

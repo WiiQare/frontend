@@ -135,7 +135,7 @@ const SavingCard = ({ title, img, month = 12 }) => {
         className="order-2 md:order-1 bg-white p-5 md:p-10 flex flex-col justify-center items-center rounded-lg shadow-sm hover:shadow-md duration-200 transition-all cursor-pointer gap-4"
       >
         <div className="p-3 rounded-md border border-blue-200 w-fit">
-          <Image
+          <img
             src={img}
             alt="Myself"
             className="w-20"
@@ -222,31 +222,28 @@ const SavingCard = ({ title, img, month = 12 }) => {
                               >
                                 <span
                                   onClick={(e) => setCurrency('CDF')}
-                                  className={`px-4 py-2  ${
-                                    currency == 'CDF'
-                                      ? 'bg-primary text-white'
-                                      : 'bg-transparent text-primary'
-                                  } font-semibold select-none text-sm`}
+                                  className={`px-4 py-2  ${currency == 'CDF'
+                                    ? 'bg-primary text-white'
+                                    : 'bg-transparent text-primary'
+                                    } font-semibold select-none text-sm`}
                                 >
                                   CDF
                                 </span>
                                 <span
                                   onClick={(e) => setCurrency('EUR')}
-                                  className={`px-4 py-2  ${
-                                    currency == 'EUR'
-                                      ? 'bg-primary text-white'
-                                      : 'bg-transparent text-primary'
-                                  } font-semibold select-none text-sm`}
+                                  className={`px-4 py-2  ${currency == 'EUR'
+                                    ? 'bg-primary text-white'
+                                    : 'bg-transparent text-primary'
+                                    } font-semibold select-none text-sm`}
                                 >
                                   EUR
                                 </span>
                                 <span
                                   onClick={(e) => setCurrency('USD')}
-                                  className={`px-4 py-2  font-semibold ${
-                                    currency == 'USD'
-                                      ? 'bg-primary text-white'
-                                      : 'bg-transparent text-primary'
-                                  } select-none text-sm`}
+                                  className={`px-4 py-2  font-semibold ${currency == 'USD'
+                                    ? 'bg-primary text-white'
+                                    : 'bg-transparent text-primary'
+                                    } select-none text-sm`}
                                 >
                                   USD
                                 </span>
@@ -264,11 +261,10 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                   type="number"
                                   id="hs-inline-leading-pricing-select-label"
                                   name="amount"
-                                  className={`py-3 px-4 ${
-                                    currency == 'USD' || currency == 'EUR'
-                                      ? 'pl-9'
-                                      : 'pl-16'
-                                  } pr-5 block w-full border-gray-200 shadow-sm rounded-md text-lg focus:z-10 focus:border-blue-500 focus:ring-blue-500 focus:ring-1 outline-none`}
+                                  className={`py-3 px-4 ${currency == 'USD' || currency == 'EUR'
+                                    ? 'pl-9'
+                                    : 'pl-16'
+                                    } pr-5 block w-full border-gray-200 shadow-sm rounded-md text-lg focus:z-10 focus:border-blue-500 focus:ring-blue-500 focus:ring-1 outline-none`}
                                   placeholder="0.00"
                                   {...formik.getFieldProps('amount')}
                                 />
@@ -277,8 +273,8 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                     {currency == 'USD'
                                       ? '$'
                                       : currency == 'EUR'
-                                      ? '€'
-                                      : 'CDF'}
+                                        ? '€'
+                                        : 'CDF'}
                                   </span>
                                 </div>
                                 <div className="absolute inset-y-0 right-0 flex items-center text-gray-500 pr-px">
@@ -311,66 +307,63 @@ const SavingCard = ({ title, img, month = 12 }) => {
 
                           {isCalculate && pricing.length > 0 ? (
                             <div class={`container mx-auto`}>
-                              <p class="text-sm text-center text-gray-500">
+                              <p className="text-sm text-center text-gray-500">
                                 Choisir un plan
                               </p>
 
-                              <h1 class="mt-1 text-md font-semibold text-center text-gray-800 capitalize lg:text-xl">
+                              <h1 className="mt-1 text-md font-semibold text-center text-gray-800 capitalize lg:text-xl">
                                 Prix calculer
                               </h1>
 
-                              <div class="mt-8 space-y-8">
+                              <div className="mt-8 space-y-8">
                                 <div
                                   onClick={() => {
                                     setPlan(pricing[0]);
                                     setSaving({ ...saving, plan: pricing[0] });
                                   }}
-                                  class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${
-                                    plan.type == 'DAY' ? 'border-blue-500' : ''
-                                  }`}
+                                  class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${plan.type == 'DAY' ? 'border-blue-500' : ''
+                                    }`}
                                 >
-                                  <div class="flex items-center">
+                                  <div className="flex items-center">
                                     <svg
                                       xmlns="http://www.w3.org/2000/svg"
-                                      class={`w-5 h-5 sm:h-9 sm:w-9 ${
-                                        plan.type == 'DAY'
-                                          ? 'text-blue-600'
-                                          : 'text-gray-400'
-                                      }`}
+                                      class={`w-5 h-5 sm:h-9 sm:w-9 ${plan.type == 'DAY'
+                                        ? 'text-blue-600'
+                                        : 'text-gray-400'
+                                        }`}
                                       viewBox="0 0 20 20"
                                       fill="currentColor"
                                     >
                                       <path
-                                        fill-rule="evenodd"
+                                        fillRule="evenodd"
                                         d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                        clip-rule="evenodd"
+                                        clipRule="evenodd"
                                       />
                                     </svg>
 
-                                    <div class="flex flex-col mx-5 space-y-1">
-                                      <h2 class="text-lg font-medium text-gray-700">
+                                    <div className="flex flex-col mx-5 space-y-1">
+                                      <h2 className="text-lg font-medium text-gray-700">
                                         Journalier
                                       </h2>
 
-                                      <div class="px-2 text-xs text-green-400 bg-gray-100 rounded-full sm:py-1 w-fit">
+                                      <div className="px-2 text-xs text-green-400 bg-gray-100 rounded-full sm:py-1 w-fit">
                                         Save 5%
                                       </div>
                                     </div>
                                   </div>
 
                                   <h2
-                                    class={`text-2xl font-semibold sm:text-3xl ${
-                                      plan.type == 'DAY'
-                                        ? 'text-blue-600'
-                                        : 'text-gray-500'
-                                    }`}
+                                    class={`text-2xl font-semibold sm:text-3xl ${plan.type == 'DAY'
+                                      ? 'text-blue-600'
+                                      : 'text-gray-500'
+                                      }`}
                                   >
                                     {new Intl.NumberFormat('en-US', {
                                       style: 'currency',
                                       currency: pricing[0].currency,
                                     }).format(pricing[0].amount)}
                                     &nbsp;
-                                    <span class="text-base font-medium">
+                                    <span className="text-base font-medium">
                                       /jour
                                     </span>
                                   </h2>
@@ -381,52 +374,49 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                     setPlan(pricing[1]);
                                     setSaving({ ...saving, plan: pricing[1] });
                                   }}
-                                  class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${
-                                    plan.type == 'WEEK' ? 'border-blue-500' : ''
-                                  }`}
+                                  class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${plan.type == 'WEEK' ? 'border-blue-500' : ''
+                                    }`}
                                 >
-                                  <div class="flex items-center">
+                                  <div className="flex items-center">
                                     <svg
                                       xmlns="http://www.w3.org/2000/svg"
-                                      class={`w-5 h-5 sm:h-9 sm:w-9 ${
-                                        plan.type == 'WEEK'
-                                          ? 'text-blue-600'
-                                          : 'text-gray-400'
-                                      }`}
+                                      class={`w-5 h-5 sm:h-9 sm:w-9 ${plan.type == 'WEEK'
+                                        ? 'text-blue-600'
+                                        : 'text-gray-400'
+                                        }`}
                                       viewBox="0 0 20 20"
                                       fill="currentColor"
                                     >
                                       <path
-                                        fill-rule="evenodd"
+                                        fillRule="evenodd"
                                         d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                        clip-rule="evenodd"
+                                        clipRule="evenodd"
                                       />
                                     </svg>
 
-                                    <div class="flex flex-col mx-5 space-y-1">
-                                      <h2 class="text-lg font-medium text-gray-700">
+                                    <div className="flex flex-col mx-5 space-y-1">
+                                      <h2 className="text-lg font-medium text-gray-700">
                                         Hebdomadaire
                                       </h2>
 
-                                      <div class="px-2 text-xs text-green-400 bg-gray-100 rounded-full sm:py-1 w-fit">
+                                      <div className="px-2 text-xs text-green-400 bg-gray-100 rounded-full sm:py-1 w-fit">
                                         Save 20%
                                       </div>
                                     </div>
                                   </div>
 
                                   <h2
-                                    class={`text-2xl font-semibold sm:text-3xl ${
-                                      plan.type == 'WEEK'
-                                        ? 'text-blue-600'
-                                        : 'text-gray-500'
-                                    }`}
+                                    class={`text-2xl font-semibold sm:text-3xl ${plan.type == 'WEEK'
+                                      ? 'text-blue-600'
+                                      : 'text-gray-500'
+                                      }`}
                                   >
                                     {new Intl.NumberFormat('en-US', {
                                       style: 'currency',
                                       currency: pricing[1].currency,
                                     }).format(pricing[1].amount)}
                                     &nbsp;
-                                    <span class="text-base font-medium">
+                                    <span className="text-base font-medium">
                                       /Sem.
                                     </span>
                                   </h2>
@@ -437,60 +427,57 @@ const SavingCard = ({ title, img, month = 12 }) => {
                                     setPlan(pricing[2]);
                                     setSaving({ ...saving, plan: pricing[2] });
                                   }}
-                                  class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${
-                                    plan.type == 'MONTH'
-                                      ? 'border-blue-500'
-                                      : ''
-                                  }`}
+                                  class={`flex items-center justify-between max-w-2xl px-4 py-4 mx-auto border cursor-pointer rounded-xl ${plan.type == 'MONTH'
+                                    ? 'border-blue-500'
+                                    : ''
+                                    }`}
                                 >
-                                  <div class="flex items-center">
+                                  <div className="flex items-center">
                                     <svg
                                       xmlns="http://www.w3.org/2000/svg"
-                                      class={`w-5 h-5 sm:h-9 sm:w-9 ${
-                                        plan.type == 'MONTH'
-                                          ? 'text-blue-600'
-                                          : 'text-gray-400'
-                                      }`}
+                                      class={`w-5 h-5 sm:h-9 sm:w-9 ${plan.type == 'MONTH'
+                                        ? 'text-blue-600'
+                                        : 'text-gray-400'
+                                        }`}
                                       viewBox="0 0 20 20"
                                       fill="currentColor"
                                     >
                                       <path
-                                        fill-rule="evenodd"
+                                        fillRule="evenodd"
                                         d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                        clip-rule="evenodd"
+                                        clipRule="evenodd"
                                       />
                                     </svg>
 
-                                    <div class="flex flex-col mx-5 space-y-1">
-                                      <h2 class="text-lg font-medium text-gray-700">
+                                    <div className="flex flex-col mx-5 space-y-1">
+                                      <h2 className="text-lg font-medium text-gray-700">
                                         Mensuel
                                       </h2>
 
-                                      <div class="px-2 text-xs text-green-400 bg-gray-100 rounded-full sm:py-1 w-fit">
+                                      <div className="px-2 text-xs text-green-400 bg-gray-100 rounded-full sm:py-1 w-fit">
                                         Save 33%
                                       </div>
                                     </div>
                                   </div>
 
                                   <h2
-                                    class={`text-2xl font-semibold sm:text-3xl ${
-                                      plan.type == 'MONTH'
-                                        ? 'text-blue-600'
-                                        : 'text-gray-500'
-                                    }`}
+                                    class={`text-2xl font-semibold sm:text-3xl ${plan.type == 'MONTH'
+                                      ? 'text-blue-600'
+                                      : 'text-gray-500'
+                                      }`}
                                   >
                                     {new Intl.NumberFormat('en-US', {
                                       style: 'currency',
                                       currency: pricing[2].currency,
                                     }).format(pricing[2].amount)}
                                     &nbsp;
-                                    <span class="text-base font-medium">
+                                    <span className="text-base font-medium">
                                       /Mois
                                     </span>
                                   </h2>
                                 </div>
 
-                                <div class="flex justify-center">
+                                <div className="flex justify-center">
                                   <button
                                     type="button"
                                     className="px-8 py-3 tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-xl hover:bg-blue-500 focus:outline-none focus:bg-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-80"

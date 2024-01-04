@@ -26,111 +26,87 @@ exports[`Index page should render the index page 1`] = `
           style="transform: translateX(0px);"
         >
           <li
-            aria-label="2 of 3"
+            aria-label="3 of 4"
             aria-roledescription="slide"
             class="splide__slide w-full splide__slide--clone is-visible"
             id="splide01-clone01"
             role="tabpanel"
           >
             <div
-              class="bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10"
+              class="bg-yellow-300 h-full flex md:justify-center md:pl-12 gap-10"
             >
               <div
-                class="flex flex-col md:gap-7 gap-2"
+                class="flex flex-col justify-center md:gap-7 gap-2"
               >
                 <div
                   class="space-y-3"
                 >
                   <h1
-                    class="text-2xl md:text-5xl font-bold"
+                    class="text-2xl md:text-4xl font-semibold"
                   >
-                    Life is Good
+                    Connecter vos proches aux meilleurs professionnels de santé
                   </h1>
-                  <p
-                    class="text-xs md:text-sm text-gray-700 w-full flex"
-                  >
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem
-                  </p>
                 </div>
                 <a
                   class="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md"
-                  href="#"
+                  href="https://wiiqare.com/second-opinion"
                 >
-                  Commencer
+                  Consulter
                 </a>
               </div>
               <div
-                class="hidden md:full md:flex justify-end "
+                class="hidden md:w-full md:flex justify-end relative -bottom-4 "
               >
                 <img
-                  alt="Startup"
+                  alt="Phone"
                   class="object-cover"
-                  data-nimg="1"
-                  decoding="async"
-                  height="24"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
-                  style="color: transparent;"
-                  width="24"
+                  src="https://i.goopics.net/dlqbsx.png"
                 />
               </div>
             </div>
           </li>
           <li
-            aria-label="3 of 3"
+            aria-label="4 of 4"
             aria-roledescription="slide"
             class="splide__slide w-full splide__slide--clone is-visible is-prev"
             id="splide01-clone02"
             role="tabpanel"
           >
             <div
-              class="bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10"
+              class="bg-yellow-300 h-full flex md:justify-center md:pl-12 gap-10"
             >
               <div
-                class="flex flex-col md:gap-7 gap-2"
+                class="flex flex-col justify-center md:gap-7 gap-2"
               >
                 <div
                   class="space-y-3"
                 >
                   <h1
-                    class="text-2xl md:text-5xl font-bold"
+                    class="text-2xl md:text-4xl font-semibold"
                   >
-                    Your health wallet
+                    Demander un second opinion aux professionnels de santé
                   </h1>
-                  <p
-                    class="text-xs md:text-sm text-gray-700 w-full flex"
-                  >
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem
-                  </p>
                 </div>
                 <a
                   class="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md"
-                  href="#"
+                  href="https://wiiqare.com/second-opinion"
                 >
-                  Get Started
+                  Consulter
                 </a>
               </div>
               <div
-                class="hidden md:w-3/4 md:flex justify-end relative -bottom-4 "
+                class="hidden md:w-full md:flex justify-end relative -bottom-4 "
               >
                 <img
                   alt="Phone"
                   class="object-cover"
-                  data-nimg="1"
-                  decoding="async"
-                  height="24"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
-                  style="color: transparent;"
-                  width="24"
+                  src="https://i.goopics.net/jej08g.png"
                 />
               </div>
             </div>
           </li>
           <li
-            aria-label="1 of 3"
+            aria-label="1 of 4"
             aria-roledescription="slide"
             class="splide__slide w-full is-active is-visible"
             id="splide01-slide01"
@@ -146,147 +122,151 @@ exports[`Index page should render the index page 1`] = `
                   class="space-y-3"
                 >
                   <h1
-                    class="text-2xl md:text-5xl font-bold"
+                    class="text-2xl md:text-4xl font-semibold"
                   >
-                    5$ pour votre 1èr Pass santé envoyés
+                    Envoyez de l’argent pour la santé de vos proches sans payer de frais
                   </h1>
-                  <p
-                    class="text-xs md:text-sm text-gray-700 w-full flex"
-                  >
-                    Gagnez une somme de 5$ pour votre première achat de passe santé WiiQare.
-                  </p>
                 </div>
                 <a
                   class="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md"
-                  href="#"
+                  href="https://wiiqare.com/how-it-works"
                 >
-                  comment ça marche
+                  Comment ça marche
                 </a>
               </div>
               <div
-                class="hidden justify-end md:w-3/4 md:flex"
+                class="hidden justify-end md:w-full md:flex"
               >
                 <img
                   alt="Wallet"
                   class="object-cover"
-                  data-nimg="1"
-                  decoding="async"
-                  height="24"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
-                  style="color: transparent;"
-                  width="24"
+                  src="https://i.goopics.net/otvw2n.png"
                 />
               </div>
             </div>
           </li>
           <li
-            aria-label="2 of 3"
+            aria-label="2 of 4"
             aria-roledescription="slide"
             class="splide__slide w-full is-visible is-next"
             id="splide01-slide02"
             role="tabpanel"
           >
             <div
-              class="bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10"
+              class="bg-yellow-300 h-full flex md:justify-center md:pl-12"
             >
               <div
-                class="flex flex-col md:gap-7 gap-2"
+                class="flex flex-col justify-center md:gap-7 gap-2"
               >
                 <div
                   class="space-y-3"
                 >
                   <h1
-                    class="text-2xl md:text-5xl font-bold"
+                    class="text-2xl md:text-4xl font-semibold"
                   >
-                    Life is Good
+                    Envoyez de l’argent pour la santé de vos proches sans payer de frais
                   </h1>
-                  <p
-                    class="text-xs md:text-sm text-gray-700 w-full flex"
-                  >
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem
-                  </p>
                 </div>
                 <a
                   class="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md"
-                  href="#"
+                  href="https://wiiqare.com/how-it-works"
                 >
-                  Commencer
+                  Comment ça marche
                 </a>
               </div>
               <div
-                class="hidden md:full md:flex justify-end "
+                class="hidden md:w-full md:flex justify-end "
               >
                 <img
                   alt="Startup"
                   class="object-cover"
-                  data-nimg="1"
-                  decoding="async"
-                  height="24"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
-                  style="color: transparent;"
-                  width="24"
+                  src="https://i.goopics.net/4kdqe7.png"
                 />
               </div>
             </div>
           </li>
           <li
-            aria-label="3 of 3"
+            aria-label="3 of 4"
             aria-roledescription="slide"
             class="splide__slide w-full is-visible"
             id="splide01-slide03"
             role="tabpanel"
           >
             <div
-              class="bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10"
+              class="bg-yellow-300 h-full flex md:justify-center md:pl-12 gap-10"
             >
               <div
-                class="flex flex-col md:gap-7 gap-2"
+                class="flex flex-col justify-center md:gap-7 gap-2"
               >
                 <div
                   class="space-y-3"
                 >
                   <h1
-                    class="text-2xl md:text-5xl font-bold"
+                    class="text-2xl md:text-4xl font-semibold"
                   >
-                    Your health wallet
+                    Connecter vos proches aux meilleurs professionnels de santé
                   </h1>
-                  <p
-                    class="text-xs md:text-sm text-gray-700 w-full flex"
-                  >
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem
-                  </p>
                 </div>
                 <a
                   class="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md"
-                  href="#"
+                  href="https://wiiqare.com/second-opinion"
                 >
-                  Get Started
+                  Consulter
                 </a>
               </div>
               <div
-                class="hidden md:w-3/4 md:flex justify-end relative -bottom-4 "
+                class="hidden md:w-full md:flex justify-end relative -bottom-4 "
               >
                 <img
                   alt="Phone"
                   class="object-cover"
-                  data-nimg="1"
-                  decoding="async"
-                  height="24"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
-                  style="color: transparent;"
-                  width="24"
+                  src="https://i.goopics.net/dlqbsx.png"
                 />
               </div>
             </div>
           </li>
           <li
-            aria-label="1 of 3"
+            aria-label="4 of 4"
+            aria-roledescription="slide"
+            class="splide__slide w-full is-visible"
+            id="splide01-slide04"
+            role="tabpanel"
+          >
+            <div
+              class="bg-yellow-300 h-full flex md:justify-center md:pl-12 gap-10"
+            >
+              <div
+                class="flex flex-col justify-center md:gap-7 gap-2"
+              >
+                <div
+                  class="space-y-3"
+                >
+                  <h1
+                    class="text-2xl md:text-4xl font-semibold"
+                  >
+                    Demander un second opinion aux professionnels de santé
+                  </h1>
+                </div>
+                <a
+                  class="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md"
+                  href="https://wiiqare.com/second-opinion"
+                >
+                  Consulter
+                </a>
+              </div>
+              <div
+                class="hidden md:w-full md:flex justify-end relative -bottom-4 "
+              >
+                <img
+                  alt="Phone"
+                  class="object-cover"
+                  src="https://i.goopics.net/jej08g.png"
+                />
+              </div>
+            </div>
+          </li>
+          <li
+            aria-label="1 of 4"
             aria-roledescription="slide"
             class="splide__slide w-full splide__slide--clone is-active is-visible"
             id="splide01-clone03"
@@ -302,89 +282,65 @@ exports[`Index page should render the index page 1`] = `
                   class="space-y-3"
                 >
                   <h1
-                    class="text-2xl md:text-5xl font-bold"
+                    class="text-2xl md:text-4xl font-semibold"
                   >
-                    5$ pour votre 1èr Pass santé envoyés
+                    Envoyez de l’argent pour la santé de vos proches sans payer de frais
                   </h1>
-                  <p
-                    class="text-xs md:text-sm text-gray-700 w-full flex"
-                  >
-                    Gagnez une somme de 5$ pour votre première achat de passe santé WiiQare.
-                  </p>
                 </div>
                 <a
                   class="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md"
-                  href="#"
+                  href="https://wiiqare.com/how-it-works"
                 >
-                  comment ça marche
+                  Comment ça marche
                 </a>
               </div>
               <div
-                class="hidden justify-end md:w-3/4 md:flex"
+                class="hidden justify-end md:w-full md:flex"
               >
                 <img
                   alt="Wallet"
                   class="object-cover"
-                  data-nimg="1"
-                  decoding="async"
-                  height="24"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
-                  style="color: transparent;"
-                  width="24"
+                  src="https://i.goopics.net/otvw2n.png"
                 />
               </div>
             </div>
           </li>
           <li
-            aria-label="2 of 3"
+            aria-label="2 of 4"
             aria-roledescription="slide"
             class="splide__slide w-full splide__slide--clone is-visible"
             id="splide01-clone04"
             role="tabpanel"
           >
             <div
-              class="bg-yellow-300 h-full flex md:justify-center items-center md:pl-12 gap-10"
+              class="bg-yellow-300 h-full flex md:justify-center md:pl-12"
             >
               <div
-                class="flex flex-col md:gap-7 gap-2"
+                class="flex flex-col justify-center md:gap-7 gap-2"
               >
                 <div
                   class="space-y-3"
                 >
                   <h1
-                    class="text-2xl md:text-5xl font-bold"
+                    class="text-2xl md:text-4xl font-semibold"
                   >
-                    Life is Good
+                    Envoyez de l’argent pour la santé de vos proches sans payer de frais
                   </h1>
-                  <p
-                    class="text-xs md:text-sm text-gray-700 w-full flex"
-                  >
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem Adipisci, beatae nam eveniet hic nesciunt explicabo dolore quidem
-                  </p>
                 </div>
                 <a
                   class="bg-gray-800 w-fit p-3 text-yellow-300 rounded-lg text-xs md:text-md"
-                  href="#"
+                  href="https://wiiqare.com/how-it-works"
                 >
-                  Commencer
+                  Comment ça marche
                 </a>
               </div>
               <div
-                class="hidden md:full md:flex justify-end "
+                class="hidden md:w-full md:flex justify-end "
               >
                 <img
                   alt="Startup"
                   class="object-cover"
-                  data-nimg="1"
-                  decoding="async"
-                  height="24"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
-                  style="color: transparent;"
-                  width="24"
+                  src="https://i.goopics.net/4kdqe7.png"
                 />
               </div>
             </div>
@@ -476,6 +432,18 @@ exports[`Index page should render the index page 1`] = `
           <button
             aria-controls="splide01-slide03"
             aria-label="Go to slide 3"
+            class="splide__pagination__page"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          />
+        </li>
+        <li
+          role="presentation"
+        >
+          <button
+            aria-controls="splide01-slide04"
+            aria-label="Go to slide 4"
             class="splide__pagination__page"
             role="tab"
             tabindex="-1"
@@ -607,26 +575,6 @@ exports[`Index page should render the index page 1`] = `
               </strong>
                est un moyen rapide et sans frais de faciliter l’accès aux soins de qualité pour vos proches en Afrique.
             </p>
-            <a
-              class="flex items-center font-medium text-blue-600 dark:text-blue-500 dark:hover:text-blue-600 hover:text-blue-700"
-              href="www.wiiqare.com"
-            >
-              Read more
-               
-              <svg
-                aria-hidden="true"
-                class="w-4 h-4 ml-1"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </a>
           </div>
           <div
             data-popper-arrow="true"
@@ -742,26 +690,6 @@ exports[`Index page should render the index page 1`] = `
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit cumque hic sunt nemo fugiat porro, exercitationem commodi velit dolor eos nam sint sapiente iure maxime vitae nisi error autem tempora.
             </p>
-            <a
-              class="flex items-center font-medium text-blue-600 dark:text-blue-500 dark:hover:text-blue-600 hover:text-blue-700"
-              href="#"
-            >
-              Read more
-               
-              <svg
-                aria-hidden="true"
-                class="w-4 h-4 ml-1"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </a>
           </div>
           <div
             data-popper-arrow="true"
@@ -769,11 +697,6 @@ exports[`Index page should render the index page 1`] = `
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="px-4 space-y-4 pb-24 md:pb-4 flex justify-center items-center"
-  >
-    Loading...
   </div>
 </div>
 `;
