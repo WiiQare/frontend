@@ -297,6 +297,33 @@ function Amount({
       currencyPatient,
     );
 
+    setConvertResult(res);
+    setConvertRequest(false);
+
+  };
+
+  const convertAutomaticallyOnFirstSelect = async (e) => {
+    // e.currentTarget.value && setAmountTemp(Number(e.currentTarget.value));
+
+    setConvertRequest(true);
+    const res = await convertCurrency(
+      e.currentTarget.value,
+      Number(amountTemp),
+      currencyPatient,
+    );
+
+    setConvertRequest(false);
+    setConvertResult(res);
+  };
+
+  const convertAutomaticallyOnSecondSelect = async (e) => {
+    setConvertRequest(true);
+    const res = await convertCurrency(
+      currencySender,
+      Number(amountTemp),
+      e.currentTarget.value,
+    );
+
     setConvertRequest(false);
     setConvertResult(res);
   };
@@ -448,7 +475,7 @@ function Amount({
                         className="block w-full border-transparent rounded-md focus:ring-orange focus:border-blue-600 "
                         onChange={(e) => {
                           setCurrencySender(e.target.value);
-                          convertAutomatically(null);
+                          convertAutomaticallyOnFirstSelect(e);
                         }}
                       >
                         <option>USD</option>
@@ -515,7 +542,7 @@ function Amount({
                               e.target.selectedIndex
                             ].getAttribute('currency'),
                           );
-                          convertAutomatically(null);
+                          convertAutomaticallyOnSecondSelect(e);
                         }}
                       >
                         {symbols.map((symbol, index) => (
