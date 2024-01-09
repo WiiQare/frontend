@@ -3,6 +3,8 @@ import Index from '@/pages/index';
 import { render } from '@testing-library/react';
 import { DrawContext } from '@/pages/_app';
 import { SessionProvider } from 'next-auth/react';
+import DashboardLayout from '../../layouts/Dashboard';
+
 require('jest-fetch-mock').enableMocks();
 
 fetch.mockResponse('[]');
@@ -24,5 +26,13 @@ describe('Index page', () => {
       </SessionProvider>,
     );
     expect(container).toMatchSnapshot();
+  });
+
+  it('should have DashboardLayout', () => {
+    expect(Index.getLayout(<div />)).toEqual(
+      <DashboardLayout className="space-y-8">
+        <div />
+      </DashboardLayout>
+    );
   });
 });
