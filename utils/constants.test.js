@@ -16,6 +16,8 @@ describe('constants', () => {
                     }),
                 ])
             );
+
+            expect(LOGIN_SLIDES[0].button.onClick()).toBeNull();
         });
     });
 
@@ -34,6 +36,8 @@ describe('constants', () => {
                     }),
                 ])
             );
+
+            expect(REGISTER_SLIDES[0].button.onClick()).toBeNull();
         });
     });
 
