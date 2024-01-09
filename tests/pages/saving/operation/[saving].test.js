@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import Page from "@/pages/saving/operation/[saving]";
 import { SessionProvider } from "next-auth/react";
 import { QueryClient, QueryClientProvider } from "react-query";
+import DashboardLayout from "../../../../layouts/Dashboard";
 
 jest.mock('next/router', () => ({
     useRouter: jest.fn().mockReturnValue({
@@ -27,5 +28,13 @@ describe("Page", () => {
             </QueryClientProvider>);
         const pageTitle = screen.getAllByText("Récharger mon épargne");
         expect(pageTitle).toHaveLength(2);
+    });
+
+    it('should use DashboardLayout as layout', () => {
+        expect(Page.getLayout(<div />)).toEqual(
+            <DashboardLayout className="space-y-8">
+                <div />
+            </DashboardLayout>,
+        );
     });
 });

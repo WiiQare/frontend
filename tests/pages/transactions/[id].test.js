@@ -1,10 +1,15 @@
 import Page from '@/pages/transactions/[id]';
-import { render } from '@testing-library/react';
+import DashboardLayout from '../../../layouts/Dashboard';
+
 
 describe('Transactions id page', () => {
   it.todo('should render the page');
-  // it('should render the page', () => {
-  // const { container } = render(<Page />);
-  // expect(container).toMatchSnapshot();
-  // });
+
+  it('should have DashboardLayout', () => {
+    expect(Page.getLayout(<div />)).toEqual(
+      <DashboardLayout className="space-y-8">
+        <div />
+      </DashboardLayout>
+    );
+  });
 });
