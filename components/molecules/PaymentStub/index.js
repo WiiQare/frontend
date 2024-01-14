@@ -55,6 +55,11 @@ const PaymentStub = ({ amount, senderId, patientId, email, setAmount }) => {
     }, 2000 );
   }, [] )
 
+  //mock redirect to the status page
+  const payStubAction = () => {
+    window.location.href = process.env.NEXT_PUBLIC_BASE_URL + '/voucher/buy?step=end&senderId=ae88012a-62a5-4672-9b50-d8a29bf2c2dd&payment_intent=pi_3OYNjdEDZMyB8LLI1zM1Ymse&payment_intent_client_secret=pi_3OYNjdEDZMyB8LLI1zM1Ymse_secret_UaXGYINvJUmvsztf2zS1kf56h&redirect_status=succeeded';
+  }
+
   return (
     <>
       {clientSecret ? (
@@ -268,7 +273,8 @@ const PaymentStub = ({ amount, senderId, patientId, email, setAmount }) => {
                   </p>
 
                   <div>
-                    Checkout FORM
+                    Generic Checkout FORM<br/><br/>
+                    <input type="submit" value="Pay" onClick={()=>payStubAction()} className="p-4 cursor-pointer bg-blue-300" />
                   </div>
                 </>
               ) : (

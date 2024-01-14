@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { countries } from 'country-data';
 import { setPatientDispatch } from '../../../../redux/reducer';
 import Image from 'next/image';
-import KYC from './kyc';
+import KYCModule from './../../KYCModule/KYCModule';
 import PaymentForm from '../../../molecules/PaymentForm/PaymentForm';
 
 function Payment2() {
@@ -241,7 +241,7 @@ function Payment2() {
           email={data.user.data.email}
           setAmount={setAmount} />
       ) : (
-        <KYC />
+        <KYCModule />
       )}
     </>
   );
