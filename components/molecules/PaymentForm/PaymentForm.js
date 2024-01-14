@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import StripePayment from './../Stripe';
 // import PaymentStub from './../PaymentStub'
 
-export const useStripeLib = true;
+export const useStripeLib = false;
 
 const PaymentForm = ({ amount, senderId, patientId, email, setAmount }) => {
 
