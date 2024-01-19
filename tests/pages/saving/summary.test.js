@@ -4,6 +4,7 @@ import { TransactionContext } from '@/components/organisms/Transaction';
 import { SessionProvider } from 'next-auth/react';
 import { DrawContext } from '../../../pages/_app';
 import { QueryClientProvider, QueryClient } from 'react-query';
+import DashboardLayout from '../../../layouts/Dashboard';
 
 require('jest-fetch-mock').enableMocks();
 
@@ -24,13 +25,13 @@ describe('Saving Summary', () => {
       <DrawContext.Provider
         value={{
           draw: {},
-          setDraw: () => {},
+          setDraw: () => { },
           saving: { plan: { currency: 'GBP' }, target: { currency: 'USD' } },
         }}
       >
         <SessionProvider session={{ user: { data: { access_token: {} } } }}>
           <TransactionContext.Provider
-            value={{ transaction: {}, setTransaction: () => {} }}
+            value={{ transaction: {}, setTransaction: () => { } }}
           >
             <QueryClientProvider client={queryClient}>
               <SavingSummary />
@@ -40,5 +41,13 @@ describe('Saving Summary', () => {
       </DrawContext.Provider>,
     );
     expect(container).toMatchSnapshot();
+  });
+
+  it('should use DashboardLayout as layout', () => {
+    expect(SavingSummary.getLayout(<div />)).toEqual(
+      <DashboardLayout className="space-y-8">
+        <div />
+      </DashboardLayout>,
+    );
   });
 });

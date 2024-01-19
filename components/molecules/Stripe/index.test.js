@@ -1,6 +1,8 @@
 import '@testing-library/jest-dom';
 import { render, screen, act } from '@testing-library/react';
 import StripePayment from '.';
+require('jest-fetch-mock').enableMocks();
+
 
 import { Provider } from 'react-redux';
 import { store } from '../../../redux/store';

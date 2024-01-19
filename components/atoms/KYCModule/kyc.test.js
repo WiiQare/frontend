@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import KYC from './kyc';
-import { authlogic } from './kyc-utils';
+import { authlogic, checkKyc, setKyc } from './kyc-utils';
 import { FormContext } from '../../../pages/voucher/buy';
 import { SessionProvider } from 'next-auth/react';
 require('jest-fetch-mock').enableMocks();
@@ -16,6 +16,7 @@ jest.mock('next/router', () => ({
 
 describe('KYC', () => {
   let component;
+
   beforeEach(() => {
     const res = render(
       <SessionProvider session={{ user: { data: { userId: 'random123' } } }}>
@@ -33,6 +34,16 @@ describe('KYC', () => {
 });
 
 describe('Helper functions', () => {
+  beforeEach(() => {
+    console.log = jest.fn();
+    fetch = jest.fn().mockResolvedValueOnce({
+      status: 200,
+      json: jest.fn().mockResolvedValueOnce({
+        hello: 'world',
+      }),
+    });
+  });
+
   it('authlogic', async () => {
     fetch = jest.fn().mockResolvedValueOnce({
       status: 200,
@@ -53,20 +64,24 @@ describe('Helper functions errors', () => {
     });
   });
 
-  beforeEach(() => {
-    console.log = jest.fn();
-    fetch = jest.fn().mockResolvedValueOnce({
-      status: 200,
-      json: jest.fn().mockResolvedValueOnce({
-        hello: 'world',
-      }),
-    });
-  });
+  
 
   it('authlogic', async () => {
     fetch = jest.fn().mockRejectedValueOnce(new Error('test'));
 
     const response = await authlogic({ test: 'payload' });
+
+    expect(response).toEqual(new Error('test'));
+  });
+
+  it('setKyc', async () => {
+    const response = await setKyc({ test: 'payload', accessToken: 'test' });
+
+    expect(response).toEqual(new Error('test'));
+  });
+
+  it('checkKyc', async () => {
+    const response = await checkKyc({ test: 'payload', accessToken: 'test' });
 
     expect(response).toEqual(new Error('test'));
   });
