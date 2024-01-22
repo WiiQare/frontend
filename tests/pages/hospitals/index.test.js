@@ -3,6 +3,7 @@ import { render } from '@testing-library/react';
 import { DrawContext } from '@/pages/_app';
 import { SessionProvider } from 'next-auth/react';
 require('jest-fetch-mock').enableMocks();
+import DashboardLayout from '../../../layouts/Dashboard';
 
 fetch.mockResponse('[]');
 
@@ -23,5 +24,13 @@ describe('Hospitals', () => {
       </SessionProvider>,
     );
     expect(container).toMatchSnapshot();
+  });
+
+  it('should use DashboardLayout as layout', () => {
+    expect(Page.getLayout(<div />)).toEqual(
+      <DashboardLayout className="space-y-8">
+        <div />
+      </DashboardLayout>,
+    );
   });
 });

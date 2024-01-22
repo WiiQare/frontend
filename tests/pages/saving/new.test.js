@@ -4,6 +4,7 @@ import { TransactionContext } from '@/components/organisms/Transaction';
 import { SessionProvider } from 'next-auth/react';
 import { DrawContext } from '../../../pages/_app';
 import { QueryClientProvider, QueryClient } from 'react-query';
+import DashboardLayout from '../../../layouts/Dashboard';
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn().mockReturnValue({
@@ -16,10 +17,10 @@ describe('Saving', () => {
     const queryClient = new QueryClient();
     const { container } = render(
       <QueryClientProvider client={queryClient}>
-        <DrawContext.Provider value={{ draw: {}, setDraw: () => {} }}>
+        <DrawContext.Provider value={{ draw: {}, setDraw: () => { } }}>
           <SessionProvider session={{ user: { data: { access_token: {} } } }}>
             <TransactionContext.Provider
-              value={{ transaction: {}, setTransaction: () => {} }}
+              value={{ transaction: {}, setTransaction: () => { } }}
             >
               <NewSaving />
             </TransactionContext.Provider>
@@ -28,5 +29,13 @@ describe('Saving', () => {
       </QueryClientProvider>,
     );
     expect(container).toMatchSnapshot();
+  });
+
+  it('should use DashboardLayout as layout', () => {
+    expect(NewSaving.getLayout(<div />)).toEqual(
+      <DashboardLayout className="space-y-8">
+        <div />
+      </DashboardLayout>,
+    );
   });
 });

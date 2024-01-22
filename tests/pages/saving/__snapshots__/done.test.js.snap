@@ -1,6 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Saving should render 1`] = `
+exports[`Saving should render when redirect fails 1`] = `
+<div>
+  Paiement échoué...
+</div>
+`;
+
+exports[`Saving should render when redirect succeeds 1`] = `
 <div>
   <div
     class="flex flex-col gap-3 items-center mt-14"
