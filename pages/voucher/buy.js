@@ -5,7 +5,7 @@ import DashboardLayout from '../../layouts/Dashboard';
 import CardHeader from '../../components/atoms/Card/Header';
 import Stepper from '../../components/atoms/Stepper';
 import Step from '../../components/atoms/Stepper/step';
-import { authlogic } from '../../lib/helper';
+import { authlogic } from '../../components/atoms/KYCModule/kyc-utils';
 export const FormContext = createContext();
 
 const Page = () => {
@@ -14,7 +14,7 @@ const Page = () => {
     step == 'end' && redirect_status == 'succeeded' ? 2 : step == '1' ? 1 : 0,
   );
   const [formData, setFormData] = useState({});
-  const [kycTest, setKycTest] = useState(true);
+  const [kycTest, setKycTest] = useState( true );
 
   return (
     <>

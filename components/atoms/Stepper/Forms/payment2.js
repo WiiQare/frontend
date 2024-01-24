@@ -3,7 +3,7 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { FormContext } from '../../../../pages/voucher/buy';
 import { HiArrowSmLeft, HiOutlineInformationCircle } from 'react-icons/hi';
 import * as yup from 'yup';
-import StripePayment from '../../../molecules/Stripe';
+
 import { useSession } from 'next-auth/react';
 import { FcCurrencyExchange } from 'react-icons/fc';
 import { CgArrowsExchangeAltV } from 'react-icons/cg';
@@ -13,7 +13,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { countries } from 'country-data';
 import { setPatientDispatch } from '../../../../redux/reducer';
 import Image from 'next/image';
-import KYC from './kyc';
+import KYCModule from './../../KYCModule/KYCModule';
+import PaymentForm from '../../../molecules/PaymentForm/PaymentForm';
 
 function Payment2() {
   const {
@@ -234,15 +235,13 @@ function Payment2() {
           activeStepIndex={activeStepIndex}
         />
       ) : !kycTest ? (
-        <StripePayment
-          amount={amount}
+        <PaymentForm amount={amount}
           senderId={data.user.data.userId}
           patientId={patient.id}
           email={data.user.data.email}
-          setAmount={setAmount}
-        />
+          setAmount={setAmount} />
       ) : (
-        <KYC />
+        <KYCModule />
       )}
     </>
   );

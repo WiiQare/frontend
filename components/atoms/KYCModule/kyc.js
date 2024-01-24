@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { FormContext } from '../../../../pages/voucher/buy';
+import { FormContext } from '../../../pages/voucher/buy';
 import { useRouter } from 'next/router';
-import { checkKyc, setKyc } from '../../../../lib/helper';
+import { checkKyc, setKyc } from './kyc-utils';
 import { useSession } from 'next-auth/react';
 
 function KYC() {

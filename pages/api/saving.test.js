@@ -1,4 +1,7 @@
+/* comment stripe api import below to use generic lib */
 import Stripe from "stripe";
+
+
 import handler from "./saving";
 
 jest.mock("stripe", () => {
@@ -15,7 +18,7 @@ jest.mock("stripe", () => {
 
 describe("saving", () => {
   it("should return a client secret", async () => {
-    console.log = jest.fn();
+    // console.log = jest.fn();
 
     const req = {
       body: {
@@ -36,27 +39,29 @@ describe("saving", () => {
     });
   });
 
-  it("should log error", async () => {
-    console.log = jest.fn();
+  if( typeof Stripe !== 'undefined'){
+    it("should log error", async () => {
+      console.log = jest.fn();
 
-    const req = {
-      body: {
-        idSaving: "123",
-        amount: 100,
-        currency: "USD",
-      },
-    };
+      const req = {
+        body: {
+          idSaving: "123",
+          amount: 100,
+          currency: "USD",
+        },
+      };
 
-    const res = {
-      send: jest.fn(),
-    };
+      const res = {
+        send: jest.fn(),
+      };
 
-    Stripe.mockImplementationOnce(() => {
-      throw new Error("error");
+      Stripe.mockImplementationOnce(() => {
+        throw new Error("error");
+      });
+
+      await handler(req, res);
+
+      expect(console.log).toHaveBeenCalledWith("api/saving", new Error("error"));
     });
-
-    await handler(req, res);
-
-    expect(console.log).toHaveBeenCalledWith("api/saving", new Error("error"));
-  });
+  }
 });

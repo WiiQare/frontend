@@ -1,5 +1,4 @@
-// This is your test secret API key.
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+import { createPaymentIntent } from '../../lib/SavingHelper';
 
 const calculateOrderAmount = (amount) => {
   // Replace this constant with a calculation of the order's amount
@@ -17,7 +16,7 @@ export default async function handler(req, res) {
     console.log('currency', currency);
 
     // Create a PaymentIntent with the order amount and currency
-    const paymentIntent = await stripe.paymentIntents.create({
+    const paymentIntent = await createPaymentIntent({
       amount: 100,
       currency: currency.toLowerCase() ?? 'usd',
       automatic_payment_methods: { enabled: true },
@@ -25,7 +24,9 @@ export default async function handler(req, res) {
         idSaving: idSaving,
         forSaving: true,
       },
-    });
+    })
+
+    console.log("PM", paymentIntent)
 
     res.send({
       clientSecret: paymentIntent.client_secret,
