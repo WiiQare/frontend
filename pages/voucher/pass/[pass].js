@@ -22,6 +22,8 @@ function Pass() {
     `/payment/voucher?paymentId=${pass}`,
   );
 
+  console.log(data);
+
   if (isLoading)
     return (
       <>
@@ -70,107 +72,209 @@ function Pass() {
   return (
     <div className="flex flex-col gap-14 justify-between items-center h-full w-full pt-20 overflow-hidden">
       <>
-        <div className="flex flex-col items-center text-center space-y-2">
-          <div className="flex flex-col items-center select-none">
-            <Image
-              src={logoDark}
-              className="h-6 md:h-9 object-left object-contain w-min"
-              alt="Logo"
-            />
-            <h1 className="font-extrabold text-gray-700 text-lg hidden md:flex">
-              Pass Santé
-            </h1>
-          </div>
-          <span className="text-xs flex items-center gap-1">
-            Pass Santé ID:
-            <CopyToClipboard
-              text={data.voucherEntity.voucherHash}
-              onCopy={() => {
-                setCopy(true);
-                setTimeout(() => {
-                  setCopy(false);
-                }, 2000);
-              }}
-            >
-              <div className="flex items-center gap-1">
-                [
-                <div
-                  className="tooltip"
-                  data-tip={!copy ? 'Copy to clipboard' : '✓ Copy'}
-                >
-                  <span className="text-orange cursor-pointer">
-                    <SliceText text={data.voucherEntity.voucherHash} />
-                  </span>
+        {
+          data.status === "PAID_OUT" ? (
+            <>
+              <div className="flex flex-col items-center text-center space-y-2">
+                <div className="flex flex-col items-center select-none">
+                  <Image
+                    src={logoDark}
+                    className="h-6 md:h-9 object-left object-contain w-min"
+                    alt="Logo"
+                  />
+                  <h1 className="font-extrabold text-gray-300 text-lg hidden md:flex">
+                    Pass Santé
+                  </h1>
                 </div>
-                ]
-              </div>
-            </CopyToClipboard>
-          </span>
-        </div>
+                <span className="text-xs flex items-center gap-1 text-gray-300">
+                  Pass Santé ID:
 
-        <div className="flex flex-col items-center gap-4">
-          <div className="border relative border-gray-300 rounded-lg overflow-hidden">
-            <Canvas
-              className="w-full"
-              text={`${data.voucherEntity.voucherHash}`}
-              options={{
-                level: 'M',
-                margin: 1,
-                scale: 5,
-                quality: 100,
-                color: {
-                  dark: '#000',
-                  light: '#FFF',
-                },
-              }}
-            />
-            {/* <div className="absolute w-full h-full z-20 top-1/3 left-1.5/3 mx-auto">
+                  <div className="flex items-center gap-1">
+                    [
+                    <div
+                      className=""
+                      data-tip={!copy ? 'Copy to clipboard' : '✓ Copy'}
+                    >
+                      <span className="text-gray-300">
+                        <SliceText text={data.voucherEntity.voucherHash} />
+                      </span>
+                    </div>
+                    ]
+                  </div>
+                </span>
+              </div>
+
+              <div className="flex flex-col items-center gap-4">
+                <div className="border relative border-gray-300 rounded-lg overflow-hidden">
+                  <Canvas
+                    className="w-full"
+                    text={`${data.voucherEntity.voucherHash}`}
+                    options={{
+                      level: 'M',
+                      margin: 1,
+                      scale: 5,
+                      quality: 100,
+                      color: {
+                        dark: '#DDD',
+                        light: '#FFF',
+                      },
+                    }}
+                  />
+                  {/* <div className="absolute w-full h-full z-20 top-1/3 left-1.5/3 mx-auto">
 						<Image
 							src={logo}
 							className="h-6 md:h-9 object-left object-contain w-min"
 						/>
 					</div> */}
-          </div>
+                </div>
 
-          <div className="flex flex-col items-center gap-1">
-            <div className="flex -space-x-2">
-              <img
-                className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
-                src="/images/homme.png"
-                alt="Image Description"
-              />
-              <img
-                className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
-                src="/images/femme.png"
-                alt="Image Description"
-              />
-            </div>
+                <div className="flex flex-col items-center gap-1">
+                  <div className="flex -space-x-2">
+                    <img
+                      className="inline-block opacity-30 grayscale h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
+                      src="/images/homme.png"
+                      alt="Image Description"
+                    />
+                    <img
+                      className="inline-block opacity-30 grayscale h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
+                      src="/images/femme.png"
+                      alt="Image Description"
+                    />
+                  </div>
 
-            <h4 className="text-sm text-center">
-              <span className="flex items-center justify-center gap-2">
-                <span className="font-semibold flex items-center gap-1">
-                  <CurrencyFlag
-                    currency={data.currency}
-                    className="rounded-full !h-4 !w-4 object-cover"
-                  />{' '}
-                  {new Intl.NumberFormat('en-US', {
-                    style: 'currency',
-                    currency: data.currency,
-                  }).format(data.amount)}
+                  <h4 className="text-sm text-center text-gray-300">
+                    <span className="flex items-center justify-center gap-2">
+                      <span className="font-semibold flex items-center gap-1">
+                        <CurrencyFlag
+                          currency={data.currency}
+                          className="rounded-full !h-4 !w-4 object-cover opacity-30 grayscale"
+                        />{' '}
+                        {new Intl.NumberFormat('en-US', {
+                          style: 'currency',
+                          currency: data.currency,
+                        }).format(data.amount)}
+                      </span>
+                      Pass santé WiiQare
+                    </span>
+                    de{' '}
+                    <span className="text-gray-300 font-semibold">
+                      {data?.sender?.firstName || "WiiQare Admin"}
+                    </span>{' '}
+                    à{' '}
+                    <span className="text-gray-300 font-semibold">
+                      {data?.patient?.firstName}
+                    </span>
+                  </h4>
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="flex flex-col items-center text-center space-y-2">
+                <div className="flex flex-col items-center select-none">
+                  <Image
+                    src={logoDark}
+                    className="h-6 md:h-9 object-left object-contain w-min"
+                    alt="Logo"
+                  />
+                  <h1 className="font-extrabold text-gray-700 text-lg hidden md:flex">
+                    Pass Santé
+                  </h1>
+                </div>
+                <span className="text-xs flex items-center gap-1">
+                  Pass Santé ID:
+                  <CopyToClipboard
+                    text={data.voucherEntity.voucherHash}
+                    onCopy={() => {
+                      setCopy(true);
+                      setTimeout(() => {
+                        setCopy(false);
+                      }, 2000);
+                    }}
+                  >
+                    <div className="flex items-center gap-1">
+                      [
+                      <div
+                        className="tooltip"
+                        data-tip={!copy ? 'Copy to clipboard' : '✓ Copy'}
+                      >
+                        <span className="text-orange cursor-pointer">
+                          <SliceText text={data.voucherEntity.voucherHash} />
+                        </span>
+                      </div>
+                      ]
+                    </div>
+                  </CopyToClipboard>
                 </span>
-                Pass santé WiiQare
-              </span>
-              de{' '}
-              <span className="text-orange font-semibold">
-                {data?.sender?.firstName || "WiiQare Admin"}
-              </span>{' '}
-              à{' '}
-              <span className="text-orange font-semibold">
-                {data.patient.firstName}
-              </span>
-            </h4>
-          </div>
-        </div>
+              </div>
+
+              <div className="flex flex-col items-center gap-4">
+                <div className="border relative border-gray-300 rounded-lg overflow-hidden">
+                  <Canvas
+                    className="w-full"
+                    text={`${data.voucherEntity.voucherHash}`}
+                    options={{
+                      level: 'M',
+                      margin: 1,
+                      scale: 5,
+                      quality: 100,
+                      color: {
+                        dark: '#000',
+                        light: '#FFF',
+                      },
+                    }}
+                  />
+                  {/* <div className="absolute w-full h-full z-20 top-1/3 left-1.5/3 mx-auto">
+						<Image
+							src={logo}
+							className="h-6 md:h-9 object-left object-contain w-min"
+						/>
+					</div> */}
+                </div>
+
+                <div className="flex flex-col items-center gap-1">
+                  <div className="flex -space-x-2">
+                    <img
+                      className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
+                      src="/images/homme.png"
+                      alt="Image Description"
+                    />
+                    <img
+                      className="inline-block h-[2.875rem] w-[2.875rem] rounded-full ring-2 ring-white dark:ring-gray-800"
+                      src="/images/femme.png"
+                      alt="Image Description"
+                    />
+                  </div>
+
+                  <h4 className="text-sm text-center">
+                    <span className="flex items-center justify-center gap-2">
+                      <span className="font-semibold flex items-center gap-1">
+                        <CurrencyFlag
+                          currency={data.currency}
+                          className="rounded-full !h-4 !w-4 object-cover"
+                        />{' '}
+                        {new Intl.NumberFormat('en-US', {
+                          style: 'currency',
+                          currency: data.currency,
+                        }).format(data.amount)}
+                      </span>
+                      Pass santé WiiQare
+                    </span>
+                    de{' '}
+                    <span className="text-orange font-semibold">
+                      {data?.sender?.firstName || "WiiQare Admin"}
+                    </span>{' '}
+                    à{' '}
+                    <span className="text-orange font-semibold">
+                      {data?.patient?.firstName}
+                    </span>
+                  </h4>
+                </div>
+              </div>
+            </>
+          )
+        }
+
       </>
 
       <div className="flex flex-col gap-5 items-center md:pt-8">
