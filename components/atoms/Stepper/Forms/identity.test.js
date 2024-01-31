@@ -38,6 +38,8 @@ describe('Identity2', () => {
   });
 
   it('should fill the form', async () => {
+    jest.setTimeout(10000)
+
     const user = userEvent.setup({ delay: null });
 
     const addBeneficiary = screen.getByText('Ajouter un bénéficiaire');

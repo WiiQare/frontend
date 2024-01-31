@@ -162,7 +162,7 @@ function Pass() {
               </span>
               de{' '}
               <span className="text-orange font-semibold">
-                {data.sender.firstName}
+                {data?.sender?.firstName || "WiiQare Admin"}
               </span>{' '}
               à{' '}
               <span className="text-orange font-semibold">
