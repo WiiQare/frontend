@@ -64,7 +64,7 @@ describe('Helper functions errors', () => {
     });
   });
 
-  
+
 
   it('authlogic', async () => {
     fetch = jest.fn().mockRejectedValueOnce(new Error('test'));
