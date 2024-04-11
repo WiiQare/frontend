@@ -27,16 +27,6 @@ export default async function handler(req, res) {
               ],
             ],
           },
-          // "verify": {
-          //     "user": {
-          //         "person": {
-          //             "name": {
-          //                 "firstName": "Mugomba Zigabe",
-          //                 "lastName": "Bienvenu"
-          //             }
-          //         }
-          //     }
-          // }
         },
       }),
     })

@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Recharge renders a recharge button 1`] = `
+<div>
+  <div
+    class="p-2 space-y-6 md:py-8 md:px-6 mb-20 md:mb-10"
+  >
+    <div
+      class="border w-full rounded-lg py-8 px-6 flex flex-col flex-wrap md:flex-row justify-between items-center gap-4 bg-white cursor-pointer"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <h1
+          class="md:text-2xl text-gray-700 font-bold flex-wrap flex items-center gap-2 text-lg"
+        >
+          Récharger mon épargne
+        </h1>
+        <ul
+          class="flex gap-2"
+        >
+          <li>
+            <span
+              class="flex gap-2 font-semibold text-sky"
+            >
+              Épargne de santé
+              <span>
+                /
+              </span>
+            </span>
+          </li>
+          <li>
+            <span
+              class="flex gap-2 font-light text-gray-500"
+            >
+              Récharger mon épargne
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="flex flex-row flex-wrap  gap-2 center justify-end space-x-2"
+      />
+    </div>
+    <div
+      class="flex flex-col items-center justify-center py-20 gap-6"
+    >
+      <img
+        alt="empty"
+        class="w-40 opacity-80"
+        data-nimg="1"
+        decoding="async"
+        height="512"
+        loading="lazy"
+        src="/_next/image?url=https%3A%2F%2Fi.goopics.net%2Fs7t0br.png&w=1080&q=75"
+        srcset="/_next/image?url=https%3A%2F%2Fi.goopics.net%2Fs7t0br.png&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fi.goopics.net%2Fs7t0br.png&w=1080&q=75 2x"
+        style="color: transparent;"
+        width="512"
+      />
+      <span
+        class="text-xs text-gray-600"
+      >
+        Aucun objectif n'a été défini, le premier paiement n'est pas possible...
+      </span>
+    </div>
+  </div>
+</div>
+`;
